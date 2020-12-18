@@ -143,7 +143,7 @@ Folders for each new sensitivity run are automatically created.
 
 ```{r create_folder_structure, include=FALSE}
 
-path_root           <- "/nfs/kryo/work/jenmueller/emlr_cant/observations"
+path_root           <- "/nfs/kryo/work/jenmueller/emlr_cant/model"
 
 dir.create(paste(path_root, params_local$Version_ID, sep = "/"))
 
