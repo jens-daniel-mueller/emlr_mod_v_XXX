@@ -1,0 +1,487 @@
+---
+title: "Mapping"
+author: "Jens Daniel Müller"
+date:  "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  workflowr::wflow_html:
+    number_sections: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r parent, child = "/nfs/kryo/work/jenmueller/emlr_cant/utilities/setup.Rmd"}
+# this chunk runs the code stored in setup.Rmd
+# if required, please refer to instructions given here:
+# https://jdblischak.github.io/workflowr/articles/wflow-07-common-code.html
+```
+
+```{r read_params_local, include = FALSE}
+params_local <-
+  read_rds(here::here("data/auxillary",
+                       "params_local.rds"))
+
+```
+
+```{r define_paths, include = FALSE}
+
+# only path_observations needs to be changed to model
+path_observations <-
+  paste(path_root, "/observations/", sep = "")
+
+path_preprocessing    <-
+  paste(path_observations, "preprocessing/", sep = "")
+
+path_version_data     <-
+  paste(path_observations,
+        params_local$Version_ID,
+        "/data/",
+        sep = "")
+
+path_version_figures  <-
+  paste(path_observations,
+        params_local$Version_ID,
+        "/figures/",
+        sep = "")
+```
+
+```{r select_basin_mask, include=FALSE}
+
+basinmask <- basinmask %>% 
+  filter(MLR_basins == params_local$MLR_basins) %>% 
+  select(-MLR_basins)
+
+```
+
+```{r load_libraries_specific, include=FALSE}
+library(metR)
+library(marelac)
+library(gsw)
+```
+
+# Required data
+
+Currently, following data sets are used for mapping:
+
+- GLODAPv2_2016b_MappedClimatologies, with variables  
+  - Phosphate (-> phosphate_star)
+  - Silicate
+  - Oxygen (-> AOU)
+  - TAlk (surface only)
+  - TCO2 (surface only)
+
+
+```{r load_GLODAPv2_2016b_MappedClimatologies_interior_mapping}
+
+variables <-
+  c("oxygen", "PO4", "silicate")
+
+# i_variable <- variables[1]
+
+for (i_variable in variables) {
+  temp <- read_csv(paste(
+    path_preprocessing,
+    paste("GLODAPv2_2016_MappedClimatology_", i_variable, ".csv", sep = ""),
+    sep = ""
+  ))
+  
+  if (exists("GLODAP_predictors")) {
+    GLODAP_predictors <- full_join(GLODAP_predictors, temp)
+  }
+  
+  if (!exists("GLODAP_predictors")) {
+    GLODAP_predictors <- temp
+  }
+}
+
+rm(temp, i_variable, variables)
+
+GLODAP_predictors <- GLODAP_predictors %>%
+  rename(phosphate = PO4)
+
+# removed na's attributable to slightly different coverage of predictor fields
+GLODAP_predictors <- GLODAP_predictors %>%
+  drop_na()
+
+```
+
+
+```{r load_GLODAPv2_2016b_MappedClimatologies_surface_mapping}
+
+variables <-
+  c("PO4", "silicate", "TAlk", "TCO2")
+
+for (i_variable in variables) {
+  temp <- read_csv(paste(
+    path_preprocessing,
+    paste("GLODAPv2_2016_MappedClimatology_", i_variable, ".csv", sep = ""),
+    sep = ""
+  ))
+  
+  if (exists("GLODAP_predictors_CO2")) {
+    GLODAP_predictors_CO2 <- full_join(GLODAP_predictors_CO2, temp)
+  }
+  
+  if (!exists("GLODAP_predictors_CO2")) {
+    GLODAP_predictors_CO2 <- temp
+  }
+}
+
+rm(temp, i_variable, variables)
+
+
+GLODAP_predictors_CO2 <- GLODAP_predictors_CO2 %>%
+  rename(phosphate = PO4)
+
+# removed na's attributable to slightly different coverage of predictor fields
+GLODAP_predictors_CO2 <- GLODAP_predictors_CO2 %>%
+  drop_na()
+
+```
+
+- World Ocean Atlas 2018  
+  - Salinity
+  - Temperature
+  - Neutral density
+
+```{r load_WOA18}
+
+WOA18_predictors <-
+  read_csv(paste(path_preprocessing,
+                 "WOA18_sal_temp.csv",
+                 sep = ""))
+
+```
+
+# Join WOA18 + GLODAP
+
+WOA18 and GLODAP predictor climatologies are merged. Only horizontal grid cells with observations from both predictor fields are kept.
+
+```{r join_WOA18_GLODAP_predictors}
+
+# join deep water predictors
+predictors <- full_join(
+  GLODAP_predictors,
+  WOA18_predictors)
+
+rm(GLODAP_predictors)
+
+predictors <- predictors %>% 
+  drop_na()
+
+# join surface water predictors
+predictors_surface <- full_join(
+  GLODAP_predictors_CO2,
+  WOA18_predictors)
+
+predictors_surface <- predictors_surface %>% 
+  drop_na()
+
+```
+
+
+## Apply density threshold
+
+The predictor field was split into two parts:
+
+1. Deep water: neutral densities >= `r params_local$gamma_min` and depth >= `r params_local$depth_min`m
+2. Shallow water: rest
+
+```{r split_WOA18_GLODAP_predictors_deep_surface}
+
+# predictors for deep waters
+predictors <- predictors %>%
+  filter(depth >= params_local$depth_min | gamma >= params_local$gamma_min)
+
+# predictors for surface waters
+predictors_surface <- predictors_surface %>%
+  filter(depth < params_local$depth_min,
+         gamma < params_local$gamma_min)
+
+
+```
+
+
+## Apply basin mask
+
+Data outside the WOA18 basin mask were removed for further analysis.
+
+```{r join_basin_mask}
+
+predictors <- inner_join(predictors, basinmask)
+predictors_surface <- inner_join(predictors_surface, basinmask)
+
+```
+
+## Control plots
+
+Plots below are generated to control successful merging of data sets.
+
+### Maps interior
+
+```{r joined_climatology_control_PO4, fig.asp=0.6}
+p_map_climatology(
+  df = predictors, 
+  var = "phosphate")
+```
+
+```{r joined_climatology_control_temp, fig.asp=0.6}
+p_map_climatology(
+  df = predictors, 
+  var = "temp")
+```
+
+### Maps surface
+
+```{r joined_climatology_control_TAlk_surface, fig.asp=0.6}
+p_map_climatology(
+  df = predictors_surface, 
+  var = "TAlk")
+```
+
+```{r joined_climatology_control_TCO2_surface, fig.asp=0.6}
+p_map_climatology(
+  df = predictors_surface, 
+  var = "TCO2")
+```
+
+```{r joined_climatology_control_sal_surface, fig.asp=0.6}
+p_map_climatology(
+  df = predictors_surface, 
+  var = "sal")
+```
+
+```{r joined_climatology_control_temp_surface, fig.asp=0.6}
+p_map_climatology(
+  df = predictors_surface, 
+  var = "temp")
+```
+
+
+### Predictor profiles
+
+Likewise, predictor profiles for the North Atlantic (`r params_global$lat_Atl_profile` / `r params_global$lon_Atl_section`) are plotted to control successful merging of the data sets.
+
+```{r predictor_profiles_N_Atl, fig.asp=1.5}
+
+# subset data
+N_Atl <- predictors %>% 
+  filter(lat == params_global$lat_Atl_profile,
+         lon == params_global$lon_Atl_section)
+
+# pivot table to long format
+N_Atl <- N_Atl %>% 
+  select(-c(basin, basin_AIP)) %>% 
+  pivot_longer(oxygen:gamma, names_to = "parameter", values_to = "value")
+
+# plot profiles
+N_Atl %>% 
+  ggplot(aes(value, depth)) +
+  geom_path() +
+  geom_point() +
+  scale_y_reverse() +
+  facet_wrap(~parameter,
+             scales = "free_x",
+             ncol = 2)
+
+rm(N_Atl)
+
+```
+
+# Prepare predictor fields
+
+Additional predictor fields need to calculated from available climatologies
+
+## PO~4~* calculation 
+
+The predictor PO~4~* was be calculated according to Clement and Gruber (2018), ie based on oxygen. Please note that an erroneous equations for PO4* calculation is given in the supplement of Gruber et al (2019), based on nitrate.
+
+```{r calculate_phosphate_star_clement}
+
+predictors <- predictors %>% 
+  mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+
+```
+
+### Maps
+
+```{r PO4_star_climatology_maps, fig.asp=0.6}
+
+p_map_climatology(
+  df = predictors,
+  var = "phosphate_star",
+  col = "divergent")
+
+```
+
+### Global section
+
+```{r PO4_star_climatology_section}
+
+p_section_global(
+  df = predictors,
+  var = "phosphate_star",
+  col = "divergent")
+
+```
+
+
+## AOU
+
+### Calculation
+
+AOU was calculated as the difference between saturation concentration and observed concentration. 
+**CAVEAT**: Algorithms used to calculate oxygen saturation concentration are not yet identical in GLODAP data set (fitting) and predictor climatologies (mapping).
+
+```{r calculate_aou_climatology}
+
+predictors <- predictors %>% 
+  mutate(aou = b_aou(
+    sal = sal,
+    tem = temp,
+    depth = depth,
+    oxygen = oxygen))
+
+```
+
+### Maps
+
+```{r aou_climatology_maps, fig.asp=0.6}
+
+p_map_climatology(
+  df = predictors,
+  var = "aou",
+  col = "divergent")
+
+```
+
+### Global section
+
+```{r aou_climatology_section}
+
+p_section_global(
+  df = predictors,
+  var = "aou",
+  col = "divergent")
+
+```
+
+## Isoneutral slabs
+
+The following boundaries for isoneutral slabs were defined:
+
+- Atlantic: `r params_local$slabs_Atl`
+- Indo-Pacific: `r params_local$slabs_Ind_Pac`
+
+Continuous neutral density (gamma) values based on WOA18 are grouped into isoneutral slabs.
+
+```{r cut_isoneutral_slabs}
+
+predictors <- m_cut_gamma(predictors, "gamma")
+
+```
+
+# Plot al predictor sections
+
+## Deep waters
+
+Predictor sections along with lines are shown below for each (potential) predictor variable.
+
+```{r predictors_observations_sections_map, fig.asp=0.6}
+
+map +
+  geom_bin2d(data = predictors,
+             aes(lon, lat),
+             binwidth = c(1,1)) +
+  geom_vline(xintercept = params_global$longitude_sections_regular,
+             col = "white") +
+  scale_fill_viridis_c(direction = -1,
+                       name = "")
+
+```
+
+```{r all_predictor_sections, fig.asp=1.2}
+
+vars <-
+  c(
+    "gamma",
+    "sal",
+    "temp",
+    "phosphate",
+    "phosphate_star",
+    "oxygen",
+    "aou",
+    "silicate"
+  )
+
+# i_var <- vars[1]
+
+for (i_var in vars) {
+  print(
+    p_section_climatology_regular(
+      df = predictors,
+      var = i_var)
+    )
+}
+
+```
+
+## Surface waters
+
+Predictor sections along with lines are shown below for each (potential) predictor variable.
+
+```{r predictors_observations_sections_map_surface, fig.asp=0.6}
+
+map +
+  geom_bin2d(data = predictors_surface,
+             aes(lon, lat),
+             binwidth = c(1,1)) +
+  geom_vline(xintercept = params_global$longitude_sections_regular,
+             col = "white") +
+  scale_fill_viridis_c(direction = -1) +
+  theme(legend.position = "bottom")
+
+```
+
+```{r all_predictor_sections_surface, fig.asp=1.2}
+
+vars <-
+  c(
+    "gamma",
+    "sal",
+    "temp",
+    "TCO2",
+    "TAlk"
+  )
+
+# i_var <- vars[1]
+
+for (i_var in vars) {
+  print(
+    p_section_climatology_regular(
+      df = predictors_surface,
+      var = i_var,
+      surface = "y")
+    )
+}
+
+```
+
+# Write csv
+
+```{r write_joined_predictor_fields}
+
+predictors %>%
+  write_csv(paste(path_version_data,
+                  "W18_st_G16_opsn.csv",
+                  sep = ""))
+
+predictors_surface %>%
+  write_csv(paste(path_version_data,
+                  "W18_st_G16_opsn_surface.csv",
+                  sep = ""))
+
+```
+
