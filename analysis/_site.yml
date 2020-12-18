@@ -1,7 +1,7 @@
 name: Cant_eMLR
 output_dir: ../docs
 navbar:
-  title: eMLR obs v_XXX
+  title: eMLR mod v_XXX
   left:
   - text: Config
     menu:
@@ -37,7 +37,7 @@ navbar:
   right:
   - icon: fa-github
     text: Source code
-    href: https://github.com/jens-daniel-mueller/emlr_obs_v_XXX
+    href: https://github.com/jens-daniel-mueller/emlr_mod_v_XXX
   - icon: fa-home
     text: Jens' homepage
     href: https://jens-daniel-mueller.github.io/
