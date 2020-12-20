@@ -27,16 +27,11 @@ params_local <-
 
 ```{r define_paths, include = FALSE}
 
-# this can be omitted, once Donghe switched to preprocessed model data
-path_observations <-
-  paste(path_root, "/observations/", sep = "")
-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
-# needs to be switched to path_model, once Donghe switched to preprocessed model data
 path_preprocessing    <-
-  paste(path_observations, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/", sep = "")
 
 path_version_data     <-
   paste(path_model,
