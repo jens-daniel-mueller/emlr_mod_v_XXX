@@ -27,16 +27,11 @@ params_local <-
 
 ```{r define_paths, include = FALSE}
 
-# this can be omitted, once Donghe switched to preprocessed model data
-path_observations <-
-  paste(path_root, "/observations/", sep = "")
-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
-# needs to be switched to path_model, once Donghe switched to preprocessed model data
 path_preprocessing    <-
-  paste(path_observations, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/", sep = "")
 
 path_version_data     <-
   paste(path_model,
@@ -80,109 +75,18 @@ Currently, following data sets are used for mapping:
 
 ```{r load_GLODAPv2_2016b_MappedClimatologies_interior_mapping}
 
-variables <-
-  c("oxygen", "PO4", "silicate")
+climatology <- read_csv(paste(path_preprocessing, "climatology_runA_2007.csv", sep = ""))
 
-# i_variable <- variables[1]
-
-for (i_variable in variables) {
-  temp <- read_csv(paste(
-    path_preprocessing,
-    paste("GLODAPv2_2016_MappedClimatology_", i_variable, ".csv", sep = ""),
-    sep = ""
-  ))
-  
-  if (exists("GLODAP_predictors")) {
-    GLODAP_predictors <- full_join(GLODAP_predictors, temp)
-  }
-  
-  if (!exists("GLODAP_predictors")) {
-    GLODAP_predictors <- temp
-  }
-}
-
-rm(temp, i_variable, variables)
-
-GLODAP_predictors <- GLODAP_predictors %>%
-  rename(phosphate = PO4)
-
-# removed na's attributable to slightly different coverage of predictor fields
-GLODAP_predictors <- GLODAP_predictors %>%
-  drop_na()
+predictors <- climatology %>%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, phosphate, oxygen, aou = AOU, silicate)
 
 ```
 
 
 ```{r load_GLODAPv2_2016b_MappedClimatologies_surface_mapping}
 
-variables <-
-  c("PO4", "silicate", "TAlk", "TCO2")
-
-for (i_variable in variables) {
-  temp <- read_csv(paste(
-    path_preprocessing,
-    paste("GLODAPv2_2016_MappedClimatology_", i_variable, ".csv", sep = ""),
-    sep = ""
-  ))
-  
-  if (exists("GLODAP_predictors_CO2")) {
-    GLODAP_predictors_CO2 <- full_join(GLODAP_predictors_CO2, temp)
-  }
-  
-  if (!exists("GLODAP_predictors_CO2")) {
-    GLODAP_predictors_CO2 <- temp
-  }
-}
-
-rm(temp, i_variable, variables)
-
-
-GLODAP_predictors_CO2 <- GLODAP_predictors_CO2 %>%
-  rename(phosphate = PO4)
-
-# removed na's attributable to slightly different coverage of predictor fields
-GLODAP_predictors_CO2 <- GLODAP_predictors_CO2 %>%
-  drop_na()
-
-```
-
-- World Ocean Atlas 2018  
-  - Salinity
-  - Temperature
-  - Neutral density
-
-```{r load_WOA18}
-
-WOA18_predictors <-
-  read_csv(paste(path_preprocessing,
-                 "WOA18_sal_temp.csv",
-                 sep = ""))
-
-```
-
-# Join WOA18 + GLODAP
-
-WOA18 and GLODAP predictor climatologies are merged. Only horizontal grid cells with observations from both predictor fields are kept.
-
-```{r join_WOA18_GLODAP_predictors}
-
-# join deep water predictors
-predictors <- full_join(
-  GLODAP_predictors,
-  WOA18_predictors)
-
-rm(GLODAP_predictors)
-
-predictors <- predictors %>% 
-  drop_na()
-
-# join surface water predictors
-predictors_surface <- full_join(
-  GLODAP_predictors_CO2,
-  WOA18_predictors)
-
-predictors_surface <- predictors_surface %>% 
-  drop_na()
+predictors_surface <- climatology %>%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2 = tco2, TAlk = talk, phosphate, silicate)
 
 ```
 
@@ -204,7 +108,6 @@ predictors <- predictors %>%
 predictors_surface <- predictors_surface %>%
   filter(depth < params_local$depth_min,
          gamma < params_local$gamma_min)
-
 
 ```
 
@@ -279,7 +182,7 @@ N_Atl <- predictors %>%
 # pivot table to long format
 N_Atl <- N_Atl %>% 
   select(-c(basin, basin_AIP)) %>% 
-  pivot_longer(oxygen:gamma, names_to = "parameter", values_to = "value")
+  pivot_longer(gamma:silicate, names_to = "parameter", values_to = "value")
 
 # plot profiles
 N_Atl %>% 
@@ -335,21 +238,8 @@ p_section_global(
 
 ## AOU
 
-### Calculation
-
 AOU was calculated as the difference between saturation concentration and observed concentration. 
 **CAVEAT**: Algorithms used to calculate oxygen saturation concentration are not yet identical in GLODAP data set (fitting) and predictor climatologies (mapping).
-
-```{r calculate_aou_climatology}
-
-predictors <- predictors %>% 
-  mutate(aou = b_aou(
-    sal = sal,
-    tem = temp,
-    depth = depth,
-    oxygen = oxygen))
-
-```
 
 ### Maps
 
@@ -399,11 +289,12 @@ Predictor sections along with lines are shown below for each (potential) predict
 map +
   geom_bin2d(data = predictors,
              aes(lon, lat),
-             binwidth = c(1,1)) +
+             binwidth = c(1, 1)) +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = "white") +
   scale_fill_viridis_c(direction = -1,
-                       name = "")
+                       name = "") +
+  theme(legend.position = "bottom")
 
 ```
 
@@ -442,10 +333,10 @@ Predictor sections along with lines are shown below for each (potential) predict
 map +
   geom_bin2d(data = predictors_surface,
              aes(lon, lat),
-             binwidth = c(1,1)) +
+             binwidth = c(1, 1)) +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = "white") +
-  scale_fill_viridis_c(direction = -1) +
+  scale_fill_viridis_c(direction = -1, name = "") +
   theme(legend.position = "bottom")
 
 ```

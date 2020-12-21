@@ -444,7 +444,7 @@ A data frame of coefficient offsets is prepared to facilitate the direct mapping
 
 # pivot long format
 lm_best_long <- lm_best_target %>%
-  pivot_longer(`coeff_(Intercept)`:coeff_oxygen,
+  pivot_longer(cols = starts_with("coeff_"),
                names_to = "term",
                values_to = "estimate",
                names_prefix = "coeff_")
