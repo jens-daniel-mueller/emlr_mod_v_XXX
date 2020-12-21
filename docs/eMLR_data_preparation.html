@@ -483,7 +483,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">eMLR data preparation</h1>
 <h4 class="author">Jens Daniel Müller</h4>
-<h4 class="date">19 December, 2020</h4>
+<h4 class="date">21 December, 2020</h4>
 
 </div>
 
@@ -508,7 +508,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-19
+<strong>Last updated:</strong> 2020-12-21
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -599,16 +599,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5fedced0ce6e3c5308156f81cfbc79595a50e55targetblankb5fedcea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5fedced0ce6e3c5308156f81cfbc79595a50e55" target="_blank">b5fedce</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree00a13227477231de11079589e3a9c44c6b9543c0targetblank00a1322a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/00a13227477231de11079589e3a9c44c6b9543c0" target="_blank">00a1322</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5fedced0ce6e3c5308156f81cfbc79595a50e55targetblankb5fedcea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree00a13227477231de11079589e3a9c44c6b9543c0targetblank00a1322a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5fedced0ce6e3c5308156f81cfbc79595a50e55" target="_blank">b5fedce</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/00a13227477231de11079589e3a9c44c6b9543c0" target="_blank">00a1322</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -616,11 +616,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   code/Workflowr_project_managment.R
-    Deleted:    code/old_cstar_adjustment.Rmd
 
 </code></pre>
 <p>
@@ -659,6 +654,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d73ae354d1759bb56e4aee120c5dd397c574c3b0/analysis/eMLR_data_preparation.Rmd" target="_blank">d73ae35</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-21
+</td>
+<td>
+first version with lm error
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/eMLR_data_preparation.html" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -717,14 +746,19 @@ Initial commit
                  &quot;GLODAPv2.2020_clean.csv&quot;,
                  sep = &quot;&quot;))
 
-S04_cant_3d &lt;-
+cant_1994 &lt;-
   read_csv(paste(path_preprocessing,
-                 &quot;S04_cant_3d.csv&quot;,
+                 &quot;cant_annual_field/cant_1994.csv&quot;,
                  sep = &quot;&quot;))
 
-G19_cant_3d &lt;-
+cant_2007 &lt;-
   read_csv(paste(path_preprocessing,
-                 &quot;G19_cant_3d.csv&quot;,
+                 &quot;cant_annual_field/cant_2007.csv&quot;,
+                 sep = &quot;&quot;))
+
+cant_2015 &lt;-
+  read_csv(paste(path_preprocessing,
+                 &quot;cant_annual_field/cant_2015.csv&quot;,
                  sep = &quot;&quot;))
 
 co2_atm &lt;-
@@ -786,19 +820,8 @@ co2_atm &lt;-
 <p>To adjust C* values to the reference year of each observation period, we assume a transient steady state change of cant between the time of sampling the reference year. The adjustment requires an approximation of the cant concentration at the reference year. We approximate this concentration by adding the delta cant signal estimated by Gruber et al (2019) to the “base line” total cant concentration determined for 1994 by Sabine et al (2004):</p>
 <p>Cant(tref) = S04 + (tref-1994)/13 * G19</p>
 <p>This way, we use exactly S04+G19 for tref=2007. For all other tref we scale Cant with the observed anomalous change over the 1994-2007 period, rather than assuming a transient steady state. However, one assumes a linear behaviour of the anomalous change over time, which might be wrong in particular for the years past 2007.</p>
-<div id="join-cant-fields" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Join Cant fields</h3>
-<p>Join Cant fields of G19 and S04</p>
-<pre class="r"><code>G19_cant_3d &lt;- G19_cant_3d %&gt;% 
-  select(lon, lat, depth, cant_pos_G19 = cant_pos)
-
-S04_cant_3d &lt;- S04_cant_3d %&gt;% 
-  select(lon, lat, depth, cant_pos_S04 = cant_pos)
-
-cant_3d &lt;- inner_join(S04_cant_3d, G19_cant_3d)</code></pre>
-</div>
 <div id="cant-at-tref" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Cant at tref</h3>
+<h3><span class="header-section-number">3.3.1</span> Cant at tref</h3>
 <p>Calculate Cant at tref by adding G19, scaled for the time since 1994.</p>
 <pre class="r"><code># calculate reference year
 tref &lt;- GLODAP %&gt;%
@@ -807,20 +830,16 @@ tref &lt;- GLODAP %&gt;%
   ungroup()
 
 # join cant with tref
-cant_3d &lt;- expand_grid(cant_3d, tref)
+cant_3d &lt;- bind_rows(cant_1994, cant_2007, cant_2015)
 
-# calculate cant fields for all tref
-cant_3d &lt;- cant_3d %&gt;%
-  mutate(cant_pos =
-           cant_pos_S04 +
-           ((year - 1994) / 13 * cant_pos_G19))
+cant_3d &lt;- left_join(cant_3d, tref) %&gt;%
+  arrange(lon, lat, depth) %&gt;% 
+  select(lon, lat, depth, era, cant)
 
-# remove columns
-cant_3d &lt;- cant_3d %&gt;% 
-  select(lon, lat, depth, era, cant_pos)</code></pre>
+rm(cant_1994, cant_2007, cant_2015)</code></pre>
 </div>
 <div id="combine-glodap-cant" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Combine GLODAP + Cant</h3>
+<h3><span class="header-section-number">3.3.2</span> Combine GLODAP + Cant</h3>
 <pre class="r"><code># observations grid per era
 GLODAP_obs_grid_era &lt;- GLODAP %&gt;% 
   distinct(lat, lon, era)
@@ -843,6 +862,43 @@ cant_3d_obs %&gt;%
   geom_point(col = &quot;red&quot;) +
   facet_wrap(~era)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/merge_cstar_cant-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-merge_cstar_cant-1">
+Past versions of merge_cstar_cant-1.png
+</button>
+</p>
+<div id="fig-merge_cstar_cant-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/merge_cstar_cant-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>rm(cant_3d, GLODAP_obs_grid_era)
 
 GLODAP_cant_obs &lt;- full_join(GLODAP, cant_3d_obs)
@@ -864,14 +920,14 @@ GLODAP_cant_obs_int &lt;- GLODAP_cant_obs %&gt;%
   filter(n &gt; 1) %&gt;% 
   group_by(lat, lon, era) %&gt;%
   arrange(depth) %&gt;%
-  mutate(cant_pos_int = approxfun(depth, cant_pos, rule = 2)(depth)) %&gt;%
+  mutate(cant_int = approxfun(depth, cant, rule = 2)(depth)) %&gt;%
   ungroup()
 
 # set cant for observation depth if only one cant available
 GLODAP_cant_obs_set &lt;- GLODAP_cant_obs %&gt;%
   filter(n == 1) %&gt;%
   group_by(lat, lon, era) %&gt;%
-  mutate(cant_pos_int = mean(cant_pos, na.rm = TRUE)) %&gt;%
+  mutate(cant_int = mean(cant, na.rm = TRUE)) %&gt;%
   ungroup()
 
 # bin data sets with interpolated and set cant
@@ -882,41 +938,78 @@ rm(GLODAP_cant_obs_int, GLODAP_cant_obs_set)
 ggplot() +
   geom_path(
     data = GLODAP_cant_obs %&gt;%
-      filter(lat == 48.5, lon == 165.5,!is.na(cant_pos)) %&gt;%
+      filter(lat == 48.5, lon == 165.5,!is.na(cant)) %&gt;%
       arrange(depth),
-    aes(cant_pos, depth, col = &quot;mapped&quot;)
+    aes(cant, depth, col = &quot;mapped&quot;)
   ) +
   geom_point(
     data = GLODAP_cant_obs %&gt;%
-      filter(lat == 48.5, lon == 165.5,!is.na(cant_pos)) %&gt;%
+      filter(lat == 48.5, lon == 165.5,!is.na(cant)) %&gt;%
       arrange(depth),
-    aes(cant_pos, depth, col = &quot;mapped&quot;)
+    aes(cant, depth, col = &quot;mapped&quot;)
   ) +
   geom_point(
     data = GLODAP_cant_obs %&gt;%
       filter(lat == 48.5, lon == 165.5, date == ymd(&quot;2018-06-27&quot;)),
-    aes(cant_pos_int, depth, col = &quot;interpolated&quot;)
+    aes(cant_int, depth, col = &quot;interpolated&quot;)
   ) +
   scale_y_reverse() +
   facet_wrap(~era) +
   scale_color_brewer(palette = &quot;Dark2&quot;, name = &quot;&quot;) +
   labs(title = &quot;Cant interpolation to sampling depth - example profile&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_interpolation_to_observations-1">
+Past versions of cant_interpolation_to_observations-1.png
+</button>
+</p>
+<div id="fig-cant_interpolation_to_observations-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># remove cant data at grid cells without observations
 GLODAP &lt;- GLODAP_cant_obs %&gt;%
   filter(!is.na(cstar)) %&gt;%
-  mutate(cant_pos = cant_pos_int) %&gt;%
-  select(-cant_pos_int, n)
+  mutate(cant = cant_int) %&gt;%
+  select(-cant_int, n)
 
 rm(GLODAP_cant_obs)</code></pre>
 </div>
 <div id="merge-glodap-atm.-pco2" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> Merge GLODAP + atm. pCO<sub>2</sub></h3>
+<h3><span class="header-section-number">3.3.3</span> Merge GLODAP + atm. pCO<sub>2</sub></h3>
 <p>GLODAP observations were merged with mean annual atmospheric pCO<sub>2</sub> levels by year.</p>
 <pre class="r"><code>GLODAP &lt;- left_join(GLODAP, co2_atm)</code></pre>
 </div>
 <div id="calculation-2" class="section level3">
-<h3><span class="header-section-number">3.3.5</span> Calculation</h3>
+<h3><span class="header-section-number">3.3.4</span> Calculation</h3>
 <pre class="r"><code># assign reference year
 GLODAP &lt;- GLODAP %&gt;% 
   group_by(era) %&gt;% 
@@ -936,7 +1029,7 @@ rm(co2_atm, tref)
 GLODAP &lt;- GLODAP %&gt;%
   mutate(
     cstar_tref_delta =
-      ((pCO2 - pCO2_tref) / (pCO2_tref - params_local$preind_atm_pCO2)) * cant_pos,
+      ((pCO2 - pCO2_tref) / (pCO2_tref - params_local$preind_atm_pCO2)) * cant,
     cstar_tref = cstar - cstar_tref_delta)</code></pre>
 </div>
 </div>
@@ -947,19 +1040,130 @@ GLODAP &lt;- GLODAP %&gt;%
   geom_histogram(binwidth = 1) +
   labs(title = &quot;Histogramm with binwidth = 1&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cstar_reference_year_adjustment_histogram-1">
+Past versions of cstar_reference_year_adjustment_histogram-1.png
+</button>
+</p>
+<div id="fig-cstar_reference_year_adjustment_histogram-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>GLODAP %&gt;% 
   sample_n(1e4) %&gt;% 
-  ggplot(aes(year, cstar_tref_delta, col = cant_pos)) +
+  ggplot(aes(year, cstar_tref_delta, col = cant)) +
   geom_point() +
   scale_color_viridis_c() +
   labs(title = &quot;Time series of random subsample 1e4&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cstar_reference_year_adjustment_vs_time_cant-1">
+Past versions of cstar_reference_year_adjustment_vs_time_cant-1.png
+</button>
+</p>
+<div id="fig-cstar_reference_year_adjustment_vs_time_cant-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>GLODAP %&gt;% 
   ggplot(aes(year, cstar_tref_delta)) +
   geom_bin2d(binwidth = 1) +
   scale_fill_viridis_c(trans = &quot;log10&quot;) +
   labs(title = &quot;Heatmap with binwidth = 1&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cstar_reference_year_adjustment_vs_time_counts-1">
+Past versions of cstar_reference_year_adjustment_vs_time_counts-1.png
+</button>
+</p>
+<div id="fig-cstar_reference_year_adjustment_vs_time_counts-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="selected-section-plots" class="section level1">
@@ -977,6 +1181,43 @@ GLODAP &lt;- GLODAP %&gt;%
   scale_color_viridis_c(trans = &quot;date&quot;) +
   labs(title = paste(&quot;Cruise year:&quot;, mean(GLODAP_cruise$year)))</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-1">
+Past versions of meridional_sections-1.png
+</button>
+</p>
+<div id="fig-meridional_sections-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>lat_section &lt;- 
 GLODAP_cruise %&gt;%
   ggplot(aes(lat, depth)) +
@@ -996,7 +1237,234 @@ for (i_var in c(&quot;tco2&quot;,
         )
   
 }</code></pre>
-<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-2">
+Past versions of meridional_sections-2.png
+</button>
+</p>
+<div id="fig-meridional_sections-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-2.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-3">
+Past versions of meridional_sections-3.png
+</button>
+</p>
+<div id="fig-meridional_sections-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-3.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-4">
+Past versions of meridional_sections-4.png
+</button>
+</p>
+<div id="fig-meridional_sections-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-4.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-5">
+Past versions of meridional_sections-5.png
+</button>
+</p>
+<div id="fig-meridional_sections-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-5.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-6">
+Past versions of meridional_sections-6.png
+</button>
+</p>
+<div id="fig-meridional_sections-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-6.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections-7">
+Past versions of meridional_sections-7.png
+</button>
+</p>
+<div id="fig-meridional_sections-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>rm(lat_section, GLODAP_cruise)</code></pre>
 </div>
 <div id="isoneutral-slabs" class="section level1">
@@ -1021,6 +1489,43 @@ lat_section +
   geom_point(aes(col = gamma_slab)) +
   scale_color_viridis_d()</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-meridional_sections_isoneutral_slabs-1">
+Past versions of meridional_sections_isoneutral_slabs-1.png
+</button>
+</p>
+<div id="fig-meridional_sections_isoneutral_slabs-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>rm(lat_section, GLODAP_cruise)</code></pre>
 <pre class="r"><code># this section was only used to calculate gamma locally, and compare it to the value provided in GLODAP data set
 
@@ -1050,8 +1555,14 @@ GLODAP_cruise &lt;- GLODAP_cruise %&gt;%
          gamma_provided = gamma)
 
 library(reticulate)
-source_python(here::here(&quot;code/python_scripts&quot;,
-                         &quot;Gamma_GLODAP_python.py&quot;))
+source_python(
+  paste(
+    path_root,
+    &quot;/utilities/functions/python_scripts/&quot;,
+    &quot;Gamma_GLODAP_python.py&quot;,
+    sep = &quot;&quot;
+  )
+)
 
 GLODAP_cruise &lt;- calculate_gamma(GLODAP_cruise)
 
@@ -1101,7 +1612,120 @@ for (i_basin in unique(GLODAP$basin)) {
   )
   
 }</code></pre>
-<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-obs_gamma_slab-1">
+Past versions of obs_gamma_slab-1.png
+</button>
+</p>
+<div id="fig-obs_gamma_slab-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-obs_gamma_slab-2">
+Past versions of obs_gamma_slab-2.png
+</button>
+</p>
+<div id="fig-obs_gamma_slab-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-obs_gamma_slab-3">
+Past versions of obs_gamma_slab-3.png
+</button>
+</p>
+<div id="fig-obs_gamma_slab-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div id="histograms" class="section level2">
 <h2><span class="header-section-number">6.1</span> Histograms</h2>
 <pre class="r"><code>GLODAP_vars &lt;- GLODAP %&gt;% 
@@ -1124,6 +1748,43 @@ GLODAP_vars_long %&gt;%
              ncol = 2,
              scales = &quot;free&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-histogram_predictor-1">
+Past versions of histogram_predictor-1.png
+</button>
+</p>
+<div id="fig-histogram_predictor-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>rm(GLODAP_vars, GLODAP_vars_long)</code></pre>
 </div>
 </div>
@@ -1343,37 +2004,37 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] lubridate_1.7.9 marelac_2.1.10  shape_1.4.5     metR_0.9.0     
+ [1] lubridate_1.7.9 marelac_2.1.10  shape_1.4.5     metR_0.8.0     
  [5] scico_1.2.0     patchwork_1.1.0 collapse_1.4.2  forcats_0.5.0  
  [9] stringr_1.4.0   dplyr_1.0.2     purrr_0.3.4     readr_1.4.0    
 [13] tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.2   tidyverse_1.3.0
 [17] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2               viridisLite_0.3.0        jsonlite_1.7.1          
+ [1] httr_1.4.2               viridisLite_0.3.0        jsonlite_1.7.2          
  [4] here_0.1                 modelr_0.1.8             assertthat_0.2.1        
  [7] blob_1.2.1               cellranger_1.1.0         yaml_2.2.1              
-[10] pillar_1.4.7             backports_1.1.10         lattice_0.20-41         
-[13] glue_1.4.2               RcppEigen_0.3.3.7.0      digest_0.6.27           
+[10] pillar_1.4.7             backports_1.2.1          lattice_0.20-41         
+[13] glue_1.4.2               RcppEigen_0.3.3.9.1      digest_0.6.27           
 [16] RColorBrewer_1.1-2       promises_1.1.1           checkmate_2.0.0         
 [19] rvest_0.3.6              colorspace_2.0-0         htmltools_0.5.0         
 [22] httpuv_1.5.4             Matrix_1.2-18            pkgconfig_2.0.3         
-[25] broom_0.7.2              seacarb_3.2.14           haven_2.3.1             
+[25] broom_0.7.3              seacarb_3.2.14           haven_2.3.1             
 [28] scales_1.1.1             whisker_0.4              later_1.1.0.1           
-[31] git2r_0.27.1             farver_2.0.3             generics_0.0.2          
+[31] git2r_0.27.1             farver_2.0.3             generics_0.1.0          
 [34] ellipsis_0.3.1           withr_2.3.0              cli_2.2.0               
 [37] magrittr_2.0.1           crayon_1.3.4             readxl_1.3.1            
 [40] evaluate_0.14            fs_1.5.0                 fansi_0.4.1             
 [43] xml2_1.3.2               RcppArmadillo_0.10.1.2.0 oce_1.2-0               
-[46] tools_4.0.3              data.table_1.13.2        hms_0.5.3               
+[46] tools_4.0.3              data.table_1.13.4        hms_0.5.3               
 [49] lifecycle_0.2.0          munsell_0.5.0            reprex_0.3.0            
 [52] gsw_1.0-5                compiler_4.0.3           rlang_0.4.9             
 [55] grid_4.0.3               rstudioapi_0.13          labeling_0.4.2          
-[58] rmarkdown_2.5            testthat_3.0.0           gtable_0.3.0            
+[58] rmarkdown_2.5            testthat_3.0.1           gtable_0.3.0            
 [61] DBI_1.1.0                R6_2.5.0                 knitr_1.30              
 [64] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
-[67] Rcpp_1.0.5               vctrs_0.3.5              dbplyr_1.4.4            
-[70] tidyselect_1.1.0         xfun_0.18               </code></pre>
+[67] Rcpp_1.0.5               vctrs_0.3.6              dbplyr_1.4.4            
+[70] tidyselect_1.1.0         xfun_0.19               </code></pre>
 </div>
 </div>
 

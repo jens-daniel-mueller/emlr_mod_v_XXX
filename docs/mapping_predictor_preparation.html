@@ -483,7 +483,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Mapping</h1>
 <h4 class="author">Jens Daniel Müller</h4>
-<h4 class="date">19 December, 2020</h4>
+<h4 class="date">21 December, 2020</h4>
 
 </div>
 
@@ -508,7 +508,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-19
+<strong>Last updated:</strong> 2020-12-21
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -599,16 +599,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5fedced0ce6e3c5308156f81cfbc79595a50e55targetblankb5fedcea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5fedced0ce6e3c5308156f81cfbc79595a50e55" target="_blank">b5fedce</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree00a13227477231de11079589e3a9c44c6b9543c0targetblank00a1322a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/00a13227477231de11079589e3a9c44c6b9543c0" target="_blank">00a1322</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5fedced0ce6e3c5308156f81cfbc79595a50e55targetblankb5fedcea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree00a13227477231de11079589e3a9c44c6b9543c0targetblank00a1322a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5fedced0ce6e3c5308156f81cfbc79595a50e55" target="_blank">b5fedce</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/00a13227477231de11079589e3a9c44c6b9543c0" target="_blank">00a1322</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -616,11 +616,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   code/Workflowr_project_managment.R
-    Deleted:    code/old_cstar_adjustment.Rmd
 
 </code></pre>
 <p>
@@ -659,6 +654,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/00a13227477231de11079589e3a9c44c6b9543c0/analysis/mapping_predictor_preparation.Rmd" target="_blank">00a1322</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-21
+</td>
+<td>
+first build after creating model template
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/mapping_predictor_preparation.html" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -713,98 +742,14 @@ Initial commit
 <li>TCO2 (surface only)</li>
 </ul></li>
 </ul>
-<pre class="r"><code>variables &lt;-
-  c(&quot;oxygen&quot;, &quot;PO4&quot;, &quot;silicate&quot;)
+<pre class="r"><code>climatology &lt;- read_csv(paste(path_preprocessing, &quot;climatology_runA_2007.csv&quot;, sep = &quot;&quot;))
 
-# i_variable &lt;- variables[1]
-
-for (i_variable in variables) {
-  temp &lt;- read_csv(paste(
-    path_preprocessing,
-    paste(&quot;GLODAPv2_2016_MappedClimatology_&quot;, i_variable, &quot;.csv&quot;, sep = &quot;&quot;),
-    sep = &quot;&quot;
-  ))
-  
-  if (exists(&quot;GLODAP_predictors&quot;)) {
-    GLODAP_predictors &lt;- full_join(GLODAP_predictors, temp)
-  }
-  
-  if (!exists(&quot;GLODAP_predictors&quot;)) {
-    GLODAP_predictors &lt;- temp
-  }
-}
-
-rm(temp, i_variable, variables)
-
-GLODAP_predictors &lt;- GLODAP_predictors %&gt;%
-  rename(phosphate = PO4)
-
-# removed na&#39;s attributable to slightly different coverage of predictor fields
-GLODAP_predictors &lt;- GLODAP_predictors %&gt;%
-  drop_na()</code></pre>
-<pre class="r"><code>variables &lt;-
-  c(&quot;PO4&quot;, &quot;silicate&quot;, &quot;TAlk&quot;, &quot;TCO2&quot;)
-
-for (i_variable in variables) {
-  temp &lt;- read_csv(paste(
-    path_preprocessing,
-    paste(&quot;GLODAPv2_2016_MappedClimatology_&quot;, i_variable, &quot;.csv&quot;, sep = &quot;&quot;),
-    sep = &quot;&quot;
-  ))
-  
-  if (exists(&quot;GLODAP_predictors_CO2&quot;)) {
-    GLODAP_predictors_CO2 &lt;- full_join(GLODAP_predictors_CO2, temp)
-  }
-  
-  if (!exists(&quot;GLODAP_predictors_CO2&quot;)) {
-    GLODAP_predictors_CO2 &lt;- temp
-  }
-}
-
-rm(temp, i_variable, variables)
-
-
-GLODAP_predictors_CO2 &lt;- GLODAP_predictors_CO2 %&gt;%
-  rename(phosphate = PO4)
-
-# removed na&#39;s attributable to slightly different coverage of predictor fields
-GLODAP_predictors_CO2 &lt;- GLODAP_predictors_CO2 %&gt;%
-  drop_na()</code></pre>
-<ul>
-<li>World Ocean Atlas 2018
-<ul>
-<li>Salinity</li>
-<li>Temperature</li>
-<li>Neutral density</li>
-</ul></li>
-</ul>
-<pre class="r"><code>WOA18_predictors &lt;-
-  read_csv(paste(path_preprocessing,
-                 &quot;WOA18_sal_temp.csv&quot;,
-                 sep = &quot;&quot;))</code></pre>
-</div>
-<div id="join-woa18-glodap" class="section level1">
-<h1><span class="header-section-number">2</span> Join WOA18 + GLODAP</h1>
-<p>WOA18 and GLODAP predictor climatologies are merged. Only horizontal grid cells with observations from both predictor fields are kept.</p>
-<pre class="r"><code># join deep water predictors
-predictors &lt;- full_join(
-  GLODAP_predictors,
-  WOA18_predictors)
-
-rm(GLODAP_predictors)
-
-predictors &lt;- predictors %&gt;% 
-  drop_na()
-
-# join surface water predictors
-predictors_surface &lt;- full_join(
-  GLODAP_predictors_CO2,
-  WOA18_predictors)
-
-predictors_surface &lt;- predictors_surface %&gt;% 
-  drop_na()</code></pre>
+predictors &lt;- climatology %&gt;%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, phosphate, oxygen, aou = AOU, silicate)</code></pre>
+<pre class="r"><code>predictors_surface &lt;- climatology %&gt;%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2 = tco2, TAlk = talk, phosphate, silicate)</code></pre>
 <div id="apply-density-threshold" class="section level2">
-<h2><span class="header-section-number">2.1</span> Apply density threshold</h2>
+<h2><span class="header-section-number">1.1</span> Apply density threshold</h2>
 <p>The predictor field was split into two parts:</p>
 <ol style="list-style-type: decimal">
 <li>Deep water: neutral densities &gt;= 26 and depth &gt;= 150m</li>
@@ -820,46 +765,268 @@ predictors_surface &lt;- predictors_surface %&gt;%
          gamma &lt; params_local$gamma_min)</code></pre>
 </div>
 <div id="apply-basin-mask" class="section level2">
-<h2><span class="header-section-number">2.2</span> Apply basin mask</h2>
+<h2><span class="header-section-number">1.2</span> Apply basin mask</h2>
 <p>Data outside the WOA18 basin mask were removed for further analysis.</p>
 <pre class="r"><code>predictors &lt;- inner_join(predictors, basinmask)
 predictors_surface &lt;- inner_join(predictors_surface, basinmask)</code></pre>
 </div>
 <div id="control-plots" class="section level2">
-<h2><span class="header-section-number">2.3</span> Control plots</h2>
+<h2><span class="header-section-number">1.3</span> Control plots</h2>
 <p>Plots below are generated to control successful merging of data sets.</p>
 <div id="maps-interior" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Maps interior</h3>
+<h3><span class="header-section-number">1.3.1</span> Maps interior</h3>
 <pre class="r"><code>p_map_climatology(
   df = predictors, 
   var = &quot;phosphate&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_PO4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_PO4-1">
+Past versions of joined_climatology_control_PO4-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_PO4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_PO4-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>p_map_climatology(
   df = predictors, 
   var = &quot;temp&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_temp-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_temp-1">
+Past versions of joined_climatology_control_temp-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_temp-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_temp-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="maps-surface" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Maps surface</h3>
+<h3><span class="header-section-number">1.3.2</span> Maps surface</h3>
 <pre class="r"><code>p_map_climatology(
   df = predictors_surface, 
   var = &quot;TAlk&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_TAlk_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_TAlk_surface-1">
+Past versions of joined_climatology_control_TAlk_surface-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_TAlk_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_TAlk_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>p_map_climatology(
   df = predictors_surface, 
   var = &quot;TCO2&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_TCO2_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_TCO2_surface-1">
+Past versions of joined_climatology_control_TCO2_surface-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_TCO2_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_TCO2_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>p_map_climatology(
   df = predictors_surface, 
   var = &quot;sal&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_sal_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_sal_surface-1">
+Past versions of joined_climatology_control_sal_surface-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_sal_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_sal_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>p_map_climatology(
   df = predictors_surface, 
   var = &quot;temp&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/joined_climatology_control_temp_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-joined_climatology_control_temp_surface-1">
+Past versions of joined_climatology_control_temp_surface-1.png
+</button>
+</p>
+<div id="fig-joined_climatology_control_temp_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/joined_climatology_control_temp_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="predictor-profiles" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Predictor profiles</h3>
+<h3><span class="header-section-number">1.3.3</span> Predictor profiles</h3>
 <p>Likewise, predictor profiles for the North Atlantic (40.5 / 335.5) are plotted to control successful merging of the data sets.</p>
 <pre class="r"><code># subset data
 N_Atl &lt;- predictors %&gt;% 
@@ -869,7 +1036,7 @@ N_Atl &lt;- predictors %&gt;%
 # pivot table to long format
 N_Atl &lt;- N_Atl %&gt;% 
   select(-c(basin, basin_AIP)) %&gt;% 
-  pivot_longer(oxygen:gamma, names_to = &quot;parameter&quot;, values_to = &quot;value&quot;)
+  pivot_longer(gamma:silicate, names_to = &quot;parameter&quot;, values_to = &quot;value&quot;)
 
 # plot profiles
 N_Atl %&gt;% 
@@ -881,66 +1048,242 @@ N_Atl %&gt;%
              scales = &quot;free_x&quot;,
              ncol = 2)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/predictor_profiles_N_Atl-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-predictor_profiles_N_Atl-1">
+Past versions of predictor_profiles_N_Atl-1.png
+</button>
+</p>
+<div id="fig-predictor_profiles_N_Atl-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/predictor_profiles_N_Atl-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>rm(N_Atl)</code></pre>
 </div>
 </div>
 </div>
 <div id="prepare-predictor-fields" class="section level1">
-<h1><span class="header-section-number">3</span> Prepare predictor fields</h1>
+<h1><span class="header-section-number">2</span> Prepare predictor fields</h1>
 <p>Additional predictor fields need to calculated from available climatologies</p>
 <div id="po4-calculation" class="section level2">
-<h2><span class="header-section-number">3.1</span> PO<sub>4</sub>* calculation</h2>
+<h2><span class="header-section-number">2.1</span> PO<sub>4</sub>* calculation</h2>
 <p>The predictor PO<sub>4</sub>* was be calculated according to Clement and Gruber (2018), ie based on oxygen. Please note that an erroneous equations for PO4* calculation is given in the supplement of Gruber et al (2019), based on nitrate.</p>
 <pre class="r"><code>predictors &lt;- predictors %&gt;% 
   mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))</code></pre>
 <div id="maps" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Maps</h3>
+<h3><span class="header-section-number">2.1.1</span> Maps</h3>
 <pre class="r"><code>p_map_climatology(
   df = predictors,
   var = &quot;phosphate_star&quot;,
   col = &quot;divergent&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/PO4_star_climatology_maps-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-PO4_star_climatology_maps-1">
+Past versions of PO4_star_climatology_maps-1.png
+</button>
+</p>
+<div id="fig-PO4_star_climatology_maps-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/PO4_star_climatology_maps-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="global-section" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Global section</h3>
+<h3><span class="header-section-number">2.1.2</span> Global section</h3>
 <pre class="r"><code>p_section_global(
   df = predictors,
   var = &quot;phosphate_star&quot;,
   col = &quot;divergent&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/PO4_star_climatology_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-PO4_star_climatology_section-1">
+Past versions of PO4_star_climatology_section-1.png
+</button>
+</p>
+<div id="fig-PO4_star_climatology_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/PO4_star_climatology_section-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="aou" class="section level2">
-<h2><span class="header-section-number">3.2</span> AOU</h2>
-<div id="calculation" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Calculation</h3>
+<h2><span class="header-section-number">2.2</span> AOU</h2>
 <p>AOU was calculated as the difference between saturation concentration and observed concentration. <strong>CAVEAT</strong>: Algorithms used to calculate oxygen saturation concentration are not yet identical in GLODAP data set (fitting) and predictor climatologies (mapping).</p>
-<pre class="r"><code>predictors &lt;- predictors %&gt;% 
-  mutate(aou = b_aou(
-    sal = sal,
-    tem = temp,
-    depth = depth,
-    oxygen = oxygen))</code></pre>
-</div>
 <div id="maps-1" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Maps</h3>
+<h3><span class="header-section-number">2.2.1</span> Maps</h3>
 <pre class="r"><code>p_map_climatology(
   df = predictors,
   var = &quot;aou&quot;,
   col = &quot;divergent&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/aou_climatology_maps-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-aou_climatology_maps-1">
+Past versions of aou_climatology_maps-1.png
+</button>
+</p>
+<div id="fig-aou_climatology_maps-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/aou_climatology_maps-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="global-section-1" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Global section</h3>
+<h3><span class="header-section-number">2.2.2</span> Global section</h3>
 <pre class="r"><code>p_section_global(
   df = predictors,
   var = &quot;aou&quot;,
   col = &quot;divergent&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/aou_climatology_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-aou_climatology_section-1">
+Past versions of aou_climatology_section-1.png
+</button>
+</p>
+<div id="fig-aou_climatology_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/aou_climatology_section-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="isoneutral-slabs" class="section level2">
-<h2><span class="header-section-number">3.3</span> Isoneutral slabs</h2>
+<h2><span class="header-section-number">2.3</span> Isoneutral slabs</h2>
 <p>The following boundaries for isoneutral slabs were defined:</p>
 <ul>
 <li>Atlantic: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, 28.15, 28.2, </li>
@@ -951,19 +1294,57 @@ N_Atl %&gt;%
 </div>
 </div>
 <div id="plot-al-predictor-sections" class="section level1">
-<h1><span class="header-section-number">4</span> Plot al predictor sections</h1>
+<h1><span class="header-section-number">3</span> Plot al predictor sections</h1>
 <div id="deep-waters" class="section level2">
-<h2><span class="header-section-number">4.1</span> Deep waters</h2>
+<h2><span class="header-section-number">3.1</span> Deep waters</h2>
 <p>Predictor sections along with lines are shown below for each (potential) predictor variable.</p>
 <pre class="r"><code>map +
   geom_bin2d(data = predictors,
              aes(lon, lat),
-             binwidth = c(1,1)) +
+             binwidth = c(1, 1)) +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = &quot;white&quot;) +
   scale_fill_viridis_c(direction = -1,
-                       name = &quot;&quot;)</code></pre>
+                       name = &quot;&quot;) +
+  theme(legend.position = &quot;bottom&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/predictors_observations_sections_map-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-predictors_observations_sections_map-1">
+Past versions of predictors_observations_sections_map-1.png
+</button>
+</p>
+<div id="fig-predictors_observations_sections_map-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/predictors_observations_sections_map-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>vars &lt;-
   c(
     &quot;gamma&quot;,
@@ -985,20 +1366,360 @@ for (i_var in vars) {
       var = i_var)
     )
 }</code></pre>
-<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-8.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-1">
+Past versions of all_predictor_sections-1.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-2">
+Past versions of all_predictor_sections-2.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-2.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-3">
+Past versions of all_predictor_sections-3.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-3.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-4">
+Past versions of all_predictor_sections-4.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-4.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-5">
+Past versions of all_predictor_sections-5.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-5.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-6">
+Past versions of all_predictor_sections-6.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-6.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-7">
+Past versions of all_predictor_sections-7.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-7.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections-8.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections-8">
+Past versions of all_predictor_sections-8.png
+</button>
+</p>
+<div id="fig-all_predictor_sections-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections-8.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="surface-waters" class="section level2">
-<h2><span class="header-section-number">4.2</span> Surface waters</h2>
+<h2><span class="header-section-number">3.2</span> Surface waters</h2>
 <p>Predictor sections along with lines are shown below for each (potential) predictor variable.</p>
 <pre class="r"><code>map +
   geom_bin2d(data = predictors_surface,
              aes(lon, lat),
-             binwidth = c(1,1)) +
+             binwidth = c(1, 1)) +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = &quot;white&quot;) +
-  scale_fill_viridis_c(direction = -1) +
+  scale_fill_viridis_c(direction = -1, name = &quot;&quot;) +
   theme(legend.position = &quot;bottom&quot;)</code></pre>
 <p><img src="figure/mapping_predictor_preparation.Rmd/predictors_observations_sections_map_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-predictors_observations_sections_map_surface-1">
+Past versions of predictors_observations_sections_map_surface-1.png
+</button>
+</p>
+<div id="fig-predictors_observations_sections_map_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/predictors_observations_sections_map_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>vars &lt;-
   c(
     &quot;gamma&quot;,
@@ -1018,11 +1739,200 @@ for (i_var in vars) {
       surface = &quot;y&quot;)
     )
 }</code></pre>
-<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections_surface-1">
+Past versions of all_predictor_sections_surface-1.png
+</button>
+</p>
+<div id="fig-all_predictor_sections_surface-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-1.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections_surface-2">
+Past versions of all_predictor_sections_surface-2.png
+</button>
+</p>
+<div id="fig-all_predictor_sections_surface-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-2.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections_surface-3">
+Past versions of all_predictor_sections_surface-3.png
+</button>
+</p>
+<div id="fig-all_predictor_sections_surface-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-3.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections_surface-4">
+Past versions of all_predictor_sections_surface-4.png
+</button>
+</p>
+<div id="fig-all_predictor_sections_surface-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-4.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-all_predictor_sections_surface-5">
+Past versions of all_predictor_sections_surface-5.png
+</button>
+</p>
+<div id="fig-all_predictor_sections_surface-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/mapping_predictor_preparation.Rmd/all_predictor_sections_surface-5.png" target="_blank">c8b76b3</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2020-12-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="write-csv" class="section level1">
-<h1><span class="header-section-number">5</span> Write csv</h1>
+<h1><span class="header-section-number">4</span> Write csv</h1>
 <pre class="r"><code>predictors %&gt;%
   write_csv(paste(path_version_data,
                   &quot;W18_st_G16_opsn.csv&quot;,
@@ -1060,37 +1970,37 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gsw_1.0-5       testthat_3.0.0  marelac_2.1.10  shape_1.4.5    
- [5] metR_0.9.0      scico_1.2.0     patchwork_1.1.0 collapse_1.4.2 
+ [1] gsw_1.0-5       testthat_3.0.1  marelac_2.1.10  shape_1.4.5    
+ [5] metR_0.8.0      scico_1.2.0     patchwork_1.1.0 collapse_1.4.2 
  [9] forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2     purrr_0.3.4    
 [13] readr_1.4.0     tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.2  
 [17] tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2               viridisLite_0.3.0        jsonlite_1.7.1          
+ [1] httr_1.4.2               viridisLite_0.3.0        jsonlite_1.7.2          
  [4] here_0.1                 modelr_0.1.8             assertthat_0.2.1        
  [7] blob_1.2.1               cellranger_1.1.0         yaml_2.2.1              
-[10] pillar_1.4.7             backports_1.1.10         lattice_0.20-41         
-[13] glue_1.4.2               RcppEigen_0.3.3.7.0      digest_0.6.27           
+[10] pillar_1.4.7             backports_1.2.1          lattice_0.20-41         
+[13] glue_1.4.2               RcppEigen_0.3.3.9.1      digest_0.6.27           
 [16] promises_1.1.1           checkmate_2.0.0          rvest_0.3.6             
 [19] colorspace_2.0-0         htmltools_0.5.0          httpuv_1.5.4            
-[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.2             
+[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.3             
 [25] seacarb_3.2.14           haven_2.3.1              scales_1.1.1            
 [28] whisker_0.4              later_1.1.0.1            git2r_0.27.1            
-[31] farver_2.0.3             generics_0.0.2           ellipsis_0.3.1          
+[31] farver_2.0.3             generics_0.1.0           ellipsis_0.3.1          
 [34] withr_2.3.0              cli_2.2.0                magrittr_2.0.1          
 [37] crayon_1.3.4             readxl_1.3.1             evaluate_0.14           
 [40] fs_1.5.0                 fansi_0.4.1              xml2_1.3.2              
 [43] RcppArmadillo_0.10.1.2.0 oce_1.2-0                tools_4.0.3             
-[46] data.table_1.13.2        hms_0.5.3                lifecycle_0.2.0         
-[49] munsell_0.5.0            reprex_0.3.0             isoband_0.2.2           
+[46] data.table_1.13.4        hms_0.5.3                lifecycle_0.2.0         
+[49] munsell_0.5.0            reprex_0.3.0             isoband_0.2.3           
 [52] compiler_4.0.3           rlang_0.4.9              grid_4.0.3              
 [55] rstudioapi_0.13          labeling_0.4.2           rmarkdown_2.5           
 [58] gtable_0.3.0             DBI_1.1.0                R6_2.5.0                
 [61] lubridate_1.7.9          knitr_1.30               rprojroot_2.0.2         
 [64] stringi_1.5.3            parallel_4.0.3           Rcpp_1.0.5              
-[67] vctrs_0.3.5              dbplyr_1.4.4             tidyselect_1.1.0        
-[70] xfun_0.18               </code></pre>
+[67] vctrs_0.3.6              dbplyr_1.4.4             tidyselect_1.1.0        
+[70] xfun_0.19               </code></pre>
 </div>
 </div>
 
