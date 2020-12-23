@@ -27,16 +27,11 @@ params_local <-
 
 ```{r define_paths, include = FALSE}
 
-# this can be omitted, once Donghe switched to preprocessed model data
-path_observations <-
-  paste(path_root, "/observations/", sep = "")
-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
-# needs to be switched to path_model, once Donghe switched to preprocessed model data
 path_preprocessing    <-
-  paste(path_observations, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/", sep = "")
 
 path_version_data     <-
   paste(path_model,
@@ -60,16 +55,13 @@ Map 3d fields of the predicted target variable (either tco2, cstar or cstar_tref
 
 ## Predictor fields
 
-Currently, we use following combined predictor fields:
-
-- WOA18: S, T, and derived variables
-- GLODAP16: Oxygen, PO4, NO3, Silicate, and derived variables
+Currently, we use following cmorized climatology predictor fields in 2007:
 
 ```{r read_predictor_file}
 
 predictors <-
   read_csv(paste(path_version_data,
-                 "W18_st_G16_opsn.csv",
+                 "predictors_M2007.csv",
                  sep = ""))
 
 ```

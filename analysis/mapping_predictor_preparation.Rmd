@@ -65,15 +65,16 @@ library(gsw)
 
 Currently, following data sets are used for mapping:
 
-- GLODAPv2_2016b_MappedClimatologies, with variables  
+- Cmorized model runA climatologies in 2007, with variables  
   - Phosphate (-> phosphate_star)
   - Silicate
-  - Oxygen (-> AOU)
+  - Oxygen 
+  - AOU (already calculated)
   - TAlk (surface only)
   - TCO2 (surface only)
 
 
-```{r load_GLODAPv2_2016b_MappedClimatologies_interior_mapping}
+```{r load_model_climatologies_interior_mapping}
 
 climatology <- read_csv(paste(path_preprocessing, "climatology_runA_2007.csv", sep = ""))
 
@@ -83,7 +84,7 @@ predictors <- climatology %>%
 ```
 
 
-```{r load_GLODAPv2_2016b_MappedClimatologies_surface_mapping}
+```{r load_model_climatologies_surface_mapping}
 
 predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2 = tco2, TAlk = talk, phosphate, silicate)
@@ -98,7 +99,7 @@ The predictor field was split into two parts:
 1. Deep water: neutral densities >= `r params_local$gamma_min` and depth >= `r params_local$depth_min`m
 2. Shallow water: rest
 
-```{r split_WOA18_GLODAP_predictors_deep_surface}
+```{r split_model_predictors_deep_surface}
 
 # predictors for deep waters
 predictors <- predictors %>%
@@ -278,7 +279,7 @@ predictors <- m_cut_gamma(predictors, "gamma")
 
 ```
 
-# Plot al predictor sections
+# Plot all predictor sections
 
 ## Deep waters
 
@@ -371,12 +372,12 @@ for (i_var in vars) {
 
 predictors %>%
   write_csv(paste(path_version_data,
-                  "W18_st_G16_opsn.csv",
+                  "predictors_M2007.csv",
                   sep = ""))
 
 predictors_surface %>%
   write_csv(paste(path_version_data,
-                  "W18_st_G16_opsn_surface.csv",
+                  "predictors_surface_M2007.csv",
                   sep = ""))
 
 ```

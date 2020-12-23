@@ -62,15 +62,15 @@ basinmask <- basinmask %>%
 
 # Read files
 
-Main data source for this project is the preprocessed version of the `GLODAPv2.2020_Merged_Master_File.csv` downloaded from [glodap.info](https://www.glodap.info/){target="_blank"} in June 2020.
+Main data source for this project is the synthetic cmorized model subset based on preprocessed version of the `GLODAPv2.2020_Merged_Master_File.csv` downloaded from [glodap.info](https://www.glodap.info/){target="_blank"} in June 2020.
 
 **CAVEAT:** This file still contains neutral densities `gamma` calculated with a preliminary method. However, this is consistent with the way gamma is currently calculated in this script and should therefore be maintained until changed on all levels.
 
-```{r read_GLODAPv2_2020_merged_master_file}
+```{r read_GLODAP-based_subsetting_model_file}
 
 GLODAP <-
   read_csv(paste(path_preprocessing,
-                 "GLODAPv2.2020_preprocessed_model_runA.csv",
+                 "GLODAPv2.2020_preprocessed_model_runA_final.csv",
                  sep = ""))
 
 
@@ -117,7 +117,7 @@ rm(labels)
 
 The basin mask from the World Ocean Atlas was used. For details consult the data base subsection for [WOA18](https://jens-daniel-mueller.github.io/Cant_eMLR/read_World_Ocean_Atlas_2018.html) data.
 
-Please note that some GLODAP observations were made outside the WOA18 basin mask (i.e. in marginal seas) and will be removed for further analysis.
+Please note that some GLODAP-based subsetting model data were outside the WOA18 basin mask (i.e. in marginal seas) and will be removed for further analysis.
 
 ```{r join_GLODAP_basin_mask}
 
@@ -128,7 +128,7 @@ GLODAP <- inner_join(GLODAP, basinmask)
 
 ### Depth
 
-Observations collected shallower than:
+GLODAP-based subsetting model data with depth shallower than:
 
 - minimum sampling depth:  `r params_local$depth_min`m
 
@@ -143,7 +143,7 @@ GLODAP <- GLODAP %>%
 
 ### Bottomdepth
 
-Observations collected in an area with a:
+GLODAP-based subsetting model data in an area with a:
 
 - minimum bottom depth:  `r params_local$bottomdepth_min`m
 
@@ -158,7 +158,7 @@ GLODAP <- GLODAP %>%
 
 ### Neutral density threshold
 
-Observations collected in an area with:
+GLODAP-based subsetting model data in an area with:
 
 - neutral density below:  `r params_local$bottomdepth_min`m
 
@@ -208,7 +208,7 @@ Summary statistics were calculated during cleaning process.
 
 #### NA
 
-Rows with missing tco2 observations were already removed in the preprocessing. The map below shows the coverage of preprocessed GLODAP data.
+Rows with missing tco2 in GLODAP-based subsetting model data were already removed in the preprocessing. The map below shows the coverage of preprocessed GLODAP-based subsetting model data.
 
 ```{r tco2_na_subset}
 
@@ -221,7 +221,7 @@ GLODAP_obs_grid <- GLODAP %>%
 
 ```
 
-```{r WOA18_basin_mask_GLODAP_observations_map, fig.asp=0.6}
+```{r WOA18_basin_mask_GLODAP-based_subsetting_model_data_map, fig.asp=0.6}
 
 GLODAP_obs <- GLODAP %>% 
   group_by(lat, lon) %>% 
@@ -691,7 +691,7 @@ GLODAP_obs_grid_clean <- GLODAP %>%
 ```{r write_clean_data_files}
 
 GLODAP_obs_grid_clean  %>%  write_csv(paste(path_version_data,
-                                            "GLODAPv2.2020_clean_obs_grid.csv",
+                                            "GLODAPv2.2020_clean_model_runA_obs_grid.csv",
                                             sep = ""))
 
 # select relevant columns for further analysis
@@ -704,7 +704,7 @@ GLODAP <- GLODAP %>%
 
 
 GLODAP  %>%  write_csv(paste(path_version_data,
-                             "GLODAPv2.2020_clean.csv",
+                             "GLODAPv2.2020_clean_model_runA.csv",
                              sep = ""))
 
 
@@ -715,9 +715,9 @@ GLODAP  %>%  write_csv(paste(path_version_data,
 
 ## Cleaning stats
 
-Number of observations at various steps of data cleaning.
+Number of GLODAP-based subsetting model data at various steps of data cleaning.
 
-```{r GLODAP_cleaning_stats}
+```{r GLODAP-based_subsetting_data_cleaning_stats}
 
 GLODAP_stats_long <- GLODAP_stats %>%
   pivot_longer(1:length(GLODAP_stats),
@@ -740,7 +740,7 @@ rm(GLODAP_stats_long)
 
 ## Assign coarse spatial grid
 
-For the following plots, the cleaned data set was re-opened and observations were gridded spatially to intervals of:  
+For the following plots, the cleaned data set was re-opened and GLODAP-based subsetting data were gridded spatially to intervals of:  
 
 - 5° x 5°
 

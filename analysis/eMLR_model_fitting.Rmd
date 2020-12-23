@@ -62,13 +62,13 @@ library(gt)
 
 Required are:
 
-- cleaned and prepared GLODAPv2_2020 file
+- cleaned and prepared GLODAP-based model subsetting file
 
-```{r read_GLODAP_used_for_fitting}
+```{r read_GLODAP-based_mdoel_subsetting_used_for_fitting}
 
 GLODAP <-
   read_csv(paste(path_version_data,
-                 "GLODAPv2.2020_MLR_fitting_ready.csv",
+                 "GLODAPv2.2020_MLR_fitting_ready_model_runA.csv",
                  sep = ""))
 
 ```

@@ -55,21 +55,19 @@ library(seacarb)
 
 ## Predictor fields
 
-Currently, we use following combined predictor fields:
+Currently, we use following cmorized climatology predictor fields in 2007:
 
-- WOA18: S, T, and derived variables
-- GLODAP16: Oxygen, PO4, NO3, Silicate, and derived variables
 
 ```{r read_predictor_files}
 
 predictors <-
   read_csv(paste(path_version_data,
-                 "W18_st_G16_opsn.csv",
+                 "predictors_M2007.csv",
                  sep = ""))
 
 predictors_surface <-
   read_csv(paste(path_version_data,
-                 "W18_st_G16_opsn_surface.csv",
+                 "predictors_surface_M2007.csv",
                  sep = ""))
 
 ```
