@@ -19,6 +19,7 @@ editor_options:
 ```
 
 ```{r read_params_local, include = FALSE}
+
 params_local <-
   read_rds(here::here("data/auxillary",
                        "params_local.rds"))
@@ -44,6 +45,7 @@ path_version_figures  <-
         params_local$Version_ID,
         "/figures/",
         sep = "")
+
 ```
 
 

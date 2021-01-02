@@ -62,9 +62,9 @@ library(gt)
 
 Required are:
 
-- cleaned and prepared GLODAP-based model subsetting file
+- cleaned and prepared GLODAP-based synthetic model subsetting file
 
-```{r read_GLODAP-based_mdoel_subsetting_used_for_fitting}
+```{r read_GLODAP-based_model_subsetting_used_for_fitting}
 
 GLODAP <-
   read_csv(paste(path_version_data,
@@ -337,7 +337,7 @@ The criterion used to select the best models was:
 
 - `r params_local$MLR_criterion`
 
-The criterion was summed up for two adjecent eras, and the models with lowest summed values were selected.
+The criterion was summed up for two adjacent eras, and the models with lowest summed values were selected.
 
 Please note, that currently the `lm()` function produces NAs for some predictors. It is not yet entirely clear when this happens, but presumably it is caused by some form of collinearity between predictors, such that including another predictor does not help to explain the target variable any better. The issues also expresses as exactly identical rmse values of different models. As an interim solution, models with fitted NA predictors were not included.
 

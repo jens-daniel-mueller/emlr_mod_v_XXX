@@ -19,6 +19,7 @@ editor_options:
 ```
 
 ```{r read_params_local, include = FALSE}
+
 params_local <-
   read_rds(here::here("data/auxillary",
                        "params_local.rds"))
@@ -44,6 +45,7 @@ path_version_figures  <-
         params_local$Version_ID,
         "/figures/",
         sep = "")
+
 ```
 
 
@@ -56,7 +58,6 @@ library(seacarb)
 ## Predictor fields
 
 Currently, we use following cmorized climatology predictor fields in 2007:
-
 
 ```{r read_predictor_files}
 
@@ -245,7 +246,7 @@ p_section_climatology_regular(df = predictors_surface,
 
 ### Revelle factor
 
-Plots below show the calculated climatolofical Revelle factor values.
+Plots below show the calculated climatological Revelle factor values.
 
 ```{r calc_revelle_factor_climatology}
 

@@ -664,17 +664,21 @@ rm(GLODAP_cruises)
 
 ```
 
-```{r switch_eras_manually, eval=FALSE}
+```{r switch_eras_manually}
+
+if (params_local$A16_GO_SHIP == "y") {
 
 GLODAP <- GLODAP %>%
-  mutate(era = if_else(cruise %in% c(1041, 1042),
-                       sort(unique(GLODAP$era))[2], era))
+   mutate(era = if_else(cruise %in% c(1041, 1042),
+                        sort(unique(GLODAP$era))[2], era))
+
+}
 
 ```
 
 ## Create clean observations grid
 
-Grid containing all grid cells where at least one observation remains available after cleaning.
+Grid containing all grid cells where at least one synthetic subsetting remains available after cleaning.
 
 ```{r create_clean_obs_grid}
 
@@ -683,8 +687,6 @@ GLODAP_obs_grid_clean <- GLODAP %>%
   select(-n)
 
 ```
-
-
 
 ## Write summary file
  
@@ -702,14 +704,11 @@ GLODAP <- GLODAP %>%
          tco2, talk, phosphate,
          oxygen, aou, nitrate, silicate)
 
-
 GLODAP  %>%  write_csv(paste(path_version_data,
                              "GLODAPv2.2020_clean_model_runA.csv",
                              sep = ""))
 
-
 ```
-
 
 # Overview plots
 

@@ -27,16 +27,11 @@ params_local <-
 
 ```{r define_paths, include = FALSE}
 
-# this can be omitted, once Donghe switched to preprocessed model data
-path_observations <-
-  paste(path_root, "/observations/", sep = "")
-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
-# needs to be switched to path_model, once Donghe switched to preprocessed model data
 path_preprocessing    <-
-  paste(path_observations, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/", sep = "")
 
 path_version_data     <-
   paste(path_model,
@@ -49,8 +44,8 @@ path_version_figures  <-
         params_local$Version_ID,
         "/figures/",
         sep = "")
-```
 
+```
 
 ```{r load_libraries_specific, include = FALSE}
 library(scales)
@@ -99,24 +94,53 @@ cant_inv_JDM <- cant_inv_JDM %>%
 
 ```
 
-## Gruber 2019
+## Modeled Cant
 
-Results from Gruber et al 2019 are referred to as G19.
+Results from modeled Cant is referred to as M.
 
-```{r read_Gruber_cant_file}
+```{r read_modeled_cant_file}
 
-cant_inv_G19 <-
-  read_csv(paste(path_preprocessing,
-                 "G19_cant_inv.csv",
-                 sep = ""))
+cant_1994 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_AB/cant_1994.csv",
+    sep = ""
+  ))
 
-cant_inv_G19 <- cant_inv_G19 %>%
-  select(-eras)
+cant_1994 <- cant_1994 %>%
+  rename(cant_1994 = cant_total)
 
-cant_zonal_G19 <-
-  read_csv(paste(path_preprocessing,
-                 "G19_cant_zonal.csv",
-                 sep = ""))
+cant_2007 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_AB/cant_2007.csv",
+    sep = ""
+  ))
+
+cant_2007 <- cant_2007 %>%
+  rename(cant_2007 = cant_total)
+
+```
+
+```{r calculate_modeled_cant_between_tref}
+
+cant_M <- left_join(cant_1994, cant_2007) %>%
+  mutate(cant = cant_2007 - cant_1994)
+
+cant_M <- cant_M %>% 
+   mutate(cant_pos = if_else(cant <= 0, 0, cant))
+
+cant_M <- cant_gruber %>% 
+  mutate(eras = "JGOFS/WOCE")
+
+rm(cant_1994, cant_2007)
+
+```
+
+```{r calculate_zonal_mean_modeled_cant}
+
+cant_zonal_M <- m_zonal_mean_section(cant_gruber)
+
 
 cant_zonal_G19 <- cant_zonal_G19 %>%
   filter(eras == "JGOFS_GO") %>%
@@ -128,6 +152,16 @@ cant_zonal_G19 <- cant_zonal_G19 %>%
          cant_sd,
          cant_pos_sd)
 
+```
+
+```{r calculate_inventory_modeled_cant}
+
+cant_inv_M <- m_cant_inv(cant_M)
+
+
+
+cant_inv_G19 <- cant_inv_G19 %>%
+  select(-eras)
 
 ```
 
@@ -135,12 +169,12 @@ cant_zonal_G19 <- cant_zonal_G19 %>%
 
 Inventories and zonal sections are merged, and differences calculate per grid cell.
 
-```{r join_G19_and_JDM_inventories}
+```{r join_M_and_JDM_inventories}
 
 # add estimate label
 cant_inv_long <- bind_rows(
   cant_inv_JDM %>%  mutate(estimate = "JDM"),
-  cant_inv_G19 %>%  mutate(estimate = "G19")
+  cant_inv_M %>%  mutate(estimate = "M")
   )
 
 # pivot to wide format
@@ -150,18 +184,18 @@ cant_inv_wide <- cant_inv_long %>%
 
 # calculate offset
 cant_inv_wide <- cant_inv_wide %>% 
-  mutate(cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_G19,
-         cant_inv_offset = cant_inv_JDM - cant_inv_G19,
-         estimate = "JDM - G19")
+  mutate(cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_M,
+         cant_inv_offset = cant_inv_JDM - cant_inv_M,
+         estimate = "JDM - M")
 
 ```
 
-```{r join_G19_and_JDM_zonal_sections}
+```{r join_M_and_JDM_zonal_sections}
 
 # add estimate label
 cant_zonal_long <- bind_rows(
   cant_zonal_JDM %>%  mutate(estimate = "JDM"),
-  cant_zonal_G19 %>%  mutate(estimate = "G19")
+  cant_zonal_M %>%  mutate(estimate = "M")
   )
 
 # pivot to wide format
@@ -171,12 +205,11 @@ cant_zonal_wide <- cant_zonal_long %>%
 
 # calculate offset
 cant_zonal_wide <- cant_zonal_wide %>% 
-  mutate(cant_pos_mean_offset = cant_pos_mean_JDM - cant_pos_mean_G19,
-         cant_mean_offset = cant_mean_JDM - cant_mean_G19,
-         estimate = "JDM - G19")
+  mutate(cant_pos_mean_offset = cant_pos_mean_JDM - cant_pos_mean_M,
+         cant_mean_offset = cant_mean_JDM - cant_mean_M,
+         estimate = "JDM - M")
 
 ```
-
 
 # Cant budgets
 
@@ -196,7 +229,6 @@ cant_inv_budget <- cant_inv_long %>%
             cant_pos_total = round(cant_pos_total,1)) %>% 
   ungroup()
 
-
 # print budget table
 cant_inv_budget %>%
   gt(rowname_col = "basin_AIP",
@@ -210,12 +242,9 @@ rm(cant_inv_budget)
 
 ```
 
-
-
 # Cant - positive only
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
-
 
 ## Inventory maps
 
@@ -239,7 +268,6 @@ for (i_estimate in unique(cant_inv_long$estimate)) {
 
 ```
 
-
 ### Offset
 
 Column inventory of positive cant between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
@@ -248,10 +276,9 @@ Column inventory of positive cant between the surface and `r params_global$inven
 
 p_map_cant_inv_offset(cant_inv_wide,
                       "cant_pos_inv_offset",
-                      subtitle_text = "Estimate JDM - G19")
+                      subtitle_text = "Estimate JDM - M")
 
 ```
-
 
 ## Zonal mean sections
 
@@ -298,15 +325,12 @@ for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
         plot_slabs = "n",
         col = "divergent",
         subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate: JDM-G19")
+          paste("Basin:", i_basin_AIP, "| estimate: JDM-M")
       )
     )
   }
 
-
 ```
-
-
 
 # Cant - all
 
@@ -317,7 +341,6 @@ In a second series of plots we explore the distribution of Cant, taking positive
 ### Absolute values
 
 Column inventory of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
-
 
 ```{r cant_inventory_map, fig.asp=0.5}
 
@@ -336,7 +359,6 @@ for (i_estimate in unique(cant_inv_long$estimate)) {
 
 ```
 
-
 ### Offset
 
 ```{r cant_offset_inventory_map, fig.asp = 0.5}
@@ -344,14 +366,13 @@ for (i_estimate in unique(cant_inv_long$estimate)) {
 p_map_cant_inv_offset(
   df = cant_inv_wide,
   var = "cant_inv_offset",
-  subtitle_text = "Estimate: JDM - G19")
+  subtitle_text = "Estimate: JDM - M")
 
 ```
 
 ## Zonal mean sections
 
 ### Absolute values
-
 
 ```{r cant_zonal_mean_section, fig.asp=0.6}
 
@@ -381,7 +402,6 @@ for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
   }
 }
 
-
 ```
 
 ### Offset
@@ -401,12 +421,11 @@ for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
         col = "divergent",
         breaks = params_global$breaks_cant_offset,
         subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate: JDM - G19")
+          paste("Basin:", i_basin_AIP, "| estimate: JDM - M")
       )
       
     )
 }
-
 
 ```
 

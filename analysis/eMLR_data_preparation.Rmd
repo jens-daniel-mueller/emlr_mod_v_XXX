@@ -110,7 +110,7 @@ GLODAP <- GLODAP %>%
 
 # C*
 
-C* serves as a conservative tracer of anthropogenic CO~2~ uptake. It is derived from measured DIC by removing the impact of  
+C* serves as a conservative tracer of anthropogenic CO~2~ uptake. It is derived from synthetic subsetted DIC by removing the impact of  
 
 - organic matter formation and respiration
 - calcification and calcium carbonate dissolution
@@ -142,7 +142,7 @@ GLODAP <- GLODAP %>%
 
 ## Reference year adjustment
 
-To adjust C* values to the reference year of each observation period, we assume a transient steady state change of cant between the time of sampling the reference year. The adjustment requires an approximation of the cant concentration at the reference year. We here use the model-estimated annual cant field for each reference year.
+To adjust C* values to the reference year of each observation period, we assume a transient steady state change of cant between the time of model subsetting and the reference year. The adjustment requires an approximation of the cant concentration at the reference year. We here use the model-estimated annual cant field for each reference year.
 
 
 ### Cant at tref
@@ -203,20 +203,20 @@ rm(GLODAP, cant_3d_obs)
 
 # fill number of cant data points per grid cell to all observations
 GLODAP_cant_obs <- GLODAP_cant_obs %>%
-  group_by(lon, lat, era) %>% 
+  group_by(lon, lat, era) %>%
   fill(n, .direction = "updown") %>% 
   ungroup()
 
 ```
 
-The mapped Cant product was merged with GLODAP observation by:
+The model-estimated annual cant fields were merged with GLODAP-based synthetic cmorized model subsetting by:
 
 - using an identical 1x1° horizontal grid
-- linear interpolation of C~ant~ from standard to sampling depth
+- linear interpolation of C~ant~ from standard to subsetting depth
 
 ```{r cant_interpolation_to_observations}
 
-# interpolate cant to observation depth
+# interpolate cant to subsetting depth
 GLODAP_cant_obs_int <- GLODAP_cant_obs %>%
   filter(n > 1) %>% 
   group_by(lat, lon, era) %>%
@@ -224,7 +224,7 @@ GLODAP_cant_obs_int <- GLODAP_cant_obs %>%
   mutate(cant_int = approxfun(depth, cant_total, rule = 2)(depth)) %>%
   ungroup()
 
-# set cant for observation depth if only one cant available
+# set cant for subsetting depth if only one cant available
 #GLODAP_cant_obs_set <- GLODAP_cant_obs %>%
 #  filter(n == 1) %>%
 #  group_by(lat, lon, era) %>%
@@ -257,7 +257,7 @@ ggplot() +
   scale_y_reverse() +
   facet_wrap(~era) +
   scale_color_brewer(palette = "Dark2", name = "") +
-  labs(title = "Cant interpolation to sampling depth - example profile")
+  labs(title = "Cant interpolation to subsetting depth - example profile")
 
 # remove cant data at grid cells without observations
 GLODAP <- GLODAP_cant_obs %>%
@@ -272,7 +272,7 @@ rm(GLODAP_cant_obs)
 
 ### Merge GLODAP + atm. pCO~2~
 
-GLODAP observations were merged with mean annual atmospheric pCO~2~ levels by year.
+GLODAP-based subsetting were merged with mean annual atmospheric pCO~2~ levels by year.
 
 ```{r merge_cstar_pCO2}
 
@@ -397,7 +397,7 @@ The following boundaries for isoneutral slabs were defined:
 - Atlantic: `r params_local$slabs_Atl`
 - Indo-Pacific: `r params_local$slabs_Ind_Pac`
 
-Continuous neutral densities (gamma) values from subsetting data are grouped into isoneutral slabs.
+Continuous neutral densities (gamma) values from model subsetting are grouped into isoneutral slabs.
 
 ```{r cut_isoneutral_slabs}
 
@@ -488,7 +488,7 @@ rm(lat_section, GLODAP_cruise, cruises_meridional)
 ```
 
 
-# Observations coverage
+# Synthetic subsetting coverage
 
 ```{r obs_gamma_slab, fig.asp=1}
 

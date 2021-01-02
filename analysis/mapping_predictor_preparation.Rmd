@@ -182,7 +182,7 @@ N_Atl <- predictors %>%
 
 # pivot table to long format
 N_Atl <- N_Atl %>% 
-  select(-c(basin, basin_AIP)) %>% 
+  select(-c(basin, basin_AIP)) %>%
   pivot_longer(gamma:silicate, names_to = "parameter", values_to = "value")
 
 # plot profiles

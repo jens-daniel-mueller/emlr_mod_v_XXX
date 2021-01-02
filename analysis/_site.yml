@@ -25,7 +25,7 @@ navbar:
       href: mapping_predictor_preparation.html
     - text: Cant calculation
       href: mapping_cant.html
-    - text: Cstar calculation
+    - text: Target variable calculation
       href: mapping_target_variable.html
     href: mapping.html
   - text: Analysis

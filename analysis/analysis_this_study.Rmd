@@ -27,16 +27,11 @@ params_local <-
 
 ```{r define_paths, include = FALSE}
 
-# this can be omitted, once Donghe switched to preprocessed model data
-path_observations <-
-  paste(path_root, "/observations/", sep = "")
-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
-# needs to be switched to path_model, once Donghe switched to preprocessed model data
 path_preprocessing    <-
-  paste(path_observations, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/", sep = "")
 
 path_version_data     <-
   paste(path_model,
@@ -112,7 +107,7 @@ target_zonal <-
 
 ```
 
-Cleaned GLODAPv2_2020 file as used in this sensitivity case
+Cleaned GLODAP-based synthetic model subsetting file as used in this sensitivity case
 
 ```{r read_GLODAP_used_for_fitting}
 
@@ -141,7 +136,6 @@ cant_inv_budget <- cant_inv %>%
             cant_pos_total = sum(cant_pos_inv_grid)*12*1e-15,
             cant_pos_total = round(cant_pos_total,1)) %>% 
   ungroup()
-
 
 ```
 
@@ -199,7 +193,6 @@ cant_inv <- cant_inv %>%
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
 
 ## Zonal mean sections
-
 
 ```{r cant_pos_zonal_mean_sections, fig.asp=0.6}
 
@@ -291,7 +284,6 @@ for (i_eras in unique(cant_inv$eras)) {
 ## Global sections
 
 ```{r cant_sections_positive_mean_one_lon_JGOFS_GO, fig.asp=0.6}
-
 
 for (i_eras in unique(cant_3d$eras)) {
   print(
@@ -554,7 +546,7 @@ rm(i_var)
 
 ## Slab depth
 
-The plot below shows the depths of individual gamma slabs (color) together with the observations available in the respective slab.
+The plot below shows the depths of individual gamma slabs (color) together with the synthetic subsetting available in the respective slab.
 
 Please note that:
 

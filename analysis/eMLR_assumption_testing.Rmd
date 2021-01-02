@@ -60,9 +60,9 @@ library(corrr)
 
 Required are:
 
-- cleaned and prepared GLODAPv2.2020 file
+- cleaned and prepared GLODAP-based synthetic cmorized model subsetting file
 
-```{r read_GLODAP_used_for_fitting}
+```{r read_synthetic_subsetting_used_for_fitting}
 
 GLODAP <-
   read_csv(paste(path_version_data,
@@ -82,7 +82,7 @@ The correlation between:
 were investigated based on:  
 
 - property-property plots and
-- calculated correlation coeffcients.
+- calculated correlation coefficients.
 
 ## Correlation plots
 
@@ -194,7 +194,7 @@ for (i_basin in unique(GLODAP$basin)) {
 
 ```
 
-## Correlation assesment
+## Correlation assessment
 
 ### Calculation of correlation coeffcients
 
