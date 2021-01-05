@@ -14,6 +14,7 @@
 
 <title>Analysis of cant estimates</title>
 
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -39,6 +40,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -429,7 +432,7 @@ div.tocify {
       <a href="mapping_cant.html">Cant calculation</a>
     </li>
     <li>
-      <a href="mapping_target_variable.html">Cstar calculation</a>
+      <a href="mapping_target_variable.html">Target variable calculation</a>
     </li>
   </ul>
 </li>
@@ -483,7 +486,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Analysis of cant estimates</h1>
 <h4 class="author">Jens Daniel Müller</h4>
-<h4 class="date">23 December, 2020</h4>
+<h4 class="date">05 January, 2021</h4>
 
 </div>
 
@@ -508,7 +511,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-23
+<strong>Last updated:</strong> 2021-01-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -599,16 +602,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree82e3c9c3e75f3fa24c731132da929bd80514abc0targetblank82e3c9ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/82e3c9c3e75f3fa24c731132da929bd80514abc0" target="_blank">82e3c9c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree82e3c9c3e75f3fa24c731132da929bd80514abc0targetblank82e3c9ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/82e3c9c3e75f3fa24c731132da929bd80514abc0" target="_blank">82e3c9c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -617,6 +620,10 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Unstaged changes:
+    Modified:   code/Workflowr_project_managment.R
+    Modified:   data/auxillary/params_local.rds
 
 </code></pre>
 <p>
@@ -655,6 +662,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/715bdb4e49ae9989b099b42291610a45e0b70b8e/analysis/analysis_this_study.Rmd" target="_blank">715bdb4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-02
+</td>
+<td>
+model modification
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/analysis_this_study.html" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -747,8 +788,8 @@ Initial commit
 </div>
 </div>
 </div>
-<div id="data-sources" class="section level1">
-<h1><span class="header-section-number">1</span> Data sources</h1>
+<div id="data-sources" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Data sources</h1>
 <p>Cant estimates from this sensitivity case:</p>
 <ul>
 <li>Mean and SD per grid cell (lat, lon, depth)</li>
@@ -788,7 +829,7 @@ target_zonal &lt;-
   read_csv(paste(path_version_data,
                  &quot;target_zonal.csv&quot;,
                  sep = &quot;&quot;))</code></pre>
-<p>Cleaned GLODAPv2_2020 file as used in this sensitivity case</p>
+<p>Cleaned GLODAP-based synthetic model subsetting file as used in this sensitivity case</p>
 <pre class="r"><code>GLODAP &lt;-
   read_csv(paste(
     path_version_data,
@@ -796,8 +837,8 @@ target_zonal &lt;-
     sep = &quot;&quot;
   ))</code></pre>
 </div>
-<div id="cant-budgets" class="section level1">
-<h1><span class="header-section-number">2</span> Cant budgets</h1>
+<div id="cant-budgets" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Cant budgets</h1>
 <p>Global Cant inventories were estimated in units of Pg C. Please note that here we added Cant (all vs postitive only) values and do not apply additional corrections for areas not covered.</p>
 <pre class="r"><code>cant_inv_budget &lt;- cant_inv %&gt;% 
   mutate(surface_area = earth_surf(lat, lon),
@@ -809,8 +850,8 @@ target_zonal &lt;-
             cant_pos_total = sum(cant_pos_inv_grid)*12*1e-15,
             cant_pos_total = round(cant_pos_total,1)) %&gt;% 
   ungroup()</code></pre>
-<div id="standard-depth" class="section level2">
-<h2><span class="header-section-number">2.1</span> Standard depth</h2>
+<div id="standard-depth" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Standard depth</h2>
 <p>Results integrated over the upper 3000 m</p>
 <pre class="r"><code>cant_inv_budget %&gt;%
   filter(inv_depth == params_global$inventory_depth_standard) %&gt;% 
@@ -1172,54 +1213,54 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">6.7</td>
-      <td class="gt_row gt_right">7.1</td>
+      <td class="gt_row gt_right">7.8</td>
+      <td class="gt_row gt_right">8.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
       <td class="gt_row gt_right">7.2</td>
-      <td class="gt_row gt_right">8.0</td>
+      <td class="gt_row gt_right">8.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">9.4</td>
-      <td class="gt_row gt_right">12.0</td>
+      <td class="gt_row gt_right">9.5</td>
+      <td class="gt_row gt_right">12.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">23.30</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">27.10</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">24.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">28.60</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth: 3000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">4.3</td>
-      <td class="gt_row gt_right">4.8</td>
+      <td class="gt_row gt_right">3.2</td>
+      <td class="gt_row gt_right">4.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">4.5</td>
-      <td class="gt_row gt_right">5.8</td>
+      <td class="gt_row gt_right">5.4</td>
+      <td class="gt_row gt_right">6.3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">15.5</td>
+      <td class="gt_row gt_right">15.6</td>
       <td class="gt_row gt_right">16.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">24.30</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">26.80</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">24.20</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">26.50</td>
     </tr>
   </tbody>
   
   
 </table></div>
 </div>
-<div id="other-depths" class="section level2">
-<h2><span class="header-section-number">2.2</span> Other depths</h2>
+<div id="other-depths" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Other depths</h2>
 <p>Results integrated over the upper 100, 500, 1000, 3000, 10^{4} m</p>
 <pre class="r"><code>cant_inv_budget %&gt;%
   filter(inv_depth != params_global$inventory_depth_standard) %&gt;% 
@@ -1581,77 +1622,77 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">1.3</td>
-      <td class="gt_row gt_right">1.3</td>
+      <td class="gt_row gt_right">1.4</td>
+      <td class="gt_row gt_right">1.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">1.1</td>
-      <td class="gt_row gt_right">1.1</td>
+      <td class="gt_row gt_right">1.2</td>
+      <td class="gt_row gt_right">1.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">2.4</td>
-      <td class="gt_row gt_right">2.4</td>
+      <td class="gt_row gt_right">2.5</td>
+      <td class="gt_row gt_right">2.6</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.80</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.80</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">5.10</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">5.20</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth:   500</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">4.2</td>
-      <td class="gt_row gt_right">4.2</td>
+      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">4.7</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">4.2</td>
-      <td class="gt_row gt_right">4.2</td>
+      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">4.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">7.8</td>
-      <td class="gt_row gt_right">7.8</td>
+      <td class="gt_row gt_right">8.2</td>
+      <td class="gt_row gt_right">8.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">16.20</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">16.20</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">17.10</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">17.30</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth:  1000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">5.2</td>
-      <td class="gt_row gt_right">5.5</td>
+      <td class="gt_row gt_right">5.9</td>
+      <td class="gt_row gt_right">6.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">6.5</td>
-      <td class="gt_row gt_right">6.5</td>
+      <td class="gt_row gt_right">6.7</td>
+      <td class="gt_row gt_right">6.7</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">9.7</td>
-      <td class="gt_row gt_right">10.1</td>
+      <td class="gt_row gt_right">10.2</td>
+      <td class="gt_row gt_right">10.6</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">21.40</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.10</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.80</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">23.30</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth: 10000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">6.6</td>
-      <td class="gt_row gt_right">7.4</td>
+      <td class="gt_row gt_right">7.9</td>
+      <td class="gt_row gt_right">8.6</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
@@ -1660,13 +1701,13 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">8.8</td>
-      <td class="gt_row gt_right">12.3</td>
+      <td class="gt_row gt_right">10.1</td>
+      <td class="gt_row gt_right">13.5</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.20</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">27.80</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">24.80</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">30.20</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth:   100</td>
@@ -1683,31 +1724,31 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">1.7</td>
       <td class="gt_row gt_right">1.8</td>
+      <td class="gt_row gt_right">1.9</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.20</td>
       <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.30</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.40</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth:   500</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">2.9</td>
-      <td class="gt_row gt_right">2.9</td>
+      <td class="gt_row gt_right">2.4</td>
+      <td class="gt_row gt_right">2.5</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">2.7</td>
-      <td class="gt_row gt_right">2.8</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">3.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">5.5</td>
       <td class="gt_row gt_right">5.7</td>
+      <td class="gt_row gt_right">5.9</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
@@ -1719,46 +1760,46 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">3.7</td>
-      <td class="gt_row gt_right">3.8</td>
+      <td class="gt_row gt_right">3.2</td>
+      <td class="gt_row gt_right">3.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">4.1</td>
-      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">4.5</td>
+      <td class="gt_row gt_right">4.7</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">7.8</td>
       <td class="gt_row gt_right">8.0</td>
+      <td class="gt_row gt_right">8.3</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">15.60</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">16.10</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">15.70</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">16.40</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth: 10000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">4.5</td>
-      <td class="gt_row gt_right">5.4</td>
+      <td class="gt_row gt_right">3.3</td>
+      <td class="gt_row gt_right">4.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">4.0</td>
-      <td class="gt_row gt_right">5.9</td>
+      <td class="gt_row gt_right">4.9</td>
+      <td class="gt_row gt_right">6.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">20.2</td>
-      <td class="gt_row gt_right">20.9</td>
+      <td class="gt_row gt_right">19.8</td>
+      <td class="gt_row gt_right">20.5</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">28.70</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">32.20</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">28.00</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">31.30</td>
     </tr>
   </tbody>
   
@@ -1770,11 +1811,11 @@ target_zonal &lt;-
   filter(inv_depth == params_global$inventory_depth_standard)</code></pre>
 </div>
 </div>
-<div id="cant---positive" class="section level1">
-<h1><span class="header-section-number">3</span> Cant - positive</h1>
+<div id="cant---positive" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Cant - positive</h1>
 <p>In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.</p>
-<div id="zonal-mean-sections" class="section level2">
-<h2><span class="header-section-number">3.1</span> Zonal mean sections</h2>
+<div id="zonal-mean-sections" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Zonal mean sections</h2>
 <pre class="r"><code># i_basin_AIP &lt;- unique(cant_zonal$basin_AIP)[2]
 # i_eras &lt;- unique(cant_zonal$eras)[1]
 
@@ -1816,6 +1857,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-1.png" target="_blank">8fae0b2</a>
@@ -1867,6 +1919,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -1914,6 +1977,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-3.png" target="_blank">8fae0b2</a>
@@ -1965,6 +2039,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2012,6 +2097,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-5.png" target="_blank">8fae0b2</a>
@@ -2063,6 +2159,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_zonal_mean_sections-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2088,8 +2195,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="isoneutral-slab-distribution" class="section level2">
-<h2><span class="header-section-number">3.2</span> Isoneutral slab distribution</h2>
+<div id="isoneutral-slab-distribution" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Isoneutral slab distribution</h2>
 <p>Mean of positive cant within each horizontal grid cell (lon x lat) per isoneutral slab.</p>
 <p>Please note that:</p>
 <ul>
@@ -2143,6 +2250,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2190,6 +2308,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-2.png" target="_blank">8fae0b2</a>
@@ -2241,6 +2370,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-3.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2288,6 +2428,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-4.png" target="_blank">8fae0b2</a>
@@ -2339,6 +2490,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-5.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2386,6 +2548,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-6.png" target="_blank">8fae0b2</a>
@@ -2437,6 +2610,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-7.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-7.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2484,6 +2668,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-8.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-8.png" target="_blank">8fae0b2</a>
@@ -2535,6 +2730,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-9.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-9.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2582,6 +2788,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-10.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-10.png" target="_blank">8fae0b2</a>
@@ -2633,6 +2850,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-11.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-11.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2682,6 +2910,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-12.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-12.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2729,6 +2968,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-13.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-13.png" target="_blank">8fae0b2</a>
@@ -2829,6 +3079,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-15.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-15.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2876,6 +3137,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-16.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-16.png" target="_blank">8fae0b2</a>
@@ -2927,6 +3199,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-17.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-17.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -2974,6 +3257,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-18.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-18.png" target="_blank">8fae0b2</a>
@@ -3025,6 +3319,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-19.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-19.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3072,6 +3377,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-20.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-20.png" target="_blank">8fae0b2</a>
@@ -3123,6 +3439,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-21.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-21.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3170,6 +3497,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-22.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-22.png" target="_blank">8fae0b2</a>
@@ -3221,6 +3559,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-23.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-23.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3268,6 +3617,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-24.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-24.png" target="_blank">8fae0b2</a>
@@ -3319,6 +3679,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-25.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-25.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3366,6 +3737,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-26.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-26.png" target="_blank">8fae0b2</a>
@@ -3417,6 +3799,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-27.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-27.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3466,6 +3859,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-28.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-28.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3513,6 +3917,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-29.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_gamma_slab_maps-29.png" target="_blank">8fae0b2</a>
@@ -3589,8 +4004,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="inventory-map" class="section level2">
-<h2><span class="header-section-number">3.3</span> Inventory map</h2>
+<div id="inventory-map" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> Inventory map</h2>
 <p>Column inventory of positive cant between the surface and m water depth per horizontal grid cell (lat x lon).</p>
 <pre class="r"><code># i_eras &lt;- unique(cant_inv$eras)[1]
 
@@ -3627,6 +4042,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_inventory_map-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_inventory_map-1.png" target="_blank">8fae0b2</a>
@@ -3678,6 +4104,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_pos_inventory_map-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_pos_inventory_map-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3703,8 +4140,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="global-sections" class="section level2">
-<h2><span class="header-section-number">3.4</span> Global sections</h2>
+<div id="global-sections" class="section level2" number="3.4">
+<h2 number="3.4"><span class="header-section-number">3.4</span> Global sections</h2>
 <pre class="r"><code>for (i_eras in unique(cant_3d$eras)) {
   print(
     p_section_global(
@@ -3738,6 +4175,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_positive_mean_one_lon_JGOFS_GO-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_positive_mean_one_lon_JGOFS_GO-1.png" target="_blank">8fae0b2</a>
@@ -3789,6 +4237,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_positive_mean_one_lon_JGOFS_GO-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_positive_mean_one_lon_JGOFS_GO-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3815,11 +4274,11 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="cant---all" class="section level1">
-<h1><span class="header-section-number">4</span> Cant - all</h1>
+<div id="cant---all" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Cant - all</h1>
 <p>In a second series of plots we explore the distribution of all Cant, taking positive and negative estimates into account.</p>
-<div id="zonal-mean-sections-1" class="section level2">
-<h2><span class="header-section-number">4.1</span> Zonal mean sections</h2>
+<div id="zonal-mean-sections-1" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Zonal mean sections</h2>
 <pre class="r"><code># i_eras &lt;- unique(cant_zonal$eras)[1]
 # i_basin_AIP &lt;- unique(cant_zonal$basin_AIP)[1]
 
@@ -3863,6 +4322,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-1.png" target="_blank">8fae0b2</a>
@@ -3914,6 +4384,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -3961,6 +4442,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-3.png" target="_blank">8fae0b2</a>
@@ -4012,6 +4504,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4059,6 +4562,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-5.png" target="_blank">8fae0b2</a>
@@ -4110,6 +4624,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_zonal_mean_sections-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4135,8 +4660,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="isoneutral-slab-distribution-1" class="section level2">
-<h2><span class="header-section-number">4.2</span> Isoneutral slab distribution</h2>
+<div id="isoneutral-slab-distribution-1" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Isoneutral slab distribution</h2>
 <p>Mean of all Cant within each horizontal grid cell (lon x lat) per isoneutral slab.</p>
 <p>Please note that:</p>
 <ul>
@@ -4185,6 +4710,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-1.png" target="_blank">8fae0b2</a>
@@ -4236,6 +4772,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4283,6 +4830,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-3.png" target="_blank">8fae0b2</a>
@@ -4334,6 +4892,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4381,6 +4950,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-5.png" target="_blank">8fae0b2</a>
@@ -4432,6 +5012,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4479,6 +5070,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-7.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-7.png" target="_blank">8fae0b2</a>
@@ -4530,6 +5132,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-8.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-8.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4577,6 +5190,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-9.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-9.png" target="_blank">8fae0b2</a>
@@ -4628,6 +5252,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-10.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-10.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4675,6 +5310,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-11.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-11.png" target="_blank">8fae0b2</a>
@@ -4726,6 +5372,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-12.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-12.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4773,6 +5430,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-13.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-13.png" target="_blank">8fae0b2</a>
@@ -4824,6 +5492,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-14.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-14.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4871,6 +5550,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-15.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-15.png" target="_blank">8fae0b2</a>
@@ -4922,6 +5612,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-16.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-16.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -4969,6 +5670,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-17.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-17.png" target="_blank">8fae0b2</a>
@@ -5020,6 +5732,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-18.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-18.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5067,6 +5790,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-19.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-19.png" target="_blank">8fae0b2</a>
@@ -5118,6 +5852,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-20.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-20.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5165,6 +5910,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-21.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-21.png" target="_blank">8fae0b2</a>
@@ -5216,6 +5972,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-22.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-22.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5263,6 +6030,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-23.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-23.png" target="_blank">8fae0b2</a>
@@ -5314,6 +6092,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-24.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-24.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5361,6 +6150,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-25.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-25.png" target="_blank">8fae0b2</a>
@@ -5412,6 +6212,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-26.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-26.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5459,6 +6270,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-27.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-27.png" target="_blank">8fae0b2</a>
@@ -5510,6 +6332,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-28.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-28.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5557,6 +6390,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-29.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-29.png" target="_blank">8fae0b2</a>
@@ -5608,6 +6452,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-30.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_gamma_slab_maps-30.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5633,8 +6488,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="inventory-map-1" class="section level2">
-<h2><span class="header-section-number">4.3</span> Inventory map</h2>
+<div id="inventory-map-1" class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> Inventory map</h2>
 <p>Column inventory of all Cant between the surface and 3000m water depth per horizontal grid cell (lat x lon).</p>
 <pre class="r"><code># i_eras &lt;- unique(cant_inv$eras)[1]
 
@@ -5672,6 +6527,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_inventory_map-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_inventory_map-1.png" target="_blank">8fae0b2</a>
@@ -5723,6 +6589,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_all_inventory_map-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_all_inventory_map-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5749,10 +6626,10 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="cant-variability" class="section level1">
-<h1><span class="header-section-number">5</span> Cant variability</h1>
-<div id="across-models" class="section level2">
-<h2><span class="header-section-number">5.1</span> Across models</h2>
+<div id="cant-variability" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Cant variability</h1>
+<div id="across-models" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Across models</h2>
 <p>Standard deviation across Cant from all MLR models was calculate for each grid cell (XYZ). The zonal mean of this standard deviation should reflect the uncertainty associated to the predictor selection within each slab and era.</p>
 <pre class="r"><code># i_eras &lt;- unique(cant_zonal$eras)[1]
 # i_basin_AIP &lt;- unique(cant_zonal$basin_AIP)[2]
@@ -5797,6 +6674,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-1.png" target="_blank">8fae0b2</a>
@@ -5848,6 +6736,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5895,6 +6794,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-3.png" target="_blank">8fae0b2</a>
@@ -5946,6 +6856,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -5993,6 +6914,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-5.png" target="_blank">8fae0b2</a>
@@ -6044,6 +6976,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_models-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6069,8 +7012,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="across-basins" class="section level2">
-<h2><span class="header-section-number">5.2</span> Across basins</h2>
+<div id="across-basins" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Across basins</h2>
 <p>Standard deviation of mean cant values was calculate across all longitudes. This standard deviation should reflect the zonal variability of cant within the basin and era.</p>
 <pre class="r"><code># i_eras &lt;- unique(cant_zonal$eras)[1]
 # i_basin_AIP &lt;- unique(cant_zonal$basin_AIP)[2]
@@ -6115,6 +7058,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-1.png" target="_blank">8fae0b2</a>
@@ -6166,6 +7120,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6213,6 +7178,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-3.png" target="_blank">8fae0b2</a>
@@ -6264,6 +7240,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6311,6 +7298,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-5.png" target="_blank">8fae0b2</a>
@@ -6362,6 +7360,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_sections_sd_cant-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6387,12 +7396,12 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="correlation" class="section level2">
-<h2><span class="header-section-number">5.3</span> Correlation</h2>
-<div id="cant-vs-model-sd" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Cant vs model SD</h3>
-<div id="era-vs-basin" class="section level4">
-<h4><span class="header-section-number">5.3.1.1</span> Era vs basin</h4>
+<div id="correlation" class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Correlation</h2>
+<div id="cant-vs-model-sd" class="section level3" number="5.3.1">
+<h3 number="5.3.1"><span class="header-section-number">5.3.1</span> Cant vs model SD</h3>
+<div id="era-vs-basin" class="section level4" number="5.3.1.1">
+<h4 number="5.3.1.1"><span class="header-section-number">5.3.1.1</span> Era vs basin</h4>
 <pre class="r"><code>cant_3d %&gt;% 
   ggplot(aes(cant, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -6428,6 +7437,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_era-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_era-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6453,8 +7473,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="basin-vs-gamma" class="section level4">
-<h4><span class="header-section-number">5.3.1.2</span> Basin vs gamma</h4>
+<div id="basin-vs-gamma" class="section level4" number="5.3.1.2">
+<h4 number="5.3.1.2"><span class="header-section-number">5.3.1.2</span> Basin vs gamma</h4>
 <pre class="r"><code>cant_3d %&gt;% 
   ggplot(aes(cant, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -6490,6 +7510,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_gamma-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_gamma-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6516,10 +7547,10 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="cant-vs-regional-sd" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Cant vs regional SD</h3>
-<div id="era-vs-basin-1" class="section level4">
-<h4><span class="header-section-number">5.3.2.1</span> Era vs basin</h4>
+<div id="cant-vs-regional-sd" class="section level3" number="5.3.2">
+<h3 number="5.3.2"><span class="header-section-number">5.3.2</span> Cant vs regional SD</h3>
+<div id="era-vs-basin-1" class="section level4" number="5.3.2.1">
+<h4 number="5.3.2.1"><span class="header-section-number">5.3.2.1</span> Era vs basin</h4>
 <pre class="r"><code>cant_zonal %&gt;% 
   ggplot(aes(cant_mean, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -6555,6 +7586,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_era_zonal-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_era_zonal-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6580,8 +7622,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="era-vs-basin-2" class="section level4">
-<h4><span class="header-section-number">5.3.2.2</span> Era vs basin</h4>
+<div id="era-vs-basin-2" class="section level4" number="5.3.2.2">
+<h4 number="5.3.2.2"><span class="header-section-number">5.3.2.2</span> Era vs basin</h4>
 <pre class="r"><code>cant_zonal %&gt;% 
   ggplot(aes(cant_mean, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -6617,6 +7659,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_gamma_zonal-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_vs_sd_by_basin_gamma_zonal-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6645,8 +7698,8 @@ jens-daniel-mueller
 </div>
 </div>
 </div>
-<div id="cant---predictor-contribution" class="section level1">
-<h1><span class="header-section-number">6</span> Cant - predictor contribution</h1>
+<div id="cant---predictor-contribution" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Cant - predictor contribution</h1>
 <pre class="r"><code>for (i_var in paste(&quot;cant&quot;,
                     c(&quot;intercept&quot;, params_local$MLR_predictors),
                     sep = &quot;_&quot;)) {
@@ -6681,6 +7734,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-1.png" target="_blank">8fae0b2</a>
@@ -6732,6 +7796,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-2.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6779,6 +7854,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-3.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-3.png" target="_blank">8fae0b2</a>
@@ -6830,6 +7916,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-4.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-4.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6877,6 +7974,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-5.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-5.png" target="_blank">8fae0b2</a>
@@ -6928,6 +8036,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-6.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-6.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -6975,6 +8094,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-7.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-7.png" target="_blank">8fae0b2</a>
@@ -7026,6 +8156,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-8.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/cant_section_predictor_contribution-8.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -7052,11 +8193,11 @@ jens-daniel-mueller
 </div>
 <pre class="r"><code>rm(i_var)</code></pre>
 </div>
-<div id="neutral-density" class="section level1">
-<h1><span class="header-section-number">7</span> Neutral density</h1>
-<div id="slab-depth" class="section level2">
-<h2><span class="header-section-number">7.1</span> Slab depth</h2>
-<p>The plot below shows the depths of individual gamma slabs (color) together with the observations available in the respective slab.</p>
+<div id="neutral-density" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Neutral density</h1>
+<div id="slab-depth" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Slab depth</h2>
+<p>The plot below shows the depths of individual gamma slabs (color) together with the synthetic subsetting available in the respective slab.</p>
 <p>Please note that:</p>
 <ul>
 <li>density slabs covering values &gt;28.1 occur by definition only either in the Atlantic or Indo-Pacific basin</li>
@@ -7126,11 +8267,11 @@ jens-daniel-mueller
 <pre class="r"><code>rm(GLODAP_obs_coverage)</code></pre>
 </div>
 </div>
-<div id="target-variable" class="section level1">
-<h1><span class="header-section-number">8</span> Target variable</h1>
+<div id="target-variable" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Target variable</h1>
 <p>The predicted target variable (cstar_tref in this sensitivity case) is based on fitted MLRs and climatological fields of predictor variables, and calculated for each era.</p>
-<div id="zonal-mean-sections-2" class="section level2">
-<h2><span class="header-section-number">8.1</span> Zonal mean sections</h2>
+<div id="zonal-mean-sections-2" class="section level2" number="8.1">
+<h2 number="8.1"><span class="header-section-number">8.1</span> Zonal mean sections</h2>
 <pre class="r"><code>slab_breaks &lt;- c(params_local$slabs_Atl[1:12], Inf)
 
 target_zonal %&gt;%
@@ -7180,6 +8321,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/analysis_this_study.Rmd/target_zonal_mean_era-1.png" target="_blank">fb8a752</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2020-12-23
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/analysis_this_study.Rmd/target_zonal_mean_era-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -7215,7 +8367,7 @@ jens-daniel-mueller
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.0.3 (2020-10-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: openSUSE Leap 15.1
+Running under: openSUSE Leap 15.2
 
 Matrix products: default
 BLAS:   /usr/local/R-4.0.3/lib64/R/lib/libRblas.so
@@ -7234,7 +8386,7 @@ attached base packages:
 
 other attached packages:
  [1] gt_0.2.2         kableExtra_1.3.1 marelac_2.1.10   shape_1.4.5     
- [5] scales_1.1.1     metR_0.8.0       scico_1.2.0      patchwork_1.1.0 
+ [5] scales_1.1.1     metR_0.9.0       scico_1.2.0      patchwork_1.1.1 
  [9] collapse_1.4.2   forcats_0.5.0    stringr_1.4.0    dplyr_1.0.2     
 [13] purrr_0.3.4      readr_1.4.0      tidyr_1.1.2      tibble_3.0.4    
 [17] ggplot2_3.3.2    tidyverse_1.3.0  workflowr_1.6.2 
@@ -7281,6 +8433,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>
