@@ -295,7 +295,6 @@ rm(i_lm_fit, coefficients, i_rmse,
    lm_all,
    i_aic, i_n_predictors, i_resid_max)
 
-
 ```
 
 
@@ -480,8 +479,7 @@ lm_best_target %>%
     model,
     eras,
     era,
-    `coeff_(Intercept)`,
-    paste("coeff", params_local$MLR_predictors, sep = "_")
+    starts_with("coeff_")
   ) %>%
   write_csv(paste(path_version_data,
                   "lm_best_target.csv",
@@ -493,8 +491,7 @@ lm_best_cant %>%
     gamma_slab,
     model,
     eras,
-    `delta_coeff_(Intercept)`,
-    paste("delta_coeff", params_local$MLR_predictors, sep = "_")
+    starts_with("delta_coeff_")
   ) %>%
   write_csv(paste(path_version_data,
                   "lm_best_cant.csv",
@@ -544,7 +541,7 @@ lm_best_target %>%
 
 ## RMSE correlation between eras
 
-RMSE was plotted to compare the agreement for one model applied to two adjecent eras (ie check whether the same predictor combination performs equal in both eras).
+RMSE was plotted to compare the agreement for one model applied to two adjacent eras (ie check whether the same predictor combination performs equal in both eras).
 
 ### All models
 

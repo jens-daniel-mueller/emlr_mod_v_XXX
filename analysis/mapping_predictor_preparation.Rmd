@@ -181,9 +181,10 @@ N_Atl <- predictors %>%
          lon == params_global$lon_Atl_section)
 
 # pivot table to long format
-N_Atl <- N_Atl %>% 
+N_Atl <- N_Atl %>%
   select(-c(basin, basin_AIP)) %>%
-  pivot_longer(gamma:silicate, names_to = "parameter", values_to = "value")
+  pivot_longer(c(any_of(params_local$MLR_predictors), gamma), 
+               names_to = "parameter", values_to = "value")
 
 # plot profiles
 N_Atl %>% 
@@ -301,21 +302,7 @@ map +
 
 ```{r all_predictor_sections, fig.asp=1.2}
 
-vars <-
-  c(
-    "gamma",
-    "sal",
-    "temp",
-    "phosphate",
-    "phosphate_star",
-    "oxygen",
-    "aou",
-    "silicate"
-  )
-
-# i_var <- vars[1]
-
-for (i_var in vars) {
+for (i_var in append(params_local$MLR_predictors, "gamma")) {
   print(
     p_section_climatology_regular(
       df = predictors,

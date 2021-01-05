@@ -49,6 +49,8 @@ path_version_figures  <-
 ```{r load_libraries_specific, include = FALSE}
 library(marelac)
 library(lubridate)
+library(knitr)
+library(kableExtra)
 ```
 
 # Required data
@@ -62,25 +64,44 @@ Required are:
 
 ```{r read_required_data_sets}
 
-GLODAP <-
+tref  <-
   read_csv(paste(path_version_data,
-                 "GLODAPv2.2020_clean_model_runA.csv",
+                 "tref.csv",
                  sep = ""))
 
-cant_1994 <-
-  read_csv(paste(path_preprocessing,
-                 "cant_annual_field_AD/cant_1994.csv",
-                 sep = ""))
+GLODAP <-
+  read_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_clean_model_runA.csv",
+    sep = ""
+  ))
 
-cant_2008 <-
-  read_csv(paste(path_preprocessing,
-                 "cant_annual_field_AD/cant_2008.csv",
-                 sep = ""))
+cant_tref_1 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_AD/cant_",
+    unique(tref$year[1]),
+    ".csv",
+    sep = ""
+  ))
 
-cant_2016 <-
-  read_csv(paste(path_preprocessing,
-                 "cant_annual_field_AD/cant_2016.csv",
-                 sep = ""))
+cant_tref_2 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_AD/cant_",
+    unique(tref$year[2]),
+    ".csv",
+    sep = ""
+  ))
+
+cant_tref_3 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_AD/cant_",
+    unique(tref$year[3]),
+    ".csv",
+    sep = ""
+  ))
 
 co2_atm <-
   read_csv(paste(path_preprocessing,
@@ -101,11 +122,12 @@ Here we use following equation:
 
 print(b_phosphate_star)
 
+if ("phosphate_star" %in% params_local$MLR_predictors) {
 GLODAP <- GLODAP %>% 
   mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+}
 
 ```
-
 
 
 # C*
@@ -147,24 +169,23 @@ To adjust C* values to the reference year of each observation period, we assume 
 
 ### Cant at tref
 
-Read in Cant field for each reference year. (For some sensitivity test, the reference years read in might need to be manually adjusted)
+Read in Cant field for each reference year.
 
 ```{r calculate_cant_tref}
 
-# calculate reference year
-tref <- GLODAP %>%
-  group_by(era) %>%
-  summarise(year = median(year)) %>%
-  ungroup()
+# print reference year table
+kable(tref) %>%
+  add_header_above() %>%
+  kable_styling()
 
 # join cant with tref
-cant_3d <- bind_rows(cant_1994, cant_2008, cant_2016)
+cant_3d <- bind_rows(cant_tref_1, cant_tref_2, cant_tref_3)
 
 cant_3d <- left_join(cant_3d, tref) %>%
   arrange(lon, lat, depth) %>% 
   select(lon, lat, depth, era, cant_total)
 
-rm(cant_1994, cant_2008, cant_2016)
+rm(cant_tref_1, cant_tref_2, cant_tref_3)
 
 ```
 
@@ -188,12 +209,16 @@ cant_3d_obs <- cant_3d_obs %>%
   mutate(n = n()) %>% 
   ungroup()
 
-cant_3d_obs %>%
-  filter(n <= 1) %>%
-  ggplot(aes(lon,lat)) +
-  geom_point(data = GLODAP_obs_grid_era, aes(lon, lat)) +
-  geom_point(col = "red") +
-  facet_wrap(~era)
+# GLODAP-based model subset with only one Cant value
+map +
+  geom_bin2d(data = cant_3d_obs,
+             aes(lon, lat),
+             binwidth = 1) +
+  scale_fill_viridis_c(direction = -1) +
+  coord_quickmap(expand = 0) +
+  facet_wrap(~ era, ncol = 1) +
+  labs(title = "Number of Cant depth levels",
+       subtitle = "available per latxlon grid cell")
 
 rm(cant_3d, GLODAP_obs_grid_era)
 
@@ -201,9 +226,9 @@ GLODAP_cant_obs <- full_join(GLODAP, cant_3d_obs)
 
 rm(GLODAP, cant_3d_obs)
 
-# fill number of cant data points per grid cell to all observations
+# fill number of cant data points per grid cell to all model subsetting
 GLODAP_cant_obs <- GLODAP_cant_obs %>%
-  group_by(lon, lat, era) %>%
+  group_by(lon, lat, era) %>% 
   fill(n, .direction = "updown") %>% 
   ungroup()
 
@@ -234,7 +259,6 @@ GLODAP_cant_obs_int <- GLODAP_cant_obs %>%
 ### bin data sets with interpolated and set cant
 GLODAP_cant_obs <- GLODAP_cant_obs_int
 rm(GLODAP_cant_obs_int)
-
 
 ggplot() +
   geom_path(
@@ -526,17 +550,16 @@ for (i_basin in unique(GLODAP$basin)) {
 ```{r histogram_predictor, fig.asp=1}
 
 GLODAP_vars <- GLODAP %>% 
-  select(cstar_tref,
-         sal,
-         temp,
-         oxygen,
-         aou,
-         silicate,
-         phosphate,
-         phosphate_star)
+  select(params_local$MLR_target,
+         params_local$MLR_predictors)
 
 GLODAP_vars_long <- GLODAP_vars %>% 
-  pivot_longer(cstar_tref:phosphate_star, names_to = "variable", values_to = "value")
+  pivot_longer(
+    cols = c(params_local$MLR_target,
+             params_local$MLR_predictors),
+    names_to = "variable",
+    values_to = "value"
+  )
 
 GLODAP_vars_long %>% 
   ggplot(aes(value)) +
@@ -548,8 +571,6 @@ GLODAP_vars_long %>%
 rm(GLODAP_vars, GLODAP_vars_long)
 
 ```
-
-
 
 
 # Individual cruise sections
@@ -653,6 +674,7 @@ lat_nitrate <- lat_section+
 
 lat_cstar <- lat_section+
   stat_summary_2d(aes(z=cstar_tref))
+
 
 hist_tco2 <- GLODAP_cruise %>%
   ggplot(aes(tco2)) +

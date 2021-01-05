@@ -260,7 +260,6 @@ rm(GLODAP_obs_grid_temp)
 GLODAP <- GLODAP %>%
   filter(tco2f %in% params_local$flag_f)
 
-
 ```
 
 #### qc flag
@@ -710,6 +709,26 @@ GLODAP  %>%  write_csv(paste(path_version_data,
 
 ```
 
+## Calculation of tref
+
+Calculate the reference year for each era and store it as csv file for further selection of corresponding Cant fields.
+
+```{r calculate_tref_and_write_file}
+
+# calculate reference year
+tref <- GLODAP %>%
+  group_by(era) %>%
+  summarise(year = median(year)) %>%
+  ungroup()
+
+# write file
+tref  %>%  write_csv(paste(path_version_data,
+                           "tref.csv",
+                           sep = ""))
+
+```
+
+
 # Overview plots
 
 ## Cleaning stats
@@ -777,6 +796,7 @@ rm(GLODAP_histogram_lat)
 Median years of each era (tref) were determined as:
 
 ```{r calculate_median_years}
+
 era_median_year <- GLODAP %>%
   group_by(era) %>%
   summarise(t_ref = median(year)) %>%
@@ -894,7 +914,7 @@ map +
              binwidth = c(1,1)) +
   scale_fill_viridis_c(option = "magma", direction = -1, trans = "log10") +
   facet_wrap(~era, ncol = 1) +
-  labs(title = "Cleaned GLODAP observations",
+  labs(title = "Cleaned GLODAP-based model subsetting",
        subtitle = paste("Version:", params_local$Version_ID)) +
   theme(axis.title = element_blank())
 
