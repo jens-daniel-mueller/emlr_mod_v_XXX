@@ -69,17 +69,17 @@ GLODAP <-
 
 cant_1994 <-
   read_csv(paste(path_preprocessing,
-                 "cant_annual_field/cant_1994.csv",
+                 "cant_annual_field_AD/cant_1994.csv",
                  sep = ""))
 
-cant_2007 <-
+cant_2008 <-
   read_csv(paste(path_preprocessing,
-                 "cant_annual_field/cant_2007.csv",
+                 "cant_annual_field_AD/cant_2008.csv",
                  sep = ""))
 
-cant_2015 <-
+cant_2016 <-
   read_csv(paste(path_preprocessing,
-                 "cant_annual_field/cant_2015.csv",
+                 "cant_annual_field_AD/cant_2016.csv",
                  sep = ""))
 
 co2_atm <-
@@ -158,13 +158,13 @@ tref <- GLODAP %>%
   ungroup()
 
 # join cant with tref
-cant_3d <- bind_rows(cant_1994, cant_2007, cant_2015)
+cant_3d <- bind_rows(cant_1994, cant_2008, cant_2016)
 
 cant_3d <- left_join(cant_3d, tref) %>%
   arrange(lon, lat, depth) %>% 
   select(lon, lat, depth, era, cant_total)
 
-rm(cant_1994, cant_2007, cant_2015)
+rm(cant_1994, cant_2008, cant_2016)
 
 ```
 

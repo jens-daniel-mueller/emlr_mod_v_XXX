@@ -103,22 +103,24 @@ Results from modeled Cant is referred to as M.
 cant_1994 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AB/cant_1994.csv",
+    "cant_annual_field_AD/cant_1994.csv",
     sep = ""
   ))
 
 cant_1994 <- cant_1994 %>%
-  rename(cant_1994 = cant_total)
+  rename(cant_1994 = cant_total) %>%
+  select(-year)
 
 cant_2007 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AB/cant_2007.csv",
+    "cant_annual_field_AD/cant_2007.csv",
     sep = ""
   ))
 
 cant_2007 <- cant_2007 %>%
-  rename(cant_2007 = cant_total)
+  rename(cant_2007 = cant_total) %>%
+  select(-year)
 
 ```
 
@@ -130,7 +132,7 @@ cant_M <- left_join(cant_1994, cant_2007) %>%
 cant_M <- cant_M %>% 
    mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
-cant_M <- cant_gruber %>% 
+cant_M <- cant_M %>% 
   mutate(eras = "JGOFS/WOCE")
 
 rm(cant_1994, cant_2007)
@@ -139,11 +141,10 @@ rm(cant_1994, cant_2007)
 
 ```{r calculate_zonal_mean_modeled_cant}
 
-cant_zonal_M <- m_zonal_mean_section(cant_gruber)
+cant_zonal_M <- m_zonal_mean_section(cant_M)
 
 
-cant_zonal_G19 <- cant_zonal_G19 %>%
-  filter(eras == "JGOFS_GO") %>%
+cant_zonal_M <- cant_zonal_M %>%
   select(lat,
          depth,
          basin_AIP,
@@ -158,9 +159,7 @@ cant_zonal_G19 <- cant_zonal_G19 %>%
 
 cant_inv_M <- m_cant_inv(cant_M)
 
-
-
-cant_inv_G19 <- cant_inv_G19 %>%
+cant_inv_M <- cant_inv_M %>%
   select(-eras)
 
 ```
