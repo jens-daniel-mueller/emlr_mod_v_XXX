@@ -602,16 +602,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree608cc4575a898134e1d7cb6f5d0553625d85db00targetblank608cc45a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/608cc4575a898134e1d7cb6f5d0553625d85db00" target="_blank">608cc45</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree608cc4575a898134e1d7cb6f5d0553625d85db00targetblank608cc45a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/608cc4575a898134e1d7cb6f5d0553625d85db00" target="_blank">608cc45</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -662,6 +662,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/608cc4575a898134e1d7cb6f5d0553625d85db00/analysis/config_parameterization_local.Rmd" target="_blank">608cc45</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+<td>
+modification of analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/config_parameterization_local.html" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -825,7 +859,7 @@ params_local &lt;-
     # ID of current sensitivity run
     Version_ID = &quot;v_XXX&quot;,
     # f flags accepted for GLODAP data
-    flag_f = c(2,0),
+    flag_f = c(2),
     # qc flags accepted for GLODAP data
     flag_qc = c(1),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
@@ -839,7 +873,7 @@ params_local &lt;-
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits
-    MLR_basins = &quot;AIP&quot;,
+    MLR_basins = &quot;2&quot;,
     # Select the target variable for MLR, either &quot;tco2&quot;, &quot;cstar&quot; or &quot;cstar_tref&quot;
     MLR_target = &quot;cstar_tref&quot;,
     # see above

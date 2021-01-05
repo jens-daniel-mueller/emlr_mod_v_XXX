@@ -30,6 +30,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -602,16 +604,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree608cc4575a898134e1d7cb6f5d0553625d85db00targetblank608cc45a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/608cc4575a898134e1d7cb6f5d0553625d85db00" target="_blank">608cc45</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree58556068ff83ff9c1eee4a5628b2e0443573ed39targetblank5855606a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree608cc4575a898134e1d7cb6f5d0553625d85db00targetblank608cc45a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/58556068ff83ff9c1eee4a5628b2e0443573ed39" target="_blank">5855606</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/608cc4575a898134e1d7cb6f5d0553625d85db00" target="_blank">608cc45</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -662,6 +664,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/608cc4575a898134e1d7cb6f5d0553625d85db00/analysis/eMLR_data_preparation.Rmd" target="_blank">608cc45</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+<td>
+modification of analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/eMLR_data_preparation.html" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -833,25 +869,44 @@ Initial commit
 <li>Cmorized annual cant field for three reference year</li>
 <li>Cmorized annual mean atmospheric pCO<sub>2</sub></li>
 </ul>
-<pre class="r"><code>GLODAP &lt;-
+<pre class="r"><code>tref  &lt;-
   read_csv(paste(path_version_data,
-                 &quot;GLODAPv2.2020_clean_model_runA.csv&quot;,
+                 &quot;tref.csv&quot;,
                  sep = &quot;&quot;))
 
-cant_1994 &lt;-
-  read_csv(paste(path_preprocessing,
-                 &quot;cant_annual_field_AD/cant_1994.csv&quot;,
-                 sep = &quot;&quot;))
+GLODAP &lt;-
+  read_csv(paste(
+    path_version_data,
+    &quot;GLODAPv2.2020_clean_model_runA.csv&quot;,
+    sep = &quot;&quot;
+  ))
 
-cant_2008 &lt;-
-  read_csv(paste(path_preprocessing,
-                 &quot;cant_annual_field_AD/cant_2008.csv&quot;,
-                 sep = &quot;&quot;))
+cant_tref_1 &lt;-
+  read_csv(paste(
+    path_preprocessing,
+    &quot;cant_annual_field_AD/cant_&quot;,
+    unique(tref$year[1]),
+    &quot;.csv&quot;,
+    sep = &quot;&quot;
+  ))
 
-cant_2016 &lt;-
-  read_csv(paste(path_preprocessing,
-                 &quot;cant_annual_field_AD/cant_2016.csv&quot;,
-                 sep = &quot;&quot;))
+cant_tref_2 &lt;-
+  read_csv(paste(
+    path_preprocessing,
+    &quot;cant_annual_field_AD/cant_&quot;,
+    unique(tref$year[2]),
+    &quot;.csv&quot;,
+    sep = &quot;&quot;
+  ))
+
+cant_tref_3 &lt;-
+  read_csv(paste(
+    path_preprocessing,
+    &quot;cant_annual_field_AD/cant_&quot;,
+    unique(tref$year[3]),
+    &quot;.csv&quot;,
+    sep = &quot;&quot;
+  ))
 
 co2_atm &lt;-
   read_csv(paste(path_preprocessing,
@@ -871,8 +926,10 @@ co2_atm &lt;-
         params_local$rPO_offset
     return(phosphate_star)
 }</code></pre>
-<pre class="r"><code>GLODAP &lt;- GLODAP %&gt;% 
-  mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))</code></pre>
+<pre class="r"><code>if (&quot;phosphate_star&quot; %in% params_local$MLR_predictors) {
+GLODAP &lt;- GLODAP %&gt;% 
+  mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+}</code></pre>
 </div>
 </div>
 <div id="c" class="section level1" number="3">
@@ -912,21 +969,57 @@ co2_atm &lt;-
 <p>To adjust C* values to the reference year of each observation period, we assume a transient steady state change of cant between the time of model subsetting and the reference year. The adjustment requires an approximation of the cant concentration at the reference year. We here use the model-estimated annual cant field for each reference year.</p>
 <div id="cant-at-tref" class="section level3" number="3.3.1">
 <h3 number="3.3.1"><span class="header-section-number">3.3.1</span> Cant at tref</h3>
-<p>Read in Cant field for each reference year. (For some sensitivity test, the reference years read in might need to be manually adjusted)</p>
-<pre class="r"><code># calculate reference year
-tref &lt;- GLODAP %&gt;%
-  group_by(era) %&gt;%
-  summarise(year = median(year)) %&gt;%
-  ungroup()
-
-# join cant with tref
-cant_3d &lt;- bind_rows(cant_1994, cant_2008, cant_2016)
+<p>Read in Cant field for each reference year.</p>
+<pre class="r"><code># print reference year table
+kable(tref) %&gt;%
+  add_header_above() %&gt;%
+  kable_styling()</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+era
+</th>
+<th style="text-align:right;">
+year
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1982-1999
+</td>
+<td style="text-align:right;">
+1995
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2000-2012
+</td>
+<td style="text-align:right;">
+2007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2013-2019
+</td>
+<td style="text-align:right;">
+2015
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># join cant with tref
+cant_3d &lt;- bind_rows(cant_tref_1, cant_tref_2, cant_tref_3)
 
 cant_3d &lt;- left_join(cant_3d, tref) %&gt;%
   arrange(lon, lat, depth) %&gt;% 
   select(lon, lat, depth, era, cant_total)
 
-rm(cant_1994, cant_2008, cant_2016)</code></pre>
+rm(cant_tref_1, cant_tref_2, cant_tref_3)</code></pre>
 </div>
 <div id="combine-glodap-cant" class="section level3" number="3.3.2">
 <h3 number="3.3.2"><span class="header-section-number">3.3.2</span> Combine GLODAP + Cant</h3>
@@ -945,12 +1038,16 @@ cant_3d_obs &lt;- cant_3d_obs %&gt;%
   mutate(n = n()) %&gt;% 
   ungroup()
 
-cant_3d_obs %&gt;%
-  filter(n &lt;= 1) %&gt;%
-  ggplot(aes(lon,lat)) +
-  geom_point(data = GLODAP_obs_grid_era, aes(lon, lat)) +
-  geom_point(col = &quot;red&quot;) +
-  facet_wrap(~era)</code></pre>
+# GLODAP-based model subset with only one Cant value
+map +
+  geom_bin2d(data = cant_3d_obs,
+             aes(lon, lat),
+             binwidth = 1) +
+  scale_fill_viridis_c(direction = -1) +
+  coord_quickmap(expand = 0) +
+  facet_wrap(~ era, ncol = 1) +
+  labs(title = &quot;Number of Cant depth levels&quot;,
+       subtitle = &quot;available per latxlon grid cell&quot;)</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/merge_cstar_cant-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-merge_cstar_cant-1">
@@ -974,6 +1071,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/merge_cstar_cant-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/eMLR_data_preparation.Rmd/merge_cstar_cant-1.png" target="_blank">8fae0b2</a>
@@ -1006,9 +1114,9 @@ GLODAP_cant_obs &lt;- full_join(GLODAP, cant_3d_obs)
 
 rm(GLODAP, cant_3d_obs)
 
-# fill number of cant data points per grid cell to all observations
+# fill number of cant data points per grid cell to all model subsetting
 GLODAP_cant_obs &lt;- GLODAP_cant_obs %&gt;%
-  group_by(lon, lat, era) %&gt;%
+  group_by(lon, lat, era) %&gt;% 
   fill(n, .direction = &quot;updown&quot;) %&gt;% 
   ungroup()</code></pre>
 <p>The model-estimated annual cant fields were merged with GLODAP-based synthetic cmorized model subsetting by:</p>
@@ -1034,7 +1142,6 @@ GLODAP_cant_obs_int &lt;- GLODAP_cant_obs %&gt;%
 ### bin data sets with interpolated and set cant
 GLODAP_cant_obs &lt;- GLODAP_cant_obs_int
 rm(GLODAP_cant_obs_int)
-
 
 ggplot() +
   geom_path(
@@ -1081,6 +1188,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" target="_blank">fb8a752</a>
@@ -1187,6 +1305,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" target="_blank">fb8a752</a>
 </td>
 <td>
@@ -1253,6 +1382,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" target="_blank">fb8a752</a>
 </td>
 <td>
@@ -1316,6 +1456,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" target="_blank">fb8a752</a>
@@ -1392,6 +1543,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-1.png" target="_blank">c8b76b3</a>
@@ -1696,6 +1858,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" target="_blank">fb8a752</a>
 </td>
 <td>
@@ -1903,6 +2076,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -1952,6 +2136,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">8fae0b2</a>
 </td>
 <td>
@@ -1976,69 +2171,19 @@ jens-daniel-mueller
 </table>
 </div>
 </div>
-<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-obs_gamma_slab-3">
-Past versions of obs_gamma_slab-3.png
-</button>
-</p>
-<div id="fig-obs_gamma_slab-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">8fae0b2</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2020-12-21
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">c8b76b3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2020-12-19
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <div id="histograms" class="section level2" number="6.1">
 <h2 number="6.1"><span class="header-section-number">6.1</span> Histograms</h2>
 <pre class="r"><code>GLODAP_vars &lt;- GLODAP %&gt;% 
-  select(cstar_tref,
-         sal,
-         temp,
-         oxygen,
-         aou,
-         silicate,
-         phosphate,
-         phosphate_star)
+  select(params_local$MLR_target,
+         params_local$MLR_predictors)
 
 GLODAP_vars_long &lt;- GLODAP_vars %&gt;% 
-  pivot_longer(cstar_tref:phosphate_star, names_to = &quot;variable&quot;, values_to = &quot;value&quot;)
+  pivot_longer(
+    cols = c(params_local$MLR_target,
+             params_local$MLR_predictors),
+    names_to = &quot;variable&quot;,
+    values_to = &quot;value&quot;
+  )
 
 GLODAP_vars_long %&gt;% 
   ggplot(aes(value)) +
@@ -2069,6 +2214,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" target="_blank">a499f10</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/fb8a75243083c272f469a56d9d4b8ce3ca1060a8/docs/figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" target="_blank">fb8a752</a>
@@ -2207,6 +2363,7 @@ lat_nitrate &lt;- lat_section+
 lat_cstar &lt;- lat_section+
   stat_summary_2d(aes(z=cstar_tref))
 
+
 hist_tco2 &lt;- GLODAP_cruise %&gt;%
   ggplot(aes(tco2)) +
   geom_histogram()
@@ -2325,37 +2482,37 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] lubridate_1.7.9 marelac_2.1.10  shape_1.4.5     metR_0.9.0     
- [5] scico_1.2.0     patchwork_1.1.1 collapse_1.4.2  forcats_0.5.0  
- [9] stringr_1.4.0   dplyr_1.0.2     purrr_0.3.4     readr_1.4.0    
-[13] tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.2   tidyverse_1.3.0
-[17] workflowr_1.6.2
+ [1] kableExtra_1.3.1 knitr_1.30       lubridate_1.7.9  marelac_2.1.10  
+ [5] shape_1.4.5      metR_0.9.0       scico_1.2.0      patchwork_1.1.1 
+ [9] collapse_1.4.2   forcats_0.5.0    stringr_1.4.0    dplyr_1.0.2     
+[13] purrr_0.3.4      readr_1.4.0      tidyr_1.1.2      tibble_3.0.4    
+[17] ggplot2_3.3.2    tidyverse_1.3.0  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2               viridisLite_0.3.0        jsonlite_1.7.2          
- [4] here_0.1                 modelr_0.1.8             assertthat_0.2.1        
- [7] blob_1.2.1               cellranger_1.1.0         yaml_2.2.1              
-[10] pillar_1.4.7             backports_1.2.1          lattice_0.20-41         
-[13] glue_1.4.2               RcppEigen_0.3.3.9.1      digest_0.6.27           
-[16] RColorBrewer_1.1-2       promises_1.1.1           checkmate_2.0.0         
-[19] rvest_0.3.6              colorspace_2.0-0         htmltools_0.5.0         
-[22] httpuv_1.5.4             Matrix_1.2-18            pkgconfig_2.0.3         
-[25] broom_0.7.3              seacarb_3.2.14           haven_2.3.1             
-[28] scales_1.1.1             whisker_0.4              later_1.1.0.1           
-[31] git2r_0.27.1             farver_2.0.3             generics_0.1.0          
-[34] ellipsis_0.3.1           withr_2.3.0              cli_2.2.0               
-[37] magrittr_2.0.1           crayon_1.3.4             readxl_1.3.1            
-[40] evaluate_0.14            fs_1.5.0                 fansi_0.4.1             
-[43] xml2_1.3.2               RcppArmadillo_0.10.1.2.0 oce_1.2-0               
-[46] tools_4.0.3              data.table_1.13.4        hms_0.5.3               
-[49] lifecycle_0.2.0          munsell_0.5.0            reprex_0.3.0            
-[52] gsw_1.0-5                compiler_4.0.3           rlang_0.4.9             
-[55] grid_4.0.3               rstudioapi_0.13          labeling_0.4.2          
-[58] rmarkdown_2.5            testthat_3.0.1           gtable_0.3.0            
-[61] DBI_1.1.0                R6_2.5.0                 knitr_1.30              
-[64] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
-[67] Rcpp_1.0.5               vctrs_0.3.6              dbplyr_1.4.4            
-[70] tidyselect_1.1.0         xfun_0.19               </code></pre>
+ [1] fs_1.5.0                 gsw_1.0-5                webshot_0.5.2           
+ [4] RColorBrewer_1.1-2       httr_1.4.2               rprojroot_2.0.2         
+ [7] tools_4.0.3              backports_1.2.1          R6_2.5.0                
+[10] DBI_1.1.0                colorspace_2.0-0         withr_2.3.0             
+[13] tidyselect_1.1.0         compiler_4.0.3           git2r_0.27.1            
+[16] cli_2.2.0                rvest_0.3.6              xml2_1.3.2              
+[19] labeling_0.4.2           scales_1.1.1             checkmate_2.0.0         
+[22] digest_0.6.27            rmarkdown_2.5            oce_1.2-0               
+[25] pkgconfig_2.0.3          htmltools_0.5.0          dbplyr_1.4.4            
+[28] highr_0.8                rlang_0.4.9              readxl_1.3.1            
+[31] rstudioapi_0.13          generics_0.1.0           farver_2.0.3            
+[34] jsonlite_1.7.2           magrittr_2.0.1           Matrix_1.2-18           
+[37] Rcpp_1.0.5               munsell_0.5.0            fansi_0.4.1             
+[40] lifecycle_0.2.0          stringi_1.5.3            whisker_0.4             
+[43] yaml_2.2.1               grid_4.0.3               blob_1.2.1              
+[46] parallel_4.0.3           promises_1.1.1           crayon_1.3.4            
+[49] lattice_0.20-41          haven_2.3.1              hms_0.5.3               
+[52] seacarb_3.2.14           pillar_1.4.7             reprex_0.3.0            
+[55] glue_1.4.2               evaluate_0.14            RcppArmadillo_0.10.1.2.0
+[58] data.table_1.13.4        modelr_0.1.8             vctrs_0.3.6             
+[61] httpuv_1.5.4             testthat_3.0.1           cellranger_1.1.0        
+[64] gtable_0.3.0             assertthat_0.2.1         xfun_0.19               
+[67] broom_0.7.3              RcppEigen_0.3.3.9.1      later_1.1.0.1           
+[70] viridisLite_0.3.0        ellipsis_0.3.1           here_0.1                </code></pre>
 </div>
 </div>
 
