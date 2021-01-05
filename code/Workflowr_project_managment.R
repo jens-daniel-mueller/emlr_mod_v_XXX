@@ -28,7 +28,7 @@ wflow_publish(here::here(
     "analysis_this_study.Rmd"
   )
 ),
-message = "first build after creating model template",
+message = "modification of analysis",
 republish = TRUE)
 
 
