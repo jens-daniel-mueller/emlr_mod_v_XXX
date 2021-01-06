@@ -24,14 +24,16 @@ wflow_publish(here::here(
     "mapping_predictor_preparation.Rmd",
     "mapping_cant.Rmd",
     "mapping_target_variable.Rmd",
-    "analysis_this_study_vs_Gruber_2019.Rmd",
+    "analysis_this_study_vs_model_truth.Rmd",
     "analysis_this_study.Rmd"
   )
 ),
-message = "modification of analysis",
+message = "local rebuild after revision",
 republish = TRUE)
 
 
 # Push latest version to GitHub
 wflow_git_push()
 jens-daniel-mueller
+Donghe-Zhu
+

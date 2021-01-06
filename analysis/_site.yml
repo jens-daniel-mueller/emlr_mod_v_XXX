@@ -30,8 +30,8 @@ navbar:
     href: mapping.html
   - text: Analysis
     menu:
-    - text: This study vs Gruber 2019
-      href: analysis_this_study_vs_Gruber_2019.html
+    - text: This study vs model truth
+      href: analysis_this_study_vs_model_truth.html
     - text: This study
       href: analysis_this_study.html
   right:
