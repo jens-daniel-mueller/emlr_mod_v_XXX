@@ -713,7 +713,7 @@ GLODAP  %>%  write_csv(paste(path_version_data,
 
 Calculate the reference year for each era and store it as csv file for further selection of corresponding Cant fields.
 
-```{r calculate_tref_and_write_file}
+```{r calc_tref_and_write_file}
 
 # calculate reference year
 tref <- GLODAP %>%
