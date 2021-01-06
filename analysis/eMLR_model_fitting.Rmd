@@ -517,7 +517,8 @@ lm_all_fitted_wide %>%
   geom_hline(yintercept = 10) +
   geom_boxplot() +
   facet_grid(gamma_slab~era) +
-  scale_color_brewer(palette = "Set1")
+  scale_color_brewer(palette = "Set1") +
+  labs(x="Number of predictors")
 
 ```
 
@@ -533,7 +534,7 @@ lm_best_target %>%
   geom_hline(yintercept = 10) +
   geom_boxplot() +
   facet_grid(gamma_slab~era) +
-  scale_color_brewer(palette = "Set1")+
+  scale_color_brewer(palette = "Set1") +
   labs(x="Number of predictors pooled")
 
 ```

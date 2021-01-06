@@ -78,8 +78,11 @@ Currently, following data sets are used for mapping:
 
 climatology <- read_csv(paste(path_preprocessing, "climatology_runA_2007.csv", sep = ""))
 
+climatology <- climatology %>%
+  rename(aou = AOU, TCO2 = tco2, TAlk = talk)
+
 predictors <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, sal, temp, phosphate, oxygen, aou = AOU, silicate)
+  select(lon, lat, depth, basin_AIP, gamma, any_of(params_local$MLR_predictors))
 
 ```
 
@@ -87,7 +90,7 @@ predictors <- climatology %>%
 ```{r load_model_climatologies_surface_mapping}
 
 predictors_surface <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2 = tco2, TAlk = talk, phosphate, silicate)
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, phosphate, silicate)
 
 ```
 
@@ -295,7 +298,7 @@ map +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = "white") +
   scale_fill_viridis_c(direction = -1,
-                       name = "") +
+                       name = "Number of depth levels") +
   theme(legend.position = "bottom")
 
 ```
@@ -324,7 +327,7 @@ map +
              binwidth = c(1, 1)) +
   geom_vline(xintercept = params_global$longitude_sections_regular,
              col = "white") +
-  scale_fill_viridis_c(direction = -1, name = "") +
+  scale_fill_viridis_c(direction = -1, name = "Number of depth levels") +
   theme(legend.position = "bottom")
 
 ```
