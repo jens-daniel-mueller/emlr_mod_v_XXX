@@ -54,6 +54,7 @@ library(kableExtra)
 library(gt)
 ```
 
+
 # Data sources
 
 Cant estimates from this sensitivity case:
@@ -61,7 +62,6 @@ Cant estimates from this sensitivity case:
 - Mean and SD per grid cell (lat, lon, depth)
 - Zonal mean and SD (basin, lat, depth)
 - Inventories (lat, lon)
-
 
 ```{r read_cant_files}
 
@@ -114,7 +114,7 @@ Cleaned GLODAP-based synthetic model subsetting file as used in this sensitivity
 GLODAP <-
   read_csv(paste(
     path_version_data,
-    "GLODAPv2.2020_MLR_fitting_ready_model_runA.csv",
+    "GLODAPv2.2020_MLR_fitting_ready.csv",
     sep = ""
   ))
 
@@ -256,7 +256,6 @@ for (i_eras in unique(cant_gamma_maps$eras)) {
   }
 }
 
-
 ```
 
 ## Inventory map
@@ -362,7 +361,6 @@ for (i_eras in unique(cant_gamma_maps$eras)) {
   }
 }
 
-
 ```
 
 ## Inventory map
@@ -415,7 +413,6 @@ for (i_basin_AIP in unique(cant_zonal$basin_AIP)) {
     
   }
 }
-  
 
 ```
 
@@ -579,7 +576,6 @@ The predicted target variable (`r params_local$MLR_target` in this sensitivity c
 ## Zonal mean sections
 
 ```{r target_zonal_mean_era}
-
 
 slab_breaks <- c(params_local$slabs_Atl[1:12], Inf)
 

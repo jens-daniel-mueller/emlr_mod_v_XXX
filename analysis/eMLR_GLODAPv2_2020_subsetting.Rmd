@@ -68,11 +68,45 @@ Main data source for this project is the synthetic cmorized model subset based o
 
 ```{r read_GLODAP-based_subsetting_model_file}
 
-GLODAP <-
+if (params_local$model_runs == "AD") {
+  
+GLODAP_subset <-
   read_csv(paste(path_preprocessing,
                  "GLODAPv2.2020_preprocessed_model_runA_final.csv",
                  sep = ""))
 
+random <- read_csv(paste(
+    path_preprocessing,
+    "GLODAPv2.2020_preprocessed_model_runA_random_subset.csv",
+    sep = ""
+  ))
+
+}
+
+if (params_local$model_runs == "CB") {
+  
+GLODAP_subset <-
+  read_csv(paste(path_preprocessing,
+                 "GLODAPv2.2020_preprocessed_model_runC_final.csv",
+                 sep = ""))
+
+random <- read_csv(paste(
+    path_preprocessing,
+    "GLODAPv2.2020_preprocessed_model_runC_random_subset.csv",
+    sep = ""
+  ))
+
+}
+
+# run this code always on both subsets
+run = "GLODAP"
+if (run == "GLODAP") {
+  GLODAP <- GLODAP_subset
+}
+
+if (run == "random") {
+  GLODAP <- random
+}
 
 ```
 
@@ -151,8 +185,10 @@ were excluded from the analysis to avoid coastal impacts. Please note that minim
 
 ```{r apply_bottomdepth_min}
 
+if (run == "GLODAP") {
 GLODAP <- GLODAP %>% 
   filter(bottomdepth >= params_local$bottomdepth_min)
+}
 
 ```
 
@@ -193,17 +229,21 @@ Rows with missing tco2 in GLODAP-based subsetting model data were already remove
 
 ```{r tco2_na_subset}
 
+if (run == "GLODAP") {
 GLODAP_stats <- GLODAP %>% 
   summarise(tco2_values = n())
 
 GLODAP_obs_grid <- GLODAP %>% 
   count(lat, lon, era) %>% 
   mutate(cleaning_level = "tco2_values")
+}
 
 ```
 
 ```{r WOA18_basin_mask_GLODAP-based_subsetting_model_data_map, fig.asp=0.6}
 
+if (run == "GLODAP") {
+  
 GLODAP_obs <- GLODAP %>% 
   group_by(lat, lon) %>% 
   summarise(n = n()) %>% 
@@ -218,12 +258,16 @@ map +
 
 rm(GLODAP_obs)
 
+}
+
 ```
 
 
 #### f flag
 
 ```{r tco2_f_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, tco2f)
@@ -241,11 +285,15 @@ rm(GLODAP_obs_grid_temp)
 GLODAP <- GLODAP %>%
   filter(tco2f %in% params_local$flag_f)
 
+}
+
 ```
 
 #### qc flag
 
 ```{r tco2_qc_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, tco2qc)
@@ -280,6 +328,8 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
+
 ```
 
 
@@ -288,6 +338,8 @@ rm(GLODAP_obs_grid_temp)
 #### NA
 
 ```{r talk_na_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP <- GLODAP %>% 
   mutate(talkna = if_else(is.na(talk), "NA", "Value"))
@@ -326,12 +378,15 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
 
 ```
 
 #### f flag
 
 ```{r talk_f_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, talkf)
@@ -351,12 +406,15 @@ map +
 GLODAP <- GLODAP %>%
   filter(talkf %in% params_local$flag_f)
 
+}
 
 ```
 
 #### qc flag
 
 ```{r talk_qc_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, talkqc)
@@ -394,6 +452,8 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
+
 ```
 
 
@@ -402,6 +462,8 @@ rm(GLODAP_obs_grid_temp)
 #### NA
 
 ```{r phosphate_na_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP <- GLODAP %>% 
   mutate(phosphatena = if_else(is.na(phosphate), "NA", "Value"))
@@ -440,12 +502,15 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
 
 ```
 
 #### f flag
 
 ```{r phosphate_f_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphatef)
@@ -464,12 +529,15 @@ map +
 GLODAP <- GLODAP %>%
   filter(phosphatef %in% params_local$flag_f)
 
+}
 
 ```
 
 #### qc flag
 
 ```{r phosphate_qc_subset, fig.asp=0.8}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphateqc)
@@ -508,6 +576,8 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
+
 ```
 
 
@@ -516,6 +586,8 @@ rm(GLODAP_obs_grid_temp)
 Variables required as predictors for the MLR fits, are subsetted for NAs and flags.
 
 ```{r eMLR_subset}
+
+if (run == "GLODAP") {
 
 if ("temp" %in% params_local$MLR_predictors) {
   GLODAP <- GLODAP %>%
@@ -612,13 +684,18 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
+}
 
 ```
 
 ```{r remove_flag_columns}
 
+if (run == "GLODAP") {
+
 GLODAP <- GLODAP %>% 
   select(-ends_with(c("f", "qc")))
+
+}
 
 ```
 
@@ -628,6 +705,8 @@ GLODAP <- GLODAP %>%
 For harmonization with Gruber et al. (2019), cruises 1041 (A16N) and 1042 (A16S) were grouped into the `r sort(unique(GLODAP$era))[2]` era despite taking place in 2013/14.
 
 ```{r GLODAP_Atl_cruises_2013_2014_map}
+
+if (run == "GLODAP") {
 
 GLODAP_cruises <- GLODAP %>% 
   filter(basin_AIP == "Atlantic",
@@ -642,9 +721,13 @@ map +
 
 rm(GLODAP_cruises)
 
+}
+
 ```
 
 ```{r switch_eras_manually}
+
+if (run == "GLODAP") {
 
 if (params_local$A16_GO_SHIP == "y") {
 
@@ -652,6 +735,8 @@ GLODAP <- GLODAP %>%
    mutate(era = if_else(cruise %in% c(1041, 1042),
                         sort(unique(GLODAP$era))[2], era))
 
+}
+  
 }
 
 ```
@@ -672,9 +757,12 @@ GLODAP_obs_grid_clean <- GLODAP %>%
  
 ```{r write_clean_data_files}
 
-GLODAP_obs_grid_clean  %>%  write_csv(paste(path_version_data,
-                                            "GLODAPv2.2020_clean_model_runA_obs_grid.csv",
-                                            sep = ""))
+if (run == "GLODAP") {
+  GLODAP_obs_grid_clean  %>%  write_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_clean_GLODAP_obs_grid.csv",
+    sep = ""
+  ))
 
 # select relevant columns for further analysis
 GLODAP <- GLODAP %>% 
@@ -685,27 +773,23 @@ GLODAP <- GLODAP %>%
          oxygen, aou, nitrate, silicate)
 
 GLODAP  %>%  write_csv(paste(path_version_data,
-                             "GLODAPv2.2020_clean_model_runA.csv",
+                             "GLODAPv2.2020_clean_GLODAP.csv",
                              sep = ""))
 
-```
+}
 
-## Calculation of tref
+if (run == "random") {
+  GLODAP_obs_grid_clean  %>%  write_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_clean_random_obs_grid.csv",
+    sep = ""
+  ))
 
-Calculate the reference year for each era and store it as csv file for further selection of corresponding Cant fields.
+  GLODAP  %>%  write_csv(paste(path_version_data,
+                               "GLODAPv2.2020_clean_random.csv",
+                               sep = ""))
 
-```{r calc_tref_and_write_file}
-
-# calculate reference year
-tref <- GLODAP %>%
-  group_by(era) %>%
-  summarise(year = median(year)) %>%
-  ungroup()
-
-# write file
-tref  %>%  write_csv(paste(path_version_data,
-                           "tref.csv",
-                           sep = ""))
+}
 
 ```
 
@@ -717,6 +801,8 @@ tref  %>%  write_csv(paste(path_version_data,
 Number of GLODAP-based subsetting model data at various steps of data cleaning.
 
 ```{r GLODAP-based_subsetting_data_cleaning_stats}
+
+if (run == "GLODAP") {
 
 GLODAP_stats_long <- GLODAP_stats %>%
   pivot_longer(1:length(GLODAP_stats),
@@ -734,6 +820,8 @@ GLODAP_stats_long %>%
 
 rm(GLODAP_stats_long)
 
+}
+
 ```
 
 
@@ -745,7 +833,11 @@ For the following plots, the cleaned data set was re-opened and GLODAP-based sub
 
 ```{r grid_spatially_5x5}
 
+if (run == "GLODAP") {
+
 GLODAP <- m_grid_horizontal_coarse(GLODAP)
+
+}
 
 ```
 
@@ -753,6 +845,8 @@ GLODAP <- m_grid_horizontal_coarse(GLODAP)
 ## Histogram Zonal coverage
 
 ```{r coverage_histogram_zonal}
+
+if (run == "GLODAP") {
 
 GLODAP_histogram_lat <- GLODAP %>%
   group_by(era, lat_grid, basin) %>%
@@ -770,6 +864,8 @@ GLODAP_histogram_lat %>%
 
 rm(GLODAP_histogram_lat)
 
+}
+
 ```
 
 ## Median years (tref)
@@ -778,12 +874,16 @@ Median years of each era (tref) were determined as:
 
 ```{r calculate_median_years}
 
+if (run == "GLODAP") {
+
 era_median_year <- GLODAP %>%
   group_by(era) %>%
   summarise(t_ref = median(year)) %>%
   ungroup()
 
 era_median_year
+
+}
 
 ```
 
@@ -792,6 +892,8 @@ era_median_year
 ## Histogram temporal coverage
 
 ```{r coverage_histogram_temporal}
+
+if (run == "GLODAP") {
 
 GLODAP_histogram_year <- GLODAP %>%
   group_by(year, basin) %>%
@@ -824,11 +926,15 @@ GLODAP_histogram_year %>%
 rm(GLODAP_histogram_year,
    era_median_year)
 
+}
+
 ```
 
 ## Zonal temporal coverage (Hovmoeller)
 
 ```{r coverage_hovmoeller, fig.asp=1}
+
+if (run == "GLODAP") {
 
 GLODAP_hovmoeller_year <- GLODAP %>%
   group_by(year, lat_grid, basin) %>%
@@ -848,6 +954,8 @@ GLODAP_hovmoeller_year %>%
 
 rm(GLODAP_hovmoeller_year)
 
+}
+
 ```
 
 ## Coverage maps by era
@@ -857,6 +965,8 @@ rm(GLODAP_hovmoeller_year)
 The following plots show the remaining data after **individual cleaning steps**, separately for each era.
 
 ```{r coverage_maps_era_subsetting_era_cleaning_level, fig.asp=1.1}
+
+if (run == "GLODAP") {
 
 GLODAP_obs_grid <- GLODAP_obs_grid %>%
   mutate(cleaning_level = factor(
@@ -877,6 +987,8 @@ map +
   theme(legend.position = "top",
         axis.title = element_blank())
 
+}
+
 ```
 
 ### Final input data
@@ -884,6 +996,8 @@ map +
 The following plots show the remaining data density in each grid cell **after all cleaning steps**, separately for each era.
 
 ```{r coverage_maps_era_clean, fig.asp=1.3}
+
+if (run == "GLODAP") {
 
 GLODAP_tco2_grid <- GLODAP %>%
   count(lat, lon)
@@ -903,6 +1017,8 @@ ggsave(path = path_version_figures,
        filename = "data_distribution_era.png",
        height = 8,
        width = 5)
+
+}
 
 ```
 

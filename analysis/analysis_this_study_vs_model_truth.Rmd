@@ -57,8 +57,8 @@ library(gt)
 
 Following Cant estimates are used:
 
-- Zonal mean (basin, lat, depth)
-- Inventories (lat, lon)
+- Zonal mean (basin, lat, depth, eras)
+- Inventories (lat, lon, eras)
 
 ## This study
 
@@ -72,9 +72,9 @@ cant_zonal_JDM <-
                  sep = ""))
 
 cant_zonal_JDM <- cant_zonal_JDM %>%
-  filter(eras == unique(cant_zonal_JDM$eras)[1]) %>%
   select(lat,
          depth,
+         eras,
          basin_AIP,
          cant_mean,
          cant_pos_mean,
@@ -88,9 +88,7 @@ cant_inv_JDM <-
                  sep = ""))
 
 cant_inv_JDM <- cant_inv_JDM %>%
-  filter(eras == unique(cant_inv_JDM$eras)[1],
-         inv_depth == params_global$inventory_depth_standard) %>%
-  select(-c(eras))
+  filter(inv_depth == params_global$inventory_depth_standard)
 
 ```
 
@@ -99,7 +97,7 @@ cant_inv_JDM <- cant_inv_JDM %>%
 "True" Cant fields directly inferred from the model output are referred to as M.
 
 ```{r read_modeled_cant_files}
-
+               
 tref  <-
   read_csv(paste(path_version_data,
                  "tref.csv",
@@ -108,7 +106,7 @@ tref  <-
 cant_tref_1 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AD/cant_",
+    "cant_annual_field_", params_local$model_runs, "/cant_",
     unique(tref$year[1]),
     ".csv",
     sep = ""
@@ -121,7 +119,7 @@ cant_tref_1 <- cant_tref_1 %>%
 cant_tref_2 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AD/cant_",
+    "cant_annual_field_", params_local$model_runs, "/cant_",
     unique(tref$year[2]),
     ".csv",
     sep = ""
@@ -131,39 +129,49 @@ cant_tref_2 <- cant_tref_2 %>%
   rename(cant_tref_2 = cant_total) %>%
   select(-year)
 
+cant_tref_3 <-
+  read_csv(paste(
+    path_preprocessing,
+    "cant_annual_field_", params_local$model_runs, "/cant_",
+    unique(tref$year[3]),
+    ".csv",
+    sep = ""
+  ))
+
+cant_tref_3 <- cant_tref_3 %>%
+  rename(cant_tref_3 = cant_total) %>%
+  select(-year)
+
 ```
 
 ```{r calc_modeled_cant_between_tref}
 
-cant_M <- left_join(cant_tref_1, cant_tref_2) %>%
-  mutate(cant = cant_tref_2 - cant_tref_1)
+cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
+  mutate(cant = cant_tref_2 - cant_tref_1,
+         eras = unique(cant_inv_JDM$eras)[1]) %>% 
+  select(-c(cant_tref_1, cant_tref_2))
 
-cant_M <- cant_M %>% 
+cant_M_1 <- cant_M_1 %>% 
    mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
-cant_M <- cant_M %>% 
-  mutate(eras = "JGOFS/WOCE")
+cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
+  mutate(cant = cant_tref_3 - cant_tref_2,
+         eras = unique(cant_inv_JDM$eras)[2]) %>% 
+  select(-c(cant_tref_2, cant_tref_3))
 
-rm(cant_tref_1, cant_tref_2)
+cant_M_2 <- cant_M_2 %>% 
+   mutate(cant_pos = if_else(cant <= 0, 0, cant))
+
+cant_M <- full_join(cant_M_1, cant_M_2) %>%
+  arrange(lon, lat, depth, basin_AIP)
+
+rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
 ```
 
 ```{r calc_zonal_mean_modeled_cant}
 
-cant_M <- cant_M %>% 
-  select(-c(cant_tref_1, cant_tref_2))
-
 cant_zonal_M <- m_zonal_mean_section(cant_M)
-
-
-cant_zonal_M <- cant_zonal_M %>%
-  select(lat,
-         depth,
-         basin_AIP,
-         cant_mean,
-         cant_pos_mean,
-         cant_sd,
-         cant_pos_sd)
 
 ```
 
@@ -172,14 +180,13 @@ cant_zonal_M <- cant_zonal_M %>%
 cant_inv_M <- m_cant_inv(cant_M)
 
 cant_inv_M <- cant_inv_M %>%
-  filter(inv_depth == params_global$inventory_depth_standard) %>%
-  select(-eras)
+  filter(inv_depth == params_global$inventory_depth_standard)
 
 ```
 
 ## Join data sets
 
-Inventories and zonal sections are merged, and differences calculate per grid cell.
+Inventories and zonal sections are merged, and differences calculate per grid cell and per eras.
 
 ```{r join_M_and_JDM_inventories}
 
@@ -234,7 +241,7 @@ cant_inv_budget <- cant_inv_long %>%
   mutate(surface_area = earth_surf(lat, lon),
          cant_inv_grid = cant_inv*surface_area,
          cant_pos_inv_grid = cant_pos_inv*surface_area) %>% 
-  group_by(basin_AIP, estimate) %>% 
+  group_by(basin_AIP, estimate, eras) %>% 
   summarise(cant_total = sum(cant_inv_grid)*12*1e-15,
             cant_total = round(cant_total,1),
             cant_pos_total = sum(cant_pos_inv_grid)*12*1e-15,
@@ -244,7 +251,7 @@ cant_inv_budget <- cant_inv_long %>%
 # print budget table
 cant_inv_budget %>%
   gt(rowname_col = "basin_AIP",
-     groupname_col = c("estimate")) %>% 
+     groupname_col = c("eras", "estimate")) %>% 
   summary_rows(
     groups = TRUE,
     fns = list(total = "sum")
@@ -254,11 +261,12 @@ rm(cant_inv_budget)
 
 ```
 
-# Cant - positive only
+
+# Inventory maps
+
+## Cant - positive only
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
-
-## Inventory maps
 
 ### Absolute values
 
@@ -266,16 +274,15 @@ Column inventory of positive Cant between the surface and `r params_global$inven
 
 ```{r cant_pos_inventory_map, fig.asp=0.5}
 
-# i_estimate <- unique(cant_inv_long$estimate)[1]
-
 for (i_estimate in unique(cant_inv_long$estimate)) {
-  
-  print(
-    p_map_cant_inv(
-      cant_inv_long %>% filter(estimate == i_estimate),
-      subtitle_text = paste("Estimate:", i_estimate))
-    )
-  
+  for (i_eras in unique(cant_inv_long$eras)) {
+    
+    print(p_map_cant_inv(
+      cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
+      subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras)
+    ))
+    
+  }
 }
 
 ```
@@ -286,36 +293,91 @@ Column inventory of positive cant between the surface and `r params_global$inven
 
 ```{r cant_pos_offset_inventory_map, fig.asp=0.5}
 
-p_map_cant_inv_offset(cant_inv_wide,
-                      "cant_pos_inv_offset",
-                      subtitle_text = "Estimate JDM - M")
+for (i_eras in unique(cant_inv_wide$eras)) {
+  
+  print(
+    p_map_cant_inv_offset(
+      cant_inv_wide %>% filter(eras == i_eras),
+      "cant_pos_inv_offset",
+      subtitle_text = paste("Estimate JDM - M | Eras:", i_eras)
+    )
+  )
+  
+}
 
 ```
 
-## Zonal mean sections
+## Cant - all
+
+In a second series of plots we explore the distribution of Cant, taking positive and negative estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell).
+
+### Absolute values
+
+Column inventory of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
+
+```{r cant_inventory_map, fig.asp=0.5}
+
+for (i_estimate in unique(cant_inv_long$estimate)) {
+  for (i_eras in unique(cant_inv_long$eras)) {
+    
+    print(
+      p_map_cant_inv(
+        cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
+        subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras),
+        col = "divergent"
+      )
+    )
+    
+  }
+}
+
+```
+
+### Offset
+
+```{r cant_offset_inventory_map, fig.asp = 0.5}
+
+for (i_eras in unique(cant_inv_wide$eras)) {
+  
+  print(
+    p_map_cant_inv_offset(
+      df = cant_inv_wide %>% filter(eras == i_eras),
+      var = "cant_inv_offset",
+      subtitle_text = paste("Estimate JDM - M | Eras:", i_eras)
+    )
+  )
+  
+}
+
+```
+
+
+# Zonal mean sections
+
+## Cant - positive only
 
 ### Absolute values
 
 ```{r cant_pos_zonal_mean_section, fig.asp=0.6}
 
-# i_basin_AIP <- unique(cant_zonal_long$basin_AIP)[1]
-# i_estimate <- unique(cant_zonal_long$estimate)[1]
-
 for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
   for (i_estimate in unique(cant_zonal_long$estimate)) {
-    print(
-      p_section_zonal(
-        df = cant_zonal_long %>%
-          filter(basin_AIP == i_basin_AIP,
-                 estimate == i_estimate),
-        var = "cant_pos_mean",
-        plot_slabs = "n",
-        subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate:", i_estimate)
+    for (i_eras in unique(cant_zonal_long$eras)) {
+      
+      print(
+        p_section_zonal(
+          df = cant_zonal_long %>%
+            filter(basin_AIP == i_basin_AIP,
+                   estimate == i_estimate,
+                   eras == i_eras),
+          var = "cant_pos_mean",
+          plot_slabs = "n",
+          subtitle_text =
+            paste("Basin:", i_basin_AIP, "| estimate:", i_estimate, " | Eras:", i_eras)
+        )
       )
       
-    )
-    
+    }
   }
 }
 
@@ -325,92 +387,67 @@ for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
 
 ```{r cant_pos_offset_zonal_section, fig.asp=0.6}
 
-# i_basin_AIP <- unique(cant_zonal_wide$basin_AIP)[1]
-
 for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
+  for (i_eras in unique(cant_zonal_wide$eras)) {
+    
     print(
       p_section_zonal(
         df = cant_zonal_wide %>%
-          filter(basin_AIP == i_basin_AIP),
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
         var = "cant_pos_mean_offset",
         breaks = params_global$breaks_cant_offset,
         plot_slabs = "n",
         col = "divergent",
         subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate: JDM-M")
+          paste("Basin:", i_basin_AIP, "| estimate: JDM-M | Eras:", i_eras)
       )
     )
   }
-
-```
-
-# Cant - all
-
-In a second series of plots we explore the distribution of Cant, taking positive and negative estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell).
-
-## Inventory maps
-
-### Absolute values
-
-Column inventory of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
-
-```{r cant_inventory_map, fig.asp=0.5}
-
-# i_estimate <- unique(cant_inv_long$estimate)[1] 
-
-for (i_estimate in unique(cant_inv_long$estimate)) {
-  
-  print(
-    p_map_cant_inv(
-    cant_inv_long %>% filter(estimate == i_estimate),
-    subtitle_text = paste("Estimate:", i_estimate),
-    col = "divergent")
-  )
-  
 }
 
 ```
 
-### Offset
-
-```{r cant_offset_inventory_map, fig.asp = 0.5}
-
-p_map_cant_inv_offset(
-  df = cant_inv_wide,
-  var = "cant_inv_offset",
-  subtitle_text = "Estimate: JDM - M")
-
-```
-
-## Zonal mean sections
+## Cant - all
 
 ### Absolute values
 
 ```{r cant_zonal_mean_section, fig.asp=0.6}
 
-# i_basin_AIP <- unique(df$basin_AIP)[1]
-# i_estimate <- unique(df$estimate)[1]
-
 for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
   for (i_estimate in unique(cant_zonal_long$estimate)) {
-   
-     print(
-      p_section_zonal(
-        df = cant_zonal_long %>%
-          filter(basin_AIP == i_basin_AIP,
-                 estimate == i_estimate),
-        var = "cant_mean",
-        col = "divergent",
-        breaks = params_global$breaks_cant,
-        plot_slabs = "n",
-        legend_title = expression(atop(Delta * C[ant],
-                                          (mu * mol ~ kg ^ {-1}))),
-        subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate:", i_estimate)
+    for (i_eras in unique(cant_zonal_long$eras)) {
+      
+      print(
+        p_section_zonal(
+          df = cant_zonal_long %>%
+            filter(
+              basin_AIP == i_basin_AIP,
+              estimate == i_estimate,
+              eras == i_eras
+            ),
+          var = "cant_mean",
+          col = "divergent",
+          breaks = params_global$breaks_cant,
+          plot_slabs = "n",
+          legend_title = expression(atop(Delta * C[ant],
+                                         (mu * mol ~ kg ^ {
+                                           -1
+                                         }))),
+          subtitle_text =
+            paste(
+              "Basin:",
+              i_basin_AIP,
+              "| estimate:",
+              i_estimate,
+              " | Eras:",
+              i_eras
+            )
+        )
+        
       )
       
-    )
-    
+    }
   }
 }
 
@@ -420,23 +457,24 @@ for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
 
 ```{r cant_offset_zonal_mean_section, fig.asp=0.6}
 
-# i_basin_AIP <- unique(cant_zonal_wide$basin_AIP)[1]
-
 for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
-
-     print(
+  for (i_eras in unique(cant_zonal_wide$eras)) {
+    
+    print(
       p_section_zonal(
         df = cant_zonal_wide %>%
-          filter(basin_AIP == i_basin_AIP),
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
         var = "cant_mean_offset",
         plot_slabs = "n",
         col = "divergent",
         breaks = params_global$breaks_cant_offset,
         subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate: JDM - M")
+          paste("Basin:", i_basin_AIP, "| estimate: JDM - M | Eras:", i_eras)
       )
       
     )
+  }
 }
 
 ```

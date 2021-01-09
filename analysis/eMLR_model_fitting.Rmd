@@ -68,7 +68,7 @@ Required are:
 
 GLODAP <-
   read_csv(paste(path_version_data,
-                 "GLODAPv2.2020_MLR_fitting_ready_model_runA.csv",
+                 "GLODAPv2.2020_MLR_fitting_ready.csv",
                  sep = ""))
 
 ```
@@ -496,7 +496,6 @@ lm_best_cant %>%
   write_csv(paste(path_version_data,
                   "lm_best_cant.csv",
                   sep = ""))
-
 
 ```
 

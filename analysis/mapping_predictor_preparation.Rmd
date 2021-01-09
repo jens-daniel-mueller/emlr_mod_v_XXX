@@ -76,7 +76,17 @@ Currently, following data sets are used for mapping:
 
 ```{r load_model_climatologies_interior_mapping}
 
-climatology <- read_csv(paste(path_preprocessing, "climatology_runA_2007.csv", sep = ""))
+if (params_local$model_runs == "AD") {
+  
+  climatology <- read_csv(paste(path_preprocessing, "climatology_runA_2007.csv", sep = ""))
+  
+}
+
+if (params_local$model_runs == "CB") {
+  
+  climatology <- read_csv(paste(path_preprocessing, "climatology_runC_2007.csv", sep = ""))
+  
+}
 
 climatology <- climatology %>%
   rename(aou = AOU, TCO2 = tco2, TAlk = talk)

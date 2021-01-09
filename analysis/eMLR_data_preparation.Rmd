@@ -62,24 +62,57 @@ Required are:
 - Cmorized annual cant field for three reference year
 - Cmorized annual mean atmospheric pCO~2~ 
 
-```{r read_required_data_sets}
+```{r read_subsetting_data_sets}
 
-tref  <-
-  read_csv(paste(path_version_data,
-                 "tref.csv",
-                 sep = ""))
-
+if (params_local$subsetting == "GLODAP") {
+  
 GLODAP <-
   read_csv(paste(
     path_version_data,
-    "GLODAPv2.2020_clean_model_runA.csv",
+    "GLODAPv2.2020_clean_GLODAP.csv",
     sep = ""
   ))
+
+}
+
+if (params_local$subsetting == "random") {
+  
+GLODAP <-
+  read_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_clean_random.csv",
+    sep = ""
+  ))
+
+}
+
+```
+
+# Calculation of tref
+
+Calculate the reference year for each era and store it as csv file for further selection of corresponding Cant fields.
+
+```{r calc_tref}
+
+# calculate reference year
+tref <- GLODAP %>%
+  group_by(era) %>%
+  summarise(year = median(year)) %>%
+  ungroup()
+
+# write file
+tref  %>%  write_csv(paste(path_version_data,
+                           "tref.csv",
+                           sep = ""))
+
+```
+
+```{r read_tref_and_pco2_files}
 
 cant_tref_1 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AD/cant_",
+    "cant_annual_field_", params_local$model_runs, "/cant_",
     unique(tref$year[1]),
     ".csv",
     sep = ""
@@ -88,7 +121,7 @@ cant_tref_1 <-
 cant_tref_2 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AD/cant_",
+    "cant_annual_field_", params_local$model_runs, "/cant_",
     unique(tref$year[2]),
     ".csv",
     sep = ""
@@ -97,7 +130,7 @@ cant_tref_2 <-
 cant_tref_3 <-
   read_csv(paste(
     path_preprocessing,
-    "cant_annual_field_AD/cant_",
+    "cant_annual_field_", params_local$model_runs, "/cant_",
     unique(tref$year[3]),
     ".csv",
     sep = ""
@@ -192,6 +225,7 @@ rm(cant_tref_1, cant_tref_2, cant_tref_3)
 
 
 ```{r cant_surface_maps}
+
 map +
   geom_raster(data = cant_3d %>% filter(depth == 5),
               aes(lon, lat, fill = cant_total)) +
@@ -386,8 +420,19 @@ A selected section is plotted to demonstrate the magnitude of various parameters
 
 ```{r select_cruises}
 
+if (params_local$subsetting == "GLODAP") {
+
 GLODAP_cruise <- GLODAP %>% 
   filter(cruise %in% params_global$cruises_meridional)
+
+}
+
+if (params_local$subsetting == "random") {
+  
+  GLODAP_cruise <- GLODAP %>% 
+  filter(lon %in% params_global$lon_Atl_section)
+  
+}
 
 ```
 
@@ -446,8 +491,19 @@ GLODAP <- m_cut_gamma(GLODAP, "gamma")
 
 ```{r meridional_sections_isoneutral_slabs, fig.asp=0.6}
 
+if (params_local$subsetting == "GLODAP") {
+
 GLODAP_cruise <- GLODAP %>% 
   filter(cruise %in% params_global$cruises_meridional)
+
+}
+
+if (params_local$subsetting == "random") {
+  
+  GLODAP_cruise <- GLODAP %>% 
+  filter(lon %in% params_global$lon_Atl_section)
+  
+}
 
 lat_section <- 
 GLODAP_cruise %>%
@@ -467,9 +523,19 @@ rm(lat_section, GLODAP_cruise)
 ```{r test_isoneutral_density_calculation, eval=FALSE, hide=TRUE}
 
 # this section was only used to calculate gamma locally, and compare it to the value provided in GLODAP data set
+if (params_local$subsetting == "GLODAP") {
 
 GLODAP_cruise <- GLODAP %>% 
   filter(cruise %in% params_global$cruises_meridional)
+
+}
+
+if (params_local$subsetting == "random") {
+  
+  GLODAP_cruise <- GLODAP %>% 
+  filter(lon %in% params_global$lon_Atl_section)
+  
+}
 
 library(oce)
 library(gsw)
@@ -595,6 +661,8 @@ Zonal and meridional section plots are produce for each cruise individually and 
 `r paste(path_version_figures, "Cruise_sections_histograms/", sep = "")`
 
 ```{r plot_all_individual_cruises_clean}
+
+if (params_local$subsetting == "GLODAP") {
 
 if (params_local$plot_all_figures == "y") {
 
@@ -752,6 +820,8 @@ rm(map_plot,
 }
 
 }
+  
+}
 
 ```
 
@@ -779,7 +849,7 @@ GLODAP <- GLODAP %>%
 
 GLODAP %>% write_csv(paste(
   path_version_data,
-  "GLODAPv2.2020_MLR_fitting_ready_model_runA.csv",
+  "GLODAPv2.2020_MLR_fitting_ready.csv",
   sep = ""
 ))
 
