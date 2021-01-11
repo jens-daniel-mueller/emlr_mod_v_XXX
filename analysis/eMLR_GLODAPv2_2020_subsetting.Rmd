@@ -70,7 +70,7 @@ Main data source for this project is the synthetic cmorized model subset based o
 
 if (params_local$model_runs == "AD") {
   
-GLODAP_subset <-
+GLODAP <-
   read_csv(paste(path_preprocessing,
                  "GLODAPv2.2020_preprocessed_model_runA_final.csv",
                  sep = ""))
@@ -85,7 +85,7 @@ random <- read_csv(paste(
 
 if (params_local$model_runs == "CB") {
   
-GLODAP_subset <-
+GLODAP <-
   read_csv(paste(path_preprocessing,
                  "GLODAPv2.2020_preprocessed_model_runC_final.csv",
                  sep = ""))
@@ -96,16 +96,6 @@ random <- read_csv(paste(
     sep = ""
   ))
 
-}
-
-# run this code always on both subsets
-run = "GLODAP"
-if (run == "GLODAP") {
-  GLODAP <- GLODAP_subset
-}
-
-if (run == "random") {
-  GLODAP <- random
 }
 
 ```
@@ -138,7 +128,14 @@ GLODAP <- GLODAP %>%
                    params_local$era_breaks,
                    labels = labels))
 
+random <- random %>%
+  filter(year > params_local$era_breaks[1]) %>% 
+  mutate(era = cut(year,
+                   params_local$era_breaks,
+                   labels = labels))
+
 levels(GLODAP$era)
+levels(random$era)
 rm(labels)
 
 ```
@@ -157,6 +154,7 @@ Please note that some GLODAP-based subsetting model data were outside the WOA18 
 
 # use only data inside basinmask
 GLODAP <- inner_join(GLODAP, basinmask)
+random <- inner_join(random, basinmask)
 
 ```
 
@@ -173,6 +171,9 @@ were excluded from the analysis to avoid seasonal bias.
 GLODAP <- GLODAP %>% 
   filter(depth >= params_local$depth_min)
 
+random <- random %>% 
+  filter(depth >= params_local$depth_min)
+
 ```
 
 ### Bottomdepth
@@ -185,10 +186,8 @@ were excluded from the analysis to avoid coastal impacts. Please note that minim
 
 ```{r apply_bottomdepth_min}
 
-if (run == "GLODAP") {
 GLODAP <- GLODAP %>% 
   filter(bottomdepth >= params_local$bottomdepth_min)
-}
 
 ```
 
@@ -229,21 +228,17 @@ Rows with missing tco2 in GLODAP-based subsetting model data were already remove
 
 ```{r tco2_na_subset}
 
-if (run == "GLODAP") {
 GLODAP_stats <- GLODAP %>% 
   summarise(tco2_values = n())
 
 GLODAP_obs_grid <- GLODAP %>% 
   count(lat, lon, era) %>% 
   mutate(cleaning_level = "tco2_values")
-}
 
 ```
 
 ```{r WOA18_basin_mask_GLODAP-based_subsetting_model_data_map, fig.asp=0.6}
 
-if (run == "GLODAP") {
-  
 GLODAP_obs <- GLODAP %>% 
   group_by(lat, lon) %>% 
   summarise(n = n()) %>% 
@@ -258,16 +253,12 @@ map +
 
 rm(GLODAP_obs)
 
-}
-
 ```
 
 
 #### f flag
 
 ```{r tco2_f_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, tco2f)
@@ -285,15 +276,11 @@ rm(GLODAP_obs_grid_temp)
 GLODAP <- GLODAP %>%
   filter(tco2f %in% params_local$flag_f)
 
-}
-
 ```
 
 #### qc flag
 
 ```{r tco2_qc_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, tco2qc)
@@ -328,8 +315,6 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 
@@ -338,8 +323,6 @@ rm(GLODAP_obs_grid_temp)
 #### NA
 
 ```{r talk_na_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP <- GLODAP %>% 
   mutate(talkna = if_else(is.na(talk), "NA", "Value"))
@@ -378,15 +361,11 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 #### f flag
 
 ```{r talk_f_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, talkf)
@@ -406,15 +385,11 @@ map +
 GLODAP <- GLODAP %>%
   filter(talkf %in% params_local$flag_f)
 
-}
-
 ```
 
 #### qc flag
 
 ```{r talk_qc_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, talkqc)
@@ -452,8 +427,6 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 
@@ -462,8 +435,6 @@ rm(GLODAP_obs_grid_temp)
 #### NA
 
 ```{r phosphate_na_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP <- GLODAP %>% 
   mutate(phosphatena = if_else(is.na(phosphate), "NA", "Value"))
@@ -502,15 +473,11 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 #### f flag
 
 ```{r phosphate_f_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphatef)
@@ -529,15 +496,11 @@ map +
 GLODAP <- GLODAP %>%
   filter(phosphatef %in% params_local$flag_f)
 
-}
-
 ```
 
 #### qc flag
 
 ```{r phosphate_qc_subset, fig.asp=0.8}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphateqc)
@@ -576,8 +539,6 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 
@@ -586,8 +547,6 @@ rm(GLODAP_obs_grid_temp)
 Variables required as predictors for the MLR fits, are subsetted for NAs and flags.
 
 ```{r eMLR_subset}
-
-if (run == "GLODAP") {
 
 if ("temp" %in% params_local$MLR_predictors) {
   GLODAP <- GLODAP %>%
@@ -684,18 +643,12 @@ GLODAP_obs_grid <-
 
 rm(GLODAP_obs_grid_temp)
 
-}
-
 ```
 
 ```{r remove_flag_columns}
 
-if (run == "GLODAP") {
-
 GLODAP <- GLODAP %>% 
   select(-ends_with(c("f", "qc")))
-
-}
 
 ```
 
@@ -705,8 +658,6 @@ GLODAP <- GLODAP %>%
 For harmonization with Gruber et al. (2019), cruises 1041 (A16N) and 1042 (A16S) were grouped into the `r sort(unique(GLODAP$era))[2]` era despite taking place in 2013/14.
 
 ```{r GLODAP_Atl_cruises_2013_2014_map}
-
-if (run == "GLODAP") {
 
 GLODAP_cruises <- GLODAP %>% 
   filter(basin_AIP == "Atlantic",
@@ -721,13 +672,9 @@ map +
 
 rm(GLODAP_cruises)
 
-}
-
 ```
 
 ```{r switch_eras_manually}
-
-if (run == "GLODAP") {
 
 if (params_local$A16_GO_SHIP == "y") {
 
@@ -735,8 +682,6 @@ GLODAP <- GLODAP %>%
    mutate(era = if_else(cruise %in% c(1041, 1042),
                         sort(unique(GLODAP$era))[2], era))
 
-}
-  
 }
 
 ```
@@ -751,45 +696,60 @@ GLODAP_obs_grid_clean <- GLODAP %>%
   count(lat, lon) %>% 
   select(-n)
 
+random_obs_grid_clean <- random %>% 
+  count(lat, lon) %>% 
+  select(-n)
+
 ```
 
 ## Write summary file
  
 ```{r write_clean_data_files}
 
-if (run == "GLODAP") {
-  GLODAP_obs_grid_clean  %>%  write_csv(paste(
-    path_version_data,
-    "GLODAPv2.2020_clean_GLODAP_obs_grid.csv",
-    sep = ""
-  ))
+GLODAP_obs_grid_clean  %>%  write_csv(paste(
+  path_version_data,
+  "GLODAPv2.2020_clean_GLODAP_obs_grid.csv",
+  sep = ""
+))
 
 # select relevant columns for further analysis
-GLODAP <- GLODAP %>% 
-  select(year, date, era, basin, basin_AIP, lat, lon, cruise,
-         bottomdepth, depth,
-         temp, sal, gamma,
-         tco2, talk, phosphate,
-         oxygen, aou, nitrate, silicate)
+GLODAP <- GLODAP %>%
+  select(
+    year,
+    date,
+    era,
+    basin,
+    basin_AIP,
+    lat,
+    lon,
+    cruise,
+    bottomdepth,
+    depth,
+    temp,
+    sal,
+    gamma,
+    tco2,
+    talk,
+    phosphate,
+    oxygen,
+    aou,
+    nitrate,
+    silicate
+  )
 
 GLODAP  %>%  write_csv(paste(path_version_data,
                              "GLODAPv2.2020_clean_GLODAP.csv",
                              sep = ""))
 
-}
+random_obs_grid_clean  %>%  write_csv(paste(
+  path_version_data,
+  "GLODAPv2.2020_clean_random_obs_grid.csv",
+  sep = ""
+))
 
-if (run == "random") {
-  GLODAP_obs_grid_clean  %>%  write_csv(paste(
-    path_version_data,
-    "GLODAPv2.2020_clean_random_obs_grid.csv",
-    sep = ""
-  ))
-
-  GLODAP  %>%  write_csv(paste(path_version_data,
-                               "GLODAPv2.2020_clean_random.csv",
-                               sep = ""))
-
-}
+random  %>%  write_csv(paste(path_version_data,
+                             "GLODAPv2.2020_clean_random.csv",
+                             sep = ""))
 
 ```
 
@@ -801,8 +761,6 @@ if (run == "random") {
 Number of GLODAP-based subsetting model data at various steps of data cleaning.
 
 ```{r GLODAP-based_subsetting_data_cleaning_stats}
-
-if (run == "GLODAP") {
 
 GLODAP_stats_long <- GLODAP_stats %>%
   pivot_longer(1:length(GLODAP_stats),
@@ -820,8 +778,6 @@ GLODAP_stats_long %>%
 
 rm(GLODAP_stats_long)
 
-}
-
 ```
 
 
@@ -833,11 +789,8 @@ For the following plots, the cleaned data set was re-opened and GLODAP-based sub
 
 ```{r grid_spatially_5x5}
 
-if (run == "GLODAP") {
-
 GLODAP <- m_grid_horizontal_coarse(GLODAP)
-
-}
+random <- m_grid_horizontal_coarse(random)
 
 ```
 
@@ -845,8 +798,6 @@ GLODAP <- m_grid_horizontal_coarse(GLODAP)
 ## Histogram Zonal coverage
 
 ```{r coverage_histogram_zonal}
-
-if (run == "GLODAP") {
 
 GLODAP_histogram_lat <- GLODAP %>%
   group_by(era, lat_grid, basin) %>%
@@ -864,7 +815,21 @@ GLODAP_histogram_lat %>%
 
 rm(GLODAP_histogram_lat)
 
-}
+random_histogram_lat <- random %>%
+  group_by(era, lat_grid, basin) %>%
+  tally() %>%
+  ungroup()
+
+random_histogram_lat %>%
+  ggplot(aes(lat_grid, n, fill = era)) +
+  geom_col() +
+  scale_fill_brewer(palette = "Dark2") +
+  facet_wrap( ~ basin) +
+  coord_flip() +
+  theme(legend.position = "top",
+        legend.title = element_blank())
+
+rm(random_histogram_lat)
 
 ```
 
@@ -874,16 +839,19 @@ Median years of each era (tref) were determined as:
 
 ```{r calculate_median_years}
 
-if (run == "GLODAP") {
-
-era_median_year <- GLODAP %>%
+era_median_year_GLODAP <- GLODAP %>%
   group_by(era) %>%
   summarise(t_ref = median(year)) %>%
   ungroup()
 
-era_median_year
+era_median_year_GLODAP
 
-}
+era_median_year_random <- random %>%
+  group_by(era) %>%
+  summarise(t_ref = median(year)) %>%
+  ungroup()
+
+era_median_year_random
 
 ```
 
@@ -892,8 +860,6 @@ era_median_year
 ## Histogram temporal coverage
 
 ```{r coverage_histogram_temporal}
-
-if (run == "GLODAP") {
 
 GLODAP_histogram_year <- GLODAP %>%
   group_by(year, basin) %>%
@@ -907,7 +873,7 @@ GLODAP_histogram_year %>%
   )) +
   geom_col(aes(year, n, fill = basin)) +
   geom_point(
-    data = era_median_year,
+    data = era_median_year_GLODAP,
     aes(t_ref, 0, shape = "Median year"),
     size = 2,
     fill = "white"
@@ -924,17 +890,44 @@ GLODAP_histogram_year %>%
   )
 
 rm(GLODAP_histogram_year,
-   era_median_year)
+   era_median_year_GLODAP)
 
-}
+random_histogram_year <- random %>%
+  group_by(year, basin) %>%
+  tally() %>%
+  ungroup()
+
+random_histogram_year %>%
+  ggplot() +
+  geom_vline(xintercept = c(
+    params_local$era_breaks + 0.5
+  )) +
+  geom_col(aes(year, n, fill = basin)) +
+  geom_point(
+    data = era_median_year_random,
+    aes(t_ref, 0, shape = "Median year"),
+    size = 2,
+    fill = "white"
+  ) +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_shape_manual(values = 24, name = "") +
+  scale_y_continuous() +
+  coord_cartesian() +
+  theme(
+    legend.position = "top",
+    legend.direction = "vertical",
+    legend.title = element_blank(),
+    axis.title.x = element_blank()
+  )
+
+rm(random_histogram_year,
+   era_median_year_random)
 
 ```
 
 ## Zonal temporal coverage (Hovmoeller)
 
 ```{r coverage_hovmoeller, fig.asp=1}
-
-if (run == "GLODAP") {
 
 GLODAP_hovmoeller_year <- GLODAP %>%
   group_by(year, lat_grid, basin) %>%
@@ -954,7 +947,23 @@ GLODAP_hovmoeller_year %>%
 
 rm(GLODAP_hovmoeller_year)
 
-}
+random_hovmoeller_year <- random %>%
+  group_by(year, lat_grid, basin) %>%
+  tally() %>%
+  ungroup()
+
+random_hovmoeller_year %>%
+  ggplot(aes(year, lat_grid, fill = n)) +
+  geom_tile() +
+  geom_vline(xintercept = c(1999.5, 2012.5)) +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10") +
+  facet_wrap( ~ basin, ncol = 1) +
+  theme(legend.position = "top",
+        axis.title.x = element_blank())
+
+rm(random_hovmoeller_year)
 
 ```
 
@@ -965,8 +974,6 @@ rm(GLODAP_hovmoeller_year)
 The following plots show the remaining data after **individual cleaning steps**, separately for each era.
 
 ```{r coverage_maps_era_subsetting_era_cleaning_level, fig.asp=1.1}
-
-if (run == "GLODAP") {
 
 GLODAP_obs_grid <- GLODAP_obs_grid %>%
   mutate(cleaning_level = factor(
@@ -987,8 +994,6 @@ map +
   theme(legend.position = "top",
         axis.title = element_blank())
 
-}
-
 ```
 
 ### Final input data
@@ -996,8 +1001,6 @@ map +
 The following plots show the remaining data density in each grid cell **after all cleaning steps**, separately for each era.
 
 ```{r coverage_maps_era_clean, fig.asp=1.3}
-
-if (run == "GLODAP") {
 
 GLODAP_tco2_grid <- GLODAP %>%
   count(lat, lon)
@@ -1017,8 +1020,6 @@ ggsave(path = path_version_figures,
        filename = "data_distribution_era.png",
        height = 8,
        width = 5)
-
-}
 
 ```
 

@@ -309,28 +309,57 @@ GLODAP_cant_obs_int <- GLODAP_cant_obs %>%
 GLODAP_cant_obs <- GLODAP_cant_obs_int
 rm(GLODAP_cant_obs_int)
 
-ggplot() +
-  geom_path(
-    data = GLODAP_cant_obs %>%
-      filter(lat == 48.5, lon == 165.5,!is.na(cant_total)) %>%
-      arrange(depth),
-    aes(cant_total, depth, col = "mapped")
-  ) +
-  geom_point(
-    data = GLODAP_cant_obs %>%
-      filter(lat == 48.5, lon == 165.5,!is.na(cant_total)) %>%
-      arrange(depth),
-    aes(cant_total, depth, col = "mapped")
-  ) +
-  geom_point(
-    data = GLODAP_cant_obs %>%
-      filter(lat == 48.5, lon == 165.5, date == ymd("2018-06-27")),
-    aes(cant_int, depth, col = "interpolated")
-  ) +
-  scale_y_reverse() +
-  facet_wrap(~era) +
-  scale_color_brewer(palette = "Dark2", name = "") +
-  labs(title = "Cant interpolation to subsetting depth - example profile")
+if (params_local$subsetting == "GLODAP") {
+  ggplot() +
+    geom_path(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %>%
+        arrange(depth),
+      aes(cant_total, depth, col = "mapped")
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %>%
+        arrange(depth),
+      aes(cant_total, depth, col = "mapped")
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, date == ymd("2018-06-27")),
+      aes(cant_int, depth, col = "interpolated")
+    ) +
+    scale_y_reverse() +
+    facet_wrap( ~ era) +
+    scale_color_brewer(palette = "Dark2", name = "") +
+    labs(title = "Cant interpolation to subsetting depth - example profile")
+  
+}
+
+if (params_local$subsetting == "random") {
+  ggplot() +
+    geom_path(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %>%
+        arrange(depth),
+      aes(cant_total, depth, col = "mapped")
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %>%
+        arrange(depth),
+      aes(cant_total, depth, col = "mapped")
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %>%
+        filter(lat == 48.5, lon == 165.5, month == 6),
+      aes(cant_int, depth, col = "interpolated")
+    ) +
+    scale_y_reverse() +
+    facet_wrap( ~ era) +
+    scale_color_brewer(palette = "Dark2", name = "") +
+    labs(title = "Cant interpolation to subsetting depth - example profile")
+  
+}
 
 # remove cant data at grid cells without observations
 GLODAP <- GLODAP_cant_obs %>%
@@ -429,8 +458,8 @@ GLODAP_cruise <- GLODAP %>%
 
 if (params_local$subsetting == "random") {
   
-  GLODAP_cruise <- GLODAP %>% 
-  filter(lon %in% params_global$lon_Atl_section)
+  GLODAP_cruise <- GLODAP %>%
+    filter(lon %in% params_global$lon_Atl_section)
   
 }
 
@@ -439,18 +468,31 @@ if (params_local$subsetting == "random") {
 
 ```{r meridional_sections, fig.asp=0.5}
 
-map +
-  geom_path(data = GLODAP_cruise %>%
-              arrange(date),
-            aes(lon, lat)) +
-  geom_point(data = GLODAP_cruise %>%
-              arrange(date),
-             aes(lon, lat, col = date)) +
-  scale_color_viridis_c(trans = "date") +
-  labs(title = paste("Cruise year:", mean(GLODAP_cruise$year)))
+if (params_local$subsetting == "GLODAP") {
+  map +
+    geom_path(data = GLODAP_cruise %>%
+                arrange(date),
+              aes(lon, lat)) +
+    geom_point(data = GLODAP_cruise %>%
+                 arrange(date),
+               aes(lon, lat, col = date)) +
+    scale_color_viridis_c(trans = "date") +
+    labs(title = paste("Cruise year:", mean(GLODAP_cruise$year)))
+}
 
-lat_section <- 
-GLODAP_cruise %>%
+if (params_local$subsetting == "random") {
+  map +
+    geom_path(data = GLODAP_cruise,
+              aes(lon, lat)) +
+    geom_point(data = GLODAP_cruise,
+               aes(lon, lat)) +
+    scale_color_viridis_c(trans = "date") +
+    labs(title = paste("Cruise year:", mean(GLODAP_cruise$year)))
+  
+}
+
+lat_section <-
+  GLODAP_cruise %>%
   ggplot(aes(lat, depth)) +
   scale_y_reverse() +
   scale_fill_viridis_c() +
