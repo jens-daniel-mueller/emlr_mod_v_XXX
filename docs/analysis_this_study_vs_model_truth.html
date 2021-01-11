@@ -486,7 +486,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Comparison of cant estimates to results of Gruber et al 2019</h1>
 <h4 class="author">Jens Daniel Müller</h4>
-<h4 class="date">06 January, 2021</h4>
+<h4 class="date">11 January, 2021</h4>
 
 </div>
 
@@ -511,7 +511,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-01-06
+<strong>Last updated:</strong> 2021-01-11
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -602,16 +602,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5934dd7ceb1cc7b012a4693549ea491a9b0cc87targetblankb5934dda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5934dd7ceb1cc7b012a4693549ea491a9b0cc87" target="_blank">b5934dd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeac37e346e542f4953b1dc67ab09ae6b8a8adb651targetblankac37e34a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ac37e346e542f4953b1dc67ab09ae6b8a8adb651" target="_blank">ac37e34</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb5934dd7ceb1cc7b012a4693549ea491a9b0cc87targetblankb5934dda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeac37e346e542f4953b1dc67ab09ae6b8a8adb651targetblankac37e34a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b5934dd7ceb1cc7b012a4693549ea491a9b0cc87" target="_blank">b5934dd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ac37e346e542f4953b1dc67ab09ae6b8a8adb651" target="_blank">ac37e34</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -620,11 +620,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/analysis_this_study_vs_Gruber_2019.Rmd
-    Modified:   code/Workflowr_project_managment.R
 
 </code></pre>
 <p>
@@ -668,6 +663,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/52eff18c8ee5401f1852a28d5df1172e703306ee/analysis/analysis_this_study_vs_model_truth.Rmd" target="_blank">52eff18</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-09
+</td>
+<td>
+Implemet model_run and subsetting
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/7cdea0c745792050e89b3e2d19d006e228512038/docs/analysis_this_study_vs_model_truth.html" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b5934dd7ceb1cc7b012a4693549ea491a9b0cc87/analysis/analysis_this_study_vs_model_truth.Rmd" target="_blank">b5934dd</a>
 </td>
 <td>
@@ -691,8 +720,8 @@ local rebuild after revision
 <h1 number="1"><span class="header-section-number">1</span> Data sources</h1>
 <p>Following Cant estimates are used:</p>
 <ul>
-<li>Zonal mean (basin, lat, depth)</li>
-<li>Inventories (lat, lon)</li>
+<li>Zonal mean (basin, lat, depth, eras)</li>
+<li>Inventories (lat, lon, eras)</li>
 </ul>
 <div id="this-study" class="section level2" number="1.1">
 <h2 number="1.1"><span class="header-section-number">1.1</span> This study</h2>
@@ -703,9 +732,9 @@ local rebuild after revision
                  sep = &quot;&quot;))
 
 cant_zonal_JDM &lt;- cant_zonal_JDM %&gt;%
-  filter(eras == unique(cant_zonal_JDM$eras)[1]) %&gt;%
   select(lat,
          depth,
+         eras,
          basin_AIP,
          cant_mean,
          cant_pos_mean,
@@ -719,9 +748,7 @@ cant_inv_JDM &lt;-
                  sep = &quot;&quot;))
 
 cant_inv_JDM &lt;- cant_inv_JDM %&gt;%
-  filter(eras == unique(cant_inv_JDM$eras)[1],
-         inv_depth == params_global$inventory_depth_standard) %&gt;%
-  select(-c(eras))</code></pre>
+  filter(inv_depth == params_global$inventory_depth_standard)</code></pre>
 </div>
 <div id="modeled-cant" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Modeled Cant</h2>
@@ -734,7 +761,7 @@ cant_inv_JDM &lt;- cant_inv_JDM %&gt;%
 cant_tref_1 &lt;-
   read_csv(paste(
     path_preprocessing,
-    &quot;cant_annual_field_AD/cant_&quot;,
+    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
     unique(tref$year[1]),
     &quot;.csv&quot;,
     sep = &quot;&quot;
@@ -747,7 +774,7 @@ cant_tref_1 &lt;- cant_tref_1 %&gt;%
 cant_tref_2 &lt;-
   read_csv(paste(
     path_preprocessing,
-    &quot;cant_annual_field_AD/cant_&quot;,
+    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
     unique(tref$year[2]),
     &quot;.csv&quot;,
     sep = &quot;&quot;
@@ -755,40 +782,49 @@ cant_tref_2 &lt;-
 
 cant_tref_2 &lt;- cant_tref_2 %&gt;%
   rename(cant_tref_2 = cant_total) %&gt;%
+  select(-year)
+
+cant_tref_3 &lt;-
+  read_csv(paste(
+    path_preprocessing,
+    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
+    unique(tref$year[3]),
+    &quot;.csv&quot;,
+    sep = &quot;&quot;
+  ))
+
+cant_tref_3 &lt;- cant_tref_3 %&gt;%
+  rename(cant_tref_3 = cant_total) %&gt;%
   select(-year)</code></pre>
-<pre class="r"><code>cant_M &lt;- left_join(cant_tref_1, cant_tref_2) %&gt;%
-  mutate(cant = cant_tref_2 - cant_tref_1)
-
-cant_M &lt;- cant_M %&gt;% 
-   mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
-
-cant_M &lt;- cant_M %&gt;% 
-  mutate(eras = &quot;JGOFS/WOCE&quot;)
-
-rm(cant_tref_1, cant_tref_2)</code></pre>
-<pre class="r"><code>cant_M &lt;- cant_M %&gt;% 
+<pre class="r"><code>cant_M_1 &lt;- left_join(cant_tref_1, cant_tref_2) %&gt;%
+  mutate(cant = cant_tref_2 - cant_tref_1,
+         eras = unique(cant_inv_JDM$eras)[1]) %&gt;% 
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_zonal_M &lt;- m_zonal_mean_section(cant_M)
+cant_M_1 &lt;- cant_M_1 %&gt;% 
+   mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
 
+cant_M_2 &lt;- left_join(cant_tref_2, cant_tref_3) %&gt;%
+  mutate(cant = cant_tref_3 - cant_tref_2,
+         eras = unique(cant_inv_JDM$eras)[2]) %&gt;% 
+  select(-c(cant_tref_2, cant_tref_3))
 
-cant_zonal_M &lt;- cant_zonal_M %&gt;%
-  select(lat,
-         depth,
-         basin_AIP,
-         cant_mean,
-         cant_pos_mean,
-         cant_sd,
-         cant_pos_sd)</code></pre>
+cant_M_2 &lt;- cant_M_2 %&gt;% 
+   mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
+
+cant_M &lt;- full_join(cant_M_1, cant_M_2) %&gt;%
+  arrange(lon, lat, depth, basin_AIP)
+
+rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)</code></pre>
+<pre class="r"><code>cant_zonal_M &lt;- m_zonal_mean_section(cant_M)</code></pre>
 <pre class="r"><code>cant_inv_M &lt;- m_cant_inv(cant_M)
 
 cant_inv_M &lt;- cant_inv_M %&gt;%
-  filter(inv_depth == params_global$inventory_depth_standard) %&gt;%
-  select(-eras)</code></pre>
+  filter(inv_depth == params_global$inventory_depth_standard)</code></pre>
 </div>
 <div id="join-data-sets" class="section level2" number="1.3">
 <h2 number="1.3"><span class="header-section-number">1.3</span> Join data sets</h2>
-<p>Inventories and zonal sections are merged, and differences calculate per grid cell.</p>
+<p>Inventories and zonal sections are merged, and differences calculate per grid cell and per eras.</p>
 <pre class="r"><code># add estimate label
 cant_inv_long &lt;- bind_rows(
   cant_inv_JDM %&gt;%  mutate(estimate = &quot;JDM&quot;),
@@ -831,7 +867,7 @@ cant_inv_budget &lt;- cant_inv_long %&gt;%
   mutate(surface_area = earth_surf(lat, lon),
          cant_inv_grid = cant_inv*surface_area,
          cant_pos_inv_grid = cant_pos_inv*surface_area) %&gt;% 
-  group_by(basin_AIP, estimate) %&gt;% 
+  group_by(basin_AIP, estimate, eras) %&gt;% 
   summarise(cant_total = sum(cant_inv_grid)*12*1e-15,
             cant_total = round(cant_total,1),
             cant_pos_total = sum(cant_pos_inv_grid)*12*1e-15,
@@ -841,7 +877,7 @@ cant_inv_budget &lt;- cant_inv_long %&gt;%
 # print budget table
 cant_inv_budget %&gt;%
   gt(rowname_col = &quot;basin_AIP&quot;,
-     groupname_col = c(&quot;estimate&quot;)) %&gt;% 
+     groupname_col = c(&quot;eras&quot;, &quot;estimate&quot;)) %&gt;% 
   summary_rows(
     groups = TRUE,
     fns = list(total = &quot;sum&quot;)
@@ -850,7 +886,7 @@ cant_inv_budget %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qckjgrtnjc .gt_table {
+#rtnjctoczu .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -875,7 +911,7 @@ cant_inv_budget %&gt;%
   border-left-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_heading {
+#rtnjctoczu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -887,7 +923,7 @@ cant_inv_budget %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_title {
+#rtnjctoczu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -897,7 +933,7 @@ cant_inv_budget %&gt;%
   border-bottom-width: 0;
 }
 
-#qckjgrtnjc .gt_subtitle {
+#rtnjctoczu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -907,13 +943,13 @@ cant_inv_budget %&gt;%
   border-top-width: 0;
 }
 
-#qckjgrtnjc .gt_bottom_border {
+#rtnjctoczu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_col_headings {
+#rtnjctoczu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -928,7 +964,7 @@ cant_inv_budget %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_col_heading {
+#rtnjctoczu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -948,7 +984,7 @@ cant_inv_budget %&gt;%
   overflow-x: hidden;
 }
 
-#qckjgrtnjc .gt_column_spanner_outer {
+#rtnjctoczu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -960,15 +996,15 @@ cant_inv_budget %&gt;%
   padding-right: 4px;
 }
 
-#qckjgrtnjc .gt_column_spanner_outer:first-child {
+#rtnjctoczu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qckjgrtnjc .gt_column_spanner_outer:last-child {
+#rtnjctoczu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qckjgrtnjc .gt_column_spanner {
+#rtnjctoczu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -980,7 +1016,7 @@ cant_inv_budget %&gt;%
   width: 100%;
 }
 
-#qckjgrtnjc .gt_group_heading {
+#rtnjctoczu .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1002,7 +1038,7 @@ cant_inv_budget %&gt;%
   vertical-align: middle;
 }
 
-#qckjgrtnjc .gt_empty_group_heading {
+#rtnjctoczu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1017,15 +1053,15 @@ cant_inv_budget %&gt;%
   vertical-align: middle;
 }
 
-#qckjgrtnjc .gt_from_md > :first-child {
+#rtnjctoczu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qckjgrtnjc .gt_from_md > :last-child {
+#rtnjctoczu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qckjgrtnjc .gt_row {
+#rtnjctoczu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1044,7 +1080,7 @@ cant_inv_budget %&gt;%
   overflow-x: hidden;
 }
 
-#qckjgrtnjc .gt_stub {
+#rtnjctoczu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1056,7 +1092,7 @@ cant_inv_budget %&gt;%
   padding-left: 12px;
 }
 
-#qckjgrtnjc .gt_summary_row {
+#rtnjctoczu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1066,7 +1102,7 @@ cant_inv_budget %&gt;%
   padding-right: 5px;
 }
 
-#qckjgrtnjc .gt_first_summary_row {
+#rtnjctoczu .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1076,7 +1112,7 @@ cant_inv_budget %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_grand_summary_row {
+#rtnjctoczu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1086,7 +1122,7 @@ cant_inv_budget %&gt;%
   padding-right: 5px;
 }
 
-#qckjgrtnjc .gt_first_grand_summary_row {
+#rtnjctoczu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1096,11 +1132,11 @@ cant_inv_budget %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_striped {
+#rtnjctoczu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qckjgrtnjc .gt_table_body {
+#rtnjctoczu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1109,7 +1145,7 @@ cant_inv_budget %&gt;%
   border-bottom-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_footnotes {
+#rtnjctoczu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1123,13 +1159,13 @@ cant_inv_budget %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_footnote {
+#rtnjctoczu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#qckjgrtnjc .gt_sourcenotes {
+#rtnjctoczu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1143,46 +1179,46 @@ cant_inv_budget %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#qckjgrtnjc .gt_sourcenote {
+#rtnjctoczu .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#qckjgrtnjc .gt_left {
+#rtnjctoczu .gt_left {
   text-align: left;
 }
 
-#qckjgrtnjc .gt_center {
+#rtnjctoczu .gt_center {
   text-align: center;
 }
 
-#qckjgrtnjc .gt_right {
+#rtnjctoczu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qckjgrtnjc .gt_font_normal {
+#rtnjctoczu .gt_font_normal {
   font-weight: normal;
 }
 
-#qckjgrtnjc .gt_font_bold {
+#rtnjctoczu .gt_font_bold {
   font-weight: bold;
 }
 
-#qckjgrtnjc .gt_font_italic {
+#rtnjctoczu .gt_font_italic {
   font-style: italic;
 }
 
-#qckjgrtnjc .gt_super {
+#rtnjctoczu .gt_super {
   font-size: 65%;
 }
 
-#qckjgrtnjc .gt_footnote_marks {
+#rtnjctoczu .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="qckjgrtnjc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="rtnjctoczu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -1193,7 +1229,7 @@ cant_inv_budget %&gt;%
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
-      <td colspan="3" class="gt_group_heading">JDM</td>
+      <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 - JDM</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
@@ -1216,7 +1252,30 @@ cant_inv_budget %&gt;%
       <td class="gt_row gt_right gt_summary_row gt_first_summary_row">32.50</td>
     </tr>
     <tr class="gt_group_heading_row">
-      <td colspan="3" class="gt_group_heading">M</td>
+      <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 - JDM</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Atlantic</td>
+      <td class="gt_row gt_right">3.5</td>
+      <td class="gt_row gt_right">4.3</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Indian</td>
+      <td class="gt_row gt_right">3.9</td>
+      <td class="gt_row gt_right">5.5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Pacific</td>
+      <td class="gt_row gt_right">18.0</td>
+      <td class="gt_row gt_right">18.5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">25.40</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">28.30</td>
+    </tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 - M</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
@@ -1238,173 +1297,1137 @@ cant_inv_budget %&gt;%
       <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.20</td>
       <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.40</td>
     </tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 - M</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Atlantic</td>
+      <td class="gt_row gt_right">4.1</td>
+      <td class="gt_row gt_right">4.2</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Indian</td>
+      <td class="gt_row gt_right">4.5</td>
+      <td class="gt_row gt_right">4.5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Pacific</td>
+      <td class="gt_row gt_right">8.1</td>
+      <td class="gt_row gt_right">8.3</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">16.70</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">17.00</td>
+    </tr>
   </tbody>
   
   
 </table></div>
 <pre class="r"><code>rm(cant_inv_budget)</code></pre>
 </div>
-<div id="cant---positive-only" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Cant - positive only</h1>
+<div id="inventory-maps" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Inventory maps</h1>
+<div id="cant---positive-only" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Cant - positive only</h2>
 <p>In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.</p>
-<div id="inventory-maps" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Inventory maps</h2>
 <div id="absolute-values" class="section level3" number="3.1.1">
 <h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Absolute values</h3>
 <p>Column inventory of positive Cant between the surface and 3000m water depth per horizontal grid cell (lat x lon).</p>
-<pre class="r"><code># i_estimate &lt;- unique(cant_inv_long$estimate)[1]
-
-for (i_estimate in unique(cant_inv_long$estimate)) {
-  
-  print(
-    p_map_cant_inv(
-      cant_inv_long %&gt;% filter(estimate == i_estimate),
-      subtitle_text = paste(&quot;Estimate:&quot;, i_estimate))
-    )
-  
+<pre class="r"><code>for (i_estimate in unique(cant_inv_long$estimate)) {
+  for (i_eras in unique(cant_inv_long$eras)) {
+    
+    print(p_map_cant_inv(
+      cant_inv_long %&gt;% filter(estimate == i_estimate, eras == i_eras),
+      subtitle_text = paste(&quot;Estimate:&quot;, i_estimate, &quot; | Eras:&quot;, i_eras)
+    ))
+    
+  }
 }</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_inventory_map-1">
+Past versions of cant_pos_inventory_map-1.png
+</button>
+</p>
+<div id="fig-cant_pos_inventory_map-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_inventory_map-2">
+Past versions of cant_pos_inventory_map-2.png
+</button>
+</p>
+<div id="fig-cant_pos_inventory_map-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_inventory_map-4.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="offset" class="section level3" number="3.1.2">
 <h3 number="3.1.2"><span class="header-section-number">3.1.2</span> Offset</h3>
 <p>Column inventory of positive cant between the surface and 3000m water depth per horizontal grid cell (lat x lon).</p>
-<pre class="r"><code>p_map_cant_inv_offset(cant_inv_wide,
-                      &quot;cant_pos_inv_offset&quot;,
-                      subtitle_text = &quot;Estimate JDM - M&quot;)</code></pre>
+<pre class="r"><code>for (i_eras in unique(cant_inv_wide$eras)) {
+  
+  print(
+    p_map_cant_inv_offset(
+      cant_inv_wide %&gt;% filter(eras == i_eras),
+      &quot;cant_pos_inv_offset&quot;,
+      subtitle_text = paste(&quot;Estimate JDM - M | Eras:&quot;, i_eras)
+    )
+  )
+  
+}</code></pre>
 <p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_inventory_map-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_offset_inventory_map-1">
+Past versions of cant_pos_offset_inventory_map-1.png
+</button>
+</p>
+<div id="fig-cant_pos_offset_inventory_map-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_inventory_map-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="zonal-mean-sections" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> Zonal mean sections</h2>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="cant---all" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Cant - all</h2>
+<p>In a second series of plots we explore the distribution of Cant, taking positive and negative estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell).</p>
 <div id="absolute-values-1" class="section level3" number="3.2.1">
 <h3 number="3.2.1"><span class="header-section-number">3.2.1</span> Absolute values</h3>
-<pre class="r"><code># i_basin_AIP &lt;- unique(cant_zonal_long$basin_AIP)[1]
-# i_estimate &lt;- unique(cant_zonal_long$estimate)[1]
-
-for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
-  for (i_estimate in unique(cant_zonal_long$estimate)) {
+<p>Column inventory of Cant (including positive and negative values) between the surface and 3000m water depth per horizontal grid cell (lat x lon).</p>
+<pre class="r"><code>for (i_estimate in unique(cant_inv_long$estimate)) {
+  for (i_eras in unique(cant_inv_long$eras)) {
+    
     print(
-      p_section_zonal(
-        df = cant_zonal_long %&gt;%
-          filter(basin_AIP == i_basin_AIP,
-                 estimate == i_estimate),
-        var = &quot;cant_pos_mean&quot;,
-        plot_slabs = &quot;n&quot;,
-        subtitle_text =
-          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate:&quot;, i_estimate)
+      p_map_cant_inv(
+        cant_inv_long %&gt;% filter(estimate == i_estimate, eras == i_eras),
+        subtitle_text = paste(&quot;Estimate:&quot;, i_estimate, &quot; | Eras:&quot;, i_eras),
+        col = &quot;divergent&quot;
       )
-      
     )
     
   }
 }</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_inventory_map-1">
+Past versions of cant_inventory_map-1.png
+</button>
+</p>
+<div id="fig-cant_inventory_map-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_inventory_map-2">
+Past versions of cant_inventory_map-2.png
+</button>
+</p>
+<div id="fig-cant_inventory_map-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-4.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="offset-1" class="section level3" number="3.2.2">
 <h3 number="3.2.2"><span class="header-section-number">3.2.2</span> Offset</h3>
-<pre class="r"><code># i_basin_AIP &lt;- unique(cant_zonal_wide$basin_AIP)[1]
-
-for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
+<pre class="r"><code>for (i_eras in unique(cant_inv_wide$eras)) {
+  
+  print(
+    p_map_cant_inv_offset(
+      df = cant_inv_wide %&gt;% filter(eras == i_eras),
+      var = &quot;cant_inv_offset&quot;,
+      subtitle_text = paste(&quot;Estimate JDM - M | Eras:&quot;, i_eras)
+    )
+  )
+  
+}</code></pre>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_inventory_map-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_offset_inventory_map-1">
+Past versions of cant_offset_inventory_map-1.png
+</button>
+</p>
+<div id="fig-cant_offset_inventory_map-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_inventory_map-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="zonal-mean-sections" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Zonal mean sections</h1>
+<div id="cant---positive-only-1" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Cant - positive only</h2>
+<div id="absolute-values-2" class="section level3" number="4.1.1">
+<h3 number="4.1.1"><span class="header-section-number">4.1.1</span> Absolute values</h3>
+<pre class="r"><code>for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
+  for (i_estimate in unique(cant_zonal_long$estimate)) {
+    for (i_eras in unique(cant_zonal_long$eras)) {
+      
+      print(
+        p_section_zonal(
+          df = cant_zonal_long %&gt;%
+            filter(basin_AIP == i_basin_AIP,
+                   estimate == i_estimate,
+                   eras == i_eras),
+          var = &quot;cant_pos_mean&quot;,
+          plot_slabs = &quot;n&quot;,
+          subtitle_text =
+            paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate:&quot;, i_estimate, &quot; | Eras:&quot;, i_eras)
+        )
+      )
+      
+    }
+  }
+}</code></pre>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-1">
+Past versions of cant_pos_zonal_mean_section-1.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-2">
+Past versions of cant_pos_zonal_mean_section-2.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-3">
+Past versions of cant_pos_zonal_mean_section-3.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-3.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-4">
+Past versions of cant_pos_zonal_mean_section-4.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-4.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-5">
+Past versions of cant_pos_zonal_mean_section-5.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-5.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_zonal_mean_section-6">
+Past versions of cant_pos_zonal_mean_section-6.png
+</button>
+</p>
+<div id="fig-cant_pos_zonal_mean_section-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-6.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-8.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-9.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-10.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-11.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_zonal_mean_section-12.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="offset-2" class="section level3" number="4.1.2">
+<h3 number="4.1.2"><span class="header-section-number">4.1.2</span> Offset</h3>
+<pre class="r"><code>for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
+  for (i_eras in unique(cant_zonal_wide$eras)) {
+    
     print(
       p_section_zonal(
         df = cant_zonal_wide %&gt;%
-          filter(basin_AIP == i_basin_AIP),
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
         var = &quot;cant_pos_mean_offset&quot;,
         breaks = params_global$breaks_cant_offset,
         plot_slabs = &quot;n&quot;,
         col = &quot;divergent&quot;,
         subtitle_text =
-          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate: JDM-M&quot;)
+          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate: JDM-M | Eras:&quot;, i_eras)
       )
     )
-  }</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-3.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-</div>
-<div id="cant---all" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> Cant - all</h1>
-<p>In a second series of plots we explore the distribution of Cant, taking positive and negative estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell).</p>
-<div id="inventory-maps-1" class="section level2" number="4.1">
-<h2 number="4.1"><span class="header-section-number">4.1</span> Inventory maps</h2>
-<div id="absolute-values-2" class="section level3" number="4.1.1">
-<h3 number="4.1.1"><span class="header-section-number">4.1.1</span> Absolute values</h3>
-<p>Column inventory of Cant (including positive and negative values) between the surface and 3000m water depth per horizontal grid cell (lat x lon).</p>
-<pre class="r"><code># i_estimate &lt;- unique(cant_inv_long$estimate)[1] 
-
-for (i_estimate in unique(cant_inv_long$estimate)) {
-  
-  print(
-    p_map_cant_inv(
-    cant_inv_long %&gt;% filter(estimate == i_estimate),
-    subtitle_text = paste(&quot;Estimate:&quot;, i_estimate),
-    col = &quot;divergent&quot;)
-  )
-  
-}</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_inventory_map-2.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-<div id="offset-2" class="section level3" number="4.1.2">
-<h3 number="4.1.2"><span class="header-section-number">4.1.2</span> Offset</h3>
-<pre class="r"><code>p_map_cant_inv_offset(
-  df = cant_inv_wide,
-  var = &quot;cant_inv_offset&quot;,
-  subtitle_text = &quot;Estimate: JDM - M&quot;)</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_inventory_map-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="zonal-mean-sections-1" class="section level2" number="4.2">
-<h2 number="4.2"><span class="header-section-number">4.2</span> Zonal mean sections</h2>
-<div id="absolute-values-3" class="section level3" number="4.2.1">
-<h3 number="4.2.1"><span class="header-section-number">4.2.1</span> Absolute values</h3>
-<pre class="r"><code># i_basin_AIP &lt;- unique(df$basin_AIP)[1]
-# i_estimate &lt;- unique(df$estimate)[1]
-
-for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
-  for (i_estimate in unique(cant_zonal_long$estimate)) {
-   
-     print(
-      p_section_zonal(
-        df = cant_zonal_long %&gt;%
-          filter(basin_AIP == i_basin_AIP,
-                 estimate == i_estimate),
-        var = &quot;cant_mean&quot;,
-        col = &quot;divergent&quot;,
-        breaks = params_global$breaks_cant,
-        plot_slabs = &quot;n&quot;,
-        legend_title = expression(atop(Delta * C[ant],
-                                          (mu * mol ~ kg ^ {-1}))),
-        subtitle_text =
-          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate:&quot;, i_estimate)
-      )
-      
-    )
-    
   }
 }</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_offset_zonal_section-1">
+Past versions of cant_pos_offset_zonal_section-1.png
+</button>
+</p>
+<div id="fig-cant_pos_offset_zonal_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_offset_zonal_section-2">
+Past versions of cant_pos_offset_zonal_section-2.png
+</button>
+</p>
+<div id="fig-cant_pos_offset_zonal_section-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_offset_zonal_section-3">
+Past versions of cant_pos_offset_zonal_section-3.png
+</button>
+</p>
+<div id="fig-cant_pos_offset_zonal_section-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-3.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_pos_offset_zonal_section-6.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="cant---all-1" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Cant - all</h2>
+<div id="absolute-values-3" class="section level3" number="4.2.1">
+<h3 number="4.2.1"><span class="header-section-number">4.2.1</span> Absolute values</h3>
+<pre class="r"><code>for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
+  for (i_estimate in unique(cant_zonal_long$estimate)) {
+    for (i_eras in unique(cant_zonal_long$eras)) {
+      
+      print(
+        p_section_zonal(
+          df = cant_zonal_long %&gt;%
+            filter(
+              basin_AIP == i_basin_AIP,
+              estimate == i_estimate,
+              eras == i_eras
+            ),
+          var = &quot;cant_mean&quot;,
+          col = &quot;divergent&quot;,
+          breaks = params_global$breaks_cant,
+          plot_slabs = &quot;n&quot;,
+          legend_title = expression(atop(Delta * C[ant],
+                                         (mu * mol ~ kg ^ {
+                                           -1
+                                         }))),
+          subtitle_text =
+            paste(
+              &quot;Basin:&quot;,
+              i_basin_AIP,
+              &quot;| estimate:&quot;,
+              i_estimate,
+              &quot; | Eras:&quot;,
+              i_eras
+            )
+        )
+        
+      )
+      
+    }
+  }
+}</code></pre>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-1">
+Past versions of cant_zonal_mean_section-1.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-2">
+Past versions of cant_zonal_mean_section-2.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-3">
+Past versions of cant_zonal_mean_section-3.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-3.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-4">
+Past versions of cant_zonal_mean_section-4.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-4.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-5">
+Past versions of cant_zonal_mean_section-5.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-5.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_zonal_mean_section-6">
+Past versions of cant_zonal_mean_section-6.png
+</button>
+</p>
+<div id="fig-cant_zonal_mean_section-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-6.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-8.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-9.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-10.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-11.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_zonal_mean_section-12.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="offset-3" class="section level3" number="4.2.2">
 <h3 number="4.2.2"><span class="header-section-number">4.2.2</span> Offset</h3>
-<pre class="r"><code># i_basin_AIP &lt;- unique(cant_zonal_wide$basin_AIP)[1]
-
-for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
-
-     print(
+<pre class="r"><code>for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
+  for (i_eras in unique(cant_zonal_wide$eras)) {
+    
+    print(
       p_section_zonal(
         df = cant_zonal_wide %&gt;%
-          filter(basin_AIP == i_basin_AIP),
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
         var = &quot;cant_mean_offset&quot;,
         plot_slabs = &quot;n&quot;,
         col = &quot;divergent&quot;,
         breaks = params_global$breaks_cant_offset,
         subtitle_text =
-          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate: JDM - M&quot;)
+          paste(&quot;Basin:&quot;, i_basin_AIP, &quot;| estimate: JDM - M | Eras:&quot;, i_eras)
       )
       
     )
+  }
 }</code></pre>
-<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_offset_zonal_mean_section-1">
+Past versions of cant_offset_zonal_mean_section-1.png
+</button>
+</p>
+<div id="fig-cant_offset_zonal_mean_section-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-1.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_offset_zonal_mean_section-2">
+Past versions of cant_offset_zonal_mean_section-2.png
+</button>
+</p>
+<div id="fig-cant_offset_zonal_mean_section-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-2.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_offset_zonal_mean_section-3">
+Past versions of cant_offset_zonal_mean_section-3.png
+</button>
+</p>
+<div id="fig-cant_offset_zonal_mean_section-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7cdea0c745792050e89b3e2d19d006e228512038/docs/figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-3.png" target="_blank">7cdea0c</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_this_study_vs_model_truth.Rmd/cant_offset_zonal_mean_section-6.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1434,36 +2457,36 @@ attached base packages:
 
 other attached packages:
  [1] gt_0.2.2        marelac_2.1.10  shape_1.4.5     scales_1.1.1   
- [5] metR_0.9.0      scico_1.2.0     patchwork_1.1.1 collapse_1.5.0 
+ [5] metR_0.9.0      scico_1.2.0     patchwork_1.1.1 collapse_1.4.2 
  [9] forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2     purrr_0.3.4    
 [13] readr_1.4.0     tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.2  
 [17] tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2               sass_0.2.0               jsonlite_1.7.1          
+ [1] httr_1.4.2               sass_0.2.0               jsonlite_1.7.2          
  [4] here_0.1                 modelr_0.1.8             assertthat_0.2.1        
  [7] blob_1.2.1               cellranger_1.1.0         yaml_2.2.1              
-[10] pillar_1.4.7             backports_1.1.10         lattice_0.20-41         
-[13] glue_1.4.2               RcppEigen_0.3.3.7.0      digest_0.6.27           
+[10] pillar_1.4.7             backports_1.2.1          lattice_0.20-41         
+[13] glue_1.4.2               RcppEigen_0.3.3.9.1      digest_0.6.27           
 [16] promises_1.1.1           checkmate_2.0.0          rvest_0.3.6             
-[19] colorspace_1.4-1         htmltools_0.5.0          httpuv_1.5.4            
-[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.2             
+[19] colorspace_2.0-0         htmltools_0.5.0          httpuv_1.5.4            
+[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.3             
 [25] seacarb_3.2.14           haven_2.3.1              whisker_0.4             
 [28] later_1.1.0.1            git2r_0.27.1             farver_2.0.3            
-[31] generics_0.0.2           ellipsis_0.3.1           withr_2.3.0             
-[34] cli_2.1.0                magrittr_1.5             crayon_1.3.4            
+[31] generics_0.1.0           ellipsis_0.3.1           withr_2.3.0             
+[34] cli_2.2.0                magrittr_2.0.1           crayon_1.3.4            
 [37] readxl_1.3.1             evaluate_0.14            fs_1.5.0                
 [40] fansi_0.4.1              xml2_1.3.2               RcppArmadillo_0.10.1.2.0
-[43] oce_1.2-0                tools_4.0.3              data.table_1.13.2       
+[43] oce_1.2-0                tools_4.0.3              data.table_1.13.4       
 [46] hms_0.5.3                lifecycle_0.2.0          munsell_0.5.0           
-[49] reprex_0.3.0             gsw_1.0-5                isoband_0.2.2           
+[49] reprex_0.3.0             gsw_1.0-5                isoband_0.2.3           
 [52] compiler_4.0.3           rlang_0.4.9              grid_4.0.3              
 [55] rstudioapi_0.13          labeling_0.4.2           rmarkdown_2.5           
-[58] testthat_2.3.2           gtable_0.3.0             DBI_1.1.0               
+[58] testthat_3.0.1           gtable_0.3.0             DBI_1.1.0               
 [61] R6_2.5.0                 lubridate_1.7.9          knitr_1.30              
 [64] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
-[67] Rcpp_1.0.5               vctrs_0.3.5              dbplyr_1.4.4            
-[70] tidyselect_1.1.0         xfun_0.18               </code></pre>
+[67] Rcpp_1.0.5               vctrs_0.3.6              dbplyr_1.4.4            
+[70] tidyselect_1.1.0         xfun_0.19               </code></pre>
 </div>
 </div>
 </div>
