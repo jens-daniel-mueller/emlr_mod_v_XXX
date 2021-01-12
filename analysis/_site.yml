@@ -30,6 +30,12 @@ navbar:
     href: mapping.html
   - text: Analysis
     menu:
+    - text: Cant budgets
+      href: analysis_cant_budgets.html
+    - text: Inventory maps
+      href: analysis_inventory_maps.html
+    - text: Zonal mean sections
+      href: analysis_zonal_mean_sections.html
     - text: This study vs model truth
       href: analysis_this_study_vs_model_truth.html
     - text: This study

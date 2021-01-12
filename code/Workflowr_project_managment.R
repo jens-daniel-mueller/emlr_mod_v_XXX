@@ -25,7 +25,10 @@ wflow_publish(here::here(
     "mapping_cant.Rmd",
     "mapping_target_variable.Rmd",
     "analysis_this_study_vs_model_truth.Rmd",
-    "analysis_this_study.Rmd"
+    "analysis_this_study.Rmd",
+    "analysis_cant_budgets.Rmd",
+    "analysis_inventory_maps.Rmd",
+    "analysis_zonal_mean_sections.Rmd"
   )
 ),
 message = "local rebuild after revision",

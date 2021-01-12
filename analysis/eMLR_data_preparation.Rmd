@@ -872,28 +872,56 @@ rm(map_plot,
 
 ```{r write_csv_GLODAP_used_for_fitting}
 
-# select relevant columns
-GLODAP <- GLODAP %>%
-  select(
-    year,
-    date,
-    era,
-    basin,
-    basin_AIP,
-    lat,
-    lon,
-    depth,
-    gamma,
-    gamma_slab,
-    params_local$MLR_predictors,
-    params_local$MLR_target
-  )
+if (params_local$subsetting == "GLODAP") {
+  # select relevant columns
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      date,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      depth,
+      gamma,
+      gamma_slab,
+      params_local$MLR_predictors,
+      params_local$MLR_target
+    )
+  
+  GLODAP %>% write_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_MLR_fitting_ready.csv",
+    sep = ""
+  ))
+  
+}
 
-GLODAP %>% write_csv(paste(
-  path_version_data,
-  "GLODAPv2.2020_MLR_fitting_ready.csv",
-  sep = ""
-))
+if (params_local$subsetting == "random") {
+  # select relevant columns
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      month,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      depth,
+      gamma,
+      gamma_slab,
+      params_local$MLR_predictors,
+      params_local$MLR_target
+    )
+  
+  GLODAP %>% write_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_MLR_fitting_ready.csv",
+    sep = ""
+  ))
+}
 
 co2_atm_tref %>%  write_csv(paste(path_version_data,
                                   "co2_atm_tref.csv",
