@@ -1,6 +1,6 @@
 ---
-title: "eMLR data preparation"
-author: "Jens Daniel Müller"
+title: "eMLR - data preparation"
+author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   workflowr::wflow_html:
@@ -705,163 +705,189 @@ Zonal and meridional section plots are produce for each cruise individually and 
 ```{r plot_all_individual_cruises_clean}
 
 if (params_local$subsetting == "GLODAP") {
-
-if (params_local$plot_all_figures == "y") {
-
-cruises <- GLODAP %>% 
-  group_by(cruise) %>% 
-  summarise(date_mean = mean(date, na.rm = TRUE),
-            n = n()) %>% 
-  ungroup() %>% 
-  arrange(date_mean)
-
-GLODAP <- full_join(GLODAP, cruises)
-
-n <- 0
-for (i_cruise in unique(cruises$cruise)) {
-
-# i_cruise <- unique(cruises$cruise)[1]
-# n <- n + 1
-# print(n)  
-  
-GLODAP_cruise <- GLODAP %>%
-  filter(cruise == i_cruise) %>% 
-  arrange(date)
-
-cruises_cruise <- cruises %>%
-  filter(cruise == i_cruise)
-  
-map_plot <- 
-  map +
-  geom_point(data = GLODAP_cruise,
-             aes(lon, lat, col = date)) +
-  scale_color_viridis_c(trans = "date") +
-  labs(title = paste("Mean date:", cruises_cruise$date_mean,
-                     "| cruise:", cruises_cruise$cruise,
-                     "| n(samples):", cruises_cruise$n))
-
-
-lon_section <- GLODAP_cruise %>%
-  ggplot(aes(lon, depth)) +
-  scale_y_reverse() +
-  scale_fill_viridis_c()
-
-lon_tco2 <- lon_section+
-  stat_summary_2d(aes(z=tco2))
-
-lon_talk <- lon_section+
-  stat_summary_2d(aes(z=talk))
-
-lon_phosphate <- lon_section+
-  stat_summary_2d(aes(z=phosphate))
-
-lon_oxygen <- lon_section+
-  stat_summary_2d(aes(z=oxygen))
-
-lon_aou <- lon_section+
-  stat_summary_2d(aes(z=aou))
-
-lon_phosphate_star <- lon_section+
-  stat_summary_2d(aes(z=phosphate_star))
-
-lon_nitrate <- lon_section+
-  stat_summary_2d(aes(z=nitrate))
-
-lon_cstar <- lon_section+
-  stat_summary_2d(aes(z=cstar_tref))
-
-
-lat_section <- GLODAP_cruise %>%
-  ggplot(aes(lat, depth)) +
-  scale_y_reverse() +
-  scale_fill_viridis_c()
-
-lat_tco2 <- lat_section+
-  stat_summary_2d(aes(z=tco2))
-
-lat_talk <- lat_section+
-  stat_summary_2d(aes(z=talk))
-
-lat_phosphate <- lat_section+
-  stat_summary_2d(aes(z=phosphate))
-
-lat_oxygen <- lat_section+
-  stat_summary_2d(aes(z=oxygen))
-
-lat_aou <- lat_section+
-  stat_summary_2d(aes(z=aou))
-
-lat_phosphate_star <- lat_section+
-  stat_summary_2d(aes(z=phosphate_star))
-
-lat_nitrate <- lat_section+
-  stat_summary_2d(aes(z=nitrate))
-
-lat_cstar <- lat_section+
-  stat_summary_2d(aes(z=cstar_tref))
-
-
-hist_tco2 <- GLODAP_cruise %>%
-  ggplot(aes(tco2)) +
-  geom_histogram()
-
-hist_talk <- GLODAP_cruise %>%
-  ggplot(aes(talk)) +
-  geom_histogram()
-
-hist_phosphate <- GLODAP_cruise %>%
-  ggplot(aes(phosphate)) +
-  geom_histogram()
-
-hist_oxygen <- GLODAP_cruise %>%
-  ggplot(aes(oxygen)) +
-  geom_histogram()
-
-hist_aou <- GLODAP_cruise %>%
-  ggplot(aes(aou)) +
-  geom_histogram()
-
-hist_phosphate_star <- GLODAP_cruise %>%
-  ggplot(aes(phosphate_star)) +
-  geom_histogram()
-
-hist_nitrate <- GLODAP_cruise %>%
-  ggplot(aes(nitrate)) +
-  geom_histogram()
-
-hist_cstar <- GLODAP_cruise %>%
-  ggplot(aes(cstar_tref)) +
-  geom_histogram()
-
-(map_plot /
-    ((hist_tco2 / hist_talk / hist_phosphate / hist_cstar) |
-       (hist_oxygen / hist_phosphate_star / hist_nitrate / hist_aou)
-    )) |
-  ((lat_tco2 / lat_talk / lat_phosphate / lat_oxygen / lat_aou / lat_phosphate_star / lat_nitrate / lat_cstar) |
-     (lon_tco2 / lon_talk / lon_phosphate / lon_oxygen /  lon_aou /lon_phosphate_star / lon_nitrate / lon_cstar))    
-
-ggsave(
-  path = paste(path_version_figures, "Cruise_sections_histograms/", sep = ""),
-  filename = paste(
-    "Cruise_date",
-    cruises_cruise$date_mean,
-    "count",
-    cruises_cruise$n,
-    "cruiseID",
-    cruises_cruise$cruise,
-    ".png",
-    sep = "_"
-  ),
-width = 20, height = 12)
-
-rm(map_plot,
-   lon_section, lat_section,
-   lat_tco2, lat_talk, lat_phosphate, lon_tco2, lon_talk, lon_phosphate,
-   GLODAP_cruise, cruises_cruise)
-
-}
-
-}
+  if (params_local$plot_all_figures == "y") {
+    cruises <- GLODAP %>%
+      group_by(cruise) %>%
+      summarise(date_mean = mean(date, na.rm = TRUE),
+                n = n()) %>%
+      ungroup() %>%
+      arrange(date_mean)
+    
+    GLODAP <- full_join(GLODAP, cruises)
+    
+    n <- 0
+    for (i_cruise in unique(cruises$cruise)) {
+      # i_cruise <- unique(cruises$cruise)[1]
+      # n <- n + 1
+      # print(n)
+      
+      GLODAP_cruise <- GLODAP %>%
+        filter(cruise == i_cruise) %>%
+        arrange(date)
+      
+      cruises_cruise <- cruises %>%
+        filter(cruise == i_cruise)
+      
+      map_plot <-
+        map +
+        geom_point(data = GLODAP_cruise,
+                   aes(lon, lat, col = date)) +
+        scale_color_viridis_c(trans = "date") +
+        labs(
+          title = paste(
+            "Mean date:",
+            cruises_cruise$date_mean,
+            "| cruise:",
+            cruises_cruise$cruise,
+            "| n(samples):",
+            cruises_cruise$n
+          )
+        )
+      
+      
+      lon_section <- GLODAP_cruise %>%
+        ggplot(aes(lon, depth)) +
+        scale_y_reverse() +
+        scale_fill_viridis_c()
+      
+      lon_tco2 <- lon_section +
+        stat_summary_2d(aes(z = tco2))
+      
+      lon_talk <- lon_section +
+        stat_summary_2d(aes(z = talk))
+      
+      lon_phosphate <- lon_section +
+        stat_summary_2d(aes(z = phosphate))
+      
+      lon_oxygen <- lon_section +
+        stat_summary_2d(aes(z = oxygen))
+      
+      lon_aou <- lon_section +
+        stat_summary_2d(aes(z = aou))
+      
+      lon_phosphate_star <- lon_section +
+        stat_summary_2d(aes(z = phosphate_star))
+      
+      lon_nitrate <- lon_section +
+        stat_summary_2d(aes(z = nitrate))
+      
+      lon_cstar <- lon_section +
+        stat_summary_2d(aes(z = cstar_tref))
+      
+      
+      lat_section <- GLODAP_cruise %>%
+        ggplot(aes(lat, depth)) +
+        scale_y_reverse() +
+        scale_fill_viridis_c()
+      
+      lat_tco2 <- lat_section +
+        stat_summary_2d(aes(z = tco2))
+      
+      lat_talk <- lat_section +
+        stat_summary_2d(aes(z = talk))
+      
+      lat_phosphate <- lat_section +
+        stat_summary_2d(aes(z = phosphate))
+      
+      lat_oxygen <- lat_section +
+        stat_summary_2d(aes(z = oxygen))
+      
+      lat_aou <- lat_section +
+        stat_summary_2d(aes(z = aou))
+      
+      lat_phosphate_star <- lat_section +
+        stat_summary_2d(aes(z = phosphate_star))
+      
+      lat_nitrate <- lat_section +
+        stat_summary_2d(aes(z = nitrate))
+      
+      lat_cstar <- lat_section +
+        stat_summary_2d(aes(z = cstar_tref))
+      
+      
+      hist_tco2 <- GLODAP_cruise %>%
+        ggplot(aes(tco2)) +
+        geom_histogram()
+      
+      hist_talk <- GLODAP_cruise %>%
+        ggplot(aes(talk)) +
+        geom_histogram()
+      
+      hist_phosphate <- GLODAP_cruise %>%
+        ggplot(aes(phosphate)) +
+        geom_histogram()
+      
+      hist_oxygen <- GLODAP_cruise %>%
+        ggplot(aes(oxygen)) +
+        geom_histogram()
+      
+      hist_aou <- GLODAP_cruise %>%
+        ggplot(aes(aou)) +
+        geom_histogram()
+      
+      hist_phosphate_star <- GLODAP_cruise %>%
+        ggplot(aes(phosphate_star)) +
+        geom_histogram()
+      
+      hist_nitrate <- GLODAP_cruise %>%
+        ggplot(aes(nitrate)) +
+        geom_histogram()
+      
+      hist_cstar <- GLODAP_cruise %>%
+        ggplot(aes(cstar_tref)) +
+        geom_histogram()
+      
+      (map_plot /
+          ((hist_tco2 / hist_talk / hist_phosphate / hist_cstar) |
+             (
+               hist_oxygen / hist_phosphate_star / hist_nitrate / hist_aou
+             )
+          )) |
+        ((
+          lat_tco2 / lat_talk / lat_phosphate / lat_oxygen / lat_aou / lat_phosphate_star / lat_nitrate / lat_cstar
+        ) |
+          (
+            lon_tco2 / lon_talk / lon_phosphate / lon_oxygen /  lon_aou / lon_phosphate_star / lon_nitrate / lon_cstar
+          )
+        )
+      
+      ggsave(
+        path = paste(
+          path_version_figures,
+          "Cruise_sections_histograms/",
+          sep = ""
+        ),
+        filename = paste(
+          "Cruise_date",
+          cruises_cruise$date_mean,
+          "count",
+          cruises_cruise$n,
+          "cruiseID",
+          cruises_cruise$cruise,
+          ".png",
+          sep = "_"
+        ),
+        width = 20,
+        height = 12
+      )
+      
+      rm(
+        map_plot,
+        lon_section,
+        lat_section,
+        lat_tco2,
+        lat_talk,
+        lat_phosphate,
+        lon_tco2,
+        lon_talk,
+        lon_phosphate,
+        GLODAP_cruise,
+        cruises_cruise
+      )
+      
+    }
+    
+  }
   
 }
 

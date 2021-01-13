@@ -1,6 +1,6 @@
 ---
-title: "Mapping cant"
-author: "Jens Daniel Müller"
+title: "Mapping - cant"
+author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   workflowr::wflow_html:

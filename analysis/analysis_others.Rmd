@@ -1,0 +1,353 @@
+---
+title: "Analysis - others"
+author: "Jens Daniel Müller and Donghe Zhu"
+date:  "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  workflowr::wflow_html:
+    number_sections: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r parent, child = "/nfs/kryo/work/jenmueller/emlr_cant/utilities/setup.Rmd"}
+# this chunk runs the code stored in setup.Rmd
+# if required, please refer to instructions given here:
+# https://jdblischak.github.io/workflowr/articles/wflow-07-common-code.html
+```
+
+```{r read_params_local, include = FALSE}
+params_local <-
+  read_rds(here::here("data/auxillary",
+                       "params_local.rds"))
+
+```
+
+```{r define_paths, include = FALSE}
+
+path_model <-
+  paste(path_root, "/model/", sep = "")
+
+path_preprocessing    <-
+  paste(path_model, "preprocessing/", sep = "")
+
+path_version_data     <-
+  paste(path_model,
+        params_local$Version_ID,
+        "/data/",
+        sep = "")
+
+path_version_figures  <-
+  paste(path_model,
+        params_local$Version_ID,
+        "/figures/",
+        sep = "")
+```
+
+```{r load_libraries_specific, include = FALSE}
+library(scales)
+library(marelac)
+library(kableExtra)
+library(gt)
+```
+
+
+# Data sources
+
+Cant estimates from this sensitivity case:
+
+- Mean and SD per grid cell (lat, lon, depth)
+- Zonal mean and SD (basin, lat, depth)
+
+```{r read_cant_files}
+
+cant_3d <-
+  read_csv(paste(path_version_data,
+                 "cant_3d.csv",
+                 sep = ""))
+
+cant_zonal <-
+  read_csv(paste(path_version_data,
+                 "cant_zonal.csv",
+                 sep = ""))
+
+cant_predictor_zonal <-
+  read_csv(paste(path_version_data,
+                 "cant_predictor_zonal.csv",
+                 sep = ""))
+
+```
+
+Target variable (`r params_local$MLR_target`) estimates from this sensitivity case:
+
+- Mean and SD per grid cell (lat, lon, depth)
+- Zonal mean and SD (basin, lat, depth)
+
+```{r read_target_files}
+
+target_3d <-
+  read_csv(paste(path_version_data,
+                 "target_3d.csv",
+                 sep = ""))
+
+target_zonal <-
+  read_csv(paste(path_version_data,
+                 "target_zonal.csv",
+                 sep = ""))
+
+```
+
+Cleaned GLODAP-based synthetic model subsetting file as used in this sensitivity case
+
+```{r read_GLODAP_used_for_fitting}
+
+GLODAP <-
+  read_csv(paste(
+    path_version_data,
+    "GLODAPv2.2020_MLR_fitting_ready.csv",
+    sep = ""
+  ))
+
+```
+
+# Calculate gamma slab maps
+
+```{r calculate_gamma_slab_maps}
+
+cant_gamma_maps <- m_cant_slab(cant_3d)
+
+cant_gamma_maps <- cant_gamma_maps %>% 
+  arrange(gamma_slab, eras)
+
+```
+
+
+# Cant variability
+
+## Across models
+
+Standard deviation across Cant from all MLR models was calculate for each grid cell (XYZ). The zonal mean of this standard deviation should reflect the uncertainty associated to the predictor selection within each slab and era. 
+
+```{r cant_sections_sd_models, fig.asp=0.6}
+
+for (i_basin_AIP in unique(cant_zonal$basin_AIP)) {
+  for (i_eras in unique(cant_zonal$eras)) {
+    
+    print(
+      p_section_zonal(
+        df = cant_zonal %>%
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
+        var = "cant_sd_mean",
+        gamma = "gamma_mean",
+        legend_title = "sd",
+        title_text = "Zonal mean section of SD across models",
+        subtitle_text =
+          paste("Basin:", i_basin_AIP, "| eras:", i_eras)
+      )
+    )
+    
+  }
+}
+
+```
+
+## Across basins
+
+Standard deviation of mean cant values was calculate across all longitudes. This standard deviation should reflect the zonal variability of cant within the basin and era.
+
+```{r cant_sections_sd_cant, fig.asp=0.6}
+
+for (i_basin_AIP in unique(cant_zonal$basin_AIP)) {
+  for (i_eras in unique(cant_zonal$eras)) {
+    
+    print(
+      p_section_zonal(
+        df = cant_zonal %>%
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
+        var = "cant_sd",
+        gamma = "gamma_mean",
+        legend_title = "sd",
+        title_text = "Zonal mean section of Cant SD",
+        subtitle_text =
+          paste("Basin:", i_basin_AIP, "| eras:", i_eras)
+      )
+    )
+    
+  }
+}
+
+```
+
+## Correlation
+
+### Cant vs model SD
+
+#### Era vs basin
+
+```{r cant_vs_sd_by_basin_era}
+
+cant_3d %>% 
+  ggplot(aes(cant, cant_sd)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 10) +
+  geom_bin2d() +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10",
+                       name = "log10(n)") +
+  facet_grid(basin_AIP ~ eras)
+
+```
+
+#### Basin vs gamma
+
+```{r cant_vs_sd_by_basin_gamma, fig.asp=2}
+
+cant_3d %>% 
+  ggplot(aes(cant, cant_sd)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 10) +
+  geom_bin2d() +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10",
+                       name = "log10(n)") +
+  facet_grid(gamma_slab ~ basin_AIP)
+
+```
+
+### Cant vs regional SD
+
+#### Era vs basin
+
+```{r cant_vs_sd_by_basin_era_zonal}
+
+cant_zonal %>% 
+  ggplot(aes(cant_mean, cant_sd)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 10) +
+  geom_bin2d() +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10",
+                       name = "log10(n)") +
+  facet_grid(basin_AIP ~ eras)
+
+```
+
+#### Era vs basin
+
+```{r cant_vs_sd_by_basin_gamma_zonal, fig.asp=2}
+
+cant_zonal %>% 
+  ggplot(aes(cant_mean, cant_sd)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 10) +
+  geom_bin2d() +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10",
+                       name = "log10(n)") +
+  facet_grid(gamma_slab ~ basin_AIP)
+
+```
+
+# Cant - predictor contribution
+
+```{r cant_section_predictor_contribution, fig.asp=1}
+
+for (i_var in paste("cant",
+                    c("intercept", params_local$MLR_predictors),
+                    sep = "_")) {
+  print(
+    p_section_zonal_divergent_gamma_eras_basin(df = cant_predictor_zonal,
+                                               var = i_var,
+                                               gamma = "gamma")
+  )
+  
+}
+
+rm(i_var)
+
+```
+
+
+# Neutral density
+
+## Slab depth
+
+The plot below shows the depths of individual gamma slabs (color) together with the synthetic subsetting available in the respective slab.
+
+Please note that:
+
+- density slabs covering values >28.1 occur by definition only either in the Atlantic or Indo-Pacific basin
+
+```{r gamma_maps, fig.asp=2.5}
+
+GLODAP_obs_coverage <- GLODAP %>% 
+  count(lat, lon, gamma_slab, era)
+
+map +
+  geom_raster(data = cant_gamma_maps,
+              aes(lon, lat, fill = depth_max)) +
+  geom_raster(data = GLODAP_obs_coverage,
+              aes(lon, lat), fill = "red") +
+  facet_grid(gamma_slab ~ era) +
+  scale_fill_viridis_c(direction = -1) +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        legend.position = "top")
+
+rm(GLODAP_obs_coverage)
+
+```
+
+# Target variable
+
+The predicted target variable (`r params_local$MLR_target` in this sensitivity case) is based on fitted MLRs and climatological fields of predictor variables, and calculated for each era.
+
+## Zonal mean sections
+
+```{r target_zonal_mean_era}
+
+slab_breaks <- c(params_local$slabs_Atl[1:12], Inf)
+
+for (i_basin_AIP in unique(target_zonal$basin_AIP)) {
+  
+  print(
+  target_zonal %>%
+    filter(basin_AIP == i_basin_AIP) %>%
+    ggplot(aes(lat, depth,
+               z = !!sym(
+                 paste(params_local$MLR_target, "mean", sep = "_")
+               ))) +
+    geom_contour_filled(bins = 11) +
+    scale_fill_viridis_d(name = params_local$MLR_target) +
+    geom_contour(aes(lat, depth, z = gamma_mean),
+                 breaks = slab_breaks,
+                 col = "white") +
+    geom_text_contour(
+      aes(lat, depth, z = gamma_mean),
+      breaks = slab_breaks,
+      col = "white",
+      skip = 1
+    ) +
+    scale_y_reverse() +
+    coord_cartesian(expand = 0,
+                    ylim = c(params_global$plotting_depth, 0)) +
+    scale_x_continuous(breaks = seq(-100, 100, 20)) +
+    guides(fill = guide_colorsteps(barheight = unit(10, "cm"))) +
+    facet_grid(era ~ eras,
+               labeller = labeller(.default = label_both)) +
+    labs(title = i_basin_AIP)
+  )
+  
+}
+
+rm(slab_breaks)
+
+```
