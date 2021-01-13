@@ -444,6 +444,15 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="analysis_cant_budgets.html">Cant budgets</a>
+    </li>
+    <li>
+      <a href="analysis_inventory_maps.html">Inventory maps</a>
+    </li>
+    <li>
+      <a href="analysis_zonal_mean_sections.html">Zonal mean sections</a>
+    </li>
+    <li>
       <a href="analysis_this_study_vs_model_truth.html">This study vs model truth</a>
     </li>
     <li>
@@ -486,7 +495,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Analysis of cant estimates</h1>
 <h4 class="author">Jens Daniel Müller</h4>
-<h4 class="date">11 January, 2021</h4>
+<h4 class="date">13 January, 2021</h4>
 
 </div>
 
@@ -511,7 +520,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-01-11
+<strong>Last updated:</strong> 2021-01-13
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -602,16 +611,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeac37e346e542f4953b1dc67ab09ae6b8a8adb651targetblankac37e34a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ac37e346e542f4953b1dc67ab09ae6b8a8adb651" target="_blank">ac37e34</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeac37e346e542f4953b1dc67ab09ae6b8a8adb651targetblankac37e34a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ac37e346e542f4953b1dc67ab09ae6b8a8adb651" target="_blank">ac37e34</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -620,6 +629,9 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Unstaged changes:
+    Modified:   code/Workflowr_project_managment.R
 
 </code></pre>
 <p>
@@ -658,6 +670,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/a0762268800d9f6ad36dca32e0d3fe90b4033186/docs/analysis_this_study.html" target="_blank">a076226</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1311,46 +1340,46 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">7.3</td>
-      <td class="gt_row gt_right">7.7</td>
+      <td class="gt_row gt_right">6.2</td>
+      <td class="gt_row gt_right">6.5</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">4.9</td>
-      <td class="gt_row gt_right">6.4</td>
+      <td class="gt_row gt_right">3.8</td>
+      <td class="gt_row gt_right">5.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">17.1</td>
-      <td class="gt_row gt_right">18.4</td>
+      <td class="gt_row gt_right">11.3</td>
+      <td class="gt_row gt_right">12.7</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">29.30</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">32.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">21.30</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">24.30</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth: 3000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">3.5</td>
-      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">4.5</td>
+      <td class="gt_row gt_right">5.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">3.9</td>
-      <td class="gt_row gt_right">5.5</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">4.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">18.0</td>
-      <td class="gt_row gt_right">18.5</td>
+      <td class="gt_row gt_right">10.7</td>
+      <td class="gt_row gt_right">10.9</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">25.40</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">28.30</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">18.20</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">20.00</td>
     </tr>
   </tbody>
   
@@ -1720,8 +1749,8 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">1.3</td>
-      <td class="gt_row gt_right">1.3</td>
+      <td class="gt_row gt_right">1.2</td>
+      <td class="gt_row gt_right">1.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
@@ -1730,82 +1759,82 @@ target_zonal &lt;-
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">2.4</td>
+      <td class="gt_row gt_right">2.3</td>
       <td class="gt_row gt_right">2.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.70</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.70</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">4.60</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth:   500</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">4.3</td>
-      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">4.0</td>
+      <td class="gt_row gt_right">4.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">3.3</td>
-      <td class="gt_row gt_right">3.4</td>
+      <td class="gt_row gt_right">3.1</td>
+      <td class="gt_row gt_right">3.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
+      <td class="gt_row gt_right">7.3</td>
       <td class="gt_row gt_right">7.5</td>
-      <td class="gt_row gt_right">7.6</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">15.10</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">15.30</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">14.40</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">14.70</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth:  1000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">5.5</td>
-      <td class="gt_row gt_right">5.7</td>
+      <td class="gt_row gt_right">5.3</td>
+      <td class="gt_row gt_right">5.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
       <td class="gt_row gt_right">3.9</td>
-      <td class="gt_row gt_right">4.4</td>
+      <td class="gt_row gt_right">4.3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">9.9</td>
-      <td class="gt_row gt_right">10.4</td>
+      <td class="gt_row gt_right">8.8</td>
+      <td class="gt_row gt_right">9.5</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">19.30</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">20.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">18.00</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">19.20</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">1982-1999 --&gt; 2000-2012 | Depth: 10000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">7.2</td>
-      <td class="gt_row gt_right">8.2</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">5.1</td>
+      <td class="gt_row gt_right">6.2</td>
       <td class="gt_row gt_right">6.8</td>
     </tr>
     <tr>
+      <td class="gt_row gt_left gt_stub">Indian</td>
+      <td class="gt_row gt_right">4.1</td>
+      <td class="gt_row gt_right">5.6</td>
+    </tr>
+    <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">18.7</td>
-      <td class="gt_row gt_right">20.2</td>
+      <td class="gt_row gt_right">12.2</td>
+      <td class="gt_row gt_right">13.8</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">31.00</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">35.20</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">22.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">26.20</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth:   100</td>
@@ -1813,91 +1842,91 @@ target_zonal &lt;-
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
       <td class="gt_row gt_right">0.9</td>
-      <td class="gt_row gt_right">0.9</td>
+      <td class="gt_row gt_right">1.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">0.6</td>
-      <td class="gt_row gt_right">0.7</td>
+      <td class="gt_row gt_right">0.8</td>
+      <td class="gt_row gt_right">0.8</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">1.8</td>
+      <td class="gt_row gt_right">1.9</td>
       <td class="gt_row gt_right">1.9</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.30</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.60</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">3.80</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth:   500</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">2.5</td>
-      <td class="gt_row gt_right">2.6</td>
+      <td class="gt_row gt_right">2.7</td>
+      <td class="gt_row gt_right">3.0</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">1.8</td>
       <td class="gt_row gt_right">2.1</td>
+      <td class="gt_row gt_right">2.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">5.7</td>
-      <td class="gt_row gt_right">5.8</td>
+      <td class="gt_row gt_right">6.2</td>
+      <td class="gt_row gt_right">6.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">10.00</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">10.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">11.00</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">11.40</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth:  1000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">3.3</td>
-      <td class="gt_row gt_right">3.5</td>
+      <td class="gt_row gt_right">3.6</td>
+      <td class="gt_row gt_right">3.9</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">2.5</td>
-      <td class="gt_row gt_right">3.3</td>
+      <td class="gt_row gt_right">2.7</td>
+      <td class="gt_row gt_right">3.1</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">7.6</td>
-      <td class="gt_row gt_right">7.8</td>
+      <td class="gt_row gt_right">8.3</td>
+      <td class="gt_row gt_right">8.3</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">13.40</td>
       <td class="gt_row gt_right gt_summary_row gt_first_summary_row">14.60</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">15.30</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="3" class="gt_group_heading">2000-2012 --&gt; 2013-2019 | Depth: 10000</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Atlantic</td>
-      <td class="gt_row gt_right">3.4</td>
-      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">4.4</td>
+      <td class="gt_row gt_right">5.3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Indian</td>
-      <td class="gt_row gt_right">3.8</td>
-      <td class="gt_row gt_right">5.7</td>
+      <td class="gt_row gt_right">2.8</td>
+      <td class="gt_row gt_right">4.2</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">Pacific</td>
-      <td class="gt_row gt_right">22.7</td>
-      <td class="gt_row gt_right">23.2</td>
+      <td class="gt_row gt_right">11.2</td>
+      <td class="gt_row gt_right">11.4</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">29.90</td>
-      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">33.50</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">18.40</td>
+      <td class="gt_row gt_right gt_summary_row gt_first_summary_row">20.90</td>
     </tr>
   </tbody>
   
@@ -12398,23 +12427,23 @@ attached base packages:
 other attached packages:
  [1] gt_0.2.2         kableExtra_1.3.1 marelac_2.1.10   shape_1.4.5     
  [5] scales_1.1.1     metR_0.9.0       scico_1.2.0      patchwork_1.1.1 
- [9] collapse_1.4.2   forcats_0.5.0    stringr_1.4.0    dplyr_1.0.2     
+ [9] collapse_1.5.0   forcats_0.5.0    stringr_1.4.0    dplyr_1.0.2     
 [13] purrr_0.3.4      readr_1.4.0      tidyr_1.1.2      tibble_3.0.4    
 [17] ggplot2_3.3.2    tidyverse_1.3.0  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
  [1] fs_1.5.0                 lubridate_1.7.9          gsw_1.0-5               
  [4] webshot_0.5.2            httr_1.4.2               rprojroot_2.0.2         
- [7] tools_4.0.3              backports_1.2.1          R6_2.5.0                
-[10] DBI_1.1.0                colorspace_2.0-0         withr_2.3.0             
+ [7] tools_4.0.3              backports_1.1.10         R6_2.5.0                
+[10] DBI_1.1.0                colorspace_1.4-1         withr_2.3.0             
 [13] tidyselect_1.1.0         compiler_4.0.3           git2r_0.27.1            
-[16] cli_2.2.0                rvest_0.3.6              xml2_1.3.2              
-[19] isoband_0.2.3            labeling_0.4.2           sass_0.2.0              
+[16] cli_2.1.0                rvest_0.3.6              xml2_1.3.2              
+[19] isoband_0.2.2            labeling_0.4.2           sass_0.2.0              
 [22] checkmate_2.0.0          digest_0.6.27            rmarkdown_2.5           
 [25] oce_1.2-0                pkgconfig_2.0.3          htmltools_0.5.0         
 [28] dbplyr_1.4.4             rlang_0.4.9              readxl_1.3.1            
-[31] rstudioapi_0.13          farver_2.0.3             generics_0.1.0          
-[34] jsonlite_1.7.2           magrittr_2.0.1           Matrix_1.2-18           
+[31] rstudioapi_0.13          farver_2.0.3             generics_0.0.2          
+[34] jsonlite_1.7.1           magrittr_1.5             Matrix_1.2-18           
 [37] Rcpp_1.0.5               munsell_0.5.0            fansi_0.4.1             
 [40] lifecycle_0.2.0          stringi_1.5.3            whisker_0.4             
 [43] yaml_2.2.1               plyr_1.8.6               grid_4.0.3              
@@ -12422,11 +12451,11 @@ loaded via a namespace (and not attached):
 [49] crayon_1.3.4             lattice_0.20-41          haven_2.3.1             
 [52] hms_0.5.3                seacarb_3.2.14           knitr_1.30              
 [55] pillar_1.4.7             reprex_0.3.0             glue_1.4.2              
-[58] evaluate_0.14            RcppArmadillo_0.10.1.2.0 data.table_1.13.4       
-[61] modelr_0.1.8             vctrs_0.3.6              httpuv_1.5.4            
-[64] testthat_3.0.1           cellranger_1.1.0         gtable_0.3.0            
-[67] assertthat_0.2.1         xfun_0.19                broom_0.7.3             
-[70] RcppEigen_0.3.3.9.1      later_1.1.0.1            viridisLite_0.3.0       
+[58] evaluate_0.14            RcppArmadillo_0.10.1.2.0 data.table_1.13.2       
+[61] modelr_0.1.8             vctrs_0.3.5              httpuv_1.5.4            
+[64] testthat_2.3.2           cellranger_1.1.0         gtable_0.3.0            
+[67] assertthat_0.2.1         xfun_0.18                broom_0.7.2             
+[70] RcppEigen_0.3.3.7.0      later_1.1.0.1            viridisLite_0.3.0       
 [73] memoise_1.1.0            ellipsis_0.3.1           here_0.1                </code></pre>
 </div>
 </div>
