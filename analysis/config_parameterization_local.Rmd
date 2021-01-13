@@ -76,9 +76,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of "variable"-"AD" or "constant"-"CB"
-    model_runs = "AD",
+    model_runs = "CB",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "GLODAP",
+    subsetting = "random",
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data

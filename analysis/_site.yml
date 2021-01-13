@@ -36,6 +36,12 @@ navbar:
       href: analysis_inventory_maps.html
     - text: Zonal mean sections
       href: analysis_zonal_mean_sections.html
+    - text: Global section
+      href: analysis_global_section.html
+    - text: Isoneutral slab distribution
+      href: analysis_isoneutral_slab_distribution.html
+    - text: Others
+      href: analysis_others.html
     - text: This study vs model truth
       href: analysis_this_study_vs_model_truth.html
     - text: This study
