@@ -110,10 +110,10 @@ data = GLODAP_basin_era_slab)
 # unfortunately, this functions does not provide model coefficients (yet)
 lm_all <- ols_step_all_possible(lm_full)
 
-# extract diagnostics of each linear model
-lm_all <- as_tibble(lm_all$result)
+# convert to tibble
+lm_all <- as_tibble(lm_all)
 
-# format model formula
+# extract relevant columns and format model formula
 lm_all <- lm_all %>% 
   select(n, predictors) %>% 
   mutate(lm_coeff = str_replace_all(predictors, " ", " + "),
