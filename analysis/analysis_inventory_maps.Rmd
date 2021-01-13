@@ -214,9 +214,8 @@ Column inventory of positive Cant between the surface and `r params_global$inven
 
 ```{r cant_pos_inventory_map, fig.asp=0.5}
 
-for (i_estimate in unique(cant_inv_long$estimate)) {
-  for (i_eras in unique(cant_inv_long$eras)) {
-    
+for (i_eras in unique(cant_inv_long$eras)) {
+  for (i_estimate in unique(cant_inv_long$estimate)) {
     print(p_map_cant_inv(
       cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
       subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras)
@@ -234,7 +233,6 @@ Column inventory offset of positive cant between the surface and `r params_globa
 ```{r cant_pos_offset_inventory_map, fig.asp=0.5}
 
 for (i_eras in unique(cant_inv_wide$eras)) {
-  
   print(
     p_map_cant_inv_offset(
       cant_inv_wide %>% filter(eras == i_eras),
@@ -256,10 +254,9 @@ In a second series of plots we explore the distribution of Cant, taking positive
 Column inventory of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
 
 ```{r cant_inventory_map, fig.asp=0.5}
-
-for (i_estimate in unique(cant_inv_long$estimate)) {
-  for (i_eras in unique(cant_inv_long$eras)) {
-    
+ 
+for (i_eras in unique(cant_inv_long$eras)) {
+  for (i_estimate in unique(cant_inv_long$estimate)) {
     print(
       p_map_cant_inv(
         cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),

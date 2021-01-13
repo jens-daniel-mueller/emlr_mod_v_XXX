@@ -184,22 +184,26 @@ for (i_eras in unique(cant_M$eras)) {
 ```{r cant_global_sections_all_mean, fig.asp=0.6}
 
 for (i_eras in unique(cant_3d$eras)) {
-  
-  print(p_section_global(
-    df = cant_3d %>% filter(eras == i_eras),
-    var = "cant",
-    subtitle_text = paste("Eras:", i_eras, "| Estimate: JDM")
-  ))
+  print(
+    p_section_global(
+      df = cant_3d %>% filter(eras == i_eras),
+      var = "cant",
+      col = "divergent",
+      subtitle_text = paste("Eras:", i_eras, "| Estimate: JDM")
+    )
+  )
   
 }
 
 for (i_eras in unique(cant_M$eras)) {
-  
-  print(p_section_global(
-    df = cant_M %>% filter(eras == i_eras),
-    var = "cant",
-    subtitle_text = paste("Eras:", i_eras, "| Estimate: M")
-  ))
+  print(
+    p_section_global(
+      df = cant_M %>% filter(eras == i_eras),
+      var = "cant",
+      col = "divergent",
+      subtitle_text = paste("Eras:", i_eras, "| Estimate: M")
+    )
+  )
   
 }
 

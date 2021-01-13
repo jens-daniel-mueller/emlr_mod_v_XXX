@@ -213,14 +213,14 @@ cant_inv_budget <- cant_inv_wide %>%
   ) %>%
   group_by(basin_AIP, eras, inv_depth) %>%
   summarise(
-    cant_total_JDM = sum(cant_inv_grid_JDM) * 12 * 1e-15,
-    cant_total_JDM = round(cant_total_JDM, 1),
-    cant_total_M = sum(cant_inv_grid_M) * 12 * 1e-15,
-    cant_total_M = round(cant_total_M, 1),
-    cant_pos_total_JDM = sum(cant_pos_inv_grid_JDM) * 12 * 1e-15,
-    cant_pos_total_JDM = round(cant_pos_total_JDM, 1),
-    cant_pos_total_M = sum(cant_pos_inv_grid_M) * 12 * 1e-15,
-    cant_pos_total_M = round(cant_pos_total_M, 1),
+    cant_JDM = sum(cant_inv_grid_JDM) * 12 * 1e-15,
+    cant_JDM = round(cant_JDM, 1),
+    cant_M = sum(cant_inv_grid_M) * 12 * 1e-15,
+    cant_M = round(cant_M, 1),
+    cant_pos_JDM = sum(cant_pos_inv_grid_JDM) * 12 * 1e-15,
+    cant_pos_JDM = round(cant_pos_JDM, 1),
+    cant_pos_M = sum(cant_pos_inv_grid_M) * 12 * 1e-15,
+    cant_pos_M = round(cant_pos_M, 1),
     cant_inv_offset = sum(cant_inv_offset_grid) * 12 * 1e-15,
     cant_inv_offset = round(cant_inv_offset, 1),
     cant_pos_inv_offset = sum(cant_pos_inv_offset_grid) * 12 * 1e-15,

@@ -222,19 +222,27 @@ In a first series of plots we explore the distribution of Cant, taking only posi
 
 ```{r cant_pos_zonal_mean_section, fig.asp=0.6}
 
-for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
-  for (i_estimate in unique(cant_zonal_long$estimate)) {
-    for (i_eras in unique(cant_zonal_long$eras)) {
-      
+for (i_eras in unique(cant_zonal_long$eras)) {
+  for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
+    for (i_estimate in unique(cant_zonal_long$estimate)) {
       print(
         p_section_zonal(
           df = cant_zonal_long %>%
-            filter(basin_AIP == i_basin_AIP,
-                   estimate == i_estimate,
-                   eras == i_eras),
+            filter(
+              basin_AIP == i_basin_AIP,
+              estimate == i_estimate,
+              eras == i_eras
+            ),
           var = "cant_pos_mean",
           subtitle_text =
-            paste("Basin:", i_basin_AIP, "| estimate:", i_estimate, " | eras:", i_eras)
+            paste(
+              "Basin:",
+              i_basin_AIP,
+              "| estimate:",
+              i_estimate,
+              " | eras:",
+              i_eras
+            )
         )
       )
       
@@ -248,9 +256,8 @@ for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
 
 ```{r cant_pos_offset_zonal_section, fig.asp=0.6}
 
-for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
-  for (i_eras in unique(cant_zonal_wide$eras)) {
-    
+for (i_eras in unique(cant_zonal_wide$eras)) {
+  for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
     print(
       p_section_zonal(
         df = cant_zonal_wide %>%
@@ -276,10 +283,10 @@ In a second series of plots we explore the distribution of all Cant, taking posi
 
 ```{r cant_zonal_mean_section, fig.asp=0.6}
 
-for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
-  for (i_estimate in unique(cant_zonal_long$estimate)) {
-    for (i_eras in unique(cant_zonal_long$eras)) {
-      
+
+for (i_eras in unique(cant_zonal_long$eras)) {
+  for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
+    for (i_estimate in unique(cant_zonal_long$estimate)) {
       print(
         p_section_zonal(
           df = cant_zonal_long %>%
@@ -318,9 +325,8 @@ for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
 
 ```{r cant_offset_zonal_mean_section, fig.asp=0.6}
 
-for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
-  for (i_eras in unique(cant_zonal_wide$eras)) {
-    
+for (i_eras in unique(cant_zonal_wide$eras)) {
+  for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
     print(
       p_section_zonal(
         df = cant_zonal_wide %>%
