@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Jens Daniel Müller" />
+<meta name="author" content="Jens Daniel Müller and Donghe Zhu" />
 
 
-<title>eMLR data preparation</title>
+<title>eMLR - data preparation</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -455,6 +455,15 @@ div.tocify {
       <a href="analysis_zonal_mean_sections.html">Zonal mean sections</a>
     </li>
     <li>
+      <a href="analysis_global_section.html">Global section</a>
+    </li>
+    <li>
+      <a href="analysis_isoneutral_slab_distribution.html">Isoneutral slab distribution</a>
+    </li>
+    <li>
+      <a href="analysis_others.html">Others</a>
+    </li>
+    <li>
       <a href="analysis_this_study_vs_model_truth.html">This study vs model truth</a>
     </li>
     <li>
@@ -495,8 +504,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">eMLR data preparation</h1>
-<h4 class="author">Jens Daniel Müller</h4>
+<h1 class="title toc-ignore">eMLR - data preparation</h1>
+<h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
 <h4 class="date">13 January, 2021</h4>
 
 </div>
@@ -613,16 +622,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed44f36fe98c636b2022dc2f8c37916bd3282b182targetblankd44f36fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d44f36fe98c636b2022dc2f8c37916bd3282b182" target="_blank">d44f36f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed44f36fe98c636b2022dc2f8c37916bd3282b182targetblankd44f36fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d44f36fe98c636b2022dc2f8c37916bd3282b182" target="_blank">d44f36f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -633,6 +642,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
+    Modified:   analysis/_site.yml
     Modified:   code/Workflowr_project_managment.R
 
 </code></pre>
@@ -672,6 +682,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d44f36fe98c636b2022dc2f8c37916bd3282b182/analysis/eMLR_data_preparation.Rmd" target="_blank">d44f36f</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-13
+</td>
+<td>
+reorder analysis final
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/17dee1d28f5938ea1cc536d56d84f799f3352ce7/docs/eMLR_data_preparation.html" target="_blank">17dee1d</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -2483,6 +2527,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/17dee1d28f5938ea1cc536d56d84f799f3352ce7/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">17dee1d</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-13
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e5cb81a77276d8f86383d5f95c523932c41c9865/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">e5cb81a</a>
 </td>
 <td>
@@ -2628,6 +2683,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/17dee1d28f5938ea1cc536d56d84f799f3352ce7/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">17dee1d</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-13
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e5cb81a77276d8f86383d5f95c523932c41c9865/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">e5cb81a</a>
 </td>
 <td>
@@ -2697,6 +2763,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/17dee1d28f5938ea1cc536d56d84f799f3352ce7/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">17dee1d</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-13
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e5cb81a77276d8f86383d5f95c523932c41c9865/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">e5cb81a</a>
@@ -2866,163 +2943,189 @@ jens-daniel-mueller
 <p>Zonal and meridional section plots are produce for each cruise individually and are available under:</p>
 <p>/nfs/kryo/work/jenmueller/emlr_cant/model/v_XXX/figures/Cruise_sections_histograms/</p>
 <pre class="r"><code>if (params_local$subsetting == &quot;GLODAP&quot;) {
-
-if (params_local$plot_all_figures == &quot;y&quot;) {
-
-cruises &lt;- GLODAP %&gt;% 
-  group_by(cruise) %&gt;% 
-  summarise(date_mean = mean(date, na.rm = TRUE),
-            n = n()) %&gt;% 
-  ungroup() %&gt;% 
-  arrange(date_mean)
-
-GLODAP &lt;- full_join(GLODAP, cruises)
-
-n &lt;- 0
-for (i_cruise in unique(cruises$cruise)) {
-
-# i_cruise &lt;- unique(cruises$cruise)[1]
-# n &lt;- n + 1
-# print(n)  
-  
-GLODAP_cruise &lt;- GLODAP %&gt;%
-  filter(cruise == i_cruise) %&gt;% 
-  arrange(date)
-
-cruises_cruise &lt;- cruises %&gt;%
-  filter(cruise == i_cruise)
-  
-map_plot &lt;- 
-  map +
-  geom_point(data = GLODAP_cruise,
-             aes(lon, lat, col = date)) +
-  scale_color_viridis_c(trans = &quot;date&quot;) +
-  labs(title = paste(&quot;Mean date:&quot;, cruises_cruise$date_mean,
-                     &quot;| cruise:&quot;, cruises_cruise$cruise,
-                     &quot;| n(samples):&quot;, cruises_cruise$n))
-
-
-lon_section &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(lon, depth)) +
-  scale_y_reverse() +
-  scale_fill_viridis_c()
-
-lon_tco2 &lt;- lon_section+
-  stat_summary_2d(aes(z=tco2))
-
-lon_talk &lt;- lon_section+
-  stat_summary_2d(aes(z=talk))
-
-lon_phosphate &lt;- lon_section+
-  stat_summary_2d(aes(z=phosphate))
-
-lon_oxygen &lt;- lon_section+
-  stat_summary_2d(aes(z=oxygen))
-
-lon_aou &lt;- lon_section+
-  stat_summary_2d(aes(z=aou))
-
-lon_phosphate_star &lt;- lon_section+
-  stat_summary_2d(aes(z=phosphate_star))
-
-lon_nitrate &lt;- lon_section+
-  stat_summary_2d(aes(z=nitrate))
-
-lon_cstar &lt;- lon_section+
-  stat_summary_2d(aes(z=cstar_tref))
-
-
-lat_section &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(lat, depth)) +
-  scale_y_reverse() +
-  scale_fill_viridis_c()
-
-lat_tco2 &lt;- lat_section+
-  stat_summary_2d(aes(z=tco2))
-
-lat_talk &lt;- lat_section+
-  stat_summary_2d(aes(z=talk))
-
-lat_phosphate &lt;- lat_section+
-  stat_summary_2d(aes(z=phosphate))
-
-lat_oxygen &lt;- lat_section+
-  stat_summary_2d(aes(z=oxygen))
-
-lat_aou &lt;- lat_section+
-  stat_summary_2d(aes(z=aou))
-
-lat_phosphate_star &lt;- lat_section+
-  stat_summary_2d(aes(z=phosphate_star))
-
-lat_nitrate &lt;- lat_section+
-  stat_summary_2d(aes(z=nitrate))
-
-lat_cstar &lt;- lat_section+
-  stat_summary_2d(aes(z=cstar_tref))
-
-
-hist_tco2 &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(tco2)) +
-  geom_histogram()
-
-hist_talk &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(talk)) +
-  geom_histogram()
-
-hist_phosphate &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(phosphate)) +
-  geom_histogram()
-
-hist_oxygen &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(oxygen)) +
-  geom_histogram()
-
-hist_aou &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(aou)) +
-  geom_histogram()
-
-hist_phosphate_star &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(phosphate_star)) +
-  geom_histogram()
-
-hist_nitrate &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(nitrate)) +
-  geom_histogram()
-
-hist_cstar &lt;- GLODAP_cruise %&gt;%
-  ggplot(aes(cstar_tref)) +
-  geom_histogram()
-
-(map_plot /
-    ((hist_tco2 / hist_talk / hist_phosphate / hist_cstar) |
-       (hist_oxygen / hist_phosphate_star / hist_nitrate / hist_aou)
-    )) |
-  ((lat_tco2 / lat_talk / lat_phosphate / lat_oxygen / lat_aou / lat_phosphate_star / lat_nitrate / lat_cstar) |
-     (lon_tco2 / lon_talk / lon_phosphate / lon_oxygen /  lon_aou /lon_phosphate_star / lon_nitrate / lon_cstar))    
-
-ggsave(
-  path = paste(path_version_figures, &quot;Cruise_sections_histograms/&quot;, sep = &quot;&quot;),
-  filename = paste(
-    &quot;Cruise_date&quot;,
-    cruises_cruise$date_mean,
-    &quot;count&quot;,
-    cruises_cruise$n,
-    &quot;cruiseID&quot;,
-    cruises_cruise$cruise,
-    &quot;.png&quot;,
-    sep = &quot;_&quot;
-  ),
-width = 20, height = 12)
-
-rm(map_plot,
-   lon_section, lat_section,
-   lat_tco2, lat_talk, lat_phosphate, lon_tco2, lon_talk, lon_phosphate,
-   GLODAP_cruise, cruises_cruise)
-
-}
-
-}
+  if (params_local$plot_all_figures == &quot;y&quot;) {
+    cruises &lt;- GLODAP %&gt;%
+      group_by(cruise) %&gt;%
+      summarise(date_mean = mean(date, na.rm = TRUE),
+                n = n()) %&gt;%
+      ungroup() %&gt;%
+      arrange(date_mean)
+    
+    GLODAP &lt;- full_join(GLODAP, cruises)
+    
+    n &lt;- 0
+    for (i_cruise in unique(cruises$cruise)) {
+      # i_cruise &lt;- unique(cruises$cruise)[1]
+      # n &lt;- n + 1
+      # print(n)
+      
+      GLODAP_cruise &lt;- GLODAP %&gt;%
+        filter(cruise == i_cruise) %&gt;%
+        arrange(date)
+      
+      cruises_cruise &lt;- cruises %&gt;%
+        filter(cruise == i_cruise)
+      
+      map_plot &lt;-
+        map +
+        geom_point(data = GLODAP_cruise,
+                   aes(lon, lat, col = date)) +
+        scale_color_viridis_c(trans = &quot;date&quot;) +
+        labs(
+          title = paste(
+            &quot;Mean date:&quot;,
+            cruises_cruise$date_mean,
+            &quot;| cruise:&quot;,
+            cruises_cruise$cruise,
+            &quot;| n(samples):&quot;,
+            cruises_cruise$n
+          )
+        )
+      
+      
+      lon_section &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(lon, depth)) +
+        scale_y_reverse() +
+        scale_fill_viridis_c()
+      
+      lon_tco2 &lt;- lon_section +
+        stat_summary_2d(aes(z = tco2))
+      
+      lon_talk &lt;- lon_section +
+        stat_summary_2d(aes(z = talk))
+      
+      lon_phosphate &lt;- lon_section +
+        stat_summary_2d(aes(z = phosphate))
+      
+      lon_oxygen &lt;- lon_section +
+        stat_summary_2d(aes(z = oxygen))
+      
+      lon_aou &lt;- lon_section +
+        stat_summary_2d(aes(z = aou))
+      
+      lon_phosphate_star &lt;- lon_section +
+        stat_summary_2d(aes(z = phosphate_star))
+      
+      lon_nitrate &lt;- lon_section +
+        stat_summary_2d(aes(z = nitrate))
+      
+      lon_cstar &lt;- lon_section +
+        stat_summary_2d(aes(z = cstar_tref))
+      
+      
+      lat_section &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(lat, depth)) +
+        scale_y_reverse() +
+        scale_fill_viridis_c()
+      
+      lat_tco2 &lt;- lat_section +
+        stat_summary_2d(aes(z = tco2))
+      
+      lat_talk &lt;- lat_section +
+        stat_summary_2d(aes(z = talk))
+      
+      lat_phosphate &lt;- lat_section +
+        stat_summary_2d(aes(z = phosphate))
+      
+      lat_oxygen &lt;- lat_section +
+        stat_summary_2d(aes(z = oxygen))
+      
+      lat_aou &lt;- lat_section +
+        stat_summary_2d(aes(z = aou))
+      
+      lat_phosphate_star &lt;- lat_section +
+        stat_summary_2d(aes(z = phosphate_star))
+      
+      lat_nitrate &lt;- lat_section +
+        stat_summary_2d(aes(z = nitrate))
+      
+      lat_cstar &lt;- lat_section +
+        stat_summary_2d(aes(z = cstar_tref))
+      
+      
+      hist_tco2 &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(tco2)) +
+        geom_histogram()
+      
+      hist_talk &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(talk)) +
+        geom_histogram()
+      
+      hist_phosphate &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(phosphate)) +
+        geom_histogram()
+      
+      hist_oxygen &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(oxygen)) +
+        geom_histogram()
+      
+      hist_aou &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(aou)) +
+        geom_histogram()
+      
+      hist_phosphate_star &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(phosphate_star)) +
+        geom_histogram()
+      
+      hist_nitrate &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(nitrate)) +
+        geom_histogram()
+      
+      hist_cstar &lt;- GLODAP_cruise %&gt;%
+        ggplot(aes(cstar_tref)) +
+        geom_histogram()
+      
+      (map_plot /
+          ((hist_tco2 / hist_talk / hist_phosphate / hist_cstar) |
+             (
+               hist_oxygen / hist_phosphate_star / hist_nitrate / hist_aou
+             )
+          )) |
+        ((
+          lat_tco2 / lat_talk / lat_phosphate / lat_oxygen / lat_aou / lat_phosphate_star / lat_nitrate / lat_cstar
+        ) |
+          (
+            lon_tco2 / lon_talk / lon_phosphate / lon_oxygen /  lon_aou / lon_phosphate_star / lon_nitrate / lon_cstar
+          )
+        )
+      
+      ggsave(
+        path = paste(
+          path_version_figures,
+          &quot;Cruise_sections_histograms/&quot;,
+          sep = &quot;&quot;
+        ),
+        filename = paste(
+          &quot;Cruise_date&quot;,
+          cruises_cruise$date_mean,
+          &quot;count&quot;,
+          cruises_cruise$n,
+          &quot;cruiseID&quot;,
+          cruises_cruise$cruise,
+          &quot;.png&quot;,
+          sep = &quot;_&quot;
+        ),
+        width = 20,
+        height = 12
+      )
+      
+      rm(
+        map_plot,
+        lon_section,
+        lat_section,
+        lat_tco2,
+        lat_talk,
+        lat_phosphate,
+        lon_tco2,
+        lon_talk,
+        lon_phosphate,
+        GLODAP_cruise,
+        cruises_cruise
+      )
+      
+    }
+    
+  }
   
 }</code></pre>
 </div>
@@ -3114,33 +3217,33 @@ other attached packages:
  [5] shape_1.4.5      metR_0.9.0       scico_1.2.0      patchwork_1.1.1 
  [9] collapse_1.5.0   forcats_0.5.0    stringr_1.4.0    dplyr_1.0.2     
 [13] purrr_0.3.4      readr_1.4.0      tidyr_1.1.2      tibble_3.0.4    
-[17] ggplot2_3.3.2    tidyverse_1.3.0  workflowr_1.6.2 
+[17] ggplot2_3.3.3    tidyverse_1.3.0  workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
  [1] fs_1.5.0                 gsw_1.0-5                webshot_0.5.2           
  [4] RColorBrewer_1.1-2       httr_1.4.2               rprojroot_2.0.2         
  [7] tools_4.0.3              backports_1.1.10         R6_2.5.0                
-[10] DBI_1.1.0                colorspace_1.4-1         withr_2.3.0             
+[10] DBI_1.1.0                colorspace_2.0-0         withr_2.3.0             
 [13] tidyselect_1.1.0         compiler_4.0.3           git2r_0.27.1            
-[16] cli_2.1.0                rvest_0.3.6              xml2_1.3.2              
+[16] cli_2.2.0                rvest_0.3.6              xml2_1.3.2              
 [19] labeling_0.4.2           scales_1.1.1             checkmate_2.0.0         
 [22] digest_0.6.27            rmarkdown_2.5            oce_1.2-0               
 [25] pkgconfig_2.0.3          htmltools_0.5.0          dbplyr_1.4.4            
-[28] highr_0.8                rlang_0.4.9              readxl_1.3.1            
-[31] rstudioapi_0.13          generics_0.0.2           farver_2.0.3            
-[34] jsonlite_1.7.1           magrittr_1.5             Matrix_1.2-18           
+[28] highr_0.8                rlang_0.4.10             readxl_1.3.1            
+[31] rstudioapi_0.13          generics_0.1.0           farver_2.0.3            
+[34] jsonlite_1.7.2           magrittr_2.0.1           Matrix_1.2-18           
 [37] Rcpp_1.0.5               munsell_0.5.0            fansi_0.4.1             
 [40] lifecycle_0.2.0          stringi_1.5.3            whisker_0.4             
 [43] yaml_2.2.1               grid_4.0.3               blob_1.2.1              
 [46] parallel_4.0.3           promises_1.1.1           crayon_1.3.4            
 [49] lattice_0.20-41          haven_2.3.1              hms_0.5.3               
 [52] seacarb_3.2.14           pillar_1.4.7             reprex_0.3.0            
-[55] glue_1.4.2               evaluate_0.14            RcppArmadillo_0.10.1.2.0
-[58] data.table_1.13.2        modelr_0.1.8             vctrs_0.3.5             
-[61] httpuv_1.5.4             testthat_2.3.2           cellranger_1.1.0        
-[64] gtable_0.3.0             assertthat_0.2.1         xfun_0.18               
-[67] broom_0.7.2              RcppEigen_0.3.3.7.0      later_1.1.0.1           
-[70] viridisLite_0.3.0        ellipsis_0.3.1           here_0.1                </code></pre>
+[55] glue_1.4.2               evaluate_0.14            RcppArmadillo_0.10.1.2.2
+[58] data.table_1.13.6        modelr_0.1.8             vctrs_0.3.6             
+[61] httpuv_1.5.4             testthat_3.0.1           cellranger_1.1.0        
+[64] gtable_0.3.0             assertthat_0.2.1         xfun_0.20               
+[67] broom_0.7.3              RcppEigen_0.3.3.9.1      later_1.1.0.1           
+[70] viridisLite_0.3.0        ellipsis_0.3.1           here_1.0.1              </code></pre>
 </div>
 </div>
 

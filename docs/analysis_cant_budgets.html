@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Jens Daniel Müller" />
+<meta name="author" content="Jens Daniel Müller and Donghe Zhu" />
 
 
-<title>Analysis of cant budgets</title>
+<title>Analysis - Cant budgets</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -453,6 +453,15 @@ div.tocify {
       <a href="analysis_zonal_mean_sections.html">Zonal mean sections</a>
     </li>
     <li>
+      <a href="analysis_global_section.html">Global section</a>
+    </li>
+    <li>
+      <a href="analysis_isoneutral_slab_distribution.html">Isoneutral slab distribution</a>
+    </li>
+    <li>
+      <a href="analysis_others.html">Others</a>
+    </li>
+    <li>
       <a href="analysis_this_study_vs_model_truth.html">This study vs model truth</a>
     </li>
     <li>
@@ -493,8 +502,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Analysis of cant budgets</h1>
-<h4 class="author">Jens Daniel Müller</h4>
+<h1 class="title toc-ignore">Analysis - Cant budgets</h1>
+<h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
 <h4 class="date">13 January, 2021</h4>
 
 </div>
@@ -611,16 +620,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed44f36fe98c636b2022dc2f8c37916bd3282b182targetblankd44f36fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d44f36fe98c636b2022dc2f8c37916bd3282b182" target="_blank">d44f36f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9e04fd705d9d49620744892da23488eebb23bfa3targetblank9e04fd7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed44f36fe98c636b2022dc2f8c37916bd3282b182targetblankd44f36fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9e04fd705d9d49620744892da23488eebb23bfa3" target="_blank">9e04fd7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d44f36fe98c636b2022dc2f8c37916bd3282b182" target="_blank">d44f36f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -631,6 +640,7 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
+    Modified:   analysis/_site.yml
     Modified:   code/Workflowr_project_managment.R
 
 </code></pre>
@@ -670,6 +680,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d44f36fe98c636b2022dc2f8c37916bd3282b182/analysis/analysis_cant_budgets.Rmd" target="_blank">d44f36f</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-13
+</td>
+<td>
+reorder analysis final
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/17dee1d28f5938ea1cc536d56d84f799f3352ce7/docs/analysis_cant_budgets.html" target="_blank">17dee1d</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-13
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -717,58 +761,70 @@ reorder the analysis
                  sep = &quot;&quot;))
 
 cant_tref_1 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[1]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
+  read_csv(
+    paste(
+      path_preprocessing,
+      &quot;cant_annual_field_&quot;,
+      params_local$model_runs,
+      &quot;/cant_&quot;,
+      unique(tref$year[1]),
+      &quot;.csv&quot;,
+      sep = &quot;&quot;
+    )
+  )
 
 cant_tref_1 &lt;- cant_tref_1 %&gt;%
   rename(cant_tref_1 = cant_total) %&gt;%
   select(-year)
 
 cant_tref_2 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[2]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
+  read_csv(
+    paste(
+      path_preprocessing,
+      &quot;cant_annual_field_&quot;,
+      params_local$model_runs,
+      &quot;/cant_&quot;,
+      unique(tref$year[2]),
+      &quot;.csv&quot;,
+      sep = &quot;&quot;
+    )
+  )
 
 cant_tref_2 &lt;- cant_tref_2 %&gt;%
   rename(cant_tref_2 = cant_total) %&gt;%
   select(-year)
 
 cant_tref_3 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[3]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
+  read_csv(
+    paste(
+      path_preprocessing,
+      &quot;cant_annual_field_&quot;,
+      params_local$model_runs,
+      &quot;/cant_&quot;,
+      unique(tref$year[3]),
+      &quot;.csv&quot;,
+      sep = &quot;&quot;
+    )
+  )
 
 cant_tref_3 &lt;- cant_tref_3 %&gt;%
   rename(cant_tref_3 = cant_total) %&gt;%
   select(-year)</code></pre>
 <pre class="r"><code>cant_M_1 &lt;- left_join(cant_tref_1, cant_tref_2) %&gt;%
   mutate(cant = cant_tref_2 - cant_tref_1,
-         eras = unique(cant_inv_JDM$eras)[1]) %&gt;% 
+         eras = unique(cant_inv_JDM$eras)[1]) %&gt;%
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 &lt;- cant_M_1 %&gt;% 
-   mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
+cant_M_1 &lt;- cant_M_1 %&gt;%
+  mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
 
 cant_M_2 &lt;- left_join(cant_tref_2, cant_tref_3) %&gt;%
   mutate(cant = cant_tref_3 - cant_tref_2,
-         eras = unique(cant_inv_JDM$eras)[2]) %&gt;% 
+         eras = unique(cant_inv_JDM$eras)[2]) %&gt;%
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 &lt;- cant_M_2 %&gt;% 
-   mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
+cant_M_2 &lt;- cant_M_2 %&gt;%
+  mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
 
 cant_M &lt;- full_join(cant_M_1, cant_M_2) %&gt;%
   arrange(lon, lat, depth, basin_AIP)
@@ -780,58 +836,62 @@ rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)</code></pre>
 <h2 number="1.3"><span class="header-section-number">1.3</span> Join data sets</h2>
 <p>Inventories are merged, and differences calculate per grid cell and per eras.</p>
 <pre class="r"><code># add estimate label
-cant_inv_long &lt;- bind_rows(
-  cant_inv_JDM %&gt;%  mutate(estimate = &quot;JDM&quot;),
-  cant_inv_M %&gt;%  mutate(estimate = &quot;M&quot;)
-  )
+cant_inv_long &lt;- bind_rows(cant_inv_JDM %&gt;%  mutate(estimate = &quot;JDM&quot;),
+                           cant_inv_M %&gt;%  mutate(estimate = &quot;M&quot;))
 
 # pivot to wide format
-cant_inv_wide &lt;- cant_inv_long %&gt;% 
-  pivot_wider(names_from = estimate, values_from = cant_pos_inv:cant_inv) %&gt;% 
+cant_inv_wide &lt;- cant_inv_long %&gt;%
+  pivot_wider(names_from = estimate, values_from = cant_pos_inv:cant_inv) %&gt;%
   drop_na()
 
 # calculate offset
-cant_inv_wide &lt;- cant_inv_wide %&gt;% 
-  mutate(cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_M,
-         cant_inv_offset = cant_inv_JDM - cant_inv_M)</code></pre>
+cant_inv_wide &lt;- cant_inv_wide %&gt;%
+  mutate(
+    cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_M,
+    cant_inv_offset = cant_inv_JDM - cant_inv_M
+  )</code></pre>
 </div>
 </div>
 <div id="cant-budgets" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> Cant budgets</h1>
 <p>Global Cant inventories budget were estimated for different ocean basins in units of Pg C, based on all vs positive only Cant estimates. Results integrated over the upper 100, 500, 1000, 3000, 10^{4} m</p>
 <pre class="r"><code># calculate budgets
-cant_inv_budget &lt;- cant_inv_wide %&gt;% 
-  mutate(surface_area = earth_surf(lat, lon),
-         cant_inv_grid_JDM = cant_inv_JDM*surface_area,
-         cant_inv_grid_M = cant_inv_M*surface_area,
-         cant_pos_inv_grid_JDM = cant_pos_inv_JDM*surface_area,
-         cant_pos_inv_grid_M = cant_pos_inv_M*surface_area,
-         cant_inv_offset_grid = cant_inv_offset*surface_area,
-         cant_pos_inv_offset_grid = cant_pos_inv_offset*surface_area) %&gt;% 
-  group_by(basin_AIP, eras, inv_depth) %&gt;% 
-  summarise(cant_total_JDM = sum(cant_inv_grid_JDM)*12*1e-15,
-            cant_total_JDM = round(cant_total_JDM,1),
-            cant_total_M = sum(cant_inv_grid_M)*12*1e-15,
-            cant_total_M = round(cant_total_M,1),
-            cant_pos_total_JDM = sum(cant_pos_inv_grid_JDM)*12*1e-15,
-            cant_pos_total_JDM = round(cant_pos_total_JDM,1),
-            cant_pos_total_M = sum(cant_pos_inv_grid_M)*12*1e-15,
-            cant_pos_total_M = round(cant_pos_total_M,1),
-            cant_inv_offset = sum(cant_inv_offset_grid)*12*1e-15,
-            cant_inv_offset = round(cant_inv_offset,1),
-            cant_pos_inv_offset = sum(cant_pos_inv_offset_grid)*12*1e-15,
-            cant_pos_inv_offset = round(cant_pos_inv_offset,1)) %&gt;% 
+cant_inv_budget &lt;- cant_inv_wide %&gt;%
+  mutate(
+    surface_area = earth_surf(lat, lon),
+    cant_inv_grid_JDM = cant_inv_JDM * surface_area,
+    cant_inv_grid_M = cant_inv_M * surface_area,
+    cant_pos_inv_grid_JDM = cant_pos_inv_JDM * surface_area,
+    cant_pos_inv_grid_M = cant_pos_inv_M * surface_area,
+    cant_inv_offset_grid = cant_inv_offset * surface_area,
+    cant_pos_inv_offset_grid = cant_pos_inv_offset * surface_area
+  ) %&gt;%
+  group_by(basin_AIP, eras, inv_depth) %&gt;%
+  summarise(
+    cant_total_JDM = sum(cant_inv_grid_JDM) * 12 * 1e-15,
+    cant_total_JDM = round(cant_total_JDM, 1),
+    cant_total_M = sum(cant_inv_grid_M) * 12 * 1e-15,
+    cant_total_M = round(cant_total_M, 1),
+    cant_pos_total_JDM = sum(cant_pos_inv_grid_JDM) * 12 * 1e-15,
+    cant_pos_total_JDM = round(cant_pos_total_JDM, 1),
+    cant_pos_total_M = sum(cant_pos_inv_grid_M) * 12 * 1e-15,
+    cant_pos_total_M = round(cant_pos_total_M, 1),
+    cant_inv_offset = sum(cant_inv_offset_grid) * 12 * 1e-15,
+    cant_inv_offset = round(cant_inv_offset, 1),
+    cant_pos_inv_offset = sum(cant_pos_inv_offset_grid) * 12 * 1e-15,
+    cant_pos_inv_offset = round(cant_pos_inv_offset, 1)
+  ) %&gt;%
   ungroup()
 
 # print budget table
 cant_inv_budget %&gt;%
-  gt(rowname_col = &quot;basin_AIP&quot;,
-     groupname_col = c(&quot;eras&quot;, &quot;inv_depth&quot;),
-     row_group.sep = &quot; | Depth: &quot;) %&gt;%
-  summary_rows(
-    groups = TRUE,
-    fns = list(total = &quot;sum&quot;)
-  )</code></pre>
+  gt(
+    rowname_col = &quot;basin_AIP&quot;,
+    groupname_col = c(&quot;eras&quot;, &quot;inv_depth&quot;),
+    row_group.sep = &quot; | Depth: &quot;
+  ) %&gt;%
+  summary_rows(groups = TRUE,
+               fns = list(total = &quot;sum&quot;))</code></pre>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1608,33 +1668,33 @@ other attached packages:
  [1] gt_0.2.2        marelac_2.1.10  shape_1.4.5     scales_1.1.1   
  [5] metR_0.9.0      scico_1.2.0     patchwork_1.1.1 collapse_1.5.0 
  [9] forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2     purrr_0.3.4    
-[13] readr_1.4.0     tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.2  
+[13] readr_1.4.0     tidyr_1.1.2     tibble_3.0.4    ggplot2_3.3.3  
 [17] tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.2               sass_0.2.0               jsonlite_1.7.1          
- [4] here_0.1                 modelr_0.1.8             assertthat_0.2.1        
+ [1] httr_1.4.2               sass_0.2.0               jsonlite_1.7.2          
+ [4] here_1.0.1               modelr_0.1.8             assertthat_0.2.1        
  [7] blob_1.2.1               cellranger_1.1.0         yaml_2.2.1              
 [10] pillar_1.4.7             backports_1.1.10         lattice_0.20-41         
-[13] glue_1.4.2               RcppEigen_0.3.3.7.0      digest_0.6.27           
+[13] glue_1.4.2               RcppEigen_0.3.3.9.1      digest_0.6.27           
 [16] promises_1.1.1           checkmate_2.0.0          rvest_0.3.6             
-[19] colorspace_1.4-1         htmltools_0.5.0          httpuv_1.5.4            
-[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.2             
+[19] colorspace_2.0-0         htmltools_0.5.0          httpuv_1.5.4            
+[22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.3             
 [25] seacarb_3.2.14           haven_2.3.1              whisker_0.4             
-[28] later_1.1.0.1            git2r_0.27.1             generics_0.0.2          
-[31] ellipsis_0.3.1           withr_2.3.0              cli_2.1.0               
-[34] magrittr_1.5             crayon_1.3.4             readxl_1.3.1            
+[28] later_1.1.0.1            git2r_0.27.1             generics_0.1.0          
+[31] ellipsis_0.3.1           withr_2.3.0              cli_2.2.0               
+[34] magrittr_2.0.1           crayon_1.3.4             readxl_1.3.1            
 [37] evaluate_0.14            fs_1.5.0                 fansi_0.4.1             
-[40] xml2_1.3.2               RcppArmadillo_0.10.1.2.0 oce_1.2-0               
-[43] tools_4.0.3              data.table_1.13.2        hms_0.5.3               
+[40] xml2_1.3.2               RcppArmadillo_0.10.1.2.2 oce_1.2-0               
+[43] tools_4.0.3              data.table_1.13.6        hms_0.5.3               
 [46] lifecycle_0.2.0          munsell_0.5.0            reprex_0.3.0            
-[49] gsw_1.0-5                compiler_4.0.3           rlang_0.4.9             
+[49] gsw_1.0-5                compiler_4.0.3           rlang_0.4.10            
 [52] grid_4.0.3               rstudioapi_0.13          rmarkdown_2.5           
-[55] testthat_2.3.2           gtable_0.3.0             DBI_1.1.0               
+[55] testthat_3.0.1           gtable_0.3.0             DBI_1.1.0               
 [58] R6_2.5.0                 lubridate_1.7.9          knitr_1.30              
 [61] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
-[64] Rcpp_1.0.5               vctrs_0.3.5              dbplyr_1.4.4            
-[67] tidyselect_1.1.0         xfun_0.18               </code></pre>
+[64] Rcpp_1.0.5               vctrs_0.3.6              dbplyr_1.4.4            
+[67] tidyselect_1.1.0         xfun_0.20               </code></pre>
 </div>
 </div>
 
