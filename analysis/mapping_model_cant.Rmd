@@ -1,0 +1,183 @@
+---
+title: "Mapping - cant"
+author: "Jens Daniel Müller and Donghe Zhu"
+date:  "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  workflowr::wflow_html:
+    number_sections: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r parent, child = "/nfs/kryo/work/jenmueller/emlr_cant/utilities/setup.Rmd"}
+# this chunk runs the code stored in setup.Rmd
+# if required, please refer to instructions given here:
+# https://jdblischak.github.io/workflowr/articles/wflow-07-common-code.html
+```
+
+```{r read_params_local, include = FALSE}
+
+params_local <-
+  read_rds(here::here("data/auxillary",
+                       "params_local.rds"))
+
+```
+
+```{r define_paths, include = FALSE}
+
+path_model <-
+  paste(path_root, "/model/", sep = "")
+
+path_preprocessing    <-
+  paste(path_model, "preprocessing/", sep = "")
+
+path_version_data     <-
+  paste(path_model,
+        params_local$Version_ID,
+        "/data/",
+        sep = "")
+
+path_version_figures  <-
+  paste(path_model,
+        params_local$Version_ID,
+        "/figures/",
+        sep = "")
+
+```
+
+
+# Model Cant
+
+## Reuqired data
+
+### This study
+
+Results from this study are referred to as JDM. Unique eras information is subtracted.
+
+```{r read_JDM_cant_inv_file}
+
+cant_inv_JDM <-
+  read_csv(paste(path_version_data,
+                 "cant_inv.csv",
+                 sep = ""))
+
+```
+
+"True" Cant fields directly inferred from the model output are referred to as M.
+
+```{r read_model_cant_files}
+
+tref  <-
+  read_csv(paste(path_version_data,
+                 "tref.csv",
+                 sep = ""))
+
+cant_tref_1 <-
+  read_csv(
+    paste(
+      path_preprocessing,
+      "cant_annual_field_",
+      params_local$model_runs,
+      "/cant_",
+      unique(tref$year[1]),
+      ".csv",
+      sep = ""
+    )
+  )
+
+cant_tref_1 <- cant_tref_1 %>%
+  rename(cant_tref_1 = cant_total) %>%
+  select(-year)
+
+cant_tref_2 <-
+  read_csv(
+    paste(
+      path_preprocessing,
+      "cant_annual_field_",
+      params_local$model_runs,
+      "/cant_",
+      unique(tref$year[2]),
+      ".csv",
+      sep = ""
+    )
+  )
+
+cant_tref_2 <- cant_tref_2 %>%
+  rename(cant_tref_2 = cant_total) %>%
+  select(-year)
+
+cant_tref_3 <-
+  read_csv(
+    paste(
+      path_preprocessing,
+      "cant_annual_field_",
+      params_local$model_runs,
+      "/cant_",
+      unique(tref$year[3]),
+      ".csv",
+      sep = ""
+    )
+  )
+
+cant_tref_3 <- cant_tref_3 %>%
+  rename(cant_tref_3 = cant_total) %>%
+  select(-year)
+
+```
+
+```{r calc_model_cant_between_tref}
+
+cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
+  mutate(cant = cant_tref_2 - cant_tref_1,
+         eras = unique(cant_inv_JDM$eras)[1]) %>%
+  select(-c(cant_tref_1, cant_tref_2))
+
+cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
+  mutate(cant = cant_tref_3 - cant_tref_2,
+         eras = unique(cant_inv_JDM$eras)[2]) %>%
+  select(-c(cant_tref_2, cant_tref_3))
+
+cant_M <- full_join(cant_M_1, cant_M_2) %>%
+  arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>%
+  mutate(cant_pos = if_else(cant <= 0, 0, cant))
+
+rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
+
+```
+
+```{r calculate_model_cant_inventory}
+
+cant_inv_M <- m_cant_inv(cant_M)
+
+```
+
+```{r calc_model_cant_zonal_mean_section}
+
+cant_zonal_M <- m_zonal_mean_section(cant_M)
+
+```
+
+# Write csv
+
+```{r write_cant_files}
+
+cant_M %>%
+  write_csv(paste(path_version_data,
+                  "cant_M.csv", sep = ""))
+
+cant_inv_M %>%
+  write_csv(paste(path_version_data,
+                  "cant_inv_M.csv", sep = ""))
+
+cant_zonal_M %>%
+  write_csv(paste(path_version_data,
+                  "cant_zonal_M", sep = ""))
+
+```
+
+

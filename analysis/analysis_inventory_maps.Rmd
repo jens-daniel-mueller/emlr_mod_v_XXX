@@ -70,95 +70,15 @@ cant_inv_JDM <-
 
 ```
 
-## Modeled Cant
+## Model Cant
 
 "True" Cant fields directly inferred from the model output are referred to as M.
 
-```{r read_modeled_cant_files}
+```{r read_model_cant_inv_file}
 
-tref  <-
+cant_inv_M <-
   read_csv(paste(path_version_data,
-                 "tref.csv",
-                 sep = ""))
-
-cant_tref_1 <-
-  read_csv(
-    paste(
-      path_preprocessing,
-      "cant_annual_field_",
-      params_local$model_runs,
-      "/cant_",
-      unique(tref$year[1]),
-      ".csv",
-      sep = ""
-    )
-  )
-
-cant_tref_1 <- cant_tref_1 %>%
-  rename(cant_tref_1 = cant_total) %>%
-  select(-year)
-
-cant_tref_2 <-
-  read_csv(
-    paste(
-      path_preprocessing,
-      "cant_annual_field_",
-      params_local$model_runs,
-      "/cant_",
-      unique(tref$year[2]),
-      ".csv",
-      sep = ""
-    )
-  )
-
-cant_tref_2 <- cant_tref_2 %>%
-  rename(cant_tref_2 = cant_total) %>%
-  select(-year)
-
-cant_tref_3 <-
-  read_csv(
-    paste(
-      path_preprocessing,
-      "cant_annual_field_",
-      params_local$model_runs,
-      "/cant_",
-      unique(tref$year[3]),
-      ".csv",
-      sep = ""
-    )
-  )
-
-cant_tref_3 <- cant_tref_3 %>%
-  rename(cant_tref_3 = cant_total) %>%
-  select(-year)
-
-```
-
-```{r calc_modeled_cant_between_tref}
-
-cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
-  mutate(cant = cant_tref_2 - cant_tref_1,
-         eras = unique(cant_inv_JDM$eras)[1]) %>% 
-  select(-c(cant_tref_1, cant_tref_2))
-
-cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
-  mutate(cant = cant_tref_3 - cant_tref_2,
-         eras = unique(cant_inv_JDM$eras)[2]) %>% 
-  select(-c(cant_tref_2, cant_tref_3))
-
-cant_M <- full_join(cant_M_1, cant_M_2) %>%
-  arrange(lon, lat, depth, basin_AIP)
-
-cant_M <- cant_M %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
-rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
-
-```
-
-```{r calculate_inventory_modeled_cant}
-
-cant_inv_M <- m_cant_inv(cant_M)
+                  "cant_inv_M.csv", sep = ""))
 
 ```
 
@@ -181,7 +101,8 @@ cant_inv_wide <- cant_inv_long %>%
 cant_inv_wide <- cant_inv_wide %>%
   mutate(
     cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_M,
-    cant_inv_offset = cant_inv_JDM - cant_inv_M
+    cant_inv_offset = cant_inv_JDM - cant_inv_M,
+    estimate = "JDM - M"
   )
 
 # restrict to the standard inventory depth
@@ -207,6 +128,7 @@ In a first series of plots we explore the distribution of Cant, taking only posi
 
 for (i_eras in unique(cant_inv_long$eras)) {
   for (i_estimate in unique(cant_inv_long$estimate)) {
+    
     print(p_map_cant_inv(
       cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
       subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras)
@@ -222,6 +144,7 @@ for (i_eras in unique(cant_inv_long$eras)) {
 ```{r cant_pos_offset_inventory_map, fig.asp=0.5}
 
 for (i_eras in unique(cant_inv_wide$eras)) {
+  
   print(
     p_map_cant_inv_offset(
       cant_inv_wide %>% filter(eras == i_eras),
