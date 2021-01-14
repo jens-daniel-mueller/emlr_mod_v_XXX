@@ -1,5 +1,5 @@
 ---
-title: "Analysis - inventory maps"
+title: "Inventory maps"
 author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
@@ -55,10 +55,7 @@ library(gt)
 
 # Data sources
 
-Following Cant estimates are used:
-
-- Inventories for this study and model truth (lat, lon, eras)
-
+Following Cant column inventories are used:
 
 ## This study
 
@@ -144,19 +141,16 @@ cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
          eras = unique(cant_inv_JDM$eras)[1]) %>% 
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 <- cant_M_1 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
          eras = unique(cant_inv_JDM$eras)[2]) %>% 
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 <- cant_M_2 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M <- full_join(cant_M_1, cant_M_2) %>%
   arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>% 
+   mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
@@ -199,18 +193,15 @@ cant_inv_wide <- cant_inv_wide %>%
 
 ```
 
-
 # Inventory maps
 
 This analysis is restricted to the standard inventory depth of `r params_global$inventory_depth_standard` m.
 
 ## Cant - positive only
 
-In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
+In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating inventories.
 
 ### Absolute values
-
-Column inventory of positive Cant between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
 
 ```{r cant_pos_inventory_map, fig.asp=0.5}
 
@@ -227,8 +218,6 @@ for (i_eras in unique(cant_inv_long$eras)) {
 ```
 
 ### Offset
-
-Column inventory offset of positive cant between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
 
 ```{r cant_pos_offset_inventory_map, fig.asp=0.5}
 
@@ -251,8 +240,6 @@ In a second series of plots we explore the distribution of Cant, taking positive
 
 ### Absolute values
 
-Column inventory of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
-
 ```{r cant_inventory_map, fig.asp=0.5}
  
 for (i_eras in unique(cant_inv_long$eras)) {
@@ -272,12 +259,9 @@ for (i_eras in unique(cant_inv_long$eras)) {
 
 ### Offset
 
-Column inventory offset of Cant (including positive and negative values) between the surface and `r params_global$inventory_depth_standard`m water depth per horizontal grid cell (lat x lon).
-
 ```{r cant_offset_inventory_map, fig.asp = 0.5}
 
 for (i_eras in unique(cant_inv_wide$eras)) {
-  
   print(
     p_map_cant_inv_offset(
       df = cant_inv_wide %>% filter(eras == i_eras),

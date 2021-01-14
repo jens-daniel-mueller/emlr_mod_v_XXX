@@ -1,5 +1,5 @@
 ---
-title: "Analysis - Cant budgets"
+title: "Cant budgets"
 author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
@@ -56,10 +56,7 @@ library(gt)
 
 # Data sources
 
-Following Cant estimates are used:
-
-- Inventories for this study and model truth (lat, lon, eras)
-
+Following Cant column inventories are used:
 
 ## This study
 
@@ -145,19 +142,16 @@ cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
          eras = unique(cant_inv_JDM$eras)[1]) %>%
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 <- cant_M_1 %>%
-  mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
          eras = unique(cant_inv_JDM$eras)[2]) %>%
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 <- cant_M_2 %>%
-  mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M <- full_join(cant_M_1, cant_M_2) %>%
   arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>%
+  mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
@@ -181,8 +175,7 @@ cant_inv_long <- bind_rows(cant_inv_JDM %>%  mutate(estimate = "JDM"),
 
 # pivot to wide format
 cant_inv_wide <- cant_inv_long %>%
-  pivot_wider(names_from = estimate, values_from = cant_pos_inv:cant_inv) %>%
-  drop_na()
+  pivot_wider(names_from = estimate, values_from = cant_pos_inv:cant_inv)
 
 # calculate offset
 cant_inv_wide <- cant_inv_wide %>%
@@ -195,8 +188,9 @@ cant_inv_wide <- cant_inv_wide %>%
 
 # Cant budgets
 
-Global Cant inventories budget were estimated for different ocean basins in units of Pg C, based on all vs positive only Cant estimates. 
-Results integrated over the upper `r params_global$inventory_depths` m
+Global Cant inventories budget were estimated separately for ocean basins in units of Pg C, based on all vs positive only Cant estimates. 
+
+Results were integrated over the upper `r params_global$inventory_depths` m of the water column.
 
 ```{r calculate_global_inventory}
 

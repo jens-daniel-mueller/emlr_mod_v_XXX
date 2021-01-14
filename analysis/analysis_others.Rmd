@@ -99,7 +99,7 @@ target_zonal <-
 
 ```
 
-Cleaned GLODAP-based synthetic model subsetting file as used in this sensitivity case
+Cleaned synthetic model subset file as used in this sensitivity case.
 
 ```{r read_GLODAP_used_for_fitting}
 
@@ -280,7 +280,7 @@ rm(i_var)
 
 ## Slab depth
 
-The plot below shows the depths of individual gamma slabs (color) together with the synthetic subsetting available in the respective slab.
+The plot below shows the depths of individual gamma slabs (color) together with the synthetic data subset available in the respective slab.
 
 Please note that:
 
@@ -312,7 +312,7 @@ The predicted target variable (`r params_local$MLR_target` in this sensitivity c
 
 ## Zonal mean sections
 
-```{r target_zonal_mean_era}
+```{r target_zonal_mean_era, fig.asp=1}
 
 slab_breaks <- c(params_local$slabs_Atl[1:12], Inf)
 

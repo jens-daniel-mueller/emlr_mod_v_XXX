@@ -1,5 +1,5 @@
 ---
-title: "Analysis - global section"
+title: "Global sections"
 author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
@@ -55,10 +55,7 @@ library(gt)
 
 # Data sources
 
-Following Cant estimates are used:
-
-- Mean and SD per grid cell for this study and model truth (basin, lat, lon, eras)
-
+Following Cant mean values per grid cell are used:
 
 ## This study
 
@@ -132,19 +129,16 @@ cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
          eras = unique(cant_3d$eras)[1]) %>%
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 <- cant_M_1 %>%
-  mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
          eras = unique(cant_3d$eras)[2]) %>%
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 <- cant_M_2 %>%
-  mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M <- full_join(cant_M_1, cant_M_2) %>%
   arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>%
+  mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
