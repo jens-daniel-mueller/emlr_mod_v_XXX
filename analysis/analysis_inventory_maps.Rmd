@@ -122,29 +122,16 @@ This analysis is restricted to the standard inventory depth of `r params_global$
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across the MLR model predictions available for each grid cell). Negative values were set to zero before calculating inventories.
 
-### Absolute values
-
 ```{r cant_pos_inventory_map, fig.asp=0.5}
 
 for (i_eras in unique(cant_inv_long$eras)) {
   for (i_estimate in unique(cant_inv_long$estimate)) {
-    
     print(p_map_cant_inv(
       cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
       subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras)
     ))
     
   }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_inventory_map, fig.asp=0.5}
-
-for (i_eras in unique(cant_inv_wide$eras)) {
-  
   print(
     p_map_cant_inv_offset(
       cant_inv_wide %>% filter(eras == i_eras),
@@ -152,7 +139,6 @@ for (i_eras in unique(cant_inv_wide$eras)) {
       subtitle_text = paste("Estimate JDM - M | Eras:", i_eras)
     )
   )
-  
 }
 
 ```
@@ -160,8 +146,6 @@ for (i_eras in unique(cant_inv_wide$eras)) {
 ## Cant - all
 
 In a second series of plots we explore the distribution of Cant, taking positive and negative estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell).
-
-### Absolute values
 
 ```{r cant_inventory_map, fig.asp=0.5}
  
@@ -176,15 +160,6 @@ for (i_eras in unique(cant_inv_long$eras)) {
     )
     
   }
-}
-
-```
-
-### Offset
-
-```{r cant_offset_inventory_map, fig.asp = 0.5}
-
-for (i_eras in unique(cant_inv_wide$eras)) {
   print(
     p_map_cant_inv_offset(
       df = cant_inv_wide %>% filter(eras == i_eras),
@@ -192,7 +167,6 @@ for (i_eras in unique(cant_inv_wide$eras)) {
       subtitle_text = paste("Estimate JDM - M | Eras:", i_eras)
     )
   )
-  
 }
 
 ```
