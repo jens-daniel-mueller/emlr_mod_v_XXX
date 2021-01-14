@@ -1,5 +1,5 @@
 ---
-title: "Analysis - isoneutral slab"
+title: "Isoneutral slab distribution"
 author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 

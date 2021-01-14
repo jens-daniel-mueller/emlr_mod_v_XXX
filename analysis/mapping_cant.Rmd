@@ -1,5 +1,5 @@
 ---
-title: "Mapping - cant"
+title: "Mapping - Cant"
 author: "Jens Daniel Müller and Donghe Zhu"
 date:  "`r format(Sys.time(), '%d %B, %Y')`"
 output: 

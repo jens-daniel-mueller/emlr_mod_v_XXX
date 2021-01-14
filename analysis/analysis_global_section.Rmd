@@ -126,7 +126,7 @@ cant_wide <- cant_wide %>%
 ```
 
 
-# Global mean sections
+# Global sections
 
 ## Cant - positive only
 

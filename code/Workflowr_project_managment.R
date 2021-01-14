@@ -23,6 +23,7 @@ wflow_publish(here::here(
     "eMLR_model_fitting.Rmd",
     "mapping_predictor_preparation.Rmd",
     "mapping_cant.Rmd",
+    "mapping_model_cant.Rmd",
     "mapping_target_variable.Rmd",
     "analysis_cant_budgets.Rmd",
     "analysis_inventory_maps.Rmd",
@@ -32,7 +33,7 @@ wflow_publish(here::here(
     "analysis_others.Rmd"
   )
 ),
-message = "local rebuild after revision",
+message = "local rebuild after revision, second round",
 republish = TRUE)
 
 
