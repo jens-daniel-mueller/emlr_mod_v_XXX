@@ -55,10 +55,7 @@ library(gt)
 
 # Data sources
 
-Following Cant estimates are used:
-
-- Mean and SD per grid cell for this study and model truth (basin, lat, lon, eras)
-
+Following Cant mean values per grid cell are used:
 
 ## This study
 
@@ -144,19 +141,16 @@ cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
          eras = unique(cant_3d$eras)[1]) %>% 
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 <- cant_M_1 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
          eras = unique(cant_3d$eras)[2]) %>% 
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 <- cant_M_2 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M <- full_join(cant_M_1, cant_M_2) %>%
   arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>% 
+   mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
@@ -173,21 +167,6 @@ rm(cant_3d_gamma)
 
 ```
 
-```{r calculate_gamma_slab_maps}
-
-cant_gamma_maps_JDM <- m_cant_slab(cant_3d)
-
-cant_gamma_maps_JDM <- cant_gamma_maps_JDM %>%
-  arrange(gamma_slab, eras)
-
-cant_gamma_maps_M <- m_cant_slab(cant_M)
-
-cant_gamma_maps_M <- cant_gamma_maps_M %>%
-  arrange(gamma_slab, eras)
-
-```
-
-
 # Isoneutral slab distribution
 
 Cant mean within each horizontal grid cell (lon x lat) per isoneutral slab.
@@ -197,15 +176,34 @@ Please note that:
 - density slabs covering values >28.1 occur by definition only either in the Atlantic or Indo-Pacific basin
 - gaps in the maps represent areas where (thin) density layers fit between discrete depth levels used for mapping
 
+
+```{r calc_gamma_slab_maps}
+
+# JDM
+cant_gamma_maps_JDM <- m_cant_slab(cant_3d)
+
+cant_gamma_maps_JDM <- cant_gamma_maps_JDM %>%
+  arrange(gamma_slab, eras)
+
+# M
+cant_gamma_maps_M <- m_cant_slab(cant_M)
+
+cant_gamma_maps_M <- cant_gamma_maps_M %>%
+  arrange(gamma_slab, eras)
+
+```
+
+
+
 ## Cant - positive
 
-In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
+In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating slab inventories.
 
 ```{r cant_pos_gamma_slab_maps, fig.asp=0.5}
 
+
 for (i_eras in unique(cant_gamma_maps_JDM$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_JDM$gamma_slab)) {
-    
     print(p_map_cant_slab(
       df = cant_gamma_maps_JDM %>%
         filter(eras == i_eras,
@@ -218,12 +216,6 @@ for (i_eras in unique(cant_gamma_maps_JDM$eras)) {
         "| Estimate: JDM"
       )
     ))
-    
-  }
-}
-
-for (i_eras in unique(cant_gamma_maps_M$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_M$gamma_slab)) {
     
     print(p_map_cant_slab(
       df = cant_gamma_maps_M %>%
@@ -238,6 +230,7 @@ for (i_eras in unique(cant_gamma_maps_M$eras)) {
       )
     ))
     
+    
   }
 }
 
@@ -249,9 +242,9 @@ In a second series of plots we explore the distribution of all Cant, taking posi
 
 ```{r cant_all_gamma_slab_maps, fig.asp=0.5}
 
+
 for (i_eras in unique(cant_gamma_maps_JDM$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_JDM$gamma_slab)) {
-    
     print(
       p_map_cant_slab(
         df = cant_gamma_maps_JDM %>%
@@ -268,13 +261,6 @@ for (i_eras in unique(cant_gamma_maps_JDM$eras)) {
         )
       )
     )
-    
-  }
-}
-
-for (i_eras in unique(cant_gamma_maps_M$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_M$gamma_slab)) {
-    
     print(
       p_map_cant_slab(
         df = cant_gamma_maps_M %>%
@@ -291,7 +277,6 @@ for (i_eras in unique(cant_gamma_maps_M$eras)) {
         )
       )
     )
-    
   }
 }
 
