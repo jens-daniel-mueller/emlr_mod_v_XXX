@@ -24,8 +24,6 @@ wflow_publish(here::here(
     "mapping_predictor_preparation.Rmd",
     "mapping_cant.Rmd",
     "mapping_target_variable.Rmd",
-    "analysis_this_study_vs_model_truth.Rmd",
-    "analysis_this_study.Rmd",
     "analysis_cant_budgets.Rmd",
     "analysis_inventory_maps.Rmd",
     "analysis_zonal_mean_sections.Rmd",
@@ -37,26 +35,6 @@ wflow_publish(here::here(
 message = "local rebuild after revision",
 republish = TRUE)
 
-wflow_publish(here::here(
-  "analysis",
-  c(
-    "index.Rmd",
-    "config_dependencies.Rmd",
-    "config_parameterization_local.Rmd",
-    "eMLR_GLODAPv2_2020_subsetting.Rmd",
-    "eMLR_data_preparation.Rmd",
-    "eMLR_assumption_testing.Rmd",
-    "eMLR_model_fitting.Rmd",
-    "mapping_predictor_preparation.Rmd",
-    "mapping_cant.Rmd",
-    "mapping_target_variable.Rmd",
-    "analysis_this_study_vs_model_truth.Rmd",
-    "analysis_this_study.Rmd",
-    "analysis_cant_budgets.Rmd",
-    "analysis_inventory_maps.Rmd"
-  )
-),
-message = "local rebuild after revision")
 
 
 # Push latest version to GitHub
