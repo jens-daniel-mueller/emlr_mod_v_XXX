@@ -160,7 +160,6 @@ In a first series of plots we explore the distribution of Cant, taking only posi
 # i_gamma_slab <- unique(cant_gamma_maps_long$gamma_slab)[1]
 # i_estimate <- unique(cant_gamma_maps_long$estimate)[1]
 
-
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
@@ -182,22 +181,22 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       ))
       
     }
-  }
-  print(
-    p_map_cant_slab(
-      df = cant_gamma_maps_wide %>%
-        filter(eras == i_eras,
-               gamma_slab == i_gamma_slab),
-      var = "cant_pos_offset",
-      col = "divergent",
-      subtitle_text = paste(
-        "Estimate: JDM - M | Eras:",
-        i_eras,
-        "| Neutral density:",
-        i_gamma_slab
+    print(
+      p_map_cant_slab(
+        df = cant_gamma_maps_wide %>%
+          filter(eras == i_eras,
+                 gamma_slab == i_gamma_slab),
+        var = "cant_pos_offset",
+        col = "divergent",
+        subtitle_text = paste(
+          "Estimate: JDM - M | Eras:",
+          i_eras,
+          "| Neutral density:",
+          i_gamma_slab
+        )
       )
     )
-  )
+  }
 }
 
 ```
@@ -209,7 +208,6 @@ In a second series of plots we explore the distribution of all Cant, taking posi
 
 
 ```{r cant_all_gamma_slab_maps, fig.asp=0.5}
-
 
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
@@ -236,22 +234,23 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       )
       
     }
-  }
-  print(
-    p_map_cant_slab(
-      df = cant_gamma_maps_wide %>%
-        filter(eras == i_eras,
-               gamma_slab == i_gamma_slab),
-      var = "cant_offset",
-      col = "divergent",
-      subtitle_text = paste(
-        "Estimate: JDM - M | Eras:",
-        i_eras,
-        "| Neutral density:",
-        i_gamma_slab
+    print(
+      p_map_cant_slab(
+        df = cant_gamma_maps_wide %>%
+          filter(eras == i_eras,
+                 gamma_slab == i_gamma_slab),
+        var = "cant_offset",
+        col = "divergent",
+        subtitle_text = paste(
+          "Estimate: JDM - M | Eras:",
+          i_eras,
+          "| Neutral density:",
+          i_gamma_slab
+        )
       )
     )
-  )
+  }
+  
 }
 
 ```
