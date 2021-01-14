@@ -150,14 +150,12 @@ cant_gamma_maps_wide <- cant_gamma_maps_wide %>%
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating slab inventories.
 
-### Absolute values
-
 ```{r cant_pos_gamma_slab_maps, fig.asp=0.5}
+
 
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
-      
       print(p_map_cant_slab(
         df = cant_gamma_maps_long %>%
           filter(
@@ -176,23 +174,10 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       ))
       
     }
-  }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_gamma_slab_maps, fig.asp=0.5}
-
-for (i_eras in unique(cant_gamma_maps_wide$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_wide$gamma_slab)) {
-    
     print(
       p_map_cant_slab(
         df = cant_gamma_maps_wide %>%
           filter(
-            estimate == i_estimate,
             eras == i_eras,
             gamma_slab == i_gamma_slab
           ),
@@ -206,25 +191,20 @@ for (i_eras in unique(cant_gamma_maps_wide$eras)) {
         )
       )
     )
-    
   }
 }
 
 ```
 
-
 ## Cant - all
 
 In a second series of plots we explore the distribution of all Cant, taking positive and negative estimates into account.
-
-### Absolute values
 
 ```{r cant_all_gamma_slab_maps, fig.asp=0.5}
 
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
-      
       print(
         p_map_cant_slab(
           df = cant_gamma_maps_long %>%
@@ -247,23 +227,10 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       )
       
     }
-  }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_gamma_slab_maps, fig.asp=0.5}
-
-for (i_eras in unique(cant_gamma_maps_wide$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_wide$gamma_slab)) {
-    
     print(
       p_map_cant_slab(
         df = cant_gamma_maps_wide %>%
           filter(
-            estimate == i_estimate,
             eras == i_eras,
             gamma_slab == i_gamma_slab
           ),
@@ -277,7 +244,6 @@ for (i_eras in unique(cant_gamma_maps_wide$eras)) {
         )
       )
     )
-    
   }
 }
 
