@@ -127,8 +127,11 @@ Gamma slab maps are merged, and differences calculate per grid cell and per eras
 ```{r join_M_and_JDM_gamma_slab_maps}
 
 # add estimate label
-cant_gamma_maps_long <- bind_rows(cant_gamma_maps_JDM %>%  mutate(estimate = "JDM"),
-                           cant_gamma_maps_M %>%  mutate(estimate = "M"))
+cant_gamma_maps_long <-
+  bind_rows(
+    cant_gamma_maps_JDM %>%  mutate(estimate = "JDM"),
+    cant_gamma_maps_M %>%  mutate(estimate = "M")
+  )
 
 # pivot to wide format
 cant_gamma_maps_wide <- cant_gamma_maps_long %>%
@@ -150,14 +153,17 @@ cant_gamma_maps_wide <- cant_gamma_maps_wide %>%
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating slab inventories.
 
-### Absolute values
 
 ```{r cant_pos_gamma_slab_maps, fig.asp=0.5}
+
+# i_eras <- unique(cant_gamma_maps_long$eras)[1]
+# i_gamma_slab <- unique(cant_gamma_maps_long$gamma_slab)[1]
+# i_estimate <- unique(cant_gamma_maps_long$estimate)[1]
+
 
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
-      
       print(p_map_cant_slab(
         df = cant_gamma_maps_long %>%
           filter(
@@ -177,37 +183,21 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       
     }
   }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_gamma_slab_maps, fig.asp=0.5}
-
-for (i_eras in unique(cant_gamma_maps_wide$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_wide$gamma_slab)) {
-    
-    print(
-      p_map_cant_slab(
-        df = cant_gamma_maps_wide %>%
-          filter(
-            estimate == i_estimate,
-            eras == i_eras,
-            gamma_slab == i_gamma_slab
-          ),
-        var = "cant_pos_offset",
-        col = "divergent",
-        subtitle_text = paste(
-          "Estimate: JDM - M | Eras:",
-          i_eras,
-          "| Neutral density:",
-          i_gamma_slab
-        )
+  print(
+    p_map_cant_slab(
+      df = cant_gamma_maps_wide %>%
+        filter(eras == i_eras,
+               gamma_slab == i_gamma_slab),
+      var = "cant_pos_offset",
+      col = "divergent",
+      subtitle_text = paste(
+        "Estimate: JDM - M | Eras:",
+        i_eras,
+        "| Neutral density:",
+        i_gamma_slab
       )
     )
-    
-  }
+  )
 }
 
 ```
@@ -217,14 +207,13 @@ for (i_eras in unique(cant_gamma_maps_wide$eras)) {
 
 In a second series of plots we explore the distribution of all Cant, taking positive and negative estimates into account.
 
-### Absolute values
 
 ```{r cant_all_gamma_slab_maps, fig.asp=0.5}
+
 
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
-      
       print(
         p_map_cant_slab(
           df = cant_gamma_maps_long %>%
@@ -248,37 +237,21 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       
     }
   }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_gamma_slab_maps, fig.asp=0.5}
-
-for (i_eras in unique(cant_gamma_maps_wide$eras)) {
-  for (i_gamma_slab in unique(cant_gamma_maps_wide$gamma_slab)) {
-    
-    print(
-      p_map_cant_slab(
-        df = cant_gamma_maps_wide %>%
-          filter(
-            estimate == i_estimate,
-            eras == i_eras,
-            gamma_slab == i_gamma_slab
-          ),
-        var = "cant_offset",
-        col = "divergent",
-        subtitle_text = paste(
-          "Estimate: JDM - M | Eras:",
-          i_eras,
-          "| Neutral density:",
-          i_gamma_slab
-        )
+  print(
+    p_map_cant_slab(
+      df = cant_gamma_maps_wide %>%
+        filter(eras == i_eras,
+               gamma_slab == i_gamma_slab),
+      var = "cant_offset",
+      col = "divergent",
+      subtitle_text = paste(
+        "Estimate: JDM - M | Eras:",
+        i_eras,
+        "| Neutral density:",
+        i_gamma_slab
       )
     )
-    
-  }
+  )
 }
 
 ```
