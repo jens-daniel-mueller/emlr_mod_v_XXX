@@ -27,8 +27,7 @@ navbar:
       href: mapping_cant.html
     - text: Target variable calculation
       href: mapping_target_variable.html
-    - text: Model Cant
-      href: mapping_model_cant.html
+    href: mapping.html
   - text: Analysis
     menu:
     - text: Cant budgets
