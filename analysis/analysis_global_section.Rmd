@@ -130,13 +130,10 @@ cant_wide <- cant_wide %>%
 
 ## Cant - positive only
 
-### Absolute values
-
 ```{r cant_pos_global_section, fig.asp=0.6}
 
 for (i_eras in unique(cant_long$eras)) {
   for (i_estimate in unique(cant_long$estimate)) {
-    
     print(
       p_section_global(
         df = cant_long %>% filter(estimate == i_estimate, eras == i_eras),
@@ -146,16 +143,6 @@ for (i_eras in unique(cant_long$eras)) {
     )
     
   }
-}
-
-```
-
-### Offset
-
-```{r cant_pos_offset_global_section, fig.asp=0.6}
-
-for (i_eras in unique(cant_wide$eras)) {
-  
   print(
     p_section_global(
       df = cant_wide %>% filter(eras == i_eras),
@@ -164,20 +151,16 @@ for (i_eras in unique(cant_wide$eras)) {
       subtitle_text = paste("Estimate: JDM - M | Eras:", i_eras)
     )
   )
-  
 }
 
 ```
 
 ## Cant - all
 
-### Absolute values
-
 ```{r cant_all_global_section, fig.asp=0.6}
 
 for (i_eras in unique(cant_long$eras)) {
   for (i_estimate in unique(cant_long$estimate)) {
-    
     print(
       p_section_global(
         df = cant_long %>% filter(estimate == i_estimate, eras == i_eras),
@@ -188,16 +171,6 @@ for (i_eras in unique(cant_long$eras)) {
     )
     
   }
-}
-
-```
-
-### Offset
-
-```{r cant_all_offset_global_section, fig.asp=0.6}
-
-for (i_eras in unique(cant_wide$eras)) {
-  
   print(
     p_section_global(
       df = cant_wide %>% filter(eras == i_eras),
@@ -206,7 +179,7 @@ for (i_eras in unique(cant_wide$eras)) {
       subtitle_text = paste("Estimate: JDM - M | Eras:", i_eras)
     )
   )
-  
 }
 
 ```
+
