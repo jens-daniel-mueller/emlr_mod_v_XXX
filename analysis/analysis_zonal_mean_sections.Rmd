@@ -55,10 +55,7 @@ library(gt)
 
 # Data sources
 
-Following Cant estimates are used:
-
-- Zonal mean for this study and model truth (basin, lat, lon, eras)
-
+Following Cant zonal mean sections are used:
 
 ## This study
 
@@ -155,19 +152,16 @@ cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
          eras = unique(cant_zonal_JDM$eras)[1]) %>% 
   select(-c(cant_tref_1, cant_tref_2))
 
-cant_M_1 <- cant_M_1 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
          eras = unique(cant_zonal_JDM$eras)[2]) %>% 
   select(-c(cant_tref_2, cant_tref_3))
 
-cant_M_2 <- cant_M_2 %>% 
-   mutate(cant_pos = if_else(cant <= 0, 0, cant))
-
 cant_M <- full_join(cant_M_1, cant_M_2) %>%
   arrange(lon, lat, depth, basin_AIP)
+
+cant_M <- cant_M %>% 
+   mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
@@ -176,6 +170,10 @@ rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 ```{r calc_zonal_mean_modeled_cant}
 
 cant_zonal_M <- m_zonal_mean_section(cant_M)
+
+```
+
+```{r assign_gamma_from_JDM_to_modeled_cant}
 
 cant_zonal_JDM_gamma <- cant_zonal_JDM %>%
   select(lat, depth, eras, basin_AIP, gamma_mean)
@@ -216,7 +214,7 @@ cant_zonal_wide <- cant_zonal_wide %>%
 
 ## Cant - positive only
 
-In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections and inventories.
+In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections.
 
 ### Absolute values
 
@@ -247,6 +245,19 @@ for (i_eras in unique(cant_zonal_long$eras)) {
       )
       
     }
+    print(
+      p_section_zonal(
+        df = cant_zonal_wide %>%
+          filter(basin_AIP == i_basin_AIP,
+                 eras == i_eras),
+        var = "cant_pos_mean_offset",
+        breaks = params_global$breaks_cant_offset,
+        col = "divergent",
+        title_text = "Zonal mean section - offset",
+        subtitle_text =
+          paste("Basin:", i_basin_AIP, "| estimate: JDM-M | eras:", i_eras)
+      )
+    )
   }
 }
 
