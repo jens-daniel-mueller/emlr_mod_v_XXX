@@ -24,6 +24,7 @@ wflow_publish(here::here(
     "mapping_predictor_preparation.Rmd",
     "mapping_cant.Rmd",
     "mapping_target_variable.Rmd",
+    "mapping_model_cant.Rmd",
     "analysis_cant_budgets.Rmd",
     "analysis_inventory_maps.Rmd",
     "analysis_zonal_mean_sections.Rmd",
@@ -34,7 +35,6 @@ wflow_publish(here::here(
 ),
 message = "local rebuild after revision",
 republish = TRUE)
-
 
 
 # Push latest version to GitHub
