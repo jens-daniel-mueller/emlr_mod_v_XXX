@@ -614,16 +614,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree88db051098c6341e119b49c6807199bd4d9a9c58targetblank88db051a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/88db051098c6341e119b49c6807199bd4d9a9c58" target="_blank">88db051</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed6f1202e1d15451f11eb53ffafdc7b55aed83dd8targetblankd6f1202a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d6f1202e1d15451f11eb53ffafdc7b55aed83dd8" target="_blank">d6f1202</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree88db051098c6341e119b49c6807199bd4d9a9c58targetblank88db051a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed6f1202e1d15451f11eb53ffafdc7b55aed83dd8targetblankd6f1202a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/88db051098c6341e119b49c6807199bd4d9a9c58" target="_blank">88db051</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d6f1202e1d15451f11eb53ffafdc7b55aed83dd8" target="_blank">d6f1202</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -633,16 +633,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  code/analysis_this_study.Rmd
-    Untracked:  code/analysis_this_study_vs_model_truth.Rmd
-
 Unstaged changes:
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/analysis_this_study.Rmd
-    Deleted:    analysis/analysis_this_study_vs_model_truth.Rmd
     Modified:   code/Workflowr_project_managment.R
-    Modified:   data/auxillary/params_local.rds
 
 </code></pre>
 <p>
@@ -681,6 +673,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/7bb99e356bbc93c1c6b5f1dbb8306fdcc4e1f137/analysis/analysis_global_section.Rmd" target="_blank">7bb99e3</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-14
+</td>
+<td>
+analysis reversion
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/analysis_global_section.html" target="_blank">b3564aa</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -779,515 +805,130 @@ reorder analysis final
 <div id="this-study" class="section level2" number="1.1">
 <h2 number="1.1"><span class="header-section-number">1.1</span> This study</h2>
 <p>Results from this study are referred to as JDM.</p>
-<pre class="r"><code>cant_3d &lt;-
+<pre class="r"><code>cant_JDM &lt;-
   read_csv(paste(path_version_data,
                  &quot;cant_3d.csv&quot;,
-                 sep = &quot;&quot;))</code></pre>
-</div>
-<div id="modeled-cant" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> Modeled Cant</h2>
-<p>“True” Cant fields directly inferred from the model output are referred to as M.</p>
-<pre class="r"><code>tref  &lt;-
-  read_csv(paste(path_version_data,
-                 &quot;tref.csv&quot;,
                  sep = &quot;&quot;))
 
-cant_tref_1 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[1]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
-
-cant_tref_1 &lt;- cant_tref_1 %&gt;%
-  rename(cant_tref_1 = cant_total) %&gt;%
-  select(-year)
-
-cant_tref_2 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[2]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
-
-cant_tref_2 &lt;- cant_tref_2 %&gt;%
-  rename(cant_tref_2 = cant_total) %&gt;%
-  select(-year)
-
-cant_tref_3 &lt;-
-  read_csv(paste(
-    path_preprocessing,
-    &quot;cant_annual_field_&quot;, params_local$model_runs, &quot;/cant_&quot;,
-    unique(tref$year[3]),
-    &quot;.csv&quot;,
-    sep = &quot;&quot;
-  ))
-
-cant_tref_3 &lt;- cant_tref_3 %&gt;%
-  rename(cant_tref_3 = cant_total) %&gt;%
-  select(-year)</code></pre>
-<pre class="r"><code>cant_M_1 &lt;- left_join(cant_tref_1, cant_tref_2) %&gt;%
-  mutate(cant = cant_tref_2 - cant_tref_1,
-         eras = unique(cant_3d$eras)[1]) %&gt;%
-  select(-c(cant_tref_1, cant_tref_2))
-
-cant_M_2 &lt;- left_join(cant_tref_2, cant_tref_3) %&gt;%
-  mutate(cant = cant_tref_3 - cant_tref_2,
-         eras = unique(cant_3d$eras)[2]) %&gt;%
-  select(-c(cant_tref_2, cant_tref_3))
-
-cant_M &lt;- full_join(cant_M_1, cant_M_2) %&gt;%
-  arrange(lon, lat, depth, basin_AIP)
+cant_JDM &lt;- cant_JDM %&gt;%
+  select(lon, 
+         lat,
+         depth,
+         basin_AIP,
+         eras,
+         cant,
+         cant_pos)</code></pre>
+</div>
+<div id="model-cant" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Model Cant</h2>
+<p>“True” Cant fields directly inferred from the model output are referred to as M.</p>
+<pre class="r"><code>cant_M &lt;-
+  read_csv(paste(path_version_data,
+                  &quot;cant_M.csv&quot;, sep = &quot;&quot;))
 
 cant_M &lt;- cant_M %&gt;%
-  mutate(cant_pos = if_else(cant &lt;= 0, 0, cant))
+  select(lon, 
+         lat,
+         depth,
+         basin_AIP,
+         eras,
+         cant,
+         cant_pos)</code></pre>
+</div>
+<div id="join-data-sets" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Join data sets</h2>
+<p>Cant fields are merged, and differences calculate per grid cell and per eras.</p>
+<pre class="r"><code># add estimate label
+cant_long &lt;- bind_rows(cant_JDM %&gt;%  mutate(estimate = &quot;JDM&quot;),
+                             cant_M %&gt;%  mutate(estimate = &quot;M&quot;))
 
-rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)</code></pre>
+# pivot to wide format
+cant_wide &lt;- cant_long %&gt;%
+  pivot_wider(names_from = estimate, values_from = cant:cant_pos) %&gt;%
+  drop_na()
+
+# calculate offset
+cant_wide &lt;- cant_wide %&gt;%
+  mutate(
+    cant_pos_offset = cant_pos_JDM - cant_pos_M,
+    cant_offset = cant_JDM - cant_M,
+    estimate = &quot;JDM - M&quot;
+  )</code></pre>
 </div>
 </div>
 <div id="global-mean-sections" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> Global mean sections</h1>
 <div id="cant---positive-only" class="section level2" number="2.1">
 <h2 number="2.1"><span class="header-section-number">2.1</span> Cant - positive only</h2>
-<pre class="r"><code>for (i_eras in unique(cant_3d$eras)) {
+<div id="absolute-values" class="section level3" number="2.1.1">
+<h3 number="2.1.1"><span class="header-section-number">2.1.1</span> Absolute values</h3>
+<pre class="r"><code>for (i_eras in unique(cant_long$eras)) {
+  for (i_estimate in unique(cant_long$estimate)) {
+    
+    print(
+      p_section_global(
+        df = cant_long %&gt;% filter(estimate == i_estimate, eras == i_eras),
+        var = &quot;cant_pos&quot;,
+        subtitle_text = paste(&quot;Estimate:&quot;, i_estimate, &quot; | Eras:&quot;, i_eras)
+      )
+    )
+    
+  }
+}</code></pre>
+<p><img src="figure/analysis_global_section.Rmd/cant_pos_global_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_pos_global_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_pos_global_section-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_pos_global_section-4.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="offset" class="section level3" number="2.1.2">
+<h3 number="2.1.2"><span class="header-section-number">2.1.2</span> Offset</h3>
+<pre class="r"><code>for (i_eras in unique(cant_wide$eras)) {
   
-  print(p_section_global(
-    df = cant_3d %&gt;% filter(eras == i_eras),
-    var = &quot;cant_pos&quot;,
-    subtitle_text = paste(&quot;Eras:&quot;, i_eras, &quot;| Estimate: JDM&quot;)
-  ))
+  print(
+    p_section_global(
+      df = cant_wide %&gt;% filter(eras == i_eras),
+      var = &quot;cant_pos_offset&quot;,
+      col = &quot;divergent&quot;,
+      subtitle_text = paste(&quot;Estimate: JDM - M | Eras:&quot;, i_eras)
+    )
+  )
   
 }</code></pre>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_positive_mean-1">
-Past versions of cant_global_sections_positive_mean-1.png
-</button>
-</p>
-<div id="fig-cant_global_sections_positive_mean-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-1.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-1.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_positive_mean-2">
-Past versions of cant_global_sections_positive_mean-2.png
-</button>
-</p>
-<div id="fig-cant_global_sections_positive_mean-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-2.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-2.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>for (i_eras in unique(cant_M$eras)) {
-  
-  print(p_section_global(
-    df = cant_M %&gt;% filter(eras == i_eras),
-    var = &quot;cant_pos&quot;,
-    subtitle_text = paste(&quot;Eras:&quot;, i_eras, &quot;| Estimate: M&quot;)
-  ))
-  
-}</code></pre>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_positive_mean-3">
-Past versions of cant_global_sections_positive_mean-3.png
-</button>
-</p>
-<div id="fig-cant_global_sections_positive_mean-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-3.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-3.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-4.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_positive_mean-4">
-Past versions of cant_global_sections_positive_mean-4.png
-</button>
-</p>
-<div id="fig-cant_global_sections_positive_mean-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-4.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_positive_mean-4.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img src="figure/analysis_global_section.Rmd/cant_pos_offset_global_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_pos_offset_global_section-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="cant---all" class="section level2" number="2.2">
 <h2 number="2.2"><span class="header-section-number">2.2</span> Cant - all</h2>
-<pre class="r"><code>for (i_eras in unique(cant_3d$eras)) {
+<div id="absolute-values-1" class="section level3" number="2.2.1">
+<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Absolute values</h3>
+<pre class="r"><code>for (i_eras in unique(cant_long$eras)) {
+  for (i_estimate in unique(cant_long$estimate)) {
+    
+    print(
+      p_section_global(
+        df = cant_long %&gt;% filter(estimate == i_estimate, eras == i_eras),
+        var = &quot;cant&quot;,
+        col = &quot;divergent&quot;,
+        subtitle_text = paste(&quot;Estimate:&quot;, i_estimate, &quot; | Eras:&quot;, i_eras)
+      )
+    )
+    
+  }
+}</code></pre>
+<p><img src="figure/analysis_global_section.Rmd/cant_all_global_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_all_global_section-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_all_global_section-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_all_global_section-4.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="offset-1" class="section level3" number="2.2.2">
+<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Offset</h3>
+<pre class="r"><code>for (i_eras in unique(cant_wide$eras)) {
+  
   print(
     p_section_global(
-      df = cant_3d %&gt;% filter(eras == i_eras),
-      var = &quot;cant&quot;,
+      df = cant_wide %&gt;% filter(eras == i_eras),
+      var = &quot;cant_offset&quot;,
       col = &quot;divergent&quot;,
-      subtitle_text = paste(&quot;Eras:&quot;, i_eras, &quot;| Estimate: JDM&quot;)
+      subtitle_text = paste(&quot;Estimate: JDM - M | Eras:&quot;, i_eras)
     )
   )
   
 }</code></pre>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_all_mean-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_all_mean-1">
-Past versions of cant_global_sections_all_mean-1.png
-</button>
-</p>
-<div id="fig-cant_global_sections_all_mean-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-1.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-1.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_all_mean-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_all_mean-2">
-Past versions of cant_global_sections_all_mean-2.png
-</button>
-</p>
-<div id="fig-cant_global_sections_all_mean-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-2.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-2.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>for (i_eras in unique(cant_M$eras)) {
-  print(
-    p_section_global(
-      df = cant_M %&gt;% filter(eras == i_eras),
-      var = &quot;cant&quot;,
-      col = &quot;divergent&quot;,
-      subtitle_text = paste(&quot;Eras:&quot;, i_eras, &quot;| Estimate: M&quot;)
-    )
-  )
-  
-}</code></pre>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_all_mean-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_all_mean-3">
-Past versions of cant_global_sections_all_mean-3.png
-</button>
-</p>
-<div id="fig-cant_global_sections_all_mean-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-3.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-3.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/analysis_global_section.Rmd/cant_global_sections_all_mean-4.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_global_sections_all_mean-4">
-Past versions of cant_global_sections_all_mean-4.png
-</button>
-</p>
-<div id="fig-cant_global_sections_all_mean-4" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8d032c3dfaab5d6f30cd4cb618992eda12f4190b/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-4.png" target="_blank">8d032c3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2021-01-14
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/022871c9ccf25fa7eb0f1d2c3a734eca9dc81eb6/docs/figure/analysis_global_section.Rmd/cant_global_sections_all_mean-4.png" target="_blank">022871c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-13
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/analysis_global_section.Rmd/cant_all_offset_global_section-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_global_section.Rmd/cant_all_offset_global_section-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1347,6 +988,7 @@ loaded via a namespace (and not attached):
 [64] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
 [67] Rcpp_1.0.5               vctrs_0.3.5              dbplyr_1.4.4            
 [70] tidyselect_1.1.0         xfun_0.18               </code></pre>
+</div>
 </div>
 </div>
 </div>
