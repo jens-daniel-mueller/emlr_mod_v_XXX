@@ -216,13 +216,12 @@ cant_zonal_wide <- cant_zonal_wide %>%
 
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections.
 
-### Absolute values
-
 ```{r cant_pos_zonal_mean_section, fig.asp=0.6}
 
 for (i_eras in unique(cant_zonal_long$eras)) {
   for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
     for (i_estimate in unique(cant_zonal_long$estimate)) {
+      # Absolute values
       print(
         p_section_zonal(
           df = cant_zonal_long %>%
@@ -245,6 +244,8 @@ for (i_eras in unique(cant_zonal_long$eras)) {
       )
       
     }
+    
+    # Offset
     print(
       p_section_zonal(
         df = cant_zonal_wide %>%
@@ -263,41 +264,17 @@ for (i_eras in unique(cant_zonal_long$eras)) {
 
 ```
 
-### Offset
-
-```{r cant_pos_offset_zonal_section, fig.asp=0.6}
-
-for (i_eras in unique(cant_zonal_wide$eras)) {
-  for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
-    print(
-      p_section_zonal(
-        df = cant_zonal_wide %>%
-          filter(basin_AIP == i_basin_AIP,
-                 eras == i_eras),
-        var = "cant_pos_mean_offset",
-        breaks = params_global$breaks_cant_offset,
-        col = "divergent",
-        subtitle_text =
-          paste("Basin:", i_basin_AIP, "| estimate: JDM-M | eras:", i_eras)
-      )
-    )
-  }
-}
-
-```
-
 ## Cant - all
 
 In a second series of plots we explore the distribution of all Cant, taking positive and negative estimates into account.
 
-### Absolute values
 
 ```{r cant_zonal_mean_section, fig.asp=0.6}
-
 
 for (i_eras in unique(cant_zonal_long$eras)) {
   for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
     for (i_estimate in unique(cant_zonal_long$estimate)) {
+      # Absolute values
       print(
         p_section_zonal(
           df = cant_zonal_long %>%
@@ -327,17 +304,8 @@ for (i_eras in unique(cant_zonal_long$eras)) {
       )
       
     }
-  }
-}
-
-```
-
-### Offset
-
-```{r cant_offset_zonal_mean_section, fig.asp=0.6}
-
-for (i_eras in unique(cant_zonal_wide$eras)) {
-  for (i_basin_AIP in unique(cant_zonal_wide$basin_AIP)) {
+    
+    # Offset
     print(
       p_section_zonal(
         df = cant_zonal_wide %>%
@@ -346,6 +314,7 @@ for (i_eras in unique(cant_zonal_wide$eras)) {
         var = "cant_mean_offset",
         col = "divergent",
         breaks = params_global$breaks_cant_offset,
+        title_text = "Zonal mean section - offset",
         subtitle_text =
           paste("Basin:", i_basin_AIP, "| estimate: JDM - M | eras:", i_eras)
       )
