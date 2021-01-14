@@ -614,16 +614,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreefba8029b203aebbdf1f7d6dd182dd13388f8af4ctargetblankfba8029a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/fba8029b203aebbdf1f7d6dd182dd13388f8af4c" target="_blank">fba8029</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeed6270fbfbda0d40fe5ebf56b3bcbdbe99d47162targetblanked6270fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ed6270fbfbda0d40fe5ebf56b3bcbdbe99d47162" target="_blank">ed6270f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreefba8029b203aebbdf1f7d6dd182dd13388f8af4ctargetblankfba8029a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeed6270fbfbda0d40fe5ebf56b3bcbdbe99d47162targetblanked6270fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/fba8029b203aebbdf1f7d6dd182dd13388f8af4c" target="_blank">fba8029</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/ed6270fbfbda0d40fe5ebf56b3bcbdbe99d47162" target="_blank">ed6270f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -673,6 +673,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ed6270fbfbda0d40fe5ebf56b3bcbdbe99d47162/analysis/analysis_isoneutral_slab_distribution.Rmd" target="_blank">ed6270f</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+<td>
+fixed offset isoneutral slab plot
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/analysis_isoneutral_slab_distribution.html" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -890,7 +924,6 @@ cant_gamma_maps_wide &lt;- cant_gamma_maps_wide %&gt;%
 # i_gamma_slab &lt;- unique(cant_gamma_maps_long$gamma_slab)[1]
 # i_estimate &lt;- unique(cant_gamma_maps_long$estimate)[1]
 
-
 for (i_eras in unique(cant_gamma_maps_long$eras)) {
   for (i_gamma_slab in unique(cant_gamma_maps_long$gamma_slab)) {
     for (i_estimate in unique(cant_gamma_maps_long$estimate)) {
@@ -912,22 +945,22 @@ for (i_eras in unique(cant_gamma_maps_long$eras)) {
       ))
       
     }
-  }
-  print(
-    p_map_cant_slab(
-      df = cant_gamma_maps_wide %&gt;%
-        filter(eras == i_eras,
-               gamma_slab == i_gamma_slab),
-      var = &quot;cant_pos_offset&quot;,
-      col = &quot;divergent&quot;,
-      subtitle_text = paste(
-        &quot;Estimate: JDM - M | Eras:&quot;,
-        i_eras,
-        &quot;| Neutral density:&quot;,
-        i_gamma_slab
+    print(
+      p_map_cant_slab(
+        df = cant_gamma_maps_wide %&gt;%
+          filter(eras == i_eras,
+                 gamma_slab == i_gamma_slab),
+        var = &quot;cant_pos_offset&quot;,
+        col = &quot;divergent&quot;,
+        subtitle_text = paste(
+          &quot;Estimate: JDM - M | Eras:&quot;,
+          i_eras,
+          &quot;| Neutral density:&quot;,
+          i_gamma_slab
+        )
       )
     )
-  )
+  }
 }</code></pre>
 <p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -952,6 +985,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-1.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-1.png" target="_blank">b3564aa</a>
@@ -1012,6 +1056,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-2.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-2.png" target="_blank">b3564aa</a>
@@ -1085,6 +1140,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-3.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-3.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1154,6 +1220,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-4.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-4.png" target="_blank">b3564aa</a>
@@ -1227,6 +1304,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-5.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-5.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1296,6 +1384,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-6.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-6.png" target="_blank">b3564aa</a>
@@ -1369,6 +1468,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-7.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-7.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1438,6 +1548,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-8.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-8.png" target="_blank">b3564aa</a>
@@ -1511,6 +1632,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-9.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-9.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1580,6 +1712,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-10.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-10.png" target="_blank">b3564aa</a>
@@ -1653,6 +1796,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-11.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-11.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1722,6 +1876,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-12.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-12.png" target="_blank">b3564aa</a>
@@ -1795,6 +1960,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-13.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-13.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -1864,6 +2040,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-14.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-14.png" target="_blank">b3564aa</a>
@@ -1937,6 +2124,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-15.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-15.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2006,6 +2204,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-16.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-16.png" target="_blank">b3564aa</a>
@@ -2079,6 +2288,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-17.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-17.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2148,6 +2368,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-18.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-18.png" target="_blank">b3564aa</a>
@@ -2221,6 +2452,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-19.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-19.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2290,6 +2532,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-20.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-20.png" target="_blank">b3564aa</a>
@@ -2363,6 +2616,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-21.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-21.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2432,6 +2696,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-22.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-22.png" target="_blank">b3564aa</a>
@@ -2505,6 +2780,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-23.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-23.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2574,6 +2860,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-24.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-24.png" target="_blank">b3564aa</a>
@@ -2647,6 +2944,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-25.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-25.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2716,6 +3024,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-26.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-26.png" target="_blank">b3564aa</a>
@@ -2789,6 +3108,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-27.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-27.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -2858,6 +3188,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-28.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-28.png" target="_blank">b3564aa</a>
@@ -2931,6 +3272,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-29.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-29.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3000,6 +3352,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-30.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-30.png" target="_blank">b3564aa</a>
@@ -3073,6 +3436,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-31.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-31.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3142,6 +3516,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-32.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-32.png" target="_blank">b3564aa</a>
@@ -3215,6 +3600,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-33.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-33.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3284,6 +3680,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-34.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-34.png" target="_blank">b3564aa</a>
@@ -3357,6 +3764,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-35.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-35.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3426,6 +3844,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-36.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-36.png" target="_blank">b3564aa</a>
@@ -3499,6 +3928,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-37.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-37.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3568,6 +4008,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-38.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-38.png" target="_blank">b3564aa</a>
@@ -3641,6 +4092,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-39.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-39.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3710,6 +4172,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-40.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-40.png" target="_blank">b3564aa</a>
@@ -3783,6 +4256,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-41.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-41.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3852,6 +4336,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-42.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-42.png" target="_blank">b3564aa</a>
@@ -3925,6 +4420,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-43.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-43.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -3994,6 +4500,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-44.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-44.png" target="_blank">b3564aa</a>
@@ -4067,6 +4584,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-45.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-45.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4136,6 +4664,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-46.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-46.png" target="_blank">b3564aa</a>
@@ -4209,6 +4748,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-47.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-47.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4278,6 +4828,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-48.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-48.png" target="_blank">b3564aa</a>
@@ -4351,6 +4912,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-49.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-49.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4420,6 +4992,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-50.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-50.png" target="_blank">b3564aa</a>
@@ -4493,6 +5076,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-51.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-51.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4562,6 +5156,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-52.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-52.png" target="_blank">b3564aa</a>
@@ -4635,6 +5240,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-53.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-53.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4704,6 +5320,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-54.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-54.png" target="_blank">b3564aa</a>
@@ -4777,6 +5404,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-55.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-55.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4846,6 +5484,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-56.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-56.png" target="_blank">b3564aa</a>
@@ -4919,6 +5568,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-57.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-57.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -4988,6 +5648,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-58.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-58.png" target="_blank">b3564aa</a>
@@ -5061,6 +5732,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-59.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-59.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5132,6 +5814,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-60.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-60.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5167,7 +5860,83 @@ Donghe-Zhu
 </table>
 </div>
 </div>
-<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-61.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-62.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-61.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_gamma_slab_maps-61">
+Past versions of cant_pos_gamma_slab_maps-61.png
+</button>
+</p>
+<div id="fig-cant_pos_gamma_slab_maps-61" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-61.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-62.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_pos_gamma_slab_maps-62">
+Past versions of cant_pos_gamma_slab_maps-62.png
+</button>
+</p>
+<div id="fig-cant_pos_gamma_slab_maps-62" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-62.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-63.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-64.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-65.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-66.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-67.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-68.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-69.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-70.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-71.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-72.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-73.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-74.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-75.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-76.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-77.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-78.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-79.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-80.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-81.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-82.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-83.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-84.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-85.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-86.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-87.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-88.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-89.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_pos_gamma_slab_maps-90.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="cant---all" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> Cant - all</h2>
@@ -5197,22 +5966,23 @@ Donghe-Zhu
       )
       
     }
-  }
-  print(
-    p_map_cant_slab(
-      df = cant_gamma_maps_wide %&gt;%
-        filter(eras == i_eras,
-               gamma_slab == i_gamma_slab),
-      var = &quot;cant_offset&quot;,
-      col = &quot;divergent&quot;,
-      subtitle_text = paste(
-        &quot;Estimate: JDM - M | Eras:&quot;,
-        i_eras,
-        &quot;| Neutral density:&quot;,
-        i_gamma_slab
+    print(
+      p_map_cant_slab(
+        df = cant_gamma_maps_wide %&gt;%
+          filter(eras == i_eras,
+                 gamma_slab == i_gamma_slab),
+        var = &quot;cant_offset&quot;,
+        col = &quot;divergent&quot;,
+        subtitle_text = paste(
+          &quot;Estimate: JDM - M | Eras:&quot;,
+          i_eras,
+          &quot;| Neutral density:&quot;,
+          i_gamma_slab
+        )
       )
     )
-  )
+  }
+  
 }</code></pre>
 <p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -5237,6 +6007,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-1.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-1.png" target="_blank">b3564aa</a>
@@ -5297,6 +6078,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-2.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-2.png" target="_blank">b3564aa</a>
@@ -5370,6 +6162,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-3.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-3.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5439,6 +6242,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-4.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-4.png" target="_blank">b3564aa</a>
@@ -5512,6 +6326,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-5.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-5.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5581,6 +6406,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-6.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-6.png" target="_blank">b3564aa</a>
@@ -5654,6 +6490,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-7.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-7.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5723,6 +6570,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-8.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-8.png" target="_blank">b3564aa</a>
@@ -5796,6 +6654,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-9.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-9.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -5865,6 +6734,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-10.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-10.png" target="_blank">b3564aa</a>
@@ -5938,6 +6818,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-11.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-11.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6007,6 +6898,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-12.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-12.png" target="_blank">b3564aa</a>
@@ -6080,6 +6982,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-13.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-13.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6149,6 +7062,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-14.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-14.png" target="_blank">b3564aa</a>
@@ -6222,6 +7146,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-15.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-15.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6291,6 +7226,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-16.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-16.png" target="_blank">b3564aa</a>
@@ -6364,6 +7310,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-17.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-17.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6433,6 +7390,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-18.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-18.png" target="_blank">b3564aa</a>
@@ -6506,6 +7474,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-19.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-19.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6575,6 +7554,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-20.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-20.png" target="_blank">b3564aa</a>
@@ -6648,6 +7638,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-21.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-21.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6717,6 +7718,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-22.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-22.png" target="_blank">b3564aa</a>
@@ -6790,6 +7802,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-23.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-23.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -6859,6 +7882,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-24.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-24.png" target="_blank">b3564aa</a>
@@ -6932,6 +7966,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-25.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-25.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7001,6 +8046,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-26.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-26.png" target="_blank">b3564aa</a>
@@ -7074,6 +8130,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-27.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-27.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7143,6 +8210,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-28.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-28.png" target="_blank">b3564aa</a>
@@ -7216,6 +8294,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-29.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-29.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7285,6 +8374,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-30.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-30.png" target="_blank">b3564aa</a>
@@ -7358,6 +8458,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-31.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-31.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7427,6 +8538,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-32.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-32.png" target="_blank">b3564aa</a>
@@ -7500,6 +8622,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-33.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-33.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7569,6 +8702,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-34.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-34.png" target="_blank">b3564aa</a>
@@ -7642,6 +8786,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-35.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-35.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7711,6 +8866,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-36.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-36.png" target="_blank">b3564aa</a>
@@ -7784,6 +8950,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-37.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-37.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7853,6 +9030,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-38.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-38.png" target="_blank">b3564aa</a>
@@ -7926,6 +9114,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-39.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-39.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -7995,6 +9194,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-40.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-40.png" target="_blank">b3564aa</a>
@@ -8068,6 +9278,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-41.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-41.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8137,6 +9358,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-42.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-42.png" target="_blank">b3564aa</a>
@@ -8210,6 +9442,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-43.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-43.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8279,6 +9522,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-44.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-44.png" target="_blank">b3564aa</a>
@@ -8352,6 +9606,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-45.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-45.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8421,6 +9686,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-46.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-46.png" target="_blank">b3564aa</a>
@@ -8494,6 +9770,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-47.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-47.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8563,6 +9850,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-48.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-48.png" target="_blank">b3564aa</a>
@@ -8636,6 +9934,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-49.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-49.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8705,6 +10014,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-50.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-50.png" target="_blank">b3564aa</a>
@@ -8778,6 +10098,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-51.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-51.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8847,6 +10178,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-52.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-52.png" target="_blank">b3564aa</a>
@@ -8920,6 +10262,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-53.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-53.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -8989,6 +10342,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-54.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-54.png" target="_blank">b3564aa</a>
@@ -9062,6 +10426,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-55.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-55.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -9131,6 +10506,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-56.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-56.png" target="_blank">b3564aa</a>
@@ -9204,6 +10590,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-57.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-57.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -9273,6 +10670,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-58.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-58.png" target="_blank">b3564aa</a>
@@ -9346,6 +10754,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-59.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-59.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -9417,6 +10836,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-60.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b3564aa5f61cc1709fa2089e090ed69e98d17160/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-60.png" target="_blank">b3564aa</a>
 </td>
 <td>
@@ -9452,7 +10882,83 @@ Donghe-Zhu
 </table>
 </div>
 </div>
-<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-61.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-62.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-61.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_all_gamma_slab_maps-61">
+Past versions of cant_all_gamma_slab_maps-61.png
+</button>
+</p>
+<div id="fig-cant_all_gamma_slab_maps-61" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-61.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-62.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-cant_all_gamma_slab_maps-62">
+Past versions of cant_all_gamma_slab_maps-62.png
+</button>
+</p>
+<div id="fig-cant_all_gamma_slab_maps-62" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/dbc48a95f0d841bbcb17bd7c39e2e6f5e887b6bf/docs/figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-62.png" target="_blank">dbc48a9</a>
+</td>
+<td>
+jens-daniel-mueller
+</td>
+<td>
+2021-01-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-63.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-64.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-65.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-66.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-67.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-68.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-69.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-70.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-71.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-72.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-73.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-74.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-75.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-76.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-77.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-78.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-79.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-80.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-81.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-82.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-83.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-84.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-85.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-86.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-87.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-88.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-89.png" width="672" style="display: block; margin: auto;" /><img src="figure/analysis_isoneutral_slab_distribution.Rmd/cant_all_gamma_slab_maps-90.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
