@@ -201,13 +201,33 @@ for (i_eras in unique(cant_long$eras)) {
 
 # Model quality check
 
-```{r model_quality_check}
+## Cant - positive only
 
-cant_wide %>% 
-  ggplot(aes(cant_pos_sd, cant_pos_offset, col = gamma_slab)) +
-  geom_point() +
-  scale_color_viridis_d() +
-  facet_grid(eras~basin_AIP)
+```{r cant_pos_model_quality_check}
+
+cant_wide %>%
+  ggplot(aes(cant_pos_sd, cant_pos_offset)) +
+  geom_bin2d(binwidth = 5) +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10") +
+  facet_grid(eras ~ basin_AIP) +
+  labs(title = "The offset vs sd of positive Cant across models")
+
+```
+
+## Cant - all
+
+```{r cant_pos_model_quality_check}
+
+cant_wide %>%
+  ggplot(aes(cant_sd, cant_offset)) +
+  geom_bin2d(binwidth = 5) +
+  scale_fill_viridis_c(option = "magma",
+                       direction = -1,
+                       trans = "log10") +
+  facet_grid(eras ~ basin_AIP) +
+  labs(title = "The offset vs sd of Cant across models")
 
 ```
 
