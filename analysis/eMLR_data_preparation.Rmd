@@ -702,7 +702,7 @@ Zonal and meridional section plots are produce for each cruise individually and 
 
 `r paste(path_version_figures, "Cruise_sections_histograms/", sep = "")`
 
-```{r plot_all_individual_cruises_clean}
+```{r plot_all_individual_cruises_clean, eval=FALSE}
 
 if (params_local$subsetting == "GLODAP") {
   if (params_local$plot_all_figures == "y") {

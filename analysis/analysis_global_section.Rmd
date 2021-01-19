@@ -68,6 +68,18 @@ cant_JDM <-
                  "cant_3d.csv",
                  sep = ""))
 
+cant_sd <- cant_JDM %>%
+  select(lon, 
+         lat,
+         depth,
+         basin,
+         basin_AIP,
+         eras,
+         cant_sd,
+         cant_pos_sd,
+         gamma,
+         gamma_slab)
+
 cant_JDM <- cant_JDM %>%
   select(lon, 
          lat,
@@ -123,6 +135,9 @@ cant_wide <- cant_wide %>%
     estimate = "JDM - M"
   )
 
+# join with SD deviation of Cant across all (currently 10) MLR models for each grid cell
+cant_wide <- left_join(cant_wide, cant_sd)
+
 ```
 
 
@@ -157,7 +172,6 @@ for (i_eras in unique(cant_long$eras)) {
 
 ## Cant - all
 
-
 ```{r cant_all_global_section, fig.asp=0.6}
 
 for (i_eras in unique(cant_long$eras)) {
@@ -183,3 +197,17 @@ for (i_eras in unique(cant_long$eras)) {
 }
 
 ```
+
+
+# Model quality check
+
+```{r model_quality_check}
+
+cant_wide %>% 
+  ggplot(aes(cant_pos_sd, cant_pos_offset, col = gamma_slab)) +
+  geom_point() +
+  scale_color_viridis_d() +
+  facet_grid(eras~basin_AIP)
+
+```
+
