@@ -242,42 +242,42 @@ for (i_basin in unique(GLODAP$basin)) {
           lm_all_fitted <- coefficients
         }
         
-        # plot model diagnostics, if activated
-        if (params_local$plot_all_figures == "y") {
-          p_model <- ggnostic(
-            i_lm_fit,
-            columnsY = c(params_local$MLR_target, ".fitted", ".resid"),
-            title = paste(
-              "| era:",
-              i_era,
-              "| basin:",
-              i_basin,
-              "| gamma slab:",
-              i_gamma_slab,
-              "| predictors:",
-              i_predictors
-            )
-          )
-          
-          ggsave(
-            plot = p_model,
-            path = paste(path_version_figures, "eMLR_diagnostics/", sep = ""),
-            filename = paste(
-              "MLR_residuals",
-              i_era,
-              i_basin,
-              i_gamma_slab,
-              i_predictors,
-              "predictors.png",
-              sep = "_"
-            ),
-            width = 14,
-            height = 8
-          )
-          
-          rm(p_model)
-          
-        }
+        # # plot model diagnostics, if activated
+        # if (params_local$plot_all_figures == "y") {
+        #   p_model <- ggnostic(
+        #     i_lm_fit,
+        #     columnsY = c(params_local$MLR_target, ".fitted", ".resid"),
+        #     title = paste(
+        #       "| era:",
+        #       i_era,
+        #       "| basin:",
+        #       i_basin,
+        #       "| gamma slab:",
+        #       i_gamma_slab,
+        #       "| predictors:",
+        #       i_predictors
+        #     )
+        #   )
+        #   
+        #   ggsave(
+        #     plot = p_model,
+        #     path = paste(path_version_figures, "eMLR_diagnostics/", sep = ""),
+        #     filename = paste(
+        #       "MLR_residuals",
+        #       i_era,
+        #       i_basin,
+        #       i_gamma_slab,
+        #       i_predictors,
+        #       "predictors.png",
+        #       sep = "_"
+        #     ),
+        #     width = 14,
+        #     height = 8
+        #   )
+        #   
+        #   rm(p_model)
+        #   
+        # }
         
       }
       
@@ -286,7 +286,6 @@ for (i_basin in unique(GLODAP$basin)) {
   }
   
 }
-
 
 rm(i_lm_fit, coefficients, i_rmse,
    GLODAP_basin_era, GLODAP_basin_era_slab,

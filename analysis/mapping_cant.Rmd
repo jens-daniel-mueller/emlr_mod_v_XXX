@@ -94,6 +94,7 @@ lm_best_cant <-
   read_csv(paste(path_version_data,
                  "lm_best_cant.csv",
                  sep = ""))
+
 ```
 
 # Join MLRs + climatologies
@@ -132,7 +133,6 @@ Zonal section plots are produced for every 20° longitude, each era and for all 
 
 
 ```{r cant_section_by_model_eras_lon}
-
 
 if (params_local$plot_all_figures == "y") {
   for (i_eras in unique(cant$eras)) {
@@ -209,38 +209,44 @@ Plots below show the calculated climatolofical pCO~2~ values.
 
 ```{r calc_pCO2_climatology}
 
-# calculate pCO2 from talk and tco2 climatology
-predictors_surface <- predictors_surface %>%
-  mutate(
-    pCO2 = carb(
-      flag = 15,
-      var1 = TAlk * 1e-6,
-      var2 = TCO2 * 1e-6,
-      S = sal,
-      T = temp,
-      P = depth / 10,
-      Pt = phosphate * 1e-6,
-      Sit = silicate * 1e-6,
-      k1k2 = "l"
-    )$pCO2
-  )
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  # calculate pCO2 from talk and tco2 climatology
+  predictors_surface <- predictors_surface %>%
+    mutate(
+      pCO2 = carb(
+        flag = 15,
+        var1 = TAlk * 1e-6,
+        var2 = TCO2 * 1e-6,
+        S = sal,
+        T = temp,
+        P = depth / 10,
+        Pt = phosphate * 1e-6,
+        Sit = silicate * 1e-6,
+        k1k2 = "l"
+      )$pCO2
+    )
+}
 
 ```
 
 
 ```{r pCO2_climatology_map, fig.asp=0.6}
 
-p_map_climatology(df = predictors_surface,
-                  var = "pCO2")
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  p_map_climatology(df = predictors_surface,
+                    var = "pCO2")
+}
 
 ```
 
 
 ```{r pCO2_climatology_sections, fig.asp=1}
 
-p_section_climatology_regular(df = predictors_surface,
-                              var = "pCO2",
-                              surface = "y")
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  p_section_climatology_regular(df = predictors_surface,
+                                var = "pCO2",
+                                surface = "y")
+}
 
 ```
 
@@ -250,37 +256,43 @@ Plots below show the calculated climatological Revelle factor values.
 
 ```{r calc_revelle_factor_climatology}
 
-predictors_surface <- predictors_surface %>%
-  mutate(
-    rev_fac = buffer(
-      flag = 15,
-      var1 = TAlk * 1e-6,
-      var2 = TCO2 * 1e-6,
-      S = sal,
-      T = temp,
-      P = depth / 10,
-      Pt = phosphate * 1e-6,
-      Sit = silicate * 1e-6,
-      k1k2 = "l"
-    )$BetaD
-  )
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  predictors_surface <- predictors_surface %>%
+    mutate(
+      rev_fac = buffer(
+        flag = 15,
+        var1 = TAlk * 1e-6,
+        var2 = TCO2 * 1e-6,
+        S = sal,
+        T = temp,
+        P = depth / 10,
+        Pt = phosphate * 1e-6,
+        Sit = silicate * 1e-6,
+        k1k2 = "l"
+      )$BetaD
+    )
+}
 
 ```
 
 
 ```{r revelle_factor_climatology_map, fig.asp=0.6}
 
-p_map_climatology(df = predictors_surface,
-                  var = "rev_fac")
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  p_map_climatology(df = predictors_surface,
+                    var = "rev_fac")
+}
 
 ```
 
 
 ```{r revelle_factor_climatology_sections, fig.asp=1}
 
-p_section_climatology_regular(df = predictors_surface,
-                              var = "rev_fac",
-                              surface = "y")
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  p_section_climatology_regular(df = predictors_surface,
+                                var = "rev_fac",
+                                surface = "y")
+}
 
 ```
 
@@ -289,20 +301,76 @@ p_section_climatology_regular(df = predictors_surface,
 
 ```{r calc_cant_surface}
 
-# calculate increase in atm pCO2 between eras
-co2_atm_tref <- co2_atm_tref %>%
-  arrange(pCO2_tref) %>%
-  mutate(d_pCO2_tref = pCO2_tref - lag(pCO2_tref),
-         eras = paste(lag(era), era, sep = " --> ")) %>%
-  drop_na() %>%
-  select(eras, d_pCO2_tref)
+if (params_local$surface_DIC_calculation == "revelle factor") {
+  # calculate increase in atm pCO2 between eras
+  co2_atm_tref <- co2_atm_tref %>%
+    arrange(pCO2_tref) %>%
+    mutate(d_pCO2_tref = pCO2_tref - lag(pCO2_tref),
+           eras = paste(lag(era), era, sep = " --> ")) %>%
+    drop_na() %>%
+    select(eras, d_pCO2_tref)
+  
+  cant_surface <- full_join(predictors_surface, co2_atm_tref,
+                            by = character())
+  
+  # calculate cant
+  cant_surface <- cant_surface %>%
+    mutate(cant = (1 / rev_fac) * (TCO2 / pCO2) * d_pCO2_tref)
+}
 
-cant_surface <- full_join(predictors_surface, co2_atm_tref,
-                          by = character())
-
-# calculate cant
-cant_surface <- cant_surface %>%
-  mutate(cant = (1 / rev_fac) * (TCO2 / pCO2) * d_pCO2_tref)
+#
+if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
+  predictors_surface <-
+    full_join(predictors_surface,
+              co2_atm_tref %>% select(pCO2_tref),
+              by = character())
+  # calculate DIC from TAlk climatology and pCO2 in reference years
+  predictors_surface <- predictors_surface %>%
+    mutate(
+      DIC = carb(
+        flag = 24,
+        var1 = pCO2_tref,
+        var2 = TAlk * 1e-6,
+        S = sal,
+        T = temp,
+        P = depth / 10,
+        Pt = phosphate * 1e-6,
+        Sit = silicate * 1e-6,
+        k1k2 = "l"
+      )$DIC
+    )
+  
+  predictors_surface <- predictors_surface %>%
+    group_by(lon,
+             lat,
+             depth,
+             basin_AIP,
+             basin,
+             gamma,
+             sal,
+             temp,
+             TCO2,
+             TAlk,
+             phosphate,
+             silicate) %>%
+    mutate(DIC_era1 = DIC[2] - DIC[1], DIC_era2 = DIC[3] - DIC[2]) %>%
+    ungroup() %>%
+    select(-pCO2_tref,-DIC) %>%
+    unique()
+  
+  predictors_surface_era1 <- predictors_surface %>%
+    select(-DIC_era2) %>%
+    rename(cant = DIC_era1) %>%
+    mutate(eras = paste(co2_atm_tref$era[1], co2_atm_tref$era[2], sep = " --> "))
+  
+  predictors_surface_era2 <- predictors_surface %>%
+    select(-DIC_era1) %>%
+    rename(cant = DIC_era2) %>%
+    mutate(eras = paste(co2_atm_tref$era[2], co2_atm_tref$era[3], sep = " --> "))
+  
+  cant_surface <-
+    full_join(predictors_surface_era1, predictors_surface_era2)
+}
 
 # calculate positive cant
 cant_surface <- cant_surface %>%
