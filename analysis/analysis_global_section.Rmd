@@ -218,7 +218,7 @@ cant_wide %>%
 
 ## Cant - all
 
-```{r cant_pos_model_quality_check}
+```{r cant_model_quality_check}
 
 cant_wide %>%
   ggplot(aes(cant_sd, cant_offset)) +

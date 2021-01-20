@@ -92,7 +92,9 @@ climatology <- climatology %>%
   rename(aou = AOU, TCO2 = tco2, TAlk = talk)
 
 predictors <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, any_of(params_local$MLR_predictors))
+  select(lon, lat, depth, basin_AIP, gamma, 
+         phosphate, oxygen,
+         any_of(params_local$MLR_predictors))
 
 ```
 
