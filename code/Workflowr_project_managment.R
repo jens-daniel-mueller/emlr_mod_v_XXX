@@ -33,7 +33,7 @@ wflow_publish(here::here(
     "analysis_others.Rmd"
   )
 ),
-message = "local rebuild after revision, second round",
+message = "local rebuild after revision",
 republish = TRUE)
 
 
