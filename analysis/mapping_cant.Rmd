@@ -196,16 +196,17 @@ if (params_local$plot_all_figures == "y") {
 ## Surface water
 
 As outlined in Gruber et al. (2019), a transient equilibrium approach was applied to estimate Cant in surface waters, assuming that the CO~2~ system in these waters has followed the increase in atmospheric CO~2~ closely. 
-
 Using eq 10.2.16 from OBD, the change in anthropogenic CO~2~ in the upper ocean was computed as:
 
 $\Delta$~t~C~ant,eq~(t2 − t1) = 1∕$\gamma$ ⋅ DIC/pCO~2~ ⋅ (pCO~2,atm~ (t2)− pCO~2,atm~(t1))
 
 , where DIC and pCO~2~ are the in situ values, where $\gamma$ is the buffer (Revelle) factor and where we evaluated the right-hand side using seacarb employing the Luecker constants using the climatological values for temperature, salinity, DIC and Alk.
 
+The second option for the surface Cant calculation is based on atmospheric equilibrium assumption. That is calculate dCant from reference year DIC, which are obtained using seacarb with TAlk climatology and reference year pCO2.
+
 ### pCO~2~ climatology
 
-Plots below show the calculated climatolofical pCO~2~ values.
+Plots below show the calculated climatological pCO~2~ values.
 
 ```{r calc_pCO2_climatology}
 
@@ -341,6 +342,15 @@ if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
         k1k2 = "l"
       )$DIC * 1e6
     )
+  
+  # 
+  p_map_climatology(df = predictors_surface,
+                    var = "DIC")
+  
+  #
+  p_section_climatology_regular(df = predictors_surface,
+                                var = "DIC",
+                                surface = "y")
   
   predictors_surface <- predictors_surface %>%
     group_by(lon,
