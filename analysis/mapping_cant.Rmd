@@ -339,7 +339,7 @@ if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
         Pt = phosphate * 1e-6,
         Sit = silicate * 1e-6,
         k1k2 = "l"
-      )$DIC
+      )$DIC * 1e6
     )
   
   predictors_surface <- predictors_surface %>%
