@@ -301,6 +301,7 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
 
 ```{r calc_cant_surface}
 
+# surface cant calculation with revelle factor option
 if (params_local$surface_DIC_calculation == "revelle factor") {
   # calculate increase in atm pCO2 between eras
   co2_atm_tref <- co2_atm_tref %>%
@@ -318,12 +319,13 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
     mutate(cant = (1 / rev_fac) * (TCO2 / pCO2) * d_pCO2_tref)
 }
 
-#
+# surface cant calculation with atmospheric equilibrium option
 if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
   predictors_surface <-
     full_join(predictors_surface,
               co2_atm_tref %>% select(pCO2_tref),
               by = character())
+  
   # calculate DIC from TAlk climatology and pCO2 in reference years
   predictors_surface <- predictors_surface %>%
     mutate(
@@ -353,6 +355,7 @@ if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
              TAlk,
              phosphate,
              silicate) %>%
+    # hard coded for 3 eras, need to change later
     mutate(DIC_era1 = DIC[2] - DIC[1], DIC_era2 = DIC[3] - DIC[2]) %>%
     ungroup() %>%
     select(-pCO2_tref,-DIC) %>%
@@ -468,7 +471,6 @@ for (i_eras in unique(cant_surface$eras)) {
 }
 
 ```
-
 
 
 ### Surface water averaging

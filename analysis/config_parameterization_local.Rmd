@@ -68,7 +68,7 @@ MLR_predictors <- c(
                 "sal",
                 "temp",
                 "aou",
-                "oxygen",
+                "nitrate",
                 "silicate",
                 "phosphate",
                 "phosphate_star")
@@ -126,7 +126,7 @@ params_local <-
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)
-    plot_all_figures = "y"
+    plot_all_figures = "n"
   )
 
 
