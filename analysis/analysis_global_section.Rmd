@@ -149,6 +149,8 @@ cant_wide <- left_join(cant_wide, cant_sd)
 
 for (i_eras in unique(cant_long$eras)) {
   for (i_estimate in unique(cant_long$estimate)) {
+   # i_eras = "1982-1999 --> 2000-2012"
+   # i_estimate = "JDM"
     print(
       p_section_global(
         df = cant_long %>% filter(estimate == i_estimate, eras == i_eras),
