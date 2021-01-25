@@ -262,10 +262,12 @@ AOU was calculated as the difference between saturation concentration and observ
 
 ```{r aou_climatology_maps, fig.asp=0.6}
 
+if ("aou" %in% params_local$MLR_predictors){
 p_map_climatology(
   df = predictors,
   var = "aou",
   col = "divergent")
+}
 
 ```
 
@@ -273,10 +275,12 @@ p_map_climatology(
 
 ```{r aou_climatology_section}
 
+if ("aou" %in% params_local$MLR_predictors){
 p_section_global(
   df = predictors,
   var = "aou",
   col = "divergent")
+}
 
 ```
 
