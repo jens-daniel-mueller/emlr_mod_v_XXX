@@ -503,7 +503,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">eMLR - data preparation</h1>
 <h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
-<h4 class="date">25 January, 2021</h4>
+<h4 class="date">27 January, 2021</h4>
 
 </div>
 
@@ -528,7 +528,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-01-25
+<strong>Last updated:</strong> 2021-01-27
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -619,22 +619,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree1f42a92948945d370f191bdbe492aaad6d2013e0targetblank1f42a92a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/1f42a92948945d370f191bdbe492aaad6d2013e0" target="_blank">1f42a92</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreec2c9529f6d82918712082277ba72617135069fbdtargetblankc2c9529a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/c2c9529f6d82918712082277ba72617135069fbd" target="_blank">c2c9529</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree1f42a92948945d370f191bdbe492aaad6d2013e0targetblank1f42a92a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreec2c9529f6d82918712082277ba72617135069fbdtargetblankc2c9529a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/1f42a92948945d370f191bdbe492aaad6d2013e0" target="_blank">1f42a92</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/c2c9529f6d82918712082277ba72617135069fbd" target="_blank">c2c9529</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Unstaged changes:
@@ -677,6 +678,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/61efb566f7dcf51f6455c72b342f2f2d3ffc1f89/docs/eMLR_data_preparation.html" target="_blank">61efb56</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -4130,8 +4148,8 @@ jens-daniel-mueller
 <h1 number="6"><span class="header-section-number">6</span> Isoneutral slabs</h1>
 <p>The following boundaries for isoneutral slabs were defined:</p>
 <ul>
-<li>Atlantic: -, 26, 26.25, 26.5, 26.62, 26.75, 26.88, 27, 27.12, 27.25, 27.38, 27.5, 27.62, 27.75, 27.8, 27.85, 27.9, 27.95, 28, 28.05, 28.07, 28.1, 28.13, 28.15, 28.17, 28.2, </li>
-<li>Indo-Pacific: -, 26, 26.25, 26.5, 26.62, 26.75, 26.88, 27, 27.12, 27.25, 27.38, 27.5, 27.62, 27.75, 27.8, 27.85, 27.9, 27.95, 28, 28.05, 28.07, 28.1, </li>
+<li>Atlantic: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, 28.15, 28.2, </li>
+<li>Indo-Pacific: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, </li>
 </ul>
 <p>Continuous neutral densities (gamma) values from model subsetting are grouped into isoneutral slabs.</p>
 <pre class="r"><code>GLODAP &lt;- m_cut_gamma(GLODAP, &quot;gamma&quot;)</code></pre>
@@ -4181,6 +4199,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/61efb566f7dcf51f6455c72b342f2f2d3ffc1f89/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">61efb56</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-25
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c5699465ce5ddf8c152a00b44f1ff4d8860ac89c/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">c569946</a>
@@ -4460,6 +4489,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/61efb566f7dcf51f6455c72b342f2f2d3ffc1f89/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">61efb56</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-25
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/48f638e94d0e82a7a02234d674a7548985328a1a/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">48f638e</a>
 </td>
 <td>
@@ -4683,6 +4723,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/61efb566f7dcf51f6455c72b342f2f2d3ffc1f89/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">61efb56</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-01-25
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/48f638e94d0e82a7a02234d674a7548985328a1a/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">48f638e</a>
