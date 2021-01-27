@@ -80,7 +80,7 @@ params_local <-
     # model subsetting with options of "GLODAP" or "random"
     subsetting = "random",
     # random subsetting with options of "grid" or "lat"
-    random = "lat",
+    random = "grid",
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
