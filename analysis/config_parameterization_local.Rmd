@@ -67,10 +67,10 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "aou",
                 "nitrate",
                 "silicate",
-                "phosphate")
+                "phosphate",
+                "phosphate_star")
 
 params_local <-
   lst(
