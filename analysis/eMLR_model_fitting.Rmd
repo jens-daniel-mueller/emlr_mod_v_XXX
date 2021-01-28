@@ -120,7 +120,7 @@ lm_all <- lm_all %>%
          lm_coeff = paste(params_local$MLR_target, "~", lm_coeff))
 
 # remove predictor combinations with nitrate and phosphate
-m_all <- lm_all %>%
+lm_all <- lm_all %>%
   mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
   filter(!(
     str_detect(lm_coeff_filter, "nitrate") &
