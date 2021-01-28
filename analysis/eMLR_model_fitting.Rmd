@@ -405,6 +405,153 @@ lm_best %>%
 
 ```
 
+```{r fit_all_models, results='hide'}
+
+lm_best_plot <- lm_best %>%
+        mutate(predictors = str_remove(model, paste(params_local$MLR_target, "~ ")),
+               predictors = str_replace_all(predictors, " + ", " "))
+
+# loop across all basins, era, gamma slabs, and MLRs
+# fit all MLR models
+for (i_basin in unique(GLODAP$basin)) {
+  for (i_era in unique(GLODAP$era)) {
+     i_basin <- unique(GLODAP$basin)[1]
+     i_era   <- unique(GLODAP$era)[1]
+    print(i_basin)
+    print(i_era)
+    
+    GLODAP_basin_era <- GLODAP %>%
+      filter(basin == i_basin, era == i_era)
+    
+    for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
+       i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[1]
+      print(i_gamma_slab)
+      
+      GLODAP_basin_era_slab <- GLODAP_basin_era %>%
+        filter(gamma_slab == i_gamma_slab)
+      
+      lm_best_plot <- lm_best_plot %>%
+        filter(basin == i_basin, gamma_slab == i_gamma_slab) 
+      
+      for (i_predictors in unique(lm_best_plot$predictors)) {
+        i_predictors <- unique(lm_best_plot$predictors)[1]
+        print(i_predictors)
+        # extract one model definition
+        i_lm <- lm_all %>%
+          filter(predictors == i_predictors) %>%
+          select(lm_coeff) %>%
+          pull()
+        
+        # extract number of predictors
+        i_n_predictors <- lm_all %>%
+          filter(predictors == i_predictors) %>%
+          select(n) %>%
+          pull()
+        
+        # fit model
+        i_lm_fit <- lm(as.formula(i_lm),
+                       data = GLODAP_basin_era_slab)
+        
+        # find max predictor correlation
+        i_cor_max <- GLODAP_basin_era_slab %>%
+          select(!!!syms(str_split(i_predictors, " ",
+                                         simplify = TRUE))) %>%
+          correlate(quiet = TRUE) %>% 
+          select(-term) %>% 
+          abs() %>% 
+          max(na.rm = TRUE)
+        
+        # calculate root mean squared error
+        i_rmse <- sqrt(
+          c(crossprod(i_lm_fit$residuals)) / 
+            length(i_lm_fit$residuals)
+        )
+
+        # calculate maximum residual
+        i_resid_max <- max(abs(i_lm_fit$residuals))
+        
+        # calculate Akaike information criterion aic
+        i_aic <- AIC(i_lm_fit)
+        
+        # collect model coefficients and diagnostics
+        coefficients <- tidy(i_lm_fit)
+        
+        coefficients <- coefficients %>%
+          mutate(
+            basin = i_basin,
+            era = i_era,
+            gamma_slab = i_gamma_slab,
+            model = i_lm,
+            rmse = i_rmse,
+            aic = i_aic,
+            resid_max = i_resid_max,
+            n_predictors = i_n_predictors,
+            na_predictor = anyNA(coefficients$estimate),
+            cor_max = i_cor_max
+          )
+        
+        if (exists("lm_all_fitted")) {
+          lm_all_fitted <- bind_rows(lm_all_fitted, coefficients)
+        }
+        
+        if (!exists("lm_all_fitted")) {
+          lm_all_fitted <- coefficients
+        }
+        
+        # plot model diagnostics, if activated
+        if (params_local$plot_all_figures == "y") {
+          p_model <- ggnostic(
+            i_lm_fit,
+            columnsY = c(params_local$MLR_target, ".fitted", ".resid"),
+            title = paste(
+              "| era:",
+              i_era,
+              "| basin:",
+              i_basin,
+              "| gamma slab:",
+              i_gamma_slab,
+              "| predictors:",
+              i_predictors
+            )
+          )
+
+          ggsave(
+            plot = p_model,
+            path = paste(path_version_figures, "eMLR_diagnostics/", sep = ""),
+            filename = paste(
+              "MLR_residuals",
+              i_era,
+              i_basin,
+              i_gamma_slab,
+              i_predictors,
+              "predictors.png",
+              sep = "_"
+            ),
+            width = 14,
+            height = 8
+          )
+
+          rm(p_model)
+
+        }
+        
+      }
+      
+      
+    }
+  }
+  
+}
+
+rm(i_lm_fit, coefficients, i_rmse,
+   GLODAP_basin_era, GLODAP_basin_era_slab,
+   i_lm,
+   i_basin, i_era, i_gamma_slab, i_predictors,
+   lm_all,
+   i_aic, i_n_predictors, i_resid_max)
+
+```
+
 ## Target variable coefficients
 
 A data frame to map the target variable is prepared.
