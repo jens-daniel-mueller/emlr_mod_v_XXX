@@ -68,9 +68,9 @@ MLR_predictors <- c(
                 "sal",
                 "temp",
                 "aou",
+                "nitrate",
                 "silicate",
-                "phosphate",
-                "phosphate_star")
+                "phosphate")
 
 params_local <-
   lst(
