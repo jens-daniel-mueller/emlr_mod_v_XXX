@@ -300,7 +300,6 @@ rm(i_lm_fit, coefficients, i_rmse,
    GLODAP_basin_era, GLODAP_basin_era_slab,
    i_lm,
    i_basin, i_era, i_gamma_slab, i_predictors,
-   lm_all,
    i_aic, i_n_predictors, i_resid_max)
 
 ```
@@ -405,18 +404,58 @@ lm_best %>%
 
 ```
 
-```{r fit_all_models, results='hide'}
+## Target variable coefficients
 
-lm_best_plot <- lm_best %>%
-        mutate(predictors = str_remove(model, paste(params_local$MLR_target, "~ ")),
-               predictors = str_replace_all(predictors, " + ", " "))
+A data frame to map the target variable is prepared.
+
+```{r prepare_model_coefficients_table_target_variable_mapping}
+
+# create table with two era belonging to one eras
+eras_forward <- lm_all_fitted_wide %>%
+  arrange(era) %>% 
+  group_by(basin, gamma_slab, model) %>% 
+  mutate(eras = paste(era, lead(era), sep = " --> ")) %>% 
+  ungroup() %>% 
+  select(era, eras) %>% 
+  unique()
+
+eras_backward <- lm_all_fitted_wide %>%
+  arrange(era) %>% 
+  group_by(basin, gamma_slab, model) %>% 
+  mutate(eras = paste(lag(era), era, sep = " --> ")) %>% 
+  ungroup() %>% 
+  select(era, eras) %>% 
+  unique()
+
+eras_era <- full_join(eras_backward, eras_forward) %>% 
+  filter(str_detect(eras, "NA") == FALSE)
+
+# extend best model selection from eras to era
+lm_best_target <- full_join(
+  lm_best %>% select(basin, gamma_slab, model, eras),
+  eras_era)
+
+lm_best_target <- left_join(lm_best_target, lm_all_fitted_wide)
+
+rm(eras_era, eras_forward, eras_backward,
+   lm_all_fitted)
+
+```
+
+```{r fit_all_models_plot, results='hide'}
+
+# mutate predictors column
+lm_best_plot <- lm_best_target %>%
+  select(basin, gamma_slab, model, eras, era) %>%
+  mutate(predictors = str_remove(model, paste(params_local$MLR_target, "~ ")),
+         predictors = str_replace_all(predictors, "\\+ ", ""))
 
 # loop across all basins, era, gamma slabs, and MLRs
 # fit all MLR models
 for (i_basin in unique(GLODAP$basin)) {
   for (i_era in unique(GLODAP$era)) {
-     i_basin <- unique(GLODAP$basin)[1]
-     i_era   <- unique(GLODAP$era)[1]
+    #i_basin <- unique(GLODAP$basin)[1]
+    #i_era   <- unique(GLODAP$era)[1]
     print(i_basin)
     print(i_era)
     
@@ -424,17 +463,17 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-       i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[1]
+      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[1]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab <- GLODAP_basin_era %>%
         filter(gamma_slab == i_gamma_slab)
       
-      lm_best_plot <- lm_best_plot %>%
-        filter(basin == i_basin, gamma_slab == i_gamma_slab) 
+      lm_best_basin_era_slab <- lm_best_plot %>%
+        filter(basin == i_basin, era == i_era, gamma_slab == i_gamma_slab)
       
-      for (i_predictors in unique(lm_best_plot$predictors)) {
-        i_predictors <- unique(lm_best_plot$predictors)[1]
+      for (i_predictors in unique(lm_best_basin_era_slab$predictors)) {
+        #i_predictors <- unique(lm_best_basin_era_slab$predictors)[1]
         print(i_predictors)
         # extract one model definition
         i_lm <- lm_all %>%
@@ -455,18 +494,16 @@ for (i_basin in unique(GLODAP$basin)) {
         # find max predictor correlation
         i_cor_max <- GLODAP_basin_era_slab %>%
           select(!!!syms(str_split(i_predictors, " ",
-                                         simplify = TRUE))) %>%
-          correlate(quiet = TRUE) %>% 
-          select(-term) %>% 
-          abs() %>% 
+                                   simplify = TRUE))) %>%
+          correlate(quiet = TRUE) %>%
+          select(-term) %>%
+          abs() %>%
           max(na.rm = TRUE)
         
         # calculate root mean squared error
-        i_rmse <- sqrt(
-          c(crossprod(i_lm_fit$residuals)) / 
-            length(i_lm_fit$residuals)
-        )
-
+        i_rmse <- sqrt(c(crossprod(i_lm_fit$residuals)) /
+                         length(i_lm_fit$residuals))
+        
         # calculate maximum residual
         i_resid_max <- max(abs(i_lm_fit$residuals))
         
@@ -514,7 +551,7 @@ for (i_basin in unique(GLODAP$basin)) {
               i_predictors
             )
           )
-
+          
           ggsave(
             plot = p_model,
             path = paste(path_version_figures, "eMLR_diagnostics/", sep = ""),
@@ -530,65 +567,27 @@ for (i_basin in unique(GLODAP$basin)) {
             width = 14,
             height = 8
           )
-
+          
           rm(p_model)
-
+          
         }
         
       }
-      
       
     }
   }
   
 }
 
-rm(i_lm_fit, coefficients, i_rmse,
+rm(lm_best_plot, lm_best_basin_era_slab, i_rmse,
    GLODAP_basin_era, GLODAP_basin_era_slab,
-   i_lm,
+   i_lm, lm_all_fitted, 
    i_basin, i_era, i_gamma_slab, i_predictors,
    lm_all,
    i_aic, i_n_predictors, i_resid_max)
 
 ```
 
-## Target variable coefficients
-
-A data frame to map the target variable is prepared.
-
-```{r prepare_model_coefficients_table_target_variable_mapping}
-
-# create table with two era belonging to one eras
-eras_forward <- lm_all_fitted_wide %>%
-  arrange(era) %>% 
-  group_by(basin, gamma_slab, model) %>% 
-  mutate(eras = paste(era, lead(era), sep = " --> ")) %>% 
-  ungroup() %>% 
-  select(era, eras) %>% 
-  unique()
-
-eras_backward <- lm_all_fitted_wide %>%
-  arrange(era) %>% 
-  group_by(basin, gamma_slab, model) %>% 
-  mutate(eras = paste(lag(era), era, sep = " --> ")) %>% 
-  ungroup() %>% 
-  select(era, eras) %>% 
-  unique()
-
-eras_era <- full_join(eras_backward, eras_forward) %>% 
-  filter(str_detect(eras, "NA") == FALSE)
-
-# extend best model selection from eras to era
-lm_best_target <- full_join(
-  lm_best %>% select(basin, gamma_slab, model, eras),
-  eras_era)
-
-lm_best_target <- left_join(lm_best_target, lm_all_fitted_wide)
-
-rm(eras_era, eras_forward, eras_backward,
-   lm_all_fitted)
-
-```
 
 ## Cant coeffcients
 
