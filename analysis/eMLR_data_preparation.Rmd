@@ -97,7 +97,7 @@ Calculate the reference year for each era and store it as csv file for further s
 # calculate reference year
 tref <- GLODAP %>%
   group_by(era) %>%
-  summarise(year = median(year)) %>%
+  summarise(year = round(median(year))) %>%
   ungroup()
 
 # write file

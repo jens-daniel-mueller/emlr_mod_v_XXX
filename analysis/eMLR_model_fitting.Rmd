@@ -754,6 +754,9 @@ lm_all_stats <- lm_best_long %>%
   ungroup() %>% 
   pivot_wider(values_from = n, names_from = term)
 
+# set NaN to zero
+#lm_all_stats[is.na(lm_all_stats)] <- 0
+
 # print table
 lm_all_stats %>%
   gt(rowname_col = "gamma_slab",
