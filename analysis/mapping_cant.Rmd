@@ -215,22 +215,24 @@ Plots below show the calculated climatological pCO~2~ values.
 
 ```{r calc_pCO2_climatology}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  # calculate pCO2 from talk and tco2 climatology
-  predictors_surface <- predictors_surface %>%
-    mutate(
-      pCO2 = carb(
-        flag = 15,
-        var1 = TAlk * 1e-6,
-        var2 = TCO2 * 1e-6,
-        S = sal,
-        T = temp,
-        P = depth / 10,
-        Pt = phosphate * 1e-6,
-        Sit = silicate * 1e-6,
-        k1k2 = "l"
-      )$pCO2
-    )
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    # calculate pCO2 from talk and tco2 climatology
+    predictors_surface <- predictors_surface %>%
+      mutate(
+        pCO2 = carb(
+          flag = 15,
+          var1 = TAlk * 1e-6,
+          var2 = TCO2 * 1e-6,
+          S = sal,
+          T = temp,
+          P = depth / 10,
+          Pt = phosphate * 1e-6,
+          Sit = silicate * 1e-6,
+          k1k2 = "l"
+        )$pCO2
+      )
+  }
 }
 
 ```
@@ -238,20 +240,24 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
 
 ```{r pCO2_climatology_map, fig.asp=0.6}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  p_map_climatology(df = predictors_surface,
-                    var = "pCO2")
-}
-
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    p_map_climatology(df = predictors_surface,
+                      var = "pCO2")
+  }
+}  
+  
 ```
 
 
 ```{r pCO2_climatology_sections, fig.asp=1}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  p_section_climatology_regular(df = predictors_surface,
-                                var = "pCO2",
-                                surface = "y")
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    p_section_climatology_regular(df = predictors_surface,
+                                  var = "pCO2",
+                                  surface = "y")
+  }
 }
 
 ```
@@ -262,21 +268,23 @@ Plots below show the calculated climatological Revelle factor values.
 
 ```{r calc_revelle_factor_climatology}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  predictors_surface <- predictors_surface %>%
-    mutate(
-      rev_fac = buffer(
-        flag = 15,
-        var1 = TAlk * 1e-6,
-        var2 = TCO2 * 1e-6,
-        S = sal,
-        T = temp,
-        P = depth / 10,
-        Pt = phosphate * 1e-6,
-        Sit = silicate * 1e-6,
-        k1k2 = "l"
-      )$BetaD
-    )
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    predictors_surface <- predictors_surface %>%
+      mutate(
+        rev_fac = buffer(
+          flag = 15,
+          var1 = TAlk * 1e-6,
+          var2 = TCO2 * 1e-6,
+          S = sal,
+          T = temp,
+          P = depth / 10,
+          Pt = phosphate * 1e-6,
+          Sit = silicate * 1e-6,
+          k1k2 = "l"
+        )$BetaD
+      )
+  }
 }
 
 ```
@@ -284,9 +292,11 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
 
 ```{r revelle_factor_climatology_map, fig.asp=0.6}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  p_map_climatology(df = predictors_surface,
-                    var = "rev_fac")
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    p_map_climatology(df = predictors_surface,
+                      var = "rev_fac")
+  }
 }
 
 ```
@@ -294,10 +304,12 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
 
 ```{r revelle_factor_climatology_sections, fig.asp=1}
 
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  p_section_climatology_regular(df = predictors_surface,
-                                var = "rev_fac",
-                                surface = "y")
+if (params_local$bottomdepth_min != 0) {
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    p_section_climatology_regular(df = predictors_surface,
+                                  var = "rev_fac",
+                                  surface = "y")
+  }
 }
 
 ```
@@ -307,92 +319,94 @@ if (params_local$surface_DIC_calculation == "revelle factor") {
 
 ```{r calc_cant_surface}
 
-# surface cant calculation with revelle factor option
-if (params_local$surface_DIC_calculation == "revelle factor") {
-  # calculate increase in atm pCO2 between eras
-  co2_atm_tref <- co2_atm_tref %>%
-    arrange(pCO2_tref) %>%
-    mutate(d_pCO2_tref = pCO2_tref - lag(pCO2_tref),
-           eras = paste(lag(era), era, sep = " --> ")) %>%
-    drop_na() %>%
-    select(eras, d_pCO2_tref)
+if (params_local$bottomdepth_min != 0) {
+  # surface cant calculation with revelle factor option
+  if (params_local$surface_DIC_calculation == "revelle factor") {
+    # calculate increase in atm pCO2 between eras
+    co2_atm_tref <- co2_atm_tref %>%
+      arrange(pCO2_tref) %>%
+      mutate(d_pCO2_tref = pCO2_tref - lag(pCO2_tref),
+             eras = paste(lag(era), era, sep = " --> ")) %>%
+      drop_na() %>%
+      select(eras, d_pCO2_tref)
+    
+    cant_surface <- full_join(predictors_surface, co2_atm_tref,
+                              by = character())
+    
+    # calculate cant
+    cant_surface <- cant_surface %>%
+      mutate(cant = (1 / rev_fac) * (TCO2 / pCO2) * d_pCO2_tref)
+  }
   
-  cant_surface <- full_join(predictors_surface, co2_atm_tref,
-                            by = character())
+  # surface cant calculation with atmospheric equilibrium option
+  if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
+    predictors_surface <-
+      full_join(predictors_surface,
+                co2_atm_tref %>% select(pCO2_tref),
+                by = character())
+    
+    # calculate DIC from TAlk climatology and pCO2 in reference years
+    predictors_surface <- predictors_surface %>%
+      mutate(
+        DIC = carb(
+          flag = 24,
+          var1 = pCO2_tref,
+          var2 = TAlk * 1e-6,
+          S = sal,
+          T = temp,
+          P = depth / 10,
+          Pt = phosphate * 1e-6,
+          Sit = silicate * 1e-6,
+          k1k2 = "l"
+        )$DIC * 1e6
+      )
+    
+    #
+    p_map_climatology(df = predictors_surface,
+                      var = "DIC")
+    
+    #
+    p_section_climatology_regular(df = predictors_surface,
+                                  var = "DIC",
+                                  surface = "y")
+    
+    predictors_surface <- predictors_surface %>%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk,
+               phosphate,
+               silicate) %>%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1], DIC_era2 = DIC[3] - DIC[2]) %>%
+      ungroup() %>%
+      select(-pCO2_tref, -DIC) %>%
+      unique()
+    
+    predictors_surface_era1 <- predictors_surface %>%
+      select(-DIC_era2) %>%
+      rename(cant = DIC_era1) %>%
+      mutate(eras = paste(co2_atm_tref$era[1], co2_atm_tref$era[2], sep = " --> "))
+    
+    predictors_surface_era2 <- predictors_surface %>%
+      select(-DIC_era1) %>%
+      rename(cant = DIC_era2) %>%
+      mutate(eras = paste(co2_atm_tref$era[2], co2_atm_tref$era[3], sep = " --> "))
+    
+    cant_surface <-
+      full_join(predictors_surface_era1, predictors_surface_era2)
+  }
   
-  # calculate cant
+  # calculate positive cant
   cant_surface <- cant_surface %>%
-    mutate(cant = (1 / rev_fac) * (TCO2 / pCO2) * d_pCO2_tref)
+    mutate(cant_pos = if_else(cant < 0, 0, cant))
 }
-
-# surface cant calculation with atmospheric equilibrium option
-if (params_local$surface_DIC_calculation == "atmospheric equilibrium") {
-  predictors_surface <-
-    full_join(predictors_surface,
-              co2_atm_tref %>% select(pCO2_tref),
-              by = character())
-  
-  # calculate DIC from TAlk climatology and pCO2 in reference years
-  predictors_surface <- predictors_surface %>%
-    mutate(
-      DIC = carb(
-        flag = 24,
-        var1 = pCO2_tref,
-        var2 = TAlk * 1e-6,
-        S = sal,
-        T = temp,
-        P = depth / 10,
-        Pt = phosphate * 1e-6,
-        Sit = silicate * 1e-6,
-        k1k2 = "l"
-      )$DIC * 1e6
-    )
-  
-  # 
-  p_map_climatology(df = predictors_surface,
-                    var = "DIC")
-  
-  #
-  p_section_climatology_regular(df = predictors_surface,
-                                var = "DIC",
-                                surface = "y")
-  
-  predictors_surface <- predictors_surface %>%
-    group_by(lon,
-             lat,
-             depth,
-             basin_AIP,
-             basin,
-             gamma,
-             sal,
-             temp,
-             TCO2,
-             TAlk,
-             phosphate,
-             silicate) %>%
-    # hard coded for 3 eras, need to change later
-    mutate(DIC_era1 = DIC[2] - DIC[1], DIC_era2 = DIC[3] - DIC[2]) %>%
-    ungroup() %>%
-    select(-pCO2_tref,-DIC) %>%
-    unique()
-  
-  predictors_surface_era1 <- predictors_surface %>%
-    select(-DIC_era2) %>%
-    rename(cant = DIC_era1) %>%
-    mutate(eras = paste(co2_atm_tref$era[1], co2_atm_tref$era[2], sep = " --> "))
-  
-  predictors_surface_era2 <- predictors_surface %>%
-    select(-DIC_era1) %>%
-    rename(cant = DIC_era2) %>%
-    mutate(eras = paste(co2_atm_tref$era[2], co2_atm_tref$era[3], sep = " --> "))
-  
-  cant_surface <-
-    full_join(predictors_surface_era1, predictors_surface_era2)
-}
-
-# calculate positive cant
-cant_surface <- cant_surface %>%
-  mutate(cant_pos = if_else(cant < 0, 0, cant))
 
 ```
 
@@ -400,31 +414,32 @@ cant_surface <- cant_surface %>%
 
 ```{r cant_surface_climatology_map, fig.asp=0.6}
 
-# i_eras <- unique(cant_average$eras)[2]
-
-for (i_eras in unique(cant_surface$eras)) {
-  print(
-    p_map_climatology(df = cant_surface %>% filter(eras == i_eras),
-                      var = "cant")  +
-      labs(subtitle = paste("era:", i_eras))
-  )
-  
+if (params_local$bottomdepth_min != 0) {
+  for (i_eras in unique(cant_surface$eras)) {
+    print(
+      p_map_climatology(df = cant_surface %>% filter(eras == i_eras),
+                        var = "cant")  +
+        labs(subtitle = paste("era:", i_eras))
+    )
+  }
 }
+
 ```
 
 
 ```{r cant_surface_climatology_sections, fig.asp=1}
 
-# i_eras <- unique(cant_surface$eras)[2]
-
-for (i_eras in unique(cant_surface$eras)) {
-  print(
-    p_section_climatology_regular(df = cant_surface %>% filter(eras == i_eras),
-                                  var = "cant",
-                                  surface = "y") +
-      labs(subtitle = paste("era:", i_eras))
-  )
-  
+if (params_local$bottomdepth_min != 0) {
+  for (i_eras in unique(cant_surface$eras)) {
+    print(
+      p_section_climatology_regular(
+        df = cant_surface %>% filter(eras == i_eras),
+        var = "cant",
+        surface = "y"
+      ) +
+        labs(subtitle = paste("era:", i_eras))
+    )
+  }
 }
 
 ```
@@ -455,17 +470,16 @@ cant_average <- cant_average %>%
 
 ```{r cant_deep_climatology_map, fig.asp=0.6}
 
-# i_eras <- unique(cant_average$eras)[2]
-
-for (i_eras in unique(cant_surface$eras)) {
-  print(
-    p_map_climatology(
-      df = cant_average %>% filter(eras == i_eras),
-      var = "cant_pos",
-      subtitle_text = paste("era:", i_eras)
+if (params_local$bottomdepth_min != 0) {
+  for (i_eras in unique(cant_surface$eras)) {
+    print(
+      p_map_climatology(
+        df = cant_average %>% filter(eras == i_eras),
+        var = "cant_pos",
+        subtitle_text = paste("era:", i_eras)
+      )
     )
-  )
-  
+  }
 }
 
 ```
@@ -473,16 +487,16 @@ for (i_eras in unique(cant_surface$eras)) {
 
 ```{r cant_deep_climatology_sections, fig.asp=1}
 
-# i_eras <- unique(cant_surface$eras)[2]
-
-for (i_eras in unique(cant_surface$eras)) {
-  print(
-    p_section_climatology_regular(
-      df = cant_average %>% filter(eras == i_eras),
-      var = "cant_pos",
-      subtitle_text = paste("era:", i_eras)
+if (params_local$bottomdepth_min != 0) {
+  for (i_eras in unique(cant_surface$eras)) {
+    print(
+      p_section_climatology_regular(
+        df = cant_average %>% filter(eras == i_eras),
+        var = "cant_pos",
+        subtitle_text = paste("era:", i_eras)
+      )
     )
-  )
+  }
 }
 
 ```
@@ -494,9 +508,11 @@ The averaging function is also applied to the surface data, although only one va
 
 ```{r calculate_cant_mean_surface}
 
-cant_surface_average <- m_cant_model_average(cant_surface)
-cant_surface_average <- m_cut_gamma(cant_surface_average, "gamma")
-rm(cant_surface)
+if (params_local$bottomdepth_min != 0) {
+  cant_surface_average <- m_cant_model_average(cant_surface)
+  cant_surface_average <- m_cut_gamma(cant_surface_average, "gamma")
+  rm(cant_surface)
+}
 
 ```
 
@@ -505,8 +521,10 @@ rm(cant_surface)
 
 ```{r join_surface_deep_cant}
 
-cant_average <- full_join(cant_average, cant_surface_average)
-rm(cant_surface_average)
+if (params_local$bottomdepth_min != 0) {
+  cant_average <- full_join(cant_average, cant_surface_average)
+  rm(cant_surface_average)
+}
 
 ```
 

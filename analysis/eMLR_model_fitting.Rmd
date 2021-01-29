@@ -755,7 +755,7 @@ lm_all_stats <- lm_best_long %>%
   pivot_wider(values_from = n, names_from = term)
 
 # set NaN to zero
-#lm_all_stats[is.na(lm_all_stats)] <- 0
+lm_all_stats[is.na(lm_all_stats)] <- 0
 
 # print table
 lm_all_stats %>%
