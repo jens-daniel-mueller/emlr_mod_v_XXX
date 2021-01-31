@@ -108,7 +108,7 @@ lm_best_cant <- lm_best_cant %>%
 # join predictors and MLR
 cant <- full_join(predictors, lm_best_cant)
 
-if (params_local$MLR_basins == "SO") {
+if (params_local$MLR_basins == "SO" || params_local$MLR_basins == "5") {
   cant <- cant %>%
     drop_na()
 }
