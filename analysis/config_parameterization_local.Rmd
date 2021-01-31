@@ -98,7 +98,7 @@ params_local <-
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "5",
+    MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
