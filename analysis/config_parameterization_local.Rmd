@@ -33,6 +33,8 @@ slabs_Atl <-
     -Inf,
     26.00,
     26.50,
+    26.75,
+    27.00,
     27.25,
     27.50,
     27.75,
@@ -49,6 +51,8 @@ slabs_Atl <-
 slabs_Ind_Pac <-
   c(-Inf,
     26.00,
+    26.50,
+    26.75,
     27.00,
     27.25,
     27.50,
@@ -80,13 +84,13 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2),
+    flag_f = c(2, 0),
     # qc flags accepted for GLODAP data
-    flag_qc = c(1),
+    flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "y",
     # Shallowest depth for data to be included in MLR fitting
-    depth_min = 100,
+    depth_min = 150,
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
