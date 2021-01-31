@@ -33,8 +33,6 @@ slabs_Atl <-
     -Inf,
     26.00,
     26.50,
-    26.75,
-    27.00,
     27.25,
     27.50,
     27.75,
@@ -51,8 +49,6 @@ slabs_Atl <-
 slabs_Ind_Pac <-
   c(-Inf,
     26.00,
-    26.50,
-    26.75,
     27.00,
     27.25,
     27.50,
@@ -90,7 +86,7 @@ params_local <-
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "y",
     # Shallowest depth for data to be included in MLR fitting
-    depth_min = 0,
+    depth_min = 100,
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
