@@ -76,9 +76,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "grid",
     # ID of current sensitivity run
@@ -90,11 +90,11 @@ params_local <-
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "y",
     # Shallowest depth for data to be included in MLR fitting
-    depth_min = 0,
+    depth_min = 150,
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
-    gamma_min = 26,
+    gamma_min = 27.5,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP

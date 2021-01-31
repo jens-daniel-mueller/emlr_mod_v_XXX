@@ -215,7 +215,7 @@ Plots below show the calculated climatological pCO~2~ values.
 
 ```{r calc_pCO2_climatology}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     # calculate pCO2 from talk and tco2 climatology
     predictors_surface <- predictors_surface %>%
@@ -240,7 +240,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r pCO2_climatology_map, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     p_map_climatology(df = predictors_surface,
                       var = "pCO2")
@@ -252,7 +252,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r pCO2_climatology_sections, fig.asp=1}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     p_section_climatology_regular(df = predictors_surface,
                                   var = "pCO2",
@@ -268,7 +268,7 @@ Plots below show the calculated climatological Revelle factor values.
 
 ```{r calc_revelle_factor_climatology}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     predictors_surface <- predictors_surface %>%
       mutate(
@@ -292,7 +292,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r revelle_factor_climatology_map, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     p_map_climatology(df = predictors_surface,
                       var = "rev_fac")
@@ -304,7 +304,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r revelle_factor_climatology_sections, fig.asp=1}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
     p_section_climatology_regular(df = predictors_surface,
                                   var = "rev_fac",
@@ -319,7 +319,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r calc_cant_surface}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   # surface cant calculation with revelle factor option
   if (params_local$surface_DIC_calculation == "revelle factor") {
     # calculate increase in atm pCO2 between eras
@@ -414,7 +414,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r cant_surface_climatology_map, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   for (i_eras in unique(cant_surface$eras)) {
     print(
       p_map_climatology(df = cant_surface %>% filter(eras == i_eras),
@@ -429,7 +429,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r cant_surface_climatology_sections, fig.asp=1}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   for (i_eras in unique(cant_surface$eras)) {
     print(
       p_section_climatology_regular(
@@ -470,7 +470,7 @@ cant_average <- cant_average %>%
 
 ```{r cant_deep_climatology_map, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   for (i_eras in unique(cant_surface$eras)) {
     print(
       p_map_climatology(
@@ -487,7 +487,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r cant_deep_climatology_sections, fig.asp=1}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   for (i_eras in unique(cant_surface$eras)) {
     print(
       p_section_climatology_regular(
@@ -508,7 +508,7 @@ The averaging function is also applied to the surface data, although only one va
 
 ```{r calculate_cant_mean_surface}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   cant_surface_average <- m_cant_model_average(cant_surface)
   cant_surface_average <- m_cut_gamma(cant_surface_average, "gamma")
   rm(cant_surface)
@@ -521,7 +521,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r join_surface_deep_cant}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   cant_average <- full_join(cant_average, cant_surface_average)
   rm(cant_surface_average)
 }
@@ -591,7 +591,6 @@ p_map_cant_inv(df = cant_inv,
 # Write csv
 
 ```{r write_cant_files}
-
 
 cant_average %>%
   write_csv(paste(path_version_data,

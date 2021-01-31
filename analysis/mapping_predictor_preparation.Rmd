@@ -161,7 +161,7 @@ p_map_climatology(
 
 ```{r joined_climatology_control_TAlk_surface, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   p_map_climatology(df = predictors_surface,
                     var = "TAlk")
 }
@@ -170,7 +170,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r joined_climatology_control_TCO2_surface, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   p_map_climatology(df = predictors_surface,
                     var = "TCO2")
 }
@@ -179,7 +179,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r joined_climatology_control_sal_surface, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   p_map_climatology(df = predictors_surface,
                     var = "sal")
 }
@@ -188,7 +188,7 @@ if (params_local$bottomdepth_min != 0) {
 
 ```{r joined_climatology_control_temp_surface, fig.asp=0.6}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   p_map_climatology(df = predictors_surface,
                     var = "temp")
 }
@@ -362,7 +362,7 @@ map +
 
 ```{r all_predictor_sections_surface, fig.asp=1.2}
 
-if (params_local$bottomdepth_min != 0) {
+if (params_local$depth_min != 0) {
   vars <-
     c("gamma",
       "sal",
