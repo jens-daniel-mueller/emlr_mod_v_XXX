@@ -104,13 +104,13 @@ params_local <-
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 6,
+    MLR_predictors_max = 5,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
-    MLR_number = 20,
+    MLR_number = 10,
     # Criterion to select best MLR fits, either "rmse" or "aic"
-    MLR_criterion = "rmse",
+    MLR_criterion = "aic",
     # see above
     slabs_Atl = slabs_Atl,
     # see above
