@@ -84,9 +84,9 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2, 0),
+    flag_f = c(2),
     # qc flags accepted for GLODAP data
-    flag_qc = c(1, 0),
+    flag_qc = c(1),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "y",
     # Shallowest depth for data to be included in MLR fitting
@@ -104,11 +104,11 @@ params_local <-
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 5,
+    MLR_predictors_max = 6,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
-    MLR_number = 10,
+    MLR_number = 20,
     # Criterion to select best MLR fits, either "rmse" or "aic"
     MLR_criterion = "rmse",
     # see above
