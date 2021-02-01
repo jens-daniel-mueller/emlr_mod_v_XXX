@@ -110,7 +110,7 @@ params_local <-
     # Total number of MLR fits taken into account
     MLR_number = 10,
     # Criterion to select best MLR fits, either "rmse" or "aic"
-    MLR_criterion = "aic",
+    MLR_criterion = "rmse",
     # see above
     slabs_Atl = slabs_Atl,
     # see above
