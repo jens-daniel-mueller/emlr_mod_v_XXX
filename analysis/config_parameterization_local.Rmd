@@ -80,7 +80,7 @@ params_local <-
     # model subsetting with options of "GLODAP" or "random"
     subsetting = "random",
     # random subsetting with options of "grid" or "lat"
-    random = "grid",
+    random = "lat",
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
@@ -128,7 +128,7 @@ params_local <-
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)
-    plot_all_figures = "n"
+    plot_all_figures = "y"
   )
 
 ```
