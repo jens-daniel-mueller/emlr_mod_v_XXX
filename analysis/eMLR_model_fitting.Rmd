@@ -380,7 +380,14 @@ if (params_local$MLR_criterion == "aic") {
 }
 
 
-# print table
+```
+
+## RMSE tables
+
+### per model
+
+```{r rmse_table_per_model}
+
 lm_best %>%
   kable() %>%
   add_header_above() %>%
@@ -388,6 +395,23 @@ lm_best %>%
   scroll_box(width = "100%", height = "400px")
 
 ```
+
+### per fitting unit
+
+```{r rmse_table_per_fitting_unit}
+
+lm_best %>%
+  group_by(basin, gamma_slab, eras) %>% 
+  summarise(rmse_sum_mean = mean(rmse_sum),
+            ais_sum_mean = mean(aic_sum)) %>% 
+  ungroup() %>% 
+  kable() %>%
+  add_header_above() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "400px")
+
+```
+
 
 ## Target variable coefficients
 
@@ -483,7 +507,9 @@ if (params_local$plot_all_figures == "y") {
             i_lm_fit <- lm(as.formula(i_lm),
                            data = GLODAP_basin_era_slab)
             
-            p_model <- ggnostic(
+            # plot model diagnostics vs predictors
+            
+            p_model_predictors <- ggnostic(
               i_lm_fit,
               columnsY = c(params_local$MLR_target, ".fitted", ".resid"),
               title = paste(
@@ -501,7 +527,7 @@ if (params_local$plot_all_figures == "y") {
             )
             
             ggsave(
-              plot = p_model,
+              plot = p_model_predictors,
               path = paste(path_version_figures, "eMLR_diagnostics/", sep = ""),
               filename = paste(
                 "MLR_residuals",
@@ -517,7 +543,64 @@ if (params_local$plot_all_figures == "y") {
               height = 8
             )
 
-            rm(p_model)
+            rm(p_model_predictors)
+            
+            
+            # plot model diagnostics vs location
+            
+            GLODAP_basin_era_slab <- GLODAP_basin_era_slab %>%
+              mutate(fitted = i_lm_fit$fitted.values,
+                     residuals = i_lm_fit$residuals)
+            
+            GLODAP_basin_era_slab_long <- GLODAP_basin_era_slab %>% 
+              pivot_longer(cols = c(params_local$MLR_target , fitted, residuals),
+                           names_to = "estimate",
+                           values_to = "value"
+              ) %>% 
+              pivot_longer(cols = c(lat, lon, depth),
+                           names_to = "coordinate_type",
+                           values_to = "coordinate_value"
+              )
+
+             p_model_coordinate <- GLODAP_basin_era_slab_long %>%
+              ggplot(aes(coordinate_value, value)) +
+              geom_bin2d() +
+              scale_fill_viridis_c() +
+              labs(
+                title = paste(
+                  "era:",
+                  i_era,
+                  "| eras:",
+                  i_eras,
+                  "| basin:",
+                  i_basin,
+                  "| gamma slab:",
+                  i_gamma_slab,
+                  "| predictors:",
+                  i_predictors
+                )
+              ) +
+              facet_grid(estimate~coordinate_type,
+                         scales = "free")
+
+            ggsave(
+              plot = p_model_coordinate,
+              path = paste(path_version_figures, "eMLR_diagnostics", sep = ""),
+              filename = paste(
+                "Location_MLR_residuals",
+                i_era,
+                i_eras,
+                i_basin,
+                i_gamma_slab,
+                i_predictors,
+                "predictors.png",
+                sep = "_"
+              ),
+              width = 14,
+              height = 8
+            )
+
+            rm(p_model_coordinate)
             
           }
           
