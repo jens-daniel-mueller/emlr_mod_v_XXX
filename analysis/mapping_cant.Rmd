@@ -139,6 +139,8 @@ Zonal section plots are produced for every 20° longitude, each era and for all 
 
 ```{r cant_section_by_model_eras_lon}
 
+if (params_local$plot_all_figures == "y") {
+
 cant_M <-
   read_csv(paste(path_version_data,
                  "cant_M.csv", sep = ""))
@@ -150,7 +152,6 @@ cant_join <- left_join(cant, cant_M) %>%
   mutate(cant_offset = cant - cant_M,
          cant_pos_offset = cant_pos - cant_pos_M)
 
-if (params_local$plot_all_figures == "y") {
   for (i_eras in unique(cant_join$eras)) {
     #i_eras <- unique(cant_join$eras)[1]
     cant_eras <- cant_join %>%
@@ -161,7 +162,7 @@ if (params_local$plot_all_figures == "y") {
       cant_eras_lon <- cant_eras %>%
         filter(lon == i_lon)
       
-      limits = max(abs(cant_eras_lon$cant_offset)) * c(-1, 1)
+      # limits = max(abs(cant_eras_lon$cant_offset)) * c(-1, 1)
       
       cant_eras_lon %>%
         ggplot(aes(lat, depth, z = cant_offset)) +
@@ -171,9 +172,7 @@ if (params_local$plot_all_figures == "y") {
           bins = 20,
           col = "grey"
         ) +
-        scale_fill_scico(name = "Cant offset",
-                         palette = "vik",
-                         limit = limits) +
+        scale_fill_divergent(name = "Cant offset") +
         scale_y_reverse(limits = c(params_global$plotting_depth, NA)) +
         scale_x_continuous(limits = c(-85, 85)) +
         labs(title = paste(
@@ -204,7 +203,9 @@ if (params_local$plot_all_figures == "y") {
       
     }
   }
-  rm(cant_join)
+
+  rm(cant_join, cant_M, cant_eras, cant_eras_lon, i_eras, i_lon)
+
 }
 
 ```
@@ -212,8 +213,9 @@ if (params_local$plot_all_figures == "y") {
 
 ## Surface water
 
-As outlined in Gruber et al. (2019), a transient equilibrium approach was applied to estimate Cant in surface waters, assuming that the CO~2~ system in these waters has followed the increase in atmospheric CO~2~ closely. 
-Using eq 10.2.16 from OBD, the change in anthropogenic CO~2~ in the upper ocean was computed as:
+As outlined in Gruber et al. (2019), a equilibrium approach was applied to estimate Cant in surface waters, assuming that the CO~2~ system in these waters has followed the increase in atmospheric CO~2~ closely. 
+
+The first approach to calculate equilibrium Cant changes applies eq 10.2.16 from OBD:
 
 $\Delta$~t~C~ant,eq~(t2 − t1) = 1∕$\gamma$ ⋅ DIC/pCO~2~ ⋅ (pCO~2,atm~ (t2)− pCO~2,atm~(t1))
 
@@ -229,6 +231,7 @@ Plots below show the calculated climatological pCO~2~ values.
 
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
+    
     # calculate pCO2 from talk and tco2 climatology
     predictors_surface <- predictors_surface %>%
       mutate(
@@ -331,7 +334,9 @@ if (params_local$depth_min != 0) {
 
 ```{r calc_cant_surface}
 
+
 if (params_local$depth_min != 0) {
+  
   # surface cant calculation with revelle factor option
   if (params_local$surface_DIC_calculation == "revelle factor") {
     # calculate increase in atm pCO2 between eras
@@ -396,7 +401,8 @@ if (params_local$depth_min != 0) {
                phosphate,
                silicate) %>%
       # hard coded for 3 eras, need to change later
-      mutate(DIC_era1 = DIC[2] - DIC[1], DIC_era2 = DIC[3] - DIC[2]) %>%
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %>%
       ungroup() %>%
       select(-pCO2_tref, -DIC) %>%
       unique()
@@ -413,6 +419,54 @@ if (params_local$depth_min != 0) {
     
     cant_surface <-
       full_join(predictors_surface_era1, predictors_surface_era2)
+  }
+  
+  # surface cant calculation with atmospheric pCO2 increase
+  if (params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
+    
+    # calculate increase in atm pCO2 between eras
+    co2_atm_tref <- co2_atm_tref %>%
+      arrange(pCO2_tref) %>%
+      mutate(d_pCO2_tref = pCO2_tref - lag(pCO2_tref),
+             eras = paste(lag(era), era, sep = " --> ")) %>%
+      drop_na() %>%
+      select(eras, d_pCO2_tref)
+    
+    cant_surface <- full_join(predictors_surface, co2_atm_tref,
+                              by = character())
+    
+    cant_surface <- cant_surface %>% 
+      mutate(pCO2_final = pCO2 + d_pCO2_tref)
+
+    
+    # calculate DIC from TAlk climatology and pCO2 in reference years
+    cant_surface <- cant_surface %>% 
+      mutate(
+        DIC_final = carb(
+          flag = 24,
+          var1 = pCO2_final,
+          var2 = TAlk * 1e-6,
+          S = sal,
+          T = temp,
+          P = depth / 10,
+          Pt = phosphate * 1e-6,
+          Sit = silicate * 1e-6,
+          k1k2 = "l"
+        )$DIC * 1e6
+      )
+    
+    #
+    p_map_climatology(df = cant_surface,
+                      var = "DIC_final")
+    
+    #
+    p_section_climatology_regular(df = cant_surface,
+                                  var = "DIC_final",
+                                  surface = "y")
+    
+    cant_surface <- cant_surface %>% 
+      mutate(cant = DIC_final - TCO2)
+    
   }
   
   # calculate positive cant
