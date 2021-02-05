@@ -59,9 +59,9 @@ Results from this study are referred to as JDM. Unique eras information is subtr
 
 ```{r read_JDM_cant_inv_file}
 
-cant_inv_JDM <-
+lm_best_cant <-
   read_csv(paste(path_version_data,
-                 "cant_inv.csv",
+                 "lm_best_cant.csv",
                  sep = ""))
 
 ```
@@ -132,12 +132,12 @@ cant_tref_3 <- cant_tref_3 %>%
 
 cant_M_1 <- left_join(cant_tref_1, cant_tref_2) %>%
   mutate(cant = cant_tref_2 - cant_tref_1,
-         eras = unique(cant_inv_JDM$eras)[1]) %>%
+         eras = unique(lm_best_cant$eras)[1]) %>%
   select(-c(cant_tref_1, cant_tref_2))
 
 cant_M_2 <- left_join(cant_tref_2, cant_tref_3) %>%
   mutate(cant = cant_tref_3 - cant_tref_2,
-         eras = unique(cant_inv_JDM$eras)[2]) %>%
+         eras = unique(lm_best_cant$eras)[2]) %>%
   select(-c(cant_tref_2, cant_tref_3))
 
 cant_M <- full_join(cant_M_1, cant_M_2) %>%

@@ -108,7 +108,7 @@ params_local <-
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
-    MLR_number = 10,
+    MLR_number = 5,
     # Criterion to select best MLR fits, either "rmse" or "aic"
     MLR_criterion = "rmse",
     # see above
