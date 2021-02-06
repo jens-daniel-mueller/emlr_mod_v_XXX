@@ -76,7 +76,7 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
     subsetting = "random",
     # random subsetting with options of "grid" or "lat"
@@ -108,7 +108,7 @@ params_local <-
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
-    MLR_number = 5,
+    MLR_number = 10,
     # Criterion to select best MLR fits, either "rmse" or "aic"
     MLR_criterion = "rmse",
     # see above
@@ -128,7 +128,7 @@ params_local <-
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)
-    plot_all_figures = "y"
+    plot_all_figures = "n"
   )
 
 ```

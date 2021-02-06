@@ -78,13 +78,25 @@ if (params_local$model_runs == "AD") {
       )
     )
   
-  random <- read_csv(
-    paste(
-      path_preprocessing,
-      "GLODAPv2.2020_preprocessed_model_runA_random_subset.csv",
-      sep = ""
+  if (params_local$random == "grid") {
+    random <- read_csv(
+      paste(
+        path_preprocessing,
+        "GLODAPv2.2020_preprocessed_model_runA_random_subset_grid.csv",
+        sep = ""
+      )
     )
-  )
+  }
+  
+  if (params_local$random == "lat") {
+    random <- read_csv(
+      paste(
+        path_preprocessing,
+        "GLODAPv2.2020_preprocessed_model_runA_random_subset_lat.csv",
+        sep = ""
+      )
+    )
+  }
   
 }
 

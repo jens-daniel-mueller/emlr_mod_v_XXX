@@ -190,6 +190,8 @@ for (i_basin_AIP in unique(cant_zonal$basin_AIP)) {
 
 ```{r cant_vs_sd_by_basin_era}
 
+if (params_local$MLR_number > 1) {
+  
 cant_3d %>% 
   ggplot(aes(cant, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -200,6 +202,7 @@ cant_3d %>%
                        trans = "log10",
                        name = "log10(n)") +
   facet_grid(basin_AIP ~ eras)
+}
 
 ```
 
@@ -207,6 +210,8 @@ cant_3d %>%
 
 ```{r cant_vs_sd_by_basin_gamma, fig.asp=2}
 
+if (params_local$MLR_number > 1) {
+  
 cant_3d %>% 
   ggplot(aes(cant, cant_sd)) +
   geom_vline(xintercept = 0) +
@@ -217,6 +222,7 @@ cant_3d %>%
                        trans = "log10",
                        name = "log10(n)") +
   facet_grid(gamma_slab ~ basin_AIP)
+}
 
 ```
 
