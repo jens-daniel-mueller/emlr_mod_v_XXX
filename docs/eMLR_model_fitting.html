@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree3ddd3582033abcbc30a4b01733f8fae84e40b55dtargetblank3ddd358a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/3ddd3582033abcbc30a4b01733f8fae84e40b55d" target="_blank">3ddd358</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreec3638c14e001a68a1366c37ba4756e2ec2d53af8targetblankc3638c1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/c3638c14e001a68a1366c37ba4756e2ec2d53af8" target="_blank">c3638c1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree3ddd3582033abcbc30a4b01733f8fae84e40b55dtargetblank3ddd358a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreec3638c14e001a68a1366c37ba4756e2ec2d53af8targetblankc3638c1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/3ddd3582033abcbc30a4b01733f8fae84e40b55d" target="_blank">3ddd358</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/c3638c14e001a68a1366c37ba4756e2ec2d53af8" target="_blank">c3638c1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -679,6 +679,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c3638c14e001a68a1366c37ba4756e2ec2d53af8/analysis/eMLR_model_fitting.Rmd" target="_blank">c3638c1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/eMLR_model_fitting.html" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -2128,8 +2162,8 @@ rm(i_gamma_slab,
 # fit all MLR models
 for (i_basin in unique(GLODAP$basin)) {
   for (i_era in unique(GLODAP$era)) {
-    # i_basin &lt;- unique(GLODAP$basin)[1]
-    # i_era   &lt;- unique(GLODAP$era)[1]
+    #i_basin &lt;- unique(GLODAP$basin)[1]
+    #i_era   &lt;- unique(GLODAP$era)[1]
     print(i_basin)
     print(i_era)
     
@@ -2137,80 +2171,89 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-      # i_gamma_slab &lt;- unique(GLODAP_basin_era$gamma_slab)[1]
+      #i_gamma_slab &lt;- unique(GLODAP_basin_era$gamma_slab)[15]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab &lt;- GLODAP_basin_era %&gt;%
         filter(gamma_slab == i_gamma_slab)
       
-      for (i_predictors in unique(lm_all$predictors)) {
-        # i_predictors &lt;- unique(lm_all$predictors)[110]
-        
-        # extract one model definition
-        i_lm &lt;- lm_all %&gt;%
-          filter(predictors == i_predictors) %&gt;%
-          select(lm_coeff) %&gt;%
-          pull()
-        
-        # extract number of predictors
-        i_n_predictors &lt;- lm_all %&gt;%
-          filter(predictors == i_predictors) %&gt;%
-          select(n) %&gt;%
-          pull()
-        
-        # fit model
-        i_lm_fit &lt;- lm(as.formula(i_lm),
-                       data = GLODAP_basin_era_slab)
-        
-        # find max predictor correlation
-        i_cor_max &lt;- GLODAP_basin_era_slab %&gt;%
-          select(!!!syms(str_split(i_predictors, &quot; &quot;,
-                                   simplify = TRUE))) %&gt;%
-          correlate(quiet = TRUE) %&gt;%
-          select(-term) %&gt;%
-          abs() %&gt;%
-          max(na.rm = TRUE)
-        
-        # calculate root mean squared error
-        i_rmse &lt;- sqrt(c(crossprod(i_lm_fit$residuals)) /
-                         length(i_lm_fit$residuals))
-        
-        # calculate maximum residual
-        i_resid_max &lt;- max(abs(i_lm_fit$residuals))
-        
-        # calculate Akaike information criterion aic
-        i_aic &lt;- AIC(i_lm_fit)
-        
-        # collect model coefficients and diagnostics
-        coefficients &lt;- tidy(i_lm_fit)
-        
-        coefficients &lt;- coefficients %&gt;%
-          mutate(
-            basin = i_basin,
-            era = i_era,
-            gamma_slab = i_gamma_slab,
-            model = i_lm,
-            rmse = i_rmse,
-            aic = i_aic,
-            resid_max = i_resid_max,
-            n_predictors = i_n_predictors,
-            na_predictor = anyNA(coefficients$estimate),
-            cor_max = i_cor_max
-          )
-        
-        if (exists(&quot;lm_all_fitted&quot;)) {
-          lm_all_fitted &lt;- bind_rows(lm_all_fitted, coefficients)
+      if (nrow(GLODAP_basin_era_slab) &gt; 2) {
+        for (i_predictors in unique(lm_all$predictors)) {
+          # i_predictors &lt;- unique(lm_all$predictors)[1]
+          
+          # extract one model definition
+          i_lm &lt;- lm_all %&gt;%
+            filter(predictors == i_predictors) %&gt;%
+            dplyr::select(lm_coeff) %&gt;%
+            pull()
+          
+          # extract number of predictors
+          i_n_predictors &lt;- lm_all %&gt;%
+            filter(predictors == i_predictors) %&gt;%
+            dplyr::select(n) %&gt;%
+            pull()
+          
+          # fit model
+          if (params_local$MLR_type == &quot;rlm&quot;) {
+          library(MASS)
+          i_lm_fit &lt;- rlm(as.formula(i_lm),
+                          data = GLODAP_basin_era_slab)
+          }
+          
+          if (params_local$MLR_type == &quot;lm&quot;) {
+          i_lm_fit &lt;- lm(as.formula(i_lm),
+                          data = GLODAP_basin_era_slab)
+        }
+          
+          # find max predictor correlation
+          i_cor_max &lt;- GLODAP_basin_era_slab %&gt;%
+            dplyr::select(!!!syms(str_split(i_predictors, &quot; &quot;,
+                                            simplify = TRUE))) %&gt;%
+            correlate(quiet = TRUE) %&gt;%
+            dplyr::select(-term) %&gt;%
+            abs() %&gt;%
+            max(na.rm = TRUE)
+          
+          # calculate root mean squared error
+          i_rmse &lt;- sqrt(c(crossprod(i_lm_fit$residuals)) /
+                           length(i_lm_fit$residuals))
+          
+          # calculate maximum residual
+          i_resid_max &lt;- max(abs(i_lm_fit$residuals))
+          
+          # calculate Akaike information criterion aic
+          i_aic &lt;- AIC(i_lm_fit)
+          
+          # collect model coefficients and diagnostics
+          coefficients &lt;- tidy(i_lm_fit)
+          
+          coefficients &lt;- coefficients %&gt;%
+            mutate(
+              basin = i_basin,
+              era = i_era,
+              gamma_slab = i_gamma_slab,
+              model = i_lm,
+              rmse = i_rmse,
+              aic = i_aic,
+              resid_max = i_resid_max,
+              n_predictors = i_n_predictors,
+              na_predictor = anyNA(coefficients$estimate),
+              cor_max = i_cor_max
+            )
+          
+          if (exists(&quot;lm_all_fitted&quot;)) {
+            lm_all_fitted &lt;- bind_rows(lm_all_fitted, coefficients)
+          }
+          
+          if (!exists(&quot;lm_all_fitted&quot;)) {
+            lm_all_fitted &lt;- coefficients
+          }
         }
         
-        if (!exists(&quot;lm_all_fitted&quot;)) {
-          lm_all_fitted &lt;- coefficients
-        }
+        
       }
-      
-      
     }
   }
-  
 }
 
 rm(
@@ -2236,7 +2279,7 @@ rm(
 <h2 number="5.1"><span class="header-section-number">5.1</span> Formatting</h2>
 <pre class="r"><code># select relevant columns
 lm_all_fitted &lt;- lm_all_fitted %&gt;%
-  select(
+  dplyr::select(
     basin,
     gamma_slab,
     era,
@@ -2282,7 +2325,7 @@ lm_all_fitted_wide &lt;- lm_all_fitted_wide %&gt;%
   filter(na_predictor == FALSE)</code></pre>
 <pre class="r"><code># calculate RMSE sum for adjacent eras
 lm_all_fitted_wide_eras &lt;- lm_all_fitted_wide  %&gt;%
-  select(basin, gamma_slab, model, era, rmse, aic, resid_max) %&gt;%
+  dplyr::select(basin, gamma_slab, model, era, rmse, aic, resid_max) %&gt;%
   arrange(era) %&gt;%
   group_by(basin, gamma_slab, model) %&gt;%
   mutate(
@@ -2291,7 +2334,7 @@ lm_all_fitted_wide_eras &lt;- lm_all_fitted_wide  %&gt;%
     aic_sum = aic + lag(aic)
   ) %&gt;%
   ungroup() %&gt;%
-  select(-c(era)) %&gt;%
+  dplyr::select(-c(era)) %&gt;%
   drop_na()
 
 # subset models with lowest summed criterion
@@ -26969,7 +27012,7 @@ eras_forward &lt;- lm_all_fitted_wide %&gt;%
   group_by(basin, gamma_slab, model) %&gt;% 
   mutate(eras = paste(era, lead(era), sep = &quot; --&gt; &quot;)) %&gt;% 
   ungroup() %&gt;% 
-  select(era, eras) %&gt;% 
+  dplyr::select(era, eras) %&gt;% 
   unique()
 
 eras_backward &lt;- lm_all_fitted_wide %&gt;%
@@ -26977,7 +27020,7 @@ eras_backward &lt;- lm_all_fitted_wide %&gt;%
   group_by(basin, gamma_slab, model) %&gt;% 
   mutate(eras = paste(lag(era), era, sep = &quot; --&gt; &quot;)) %&gt;% 
   ungroup() %&gt;% 
-  select(era, eras) %&gt;% 
+  dplyr::select(era, eras) %&gt;% 
   unique()
 
 eras_era &lt;- full_join(eras_backward, eras_forward) %&gt;% 
@@ -26985,7 +27028,7 @@ eras_era &lt;- full_join(eras_backward, eras_forward) %&gt;%
 
 # extend best model selection from eras to era
 lm_best_target &lt;- full_join(
-  lm_best %&gt;% select(basin, gamma_slab, model, eras),
+  lm_best %&gt;% dplyr::select(basin, gamma_slab, model, eras),
   eras_era)
 
 lm_best_target &lt;- left_join(lm_best_target, lm_all_fitted_wide)
@@ -26999,7 +27042,7 @@ rm(eras_era, eras_forward, eras_backward,
 if (params_local$plot_all_figures == &quot;y&quot;) {
   # mutate predictors column
   lm_best_plot &lt;- lm_best_target %&gt;%
-    select(basin, gamma_slab, model, eras, era) %&gt;%
+    dplyr::select(basin, gamma_slab, model, eras, era) %&gt;%
     mutate(
       predictors = str_remove(model, paste(params_local$MLR_target, &quot;~ &quot;)),
       predictors = str_replace_all(predictors, &quot;\\+ &quot;, &quot;&quot;)
@@ -27040,7 +27083,7 @@ if (params_local$plot_all_figures == &quot;y&quot;) {
             # extract one model definition
             i_lm &lt;- lm_all %&gt;%
               filter(predictors == i_predictors) %&gt;%
-              select(lm_coeff) %&gt;%
+              dplyr::select(lm_coeff) %&gt;%
               pull()
             
             # fit model
@@ -27190,7 +27233,7 @@ lm_best_long &lt;- lm_best_long %&gt;%
   ungroup() %&gt;%
   arrange(basin, gamma_slab, model, term, eras) %&gt;%
   drop_na() %&gt;%
-  select(-c(era,estimate))
+  dplyr::select(-c(era,estimate))
 
 # pivot back to wide format
 lm_best_cant &lt;- lm_best_long %&gt;%
@@ -27202,7 +27245,7 @@ lm_best_cant &lt;- lm_best_long %&gt;%
 <div id="write-files" class="section level2" number="5.7">
 <h2 number="5.7"><span class="header-section-number">5.7</span> Write files</h2>
 <pre class="r"><code>lm_best_target %&gt;%
-  select(
+  dplyr::select(
     basin,
     gamma_slab,
     model,
@@ -27215,7 +27258,7 @@ lm_best_cant &lt;- lm_best_long %&gt;%
                   sep = &quot;&quot;))
 
 lm_best_cant %&gt;%
-  select(
+  dplyr::select(
     basin,
     gamma_slab,
     model,
@@ -27266,6 +27309,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">ca03c39</a>
@@ -27877,6 +27931,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">ca03c39</a>
@@ -28508,6 +28573,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">ca03c39</a>
 </td>
 <td>
@@ -29110,6 +29186,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">ca03c39</a>
@@ -30989,6 +31076,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">ca03c39</a>
 </td>
 <td>
@@ -31580,6 +31678,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">1fad5f1</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca03c39c399781c016c6a6cda86510cbae2a97d7/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">ca03c39</a>
