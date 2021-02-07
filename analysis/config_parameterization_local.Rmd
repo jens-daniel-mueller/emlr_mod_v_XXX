@@ -94,7 +94,7 @@ params_local <-
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
-    gamma_min = 26,
+    gamma_min = 27.5,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
@@ -109,6 +109,8 @@ params_local <-
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
     MLR_number = 10,
+    # Fitted model type rlm or lm
+    MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic"
     MLR_criterion = "rmse",
     # see above

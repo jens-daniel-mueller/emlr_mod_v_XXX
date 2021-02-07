@@ -51,7 +51,7 @@ path_version_figures  <-
 
 basinmask <- basinmask %>% 
   filter(MLR_basins == params_local$MLR_basins) %>% 
-  select(-MLR_basins)
+  dplyr::select(-MLR_basins)
 
 ```
 
@@ -92,7 +92,7 @@ climatology <- climatology %>%
   rename(aou = AOU, TCO2 = tco2, TAlk = talk)
 
 predictors <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, 
+  dplyr::select(lon, lat, depth, basin_AIP, gamma, 
          phosphate, oxygen, temp,
          any_of(params_local$MLR_predictors))
 
@@ -102,7 +102,7 @@ predictors <- climatology %>%
 ```{r load_model_climatologies_surface_mapping}
 
 predictors_surface <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, phosphate, silicate)
+  dplyr::select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, phosphate, silicate)
 
 ```
 
@@ -209,7 +209,7 @@ N_Atl <- predictors %>%
 
 # pivot table to long format
 N_Atl <- N_Atl %>%
-  select(-c(basin, basin_AIP)) %>%
+  dplyr::select(-c(basin, basin_AIP)) %>%
   pivot_longer(c(any_of(params_local$MLR_predictors), gamma), 
                names_to = "parameter", values_to = "value")
 
