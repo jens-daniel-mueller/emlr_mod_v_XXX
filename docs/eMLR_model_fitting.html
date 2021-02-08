@@ -503,7 +503,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">eMLR - model fitting</h1>
 <h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
-<h4 class="date">07 February, 2021</h4>
+<h4 class="date">08 February, 2021</h4>
 
 </div>
 
@@ -528,7 +528,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-07
+<strong>Last updated:</strong> 2021-02-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreea923be181655f65b680788fe1c8c8db539f53d35targetblanka923be1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/a923be181655f65b680788fe1c8c8db539f53d35" target="_blank">a923be1</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree8f5fa79b788d6c7688adbf472ba76665546ca4cetargetblank8f5fa79a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/8f5fa79b788d6c7688adbf472ba76665546ca4ce" target="_blank">8f5fa79</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreea923be181655f65b680788fe1c8c8db539f53d35targetblanka923be1a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree8f5fa79b788d6c7688adbf472ba76665546ca4cetargetblank8f5fa79a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/a923be181655f65b680788fe1c8c8db539f53d35" target="_blank">a923be1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/8f5fa79b788d6c7688adbf472ba76665546ca4ce" target="_blank">8f5fa79</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -639,7 +639,6 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Unstaged changes:
-    Modified:   analysis/config_parameterization_local.Rmd
     Modified:   code/Workflowr_project_managment.R
     Modified:   data/auxillary/params_local.rds
 
@@ -680,6 +679,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8f5fa79b788d6c7688adbf472ba76665546ca4ce/analysis/eMLR_model_fitting.Rmd" target="_blank">8f5fa79</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-08
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/2f095d7c0a9630c511f611cce6222150e8b89063/docs/eMLR_model_fitting.html" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -2189,7 +2222,7 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-      #i_gamma_slab &lt;- unique(GLODAP_basin_era$gamma_slab)[15]
+      #i_gamma_slab &lt;- unique(GLODAP_basin_era$gamma_slab)[14]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab &lt;- GLODAP_basin_era %&gt;%
@@ -2202,18 +2235,17 @@ for (i_basin in unique(GLODAP$basin)) {
           # extract one model definition
           i_lm &lt;- lm_all %&gt;%
             filter(predictors == i_predictors) %&gt;%
-            dplyr::select(lm_coeff) %&gt;%
+            select(lm_coeff) %&gt;%
             pull()
           
           # extract number of predictors
           i_n_predictors &lt;- lm_all %&gt;%
             filter(predictors == i_predictors) %&gt;%
-            dplyr::select(n) %&gt;%
+            select(n) %&gt;%
             pull()
           
           # fit model
           if (params_local$MLR_type == &quot;rlm&quot;) {
-          library(MASS)
           i_lm_fit &lt;- rlm(as.formula(i_lm),
                           data = GLODAP_basin_era_slab)
           }
@@ -2439,13 +2471,13 @@ cstar_tref ~ sal + aou + phosphate + phosphate_star
 4.4283361
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7231087
+2.5342537
 </td>
 <td style="text-align:right;">
-1156.98425
+832.78766
 </td>
 </tr>
 <tr>
@@ -2468,13 +2500,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 4.4922859
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7191247
+2.4662231
 </td>
 <td style="text-align:right;">
-1159.77882
+821.70629
 </td>
 </tr>
 <tr>
@@ -2497,13 +2529,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 4.5549122
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7419291
+2.5324388
 </td>
 <td style="text-align:right;">
-1164.56474
+835.67727
 </td>
 </tr>
 <tr>
@@ -2526,13 +2558,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 4.5126354
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6890507
+2.5046737
 </td>
 <td style="text-align:right;">
-1152.34120
+833.64667
 </td>
 </tr>
 <tr>
@@ -2555,13 +2587,13 @@ cstar_tref ~ sal + temp + aou + phosphate
 4.4581399
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7394384
+2.5585686
 </td>
 <td style="text-align:right;">
-1160.25321
+837.46649
 </td>
 </tr>
 <tr>
@@ -2584,42 +2616,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 4.3785458
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7007540
+2.4993739
 </td>
 <td style="text-align:right;">
-1156.99681
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + phosphate_star
-</td>
-<td style="text-align:right;">
-1.3804052
-</td>
-<td style="text-align:right;">
-426.43311
-</td>
-<td style="text-align:right;">
-4.4915042
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.7438487
-</td>
-<td style="text-align:right;">
-1161.13506
+830.12628
 </td>
 </tr>
 <tr>
@@ -2642,13 +2645,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 4.4329407
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7362549
+2.4995186
 </td>
 <td style="text-align:right;">
-1163.27875
+828.54943
 </td>
 </tr>
 <tr>
@@ -2671,13 +2674,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 4.7213893
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6921968
+2.3975113
 </td>
 <td style="text-align:right;">
-1158.93049
+811.17747
 </td>
 </tr>
 <tr>
@@ -2700,13 +2703,42 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 4.4188624
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7407403
+2.5090862
 </td>
 <td style="text-align:right;">
-1164.20852
+830.52052
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1.3833849
+</td>
+<td style="text-align:right;">
+428.94630
+</td>
+<td style="text-align:right;">
+4.4111178
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.5157165
+</td>
+<td style="text-align:right;">
+831.83708
 </td>
 </tr>
 <tr>
@@ -3019,13 +3051,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 11.3375828
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.2078157
+7.2009819
 </td>
 <td style="text-align:right;">
-12483.61709
+9256.45020
 </td>
 </tr>
 <tr>
@@ -3048,13 +3080,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 10.9732242
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3149139
+7.2789714
 </td>
 <td style="text-align:right;">
-12567.98652
+9289.31210
 </td>
 </tr>
 <tr>
@@ -3077,13 +3109,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 13.1135976
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.5975826
+7.4977832
 </td>
 <td style="text-align:right;">
-12757.74052
+9387.62990
 </td>
 </tr>
 <tr>
@@ -3106,13 +3138,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 11.3573612
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.2599472
+7.2504500
 </td>
 <td style="text-align:right;">
-12531.71292
+9280.59297
 </td>
 </tr>
 <tr>
@@ -3135,13 +3167,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 14.5311740
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3879064
+7.3815625
 </td>
 <td style="text-align:right;">
-12590.62207
+9342.83548
 </td>
 </tr>
 <tr>
@@ -3164,13 +3196,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 12.9246497
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0863842
+7.0786186
 </td>
 <td style="text-align:right;">
-12418.10225
+9199.24615
 </td>
 </tr>
 <tr>
@@ -3193,13 +3225,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 15.3378774
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4211930
+7.4151150
 </td>
 <td style="text-align:right;">
-12609.59949
+9358.74574
 </td>
 </tr>
 <tr>
@@ -3222,13 +3254,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 15.7450319
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4837437
+7.4736538
 </td>
 <td style="text-align:right;">
-12645.31643
+9386.44126
 </td>
 </tr>
 <tr>
@@ -3251,13 +3283,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 15.4201430
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4283037
+7.4216009
 </td>
 <td style="text-align:right;">
-12613.96304
+9361.76685
 </td>
 </tr>
 <tr>
@@ -3280,13 +3312,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 13.3291126
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.8110581
+7.7202593
 </td>
 <td style="text-align:right;">
-12863.79677
+9489.52841
 </td>
 </tr>
 <tr>
@@ -3599,13 +3631,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 16.4096691
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0403453
+7.0149132
 </td>
 <td style="text-align:right;">
-15887.63711
+11889.20263
 </td>
 </tr>
 <tr>
@@ -3628,13 +3660,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 17.4967787
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0071100
+6.9749285
 </td>
 <td style="text-align:right;">
-15866.03893
+11864.34190
 </td>
 </tr>
 <tr>
@@ -3657,13 +3689,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 16.8569169
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9522860
+6.9464725
 </td>
 <td style="text-align:right;">
-15818.85562
+11855.31918
 </td>
 </tr>
 <tr>
@@ -3686,13 +3718,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 18.0106959
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0696165
+7.0251006
 </td>
 <td style="text-align:right;">
-15920.12015
+11894.58826
 </td>
 </tr>
 <tr>
@@ -3715,13 +3747,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 15.9335715
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9010213
+6.8802220
 </td>
 <td style="text-align:right;">
-15777.08714
+11811.15693
 </td>
 </tr>
 <tr>
@@ -3744,13 +3776,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 18.3245129
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1121130
+7.0669978
 </td>
 <td style="text-align:right;">
-15956.03288
+11920.11072
 </td>
 </tr>
 <tr>
@@ -3773,13 +3805,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 18.4092841
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1251528
+7.0798224
 </td>
 <td style="text-align:right;">
-15966.98815
+11927.93459
 </td>
 </tr>
 <tr>
@@ -3802,13 +3834,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 15.2542048
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9957282
+6.9987596
 </td>
 <td style="text-align:right;">
-15848.06404
+11889.17541
 </td>
 </tr>
 <tr>
@@ -3831,13 +3863,13 @@ cstar_tref ~ temp + aou + silicate + phosphate
 16.8014617
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1388330
+7.1212214
 </td>
 <td style="text-align:right;">
-15969.31095
+11955.95997
 </td>
 </tr>
 <tr>
@@ -3860,13 +3892,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 15.1116310
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9267294
+6.8879724
 </td>
 <td style="text-align:right;">
-15795.68403
+11813.16342
 </td>
 </tr>
 <tr>
@@ -4179,13 +4211,42 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 16.8150352
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9607653
+3.9613534
 </td>
 <td style="text-align:right;">
-20675.05162
+15786.76487
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.75,27]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+2.1993995
+</td>
+<td style="text-align:right;">
+9480.55715
+</td>
+<td style="text-align:right;">
+15.9655409
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.1418512
+</td>
+<td style="text-align:right;">
+16116.14569
 </td>
 </tr>
 <tr>
@@ -4208,13 +4269,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 16.4678092
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.8697594
+3.8467757
 </td>
 <td style="text-align:right;">
-20447.91841
+15575.77858
 </td>
 </tr>
 <tr>
@@ -4237,13 +4298,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 14.1479243
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9978883
+3.9753383
 </td>
 <td style="text-align:right;">
-20782.21384
+15822.64630
 </td>
 </tr>
 <tr>
@@ -4266,13 +4327,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 16.6465660
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9816674
+3.9526195
 </td>
 <td style="text-align:right;">
-20732.54428
+15778.48166
 </td>
 </tr>
 <tr>
@@ -4295,13 +4356,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 15.8952049
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6751387
+3.6383052
 </td>
 <td style="text-align:right;">
-19978.46663
+15154.45887
 </td>
 </tr>
 <tr>
@@ -4324,13 +4385,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 16.8576835
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0651256
+4.0339300
 </td>
 <td style="text-align:right;">
-20941.89188
+15929.52271
 </td>
 </tr>
 <tr>
@@ -4353,13 +4414,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 16.9171523
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0982392
+4.0662388
 </td>
 <td style="text-align:right;">
-21023.56699
+15988.73534
 </td>
 </tr>
 <tr>
@@ -4382,42 +4443,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 13.7137680
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1337973
+4.1246307
 </td>
 <td style="text-align:right;">
-21113.42590
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.75,27]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + silicate + phosphate
-</td>
-<td style="text-align:right;">
-2.2357799
-</td>
-<td style="text-align:right;">
-9550.93787
-</td>
-<td style="text-align:right;">
-17.5492900
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.1868759
-</td>
-<td style="text-align:right;">
-21222.76213
+16090.17905
 </td>
 </tr>
 <tr>
@@ -4440,13 +4472,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 18.6204117
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7278859
+3.7086108
 </td>
 <td style="text-align:right;">
-20120.03788
+15287.94049
 </td>
 </tr>
 <tr>
@@ -4759,13 +4791,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 10.7669065
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9167178
+3.9004511
 </td>
 <td style="text-align:right;">
-18217.41032
+13467.58139
 </td>
 </tr>
 <tr>
@@ -4788,13 +4820,13 @@ cstar_tref ~ sal + aou + silicate + phosphate
 14.4479235
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.5308801
+3.5446477
 </td>
 <td style="text-align:right;">
-17062.60456
+12867.97764
 </td>
 </tr>
 <tr>
@@ -4817,13 +4849,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 14.7223520
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4258901
+3.4808954
 </td>
 <td style="text-align:right;">
-16703.07597
+12752.49914
 </td>
 </tr>
 <tr>
@@ -4846,13 +4878,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 8.3997008
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.2611992
+3.2812558
 </td>
 <td style="text-align:right;">
-16353.92329
+12379.70197
 </td>
 </tr>
 <tr>
@@ -4875,13 +4907,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 14.5801203
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4506473
+3.4986737
 </td>
 <td style="text-align:right;">
-16786.37031
+12786.00785
 </td>
 </tr>
 <tr>
@@ -4904,13 +4936,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 14.7368831
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.3469005
+3.4099947
 </td>
 <td style="text-align:right;">
-16502.99868
+12625.05766
 </td>
 </tr>
 <tr>
@@ -4933,13 +4965,42 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 14.5678114
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.5029894
+3.5490090
 </td>
 <td style="text-align:right;">
-16938.12029
+12878.69135
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27,27.25]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+2.2241332
+</td>
+<td style="text-align:right;">
+8115.25280
+</td>
+<td style="text-align:right;">
+18.3884546
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.9628070
+</td>
+<td style="text-align:right;">
+13587.91815
 </td>
 </tr>
 <tr>
@@ -4962,13 +5023,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 14.5590251
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.5191192
+3.5633558
 </td>
 <td style="text-align:right;">
-16985.54483
+12904.85230
 </td>
 </tr>
 <tr>
@@ -4991,42 +5052,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 16.5166365
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.8400212
+3.8107333
 </td>
 <td style="text-align:right;">
-17920.17023
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27,27.25]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2.3176418
-</td>
-<td style="text-align:right;">
-8265.65287
-</td>
-<td style="text-align:right;">
-16.9239274
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.9638455
-</td>
-<td style="text-align:right;">
-18043.10640
+13336.57435
 </td>
 </tr>
 <tr>
@@ -5339,13 +5371,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 18.2217913
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.6192019
+4.5744465
 </td>
 <td style="text-align:right;">
-18783.73089
+14055.91844
 </td>
 </tr>
 <tr>
@@ -5368,13 +5400,13 @@ cstar_tref ~ sal + temp + aou + nitrate
 15.4630874
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.6372773
+4.4870234
 </td>
 <td style="text-align:right;">
-19077.63221
+13940.28095
 </td>
 </tr>
 <tr>
@@ -5397,13 +5429,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 11.7784240
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.8562922
+3.7526495
 </td>
 <td style="text-align:right;">
-17275.39640
+12817.77884
 </td>
 </tr>
 <tr>
@@ -5426,13 +5458,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 13.8422521
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.2067030
+4.1562897
 </td>
 <td style="text-align:right;">
-18123.14014
+13468.92480
 </td>
 </tr>
 <tr>
@@ -5455,13 +5487,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 11.8256392
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.8552947
+3.7468644
 </td>
 <td style="text-align:right;">
-17276.56769
+12811.36994
 </td>
 </tr>
 <tr>
@@ -5484,13 +5516,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 18.4339523
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.6387543
+4.5685122
 </td>
 <td style="text-align:right;">
-18831.54556
+14046.89169
 </td>
 </tr>
 <tr>
@@ -5513,13 +5545,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 18.1737139
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.6180813
+4.5646407
 </td>
 <td style="text-align:right;">
-18785.05759
+14045.63865
 </td>
 </tr>
 <tr>
@@ -5542,13 +5574,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 14.5541445
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.3555776
+4.3194675
 </td>
 <td style="text-align:right;">
-18234.29986
+13689.30090
 </td>
 </tr>
 <tr>
@@ -5571,13 +5603,13 @@ cstar_tref ~ temp + aou + nitrate + silicate
 14.3658361
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.3899328
+4.3536131
 </td>
 <td style="text-align:right;">
-18382.23482
+13748.15655
 </td>
 </tr>
 <tr>
@@ -5600,13 +5632,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 14.3950791
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.2816260
+4.2652546
 </td>
 <td style="text-align:right;">
-18084.24905
+13615.83956
 </td>
 </tr>
 <tr>
@@ -5919,13 +5951,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 15.9390463
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7393396
+3.4494223
 </td>
 <td style="text-align:right;">
-19444.03561
+14037.27467
 </td>
 </tr>
 <tr>
@@ -5948,13 +5980,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 17.8633077
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6754718
+3.3239766
 </td>
 <td style="text-align:right;">
-19284.79624
+13771.07426
 </td>
 </tr>
 <tr>
@@ -5977,13 +6009,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 15.8043360
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7532827
+3.4357161
 </td>
 <td style="text-align:right;">
-19492.93750
+14008.46861
 </td>
 </tr>
 <tr>
@@ -6006,13 +6038,13 @@ cstar_tref ~ sal + temp + aou + phosphate_star
 15.9241022
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7597080
+3.4511133
 </td>
 <td style="text-align:right;">
-19502.52763
+14036.66987
 </td>
 </tr>
 <tr>
@@ -6035,13 +6067,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 17.7269203
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6922015
+3.3185124
 </td>
 <td style="text-align:right;">
-19341.63721
+13759.24221
 </td>
 </tr>
 <tr>
@@ -6064,13 +6096,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 17.8790203
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6955948
+3.3245401
 </td>
 <td style="text-align:right;">
-19345.12197
+13768.28956
 </td>
 </tr>
 <tr>
@@ -6093,13 +6125,13 @@ cstar_tref ~ sal + temp + nitrate + phosphate_star
 15.9370852
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7659717
+3.4515478
 </td>
 <td style="text-align:right;">
-19522.15177
+14037.59298
 </td>
 </tr>
 <tr>
@@ -6122,13 +6154,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 17.8850018
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7022054
+3.3264498
 </td>
 <td style="text-align:right;">
-19366.17163
+13772.62680
 </td>
 </tr>
 <tr>
@@ -6151,13 +6183,13 @@ cstar_tref ~ sal + temp + phosphate + phosphate_star
 15.9325158
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7594100
+3.4492766
 </td>
 <td style="text-align:right;">
-19501.56286
+14032.74132
 </td>
 </tr>
 <tr>
@@ -6180,13 +6212,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 17.8851630
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6953389
+3.3234781
 </td>
 <td style="text-align:right;">
-19344.27136
+13765.86473
 </td>
 </tr>
 <tr>
@@ -6499,13 +6531,13 @@ cstar_tref ~ sal + aou + phosphate + phosphate_star
 12.8805782
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.2209370
+4.2207926
 </td>
 <td style="text-align:right;">
-8020.27228
+5931.06848
 </td>
 </tr>
 <tr>
@@ -6528,13 +6560,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 11.8717788
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0607502
+4.0578181
 </td>
 <td style="text-align:right;">
-7881.08037
+5827.93695
 </td>
 </tr>
 <tr>
@@ -6557,13 +6589,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 11.8424723
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9987814
+4.0372890
 </td>
 <td style="text-align:right;">
-7832.46773
+5815.16877
 </td>
 </tr>
 <tr>
@@ -6586,13 +6618,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 12.7164943
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1493501
+4.1490152
 </td>
 <td style="text-align:right;">
-7958.70807
+5888.77853
 </td>
 </tr>
 <tr>
@@ -6615,13 +6647,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 11.8750181
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0813579
+4.0846028
 </td>
 <td style="text-align:right;">
-7900.22781
+5845.50716
 </td>
 </tr>
 <tr>
@@ -6644,13 +6676,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 11.7513392
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0067795
+3.9839756
 </td>
 <td style="text-align:right;">
-7835.52403
+5782.76211
 </td>
 </tr>
 <tr>
@@ -6673,13 +6705,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 11.9273148
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1194292
+4.1305484
 </td>
 <td style="text-align:right;">
-7934.97332
+5875.54909
 </td>
 </tr>
 <tr>
@@ -6702,13 +6734,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 11.8660221
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1091678
+4.1216153
 </td>
 <td style="text-align:right;">
-7925.74508
+5869.58979
 </td>
 </tr>
 <tr>
@@ -6731,13 +6763,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 11.9321393
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1218562
+4.1336297
 </td>
 <td style="text-align:right;">
-7937.18326
+5877.54487
 </td>
 </tr>
 <tr>
@@ -6760,13 +6792,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 11.7962753
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.1050144
+4.0664929
 </td>
 <td style="text-align:right;">
-7918.22810
+5835.63064
 </td>
 </tr>
 <tr>
@@ -7079,13 +7111,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 21.4785697
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9328423
+7.0949089
 </td>
 <td style="text-align:right;">
-8471.87201
+6076.02692
 </td>
 </tr>
 <tr>
@@ -7108,13 +7140,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 20.0357327
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.6703535
+6.7923455
 </td>
 <td style="text-align:right;">
-8350.06882
+5989.55764
 </td>
 </tr>
 <tr>
@@ -7137,13 +7169,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 21.5396430
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9372618
+7.0989074
 </td>
 <td style="text-align:right;">
-8473.66199
+6077.71564
 </td>
 </tr>
 <tr>
@@ -7166,13 +7198,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 21.3780172
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9298631
+7.0916532
 </td>
 <td style="text-align:right;">
-8474.64540
+6078.77934
 </td>
 </tr>
 <tr>
@@ -7195,13 +7227,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 21.5915289
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9433335
+7.1046582
 </td>
 <td style="text-align:right;">
-8476.22577
+6079.91704
 </td>
 </tr>
 <tr>
@@ -7224,13 +7256,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 21.3936019
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9049907
+7.0629432
 </td>
 <td style="text-align:right;">
-8458.76110
+6066.68177
 </td>
 </tr>
 <tr>
@@ -7253,13 +7285,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 21.6017712
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9445294
+7.1058219
 </td>
 <td style="text-align:right;">
-8476.73224
+6080.35478
 </td>
 </tr>
 <tr>
@@ -7282,13 +7314,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 19.9845769
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.6789101
+6.8012673
 </td>
 <td style="text-align:right;">
-8349.65594
+5989.17351
 </td>
 </tr>
 <tr>
@@ -7311,13 +7343,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 21.5066688
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9470159
+7.1083703
 </td>
 <td style="text-align:right;">
-8477.67627
+6081.47444
 </td>
 </tr>
 <tr>
@@ -7340,13 +7372,13 @@ cstar_tref ~ temp + nitrate + silicate + phosphate_star
 21.3292212
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9104430
+7.0683191
 </td>
 <td style="text-align:right;">
-8456.98685
+6064.86153
 </td>
 </tr>
 <tr>
@@ -7659,13 +7691,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 25.2437937
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7502383
+5.8521036
 </td>
 <td style="text-align:right;">
-8738.38708
+6421.61328
 </td>
 </tr>
 <tr>
@@ -7688,13 +7720,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 17.7360743
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5174975
+5.5497487
 </td>
 <td style="text-align:right;">
-8595.47349
+6295.84669
 </td>
 </tr>
 <tr>
@@ -7717,13 +7749,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 15.1899916
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.7976852
+7.7642173
 </td>
 <td style="text-align:right;">
-9826.07478
+7138.63547
 </td>
 </tr>
 <tr>
@@ -7746,13 +7778,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 18.9892655
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.6854467
+7.6953589
 </td>
 <td style="text-align:right;">
-9776.30584
+7121.06131
 </td>
 </tr>
 <tr>
@@ -7775,13 +7807,13 @@ cstar_tref ~ sal + temp + nitrate + phosphate_star
 28.5432080
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4526840
+7.5757177
 </td>
 <td style="text-align:right;">
-9663.01144
+7060.92513
 </td>
 </tr>
 <tr>
@@ -7804,13 +7836,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 30.8676062
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4020580
+7.5595075
 </td>
 <td style="text-align:right;">
-9641.91322
+7058.77144
 </td>
 </tr>
 <tr>
@@ -7833,13 +7865,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 23.9821335
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.8414175
+5.9529871
 </td>
 <td style="text-align:right;">
-8786.51030
+6463.83497
 </td>
 </tr>
 <tr>
@@ -7862,13 +7894,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 17.7461268
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5237418
+5.5621178
 </td>
 <td style="text-align:right;">
-8596.00145
+6296.63140
 </td>
 </tr>
 <tr>
@@ -7891,13 +7923,13 @@ cstar_tref ~ temp + nitrate + phosphate_star
 28.0003328
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4767316
+7.5959771
 </td>
 <td style="text-align:right;">
-9670.71973
+7063.45066
 </td>
 </tr>
 <tr>
@@ -7920,13 +7952,13 @@ cstar_tref ~ temp + nitrate + silicate + phosphate_star
 28.3912596
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4204403
+7.5792506
 </td>
 <td style="text-align:right;">
-9645.73192
+7062.80203
 </td>
 </tr>
 <tr>
@@ -8239,13 +8271,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 0.7902700
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2939220
+0.2947145
 </td>
 <td style="text-align:right;">
--961.13902
+-709.61870
 </td>
 </tr>
 <tr>
@@ -8268,13 +8300,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 0.4907036
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2468317
+0.2424822
 </td>
 <td style="text-align:right;">
--1293.48446
+-995.03438
 </td>
 </tr>
 <tr>
@@ -8297,13 +8329,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 0.5285231
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2592127
+0.2529181
 </td>
 <td style="text-align:right;">
--1200.68081
+-924.41068
 </td>
 </tr>
 <tr>
@@ -8326,13 +8358,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 0.4975433
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2534330
+0.2489435
 </td>
 <td style="text-align:right;">
--1244.79394
+-954.43134
 </td>
 </tr>
 <tr>
@@ -8355,13 +8387,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 0.4337542
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2214956
+0.2191845
 </td>
 <td style="text-align:right;">
--1492.81218
+-1149.69994
 </td>
 </tr>
 <tr>
@@ -8384,13 +8416,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 0.5247470
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2617579
+0.2571811
 </td>
 <td style="text-align:right;">
--1184.46532
+-904.86340
 </td>
 </tr>
 <tr>
@@ -8413,13 +8445,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 0.5294332
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2606648
+0.2556436
 </td>
 <td style="text-align:right;">
--1193.20951
+-913.32385
 </td>
 </tr>
 <tr>
@@ -8442,13 +8474,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 0.5244465
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2617634
+0.2571879
 </td>
 <td style="text-align:right;">
--1184.67026
+-904.73104
 </td>
 </tr>
 <tr>
@@ -8471,13 +8503,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 0.5909933
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2680506
+0.2634238
 </td>
 <td style="text-align:right;">
--1141.81026
+-873.32426
 </td>
 </tr>
 <tr>
@@ -8500,13 +8532,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 0.4432560
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2261343
+0.2224495
 </td>
 <td style="text-align:right;">
--1456.74534
+-1129.74314
 </td>
 </tr>
 <tr>
@@ -8819,13 +8851,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 1.0501042
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3684614
+0.3722039
 </td>
 <td style="text-align:right;">
--715.55849
+-500.59346
 </td>
 </tr>
 <tr>
@@ -8848,13 +8880,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 0.5791654
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3077446
+0.3104792
 </td>
 <td style="text-align:right;">
--1189.96097
+-890.20978
 </td>
 </tr>
 <tr>
@@ -8877,13 +8909,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 0.6408946
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2729418
+0.2777767
 </td>
 <td style="text-align:right;">
--1513.36016
+-1110.93519
 </td>
 </tr>
 <tr>
@@ -8906,13 +8938,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 1.0241429
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3694422
+0.3730419
 </td>
 <td style="text-align:right;">
--708.62820
+-495.57451
 </td>
 </tr>
 <tr>
@@ -8935,13 +8967,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 1.1359055
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3666644
+0.3706494
 </td>
 <td style="text-align:right;">
--723.77237
+-506.55149
 </td>
 </tr>
 <tr>
@@ -8964,13 +8996,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 0.7660562
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3543540
+0.3579736
 </td>
 <td style="text-align:right;">
--822.99151
+-577.48354
 </td>
 </tr>
 <tr>
@@ -8993,13 +9025,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 1.0465318
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3374000
+0.3436372
 </td>
 <td style="text-align:right;">
--945.93043
+-689.65099
 </td>
 </tr>
 <tr>
@@ -9022,13 +9054,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 0.8462439
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3122188
+0.3192615
 </td>
 <td style="text-align:right;">
--1156.28445
+-828.02275
 </td>
 </tr>
 <tr>
@@ -9051,13 +9083,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 0.9720727
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3694722
+0.3728924
 </td>
 <td style="text-align:right;">
--708.25634
+-496.36393
 </td>
 </tr>
 <tr>
@@ -9080,13 +9112,13 @@ cstar_tref ~ temp + nitrate + silicate + phosphate_star
 0.8520184
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3639113
+0.3694275
 </td>
 <td style="text-align:right;">
--756.55335
+-518.03771
 </td>
 </tr>
 <tr>
@@ -9399,13 +9431,13 @@ cstar_tref ~ sal + aou + nitrate
 1.1215841
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4392854
+0.4359501
 </td>
 <td style="text-align:right;">
--478.37404
+-442.63452
 </td>
 </tr>
 <tr>
@@ -9428,13 +9460,13 @@ cstar_tref ~ sal + aou + nitrate + phosphate_star
 0.9301837
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4246922
+0.4224680
 </td>
 <td style="text-align:right;">
--648.50615
+-594.11215
 </td>
 </tr>
 <tr>
@@ -9457,13 +9489,13 @@ cstar_tref ~ sal + aou + nitrate + silicate
 1.1249630
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4323640
+0.4284054
 </td>
 <td style="text-align:right;">
--572.24706
+-499.43954
 </td>
 </tr>
 <tr>
@@ -9486,13 +9518,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 0.6793611
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3136259
+0.3174363
 </td>
 <td style="text-align:right;">
--2343.67973
+-1795.90872
 </td>
 </tr>
 <tr>
@@ -9515,13 +9547,13 @@ cstar_tref ~ sal + temp + aou + nitrate
 0.9672329
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4218819
+0.4196094
 </td>
 <td style="text-align:right;">
--681.89442
+-630.19803
 </td>
 </tr>
 <tr>
@@ -9544,13 +9576,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 0.9741278
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4214071
+0.4185027
 </td>
 <td style="text-align:right;">
--684.53994
+-635.02220
 </td>
 </tr>
 <tr>
@@ -9573,13 +9605,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 0.7410565
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3517228
+0.3545767
 </td>
 <td style="text-align:right;">
--1694.98985
+-1348.47948
 </td>
 </tr>
 <tr>
@@ -9602,13 +9634,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 0.6700864
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3118582
+0.3149127
 </td>
 <td style="text-align:right;">
--2370.55000
+-1825.27424
 </td>
 </tr>
 <tr>
@@ -9631,13 +9663,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 0.9733357
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4963905
+0.4947730
 </td>
 <td style="text-align:right;">
-218.96323
+69.78568
 </td>
 </tr>
 <tr>
@@ -9660,13 +9692,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 0.8011848
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4118498
+0.4179539
 </td>
 <td style="text-align:right;">
--832.12234
+-626.68058
 </td>
 </tr>
 <tr>
@@ -9979,13 +10011,13 @@ cstar_tref ~ sal + aou + nitrate
 1.3236913
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4770194
+0.4631979
 </td>
 <td style="text-align:right;">
-20.90002
+-203.00836
 </td>
 </tr>
 <tr>
@@ -10008,13 +10040,13 @@ cstar_tref ~ sal + aou + nitrate + phosphate_star
 0.7013582
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3907603
+0.3878546
 </td>
 <td style="text-align:right;">
--883.53202
+-841.18492
 </td>
 </tr>
 <tr>
@@ -10037,13 +10069,13 @@ cstar_tref ~ sal + aou + nitrate + silicate
 0.8314641
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4255621
+0.4196262
 </td>
 <td style="text-align:right;">
--495.75317
+-544.32228
 </td>
 </tr>
 <tr>
@@ -10066,13 +10098,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 0.7940144
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3817040
+0.3790100
 </td>
 <td style="text-align:right;">
--987.48419
+-934.42735
 </td>
 </tr>
 <tr>
@@ -10095,13 +10127,13 @@ cstar_tref ~ sal + temp + aou + nitrate
 0.8205860
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4323648
+0.4251965
 </td>
 <td style="text-align:right;">
--423.57692
+-543.65227
 </td>
 </tr>
 <tr>
@@ -10124,13 +10156,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 0.7844382
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3548537
+0.3478305
 </td>
 <td style="text-align:right;">
--1325.49576
+-1149.31754
 </td>
 </tr>
 <tr>
@@ -10153,13 +10185,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 0.8224647
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4175562
+0.4107978
 </td>
 <td style="text-align:right;">
--577.10867
+-628.45179
 </td>
 </tr>
 <tr>
@@ -10182,13 +10214,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 0.7869164
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3430181
+0.3344105
 </td>
 <td style="text-align:right;">
--1474.75371
+-1279.95905
 </td>
 </tr>
 <tr>
@@ -10211,13 +10243,13 @@ cstar_tref ~ temp + aou + nitrate + silicate
 1.0756693
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.5289749
+0.5192442
 </td>
 <td style="text-align:right;">
-467.53040
+29.44326
 </td>
 </tr>
 <tr>
@@ -10240,13 +10272,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 1.1010920
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.5263210
+0.5165246
 </td>
 <td style="text-align:right;">
-449.63897
+18.56391
 </td>
 </tr>
 <tr>
@@ -10559,13 +10591,13 @@ cstar_tref ~ sal + aou + phosphate + phosphate_star
 63.6717482
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.2888053
+12.1373040
 </td>
 <td style="text-align:right;">
-74698.08555
+54373.74457
 </td>
 </tr>
 <tr>
@@ -10588,13 +10620,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 61.6153894
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.0576870
+11.8775903
 </td>
 <td style="text-align:right;">
-74268.86729
+54015.91067
 </td>
 </tr>
 <tr>
@@ -10617,13 +10649,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 37.6186313
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-11.8564352
+11.8009434
 </td>
 <td style="text-align:right;">
-73885.19145
+53876.58921
 </td>
 </tr>
 <tr>
@@ -10646,42 +10678,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 32.4967238
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-11.5653900
+11.4574202
 </td>
 <td style="text-align:right;">
-73334.28878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + phosphate
-</td>
-<td style="text-align:right;">
-6.1882231
-</td>
-<td style="text-align:right;">
-31448.90610
-</td>
-<td style="text-align:right;">
-68.8278245
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.5120199
-</td>
-<td style="text-align:right;">
-75116.77578
+53379.67346
 </td>
 </tr>
 <tr>
@@ -10704,13 +10707,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 63.6051352
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.2881856
+12.1346279
 </td>
 <td style="text-align:right;">
-74700.75486
+54374.57118
 </td>
 </tr>
 <tr>
@@ -10733,13 +10736,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 66.8391133
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.2526122
+12.0861337
 </td>
 <td style="text-align:right;">
-74644.57419
+54301.85205
 </td>
 </tr>
 <tr>
@@ -10762,13 +10765,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 62.2394180
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.0567492
+11.8758738
 </td>
 <td style="text-align:right;">
-74271.32925
+54017.45025
 </td>
 </tr>
 <tr>
@@ -10791,13 +10794,42 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 67.2549537
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.3560071
+12.1933707
 </td>
 <td style="text-align:right;">
-74839.66227
+54448.86057
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+6.0605381
+</td>
+<td style="text-align:right;">
+31248.70862
+</td>
+<td style="text-align:right;">
+57.8052443
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.3667954
+</td>
+<td style="text-align:right;">
+54633.83570
 </td>
 </tr>
 <tr>
@@ -10820,13 +10852,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 67.3246057
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.3721924
+12.2101453
 </td>
 <td style="text-align:right;">
-74871.74001
+54470.45258
 </td>
 </tr>
 <tr>
@@ -11127,6 +11159,35 @@ Indo-Pacific
 (26,26.5]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ aou + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+4.4655227
+</td>
+<td style="text-align:right;">
+30401.34569
+</td>
+<td style="text-align:right;">
+43.9928445
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+8.8658217
+</td>
+<td style="text-align:right;">
+55207.76886
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26,26.5]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -11139,13 +11200,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 46.3858504
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.0556619
+8.0121917
 </td>
 <td style="text-align:right;">
-71150.29062
+53303.36509
 </td>
 </tr>
 <tr>
@@ -11168,13 +11229,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 46.3448501
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.8926054
+7.8619830
 </td>
 <td style="text-align:right;">
-70570.08882
+52966.40525
 </td>
 </tr>
 <tr>
@@ -11197,13 +11258,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 42.5143629
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.1586753
+8.1262513
 </td>
 <td style="text-align:right;">
-71460.73948
+53572.98980
 </td>
 </tr>
 <tr>
@@ -11226,13 +11287,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 45.8698653
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.0418397
+8.0013819
 </td>
 <td style="text-align:right;">
-71105.91716
+53282.82812
 </td>
 </tr>
 <tr>
@@ -11255,13 +11316,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 40.6595729
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.2926660
+8.2663867
 </td>
 <td style="text-align:right;">
-71872.49439
+53896.22543
 </td>
 </tr>
 <tr>
@@ -11284,13 +11345,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 40.4537398
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.3162290
+8.2898925
 </td>
 <td style="text-align:right;">
-71947.39965
+53949.04462
 </td>
 </tr>
 <tr>
@@ -11313,13 +11374,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 46.6769259
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.5261254
+8.4927975
 </td>
 <td style="text-align:right;">
-72572.96976
+54410.76258
 </td>
 </tr>
 <tr>
@@ -11342,13 +11403,13 @@ cstar_tref ~ temp + aou + silicate + phosphate
 42.2575595
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.8605844
+8.8220195
 </td>
 <td style="text-align:right;">
-73579.12893
+55116.19125
 </td>
 </tr>
 <tr>
@@ -11371,42 +11432,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 42.8462783
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.8576747
+8.8179489
 </td>
 <td style="text-align:right;">
-73576.22900
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26,26.5]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-4.4740845
-</td>
-<td style="text-align:right;">
-30421.31267
-</td>
-<td style="text-align:right;">
-40.7843471
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-8.9006410
-</td>
-<td style="text-align:right;">
-73688.74624
+55111.13316
 </td>
 </tr>
 <tr>
@@ -11719,13 +11751,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 28.2101771
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1315569
+7.1355924
 </td>
 <td style="text-align:right;">
-54988.37913
+41385.60323
 </td>
 </tr>
 <tr>
@@ -11748,13 +11780,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 38.4226522
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3016884
+7.3312050
 </td>
 <td style="text-align:right;">
-55490.65498
+41786.70485
 </td>
 </tr>
 <tr>
@@ -11777,13 +11809,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 38.3894751
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1490037
+7.1749079
 </td>
 <td style="text-align:right;">
-55066.49907
+41458.54819
 </td>
 </tr>
 <tr>
@@ -11806,13 +11838,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 33.4397204
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.5035596
+7.5078712
 </td>
 <td style="text-align:right;">
-56025.22903
+42167.94380
 </td>
 </tr>
 <tr>
@@ -11835,13 +11867,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 27.8737743
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4333368
+7.4577478
 </td>
 <td style="text-align:right;">
-55809.83291
+42069.98529
 </td>
 </tr>
 <tr>
@@ -11864,13 +11896,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 41.2318410
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0220297
+7.0228134
 </td>
 <td style="text-align:right;">
-54721.71760
+41124.96880
 </td>
 </tr>
 <tr>
@@ -11893,13 +11925,13 @@ cstar_tref ~ sal + temp + nitrate + phosphate_star
 34.9930279
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4714333
+7.4239378
 </td>
 <td style="text-align:right;">
-56018.83407
+41962.31546
 </td>
 </tr>
 <tr>
@@ -11922,13 +11954,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 32.8395079
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4210643
+7.3601322
 </td>
 <td style="text-align:right;">
-55899.77019
+41828.34583
 </td>
 </tr>
 <tr>
@@ -11951,13 +11983,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 38.6256274
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.5449621
+7.5783002
 </td>
 <td style="text-align:right;">
-56237.04675
+42253.84235
 </td>
 </tr>
 <tr>
@@ -11980,13 +12012,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 33.0480082
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3670459
+7.3385065
 </td>
 <td style="text-align:right;">
-55750.91244
+41774.76302
 </td>
 </tr>
 <tr>
@@ -12299,13 +12331,13 @@ cstar_tref ~ aou + phosphate + phosphate_star
 27.2326469
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.9050265
+8.0191509
 </td>
 <td style="text-align:right;">
-63202.68113
+47704.97725
 </td>
 </tr>
 <tr>
@@ -12328,13 +12360,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 27.1350375
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.9003176
+8.0143719
 </td>
 <td style="text-align:right;">
-63193.82241
+47698.68210
 </td>
 </tr>
 <tr>
@@ -12357,13 +12389,13 @@ cstar_tref ~ sal + aou + phosphate + phosphate_star
 18.6245607
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3276379
+7.4637122
 </td>
 <td style="text-align:right;">
-61416.09280
+46503.68743
 </td>
 </tr>
 <tr>
@@ -12386,13 +12418,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 18.6208614
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3272283
+7.4632634
 </td>
 <td style="text-align:right;">
-61418.62193
+46506.72080
 </td>
 </tr>
 <tr>
@@ -12403,25 +12435,25 @@ Indo-Pacific
 (26.75,27]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + phosphate
+cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
-4.2834965
+4.2896165
 </td>
 <td style="text-align:right;">
-27536.37663
+27554.05138
 </td>
 <td style="text-align:right;">
-27.1323949
+27.2499044
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.0043423
+8.1118216
 </td>
 <td style="text-align:right;">
-63447.61384
+47926.08560
 </td>
 </tr>
 <tr>
@@ -12444,13 +12476,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 24.5830579
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9492406
+7.0986946
 </td>
 <td style="text-align:right;">
-60248.40260
+45645.29576
 </td>
 </tr>
 <tr>
@@ -12473,13 +12505,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 27.1364912
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.0041201
+8.1237900
 </td>
 <td style="text-align:right;">
-63451.06070
+47943.17880
 </td>
 </tr>
 <tr>
@@ -12502,13 +12534,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 24.0093884
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.9370359
+7.0861338
 </td>
 <td style="text-align:right;">
-60211.86787
+45619.45357
 </td>
 </tr>
 <tr>
@@ -12531,13 +12563,13 @@ cstar_tref ~ temp + aou + phosphate + phosphate_star
 24.5846438
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0546464
+7.1992797
 </td>
 <td style="text-align:right;">
-60621.52274
+45871.35942
 </td>
 </tr>
 <tr>
@@ -12560,13 +12592,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 24.0504296
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0436802
+7.1879759
 </td>
 <td style="text-align:right;">
-60589.39130
+45848.98036
 </td>
 </tr>
 <tr>
@@ -12879,13 +12911,13 @@ cstar_tref ~ aou + phosphate + phosphate_star
 45.2579136
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.7627119
+8.0104156
 </td>
 <td style="text-align:right;">
-58507.48374
+44423.37304
 </td>
 </tr>
 <tr>
@@ -12908,13 +12940,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 39.0541340
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4838942
+7.6978243
 </td>
 <td style="text-align:right;">
-57689.52858
+43820.14653
 </td>
 </tr>
 <tr>
@@ -12937,13 +12969,13 @@ cstar_tref ~ sal + aou + phosphate + phosphate_star
 46.5044194
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.6619844
+7.9128528
 </td>
 <td style="text-align:right;">
-58221.61706
+44237.20570
 </td>
 </tr>
 <tr>
@@ -12966,13 +12998,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 40.3768785
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3985846
+7.6119347
 </td>
 <td style="text-align:right;">
-57439.86554
+43649.85936
 </td>
 </tr>
 <tr>
@@ -12995,13 +13027,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 47.4378796
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.8825172
+8.0734833
 </td>
 <td style="text-align:right;">
-58872.72527
+44561.75398
 </td>
 </tr>
 <tr>
@@ -13024,13 +13056,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 37.9748366
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.6978707
+6.8707231
 </td>
 <td style="text-align:right;">
-55293.03453
+42047.17616
 </td>
 </tr>
 <tr>
@@ -13053,13 +13085,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 24.2551336
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.9634170
+6.0979622
 </td>
 <td style="text-align:right;">
-52796.01465
+40180.52135
 </td>
 </tr>
 <tr>
@@ -13082,13 +13114,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 47.5865904
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.8828422
+8.0737648
 </td>
 <td style="text-align:right;">
-58869.62383
+44558.30640
 </td>
 </tr>
 <tr>
@@ -13111,13 +13143,13 @@ cstar_tref ~ temp + aou + phosphate + phosphate_star
 37.5062127
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.7221289
+6.8880713
 </td>
 <td style="text-align:right;">
-55380.42319
+42080.68589
 </td>
 </tr>
 <tr>
@@ -13140,13 +13172,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 24.4480725
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.9722600
+6.1045679
 </td>
 <td style="text-align:right;">
-52831.21842
+40192.42133
 </td>
 </tr>
 <tr>
@@ -13459,13 +13491,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 28.6100212
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7802065
+5.8031041
 </td>
 <td style="text-align:right;">
-43086.61295
+32252.53476
 </td>
 </tr>
 <tr>
@@ -13488,13 +13520,13 @@ cstar_tref ~ sal + aou + silicate + phosphate
 26.7766743
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7583349
+5.8215762
 </td>
 <td style="text-align:right;">
-42938.79047
+32294.70890
 </td>
 </tr>
 <tr>
@@ -13517,13 +13549,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 26.9112992
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7563615
+5.8150882
 </td>
 <td style="text-align:right;">
-42936.87911
+32284.69607
 </td>
 </tr>
 <tr>
@@ -13546,13 +13578,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 27.0632479
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5039218
+5.5525066
 </td>
 <td style="text-align:right;">
-42216.66973
+31684.77846
 </td>
 </tr>
 <tr>
@@ -13575,13 +13607,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 27.1610010
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7443344
+5.7990894
 </td>
 <td style="text-align:right;">
-42901.78859
+32249.26916
 </td>
 </tr>
 <tr>
@@ -13604,13 +13636,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 27.7746711
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.2151153
+5.2626708
 </td>
 <td style="text-align:right;">
-41273.06869
+30991.39428
 </td>
 </tr>
 <tr>
@@ -13633,13 +13665,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 27.1586158
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.8275481
+5.8826872
 </td>
 <td style="text-align:right;">
-43153.37449
+32434.39725
 </td>
 </tr>
 <tr>
@@ -13662,13 +13694,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 27.2271102
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.8110648
+5.8649151
 </td>
 <td style="text-align:right;">
-43105.92981
+32395.16007
 </td>
 </tr>
 <tr>
@@ -13691,13 +13723,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 28.2888528
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.6799270
+5.7420199
 </td>
 <td style="text-align:right;">
-42762.90476
+32113.38681
 </td>
 </tr>
 <tr>
@@ -13720,13 +13752,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 27.7977462
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.2254081
+5.2756422
 </td>
 <td style="text-align:right;">
-41303.90904
+31018.84074
 </td>
 </tr>
 <tr>
@@ -14039,13 +14071,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 13.1635983
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.3556412
+3.3436430
 </td>
 <td style="text-align:right;">
-29531.20038
+22009.56095
 </td>
 </tr>
 <tr>
@@ -14068,13 +14100,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 10.9147527
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4219417
+3.4142150
 </td>
 <td style="text-align:right;">
-29815.69546
+22248.14497
 </td>
 </tr>
 <tr>
@@ -14097,13 +14129,13 @@ cstar_tref ~ sal + aou + silicate + phosphate_star
 12.3209905
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4275005
+3.4251337
 </td>
 <td style="text-align:right;">
-29833.97714
+22279.66659
 </td>
 </tr>
 <tr>
@@ -14126,13 +14158,13 @@ cstar_tref ~ sal + silicate + phosphate + phosphate_star
 14.0415505
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4374951
+3.4310231
 </td>
 <td style="text-align:right;">
-29866.09369
+22302.13333
 </td>
 </tr>
 <tr>
@@ -14155,13 +14187,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 12.3645073
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.3506313
+3.3274661
 </td>
 <td style="text-align:right;">
-29508.26653
+21961.76364
 </td>
 </tr>
 <tr>
@@ -14184,13 +14216,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 10.8204906
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4178142
+3.4091880
 </td>
 <td style="text-align:right;">
-29801.66751
+22230.82884
 </td>
 </tr>
 <tr>
@@ -14213,13 +14245,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 12.1268568
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4115792
+3.4029301
 </td>
 <td style="text-align:right;">
-29783.34365
+22212.96206
 </td>
 </tr>
 <tr>
@@ -14242,13 +14274,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 10.8838701
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4210074
+3.4136752
 </td>
 <td style="text-align:right;">
-29812.48685
+22246.09525
 </td>
 </tr>
 <tr>
@@ -14271,13 +14303,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 10.8646626
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4200470
+3.4125187
 </td>
 <td style="text-align:right;">
-29809.05733
+22242.13879
 </td>
 </tr>
 <tr>
@@ -14300,13 +14332,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 16.2317498
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.5414946
+3.5235990
 </td>
 <td style="text-align:right;">
-30342.30893
+22607.40631
 </td>
 </tr>
 <tr>
@@ -14619,13 +14651,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 8.1506026
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.9300863
+3.0122519
 </td>
 <td style="text-align:right;">
-9790.78057
+7358.19173
 </td>
 </tr>
 <tr>
@@ -14648,13 +14680,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 7.4644161
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8577493
+2.9312434
 </td>
 <td style="text-align:right;">
-9655.41675
+7253.88128
 </td>
 </tr>
 <tr>
@@ -14677,13 +14709,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 7.4167109
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8739844
+2.9529661
 </td>
 <td style="text-align:right;">
-9688.22929
+7287.30667
 </td>
 </tr>
 <tr>
@@ -14706,13 +14738,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 8.0234164
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5182051
+2.4914721
 </td>
 <td style="text-align:right;">
-8963.01764
+6607.92120
 </td>
 </tr>
 <tr>
@@ -14735,13 +14767,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 7.5995048
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8825504
+2.9628667
 </td>
 <td style="text-align:right;">
-9701.39667
+7296.53024
 </td>
 </tr>
 <tr>
@@ -14764,13 +14796,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 6.7524250
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3563550
+2.3327912
 </td>
 <td style="text-align:right;">
-8593.40509
+6349.00283
 </td>
 </tr>
 <tr>
@@ -14793,13 +14825,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 7.5880131
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8751558
+2.9557696
 </td>
 <td style="text-align:right;">
-9685.89451
+7287.05599
 </td>
 </tr>
 <tr>
@@ -14822,13 +14854,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 7.5880199
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8771911
+2.9586160
 </td>
 <td style="text-align:right;">
-9689.35920
+7290.89851
 </td>
 </tr>
 <tr>
@@ -14851,13 +14883,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 7.8155276
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.9305381
+3.0144141
 </td>
 <td style="text-align:right;">
-9793.88413
+7365.13829
 </td>
 </tr>
 <tr>
@@ -14880,13 +14912,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 7.3678402
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7332530
+2.7747858
 </td>
 <td style="text-align:right;">
-9410.44136
+7036.34537
 </td>
 </tr>
 <tr>
@@ -15187,35 +15219,6 @@ Indo-Pacific
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1.2193224
-</td>
-<td style="text-align:right;">
-5465.31250
-</td>
-<td style="text-align:right;">
-16.7256404
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.4790549
-</td>
-<td style="text-align:right;">
-13228.25111
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -15228,13 +15231,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 19.2567263
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4510639
+2.3746294
 </td>
 <td style="text-align:right;">
-13153.77050
+9628.35520
 </td>
 </tr>
 <tr>
@@ -15257,13 +15260,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 18.8397797
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4642569
+2.3817948
 </td>
 <td style="text-align:right;">
-13191.93801
+9651.28626
 </td>
 </tr>
 <tr>
@@ -15286,13 +15289,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 14.7185210
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4606039
+2.3971550
 </td>
 <td style="text-align:right;">
-13150.54977
+9699.89736
 </td>
 </tr>
 <tr>
@@ -15315,13 +15318,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 17.7320057
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3948311
+2.3293163
 </td>
 <td style="text-align:right;">
-12947.52582
+9526.36410
 </td>
 </tr>
 <tr>
@@ -15344,13 +15347,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 13.7360023
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.2137868
+2.1693096
 </td>
 <td style="text-align:right;">
-12234.08383
+9113.41266
 </td>
 </tr>
 <tr>
@@ -15373,13 +15376,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 19.3998664
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4878015
+2.4029790
 </td>
 <td style="text-align:right;">
-13273.58422
+9702.17480
 </td>
 </tr>
 <tr>
@@ -15402,13 +15405,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 11.4215028
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.0022115
+1.9482429
 </td>
 <td style="text-align:right;">
-11403.33599
+8474.49458
 </td>
 </tr>
 <tr>
@@ -15431,13 +15434,42 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 19.5026523
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4871227
+2.4012891
 </td>
 <td style="text-align:right;">
-13272.58797
+9697.45918
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1.2081907
+</td>
+<td style="text-align:right;">
+5436.38672
+</td>
+<td style="text-align:right;">
+19.5549739
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.4026605
+</td>
+<td style="text-align:right;">
+9700.64497
 </td>
 </tr>
 <tr>
@@ -15460,13 +15492,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 17.6669688
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4491820
+2.3871488
 </td>
 <td style="text-align:right;">
-13120.64091
+9670.99189
 </td>
 </tr>
 <tr>
@@ -15779,13 +15811,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 3.9560681
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3289795
+1.3153134
 </td>
 <td style="text-align:right;">
-6935.88702
+5134.21947
 </td>
 </tr>
 <tr>
@@ -15808,13 +15840,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 4.1710038
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2051148
+1.1878445
 </td>
 <td style="text-align:right;">
-6283.90978
+4620.06859
 </td>
 </tr>
 <tr>
@@ -15837,13 +15869,42 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 3.2724212
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2065666
+1.1934552
 </td>
 <td style="text-align:right;">
-6296.00699
+4648.09030
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+0.7309031
+</td>
+<td style="text-align:right;">
+3096.03423
+</td>
+<td style="text-align:right;">
+3.1728331
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+1.3399905
+</td>
+<td style="text-align:right;">
+5233.26771
 </td>
 </tr>
 <tr>
@@ -15866,13 +15927,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 4.2518623
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2110227
+1.1938209
 </td>
 <td style="text-align:right;">
-6319.82467
+4645.62174
 </td>
 </tr>
 <tr>
@@ -15895,13 +15956,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 3.3729521
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.1324117
+1.1109249
 </td>
 <td style="text-align:right;">
-5842.77010
+4283.00860
 </td>
 </tr>
 <tr>
@@ -15924,13 +15985,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 4.3210777
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2155747
+1.1984336
 </td>
 <td style="text-align:right;">
-6346.92412
+4665.25059
 </td>
 </tr>
 <tr>
@@ -15953,13 +16014,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 6.4209659
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2504062
+1.2451558
 </td>
 <td style="text-align:right;">
-6489.74826
+4859.03370
 </td>
 </tr>
 <tr>
@@ -15982,42 +16043,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 4.3361019
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2165997
+1.1994730
 </td>
 <td style="text-align:right;">
-6353.10976
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-0.7614234
-</td>
-<td style="text-align:right;">
-3210.08750
-</td>
-<td style="text-align:right;">
-5.3927831
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-1.3594061
-</td>
-<td style="text-align:right;">
-7051.15927
+4669.66383
 </td>
 </tr>
 <tr>
@@ -16040,13 +16072,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 3.2635429
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.1545971
+1.1354198
 </td>
 <td style="text-align:right;">
-5984.08741
+4390.34673
 </td>
 </tr>
 <tr>
@@ -16359,13 +16391,13 @@ cstar_tref ~ sal + aou + silicate + phosphate
 2.7318673
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9969015
+1.0091189
 </td>
 <td style="text-align:right;">
-3529.51764
+2648.51052
 </td>
 </tr>
 <tr>
@@ -16388,13 +16420,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 2.6364793
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9388200
+0.9535640
 </td>
 <td style="text-align:right;">
-3239.02666
+2462.50816
 </td>
 </tr>
 <tr>
@@ -16417,13 +16449,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 2.4518222
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9304221
+0.9462788
 </td>
 <td style="text-align:right;">
-3199.19327
+2438.93627
 </td>
 </tr>
 <tr>
@@ -16446,13 +16478,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 2.6371565
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9394401
+0.9541158
 </td>
 <td style="text-align:right;">
-3242.21403
+2464.67780
 </td>
 </tr>
 <tr>
@@ -16475,13 +16507,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 2.6431817
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9285646
+0.9443276
 </td>
 <td style="text-align:right;">
-3191.24463
+2426.19280
 </td>
 </tr>
 <tr>
@@ -16504,13 +16536,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 2.6369902
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9401153
+0.9547499
 </td>
 <td style="text-align:right;">
-3245.62589
+2467.30592
 </td>
 </tr>
 <tr>
@@ -16533,13 +16565,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 2.3846430
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9327812
+0.9500639
 </td>
 <td style="text-align:right;">
-3207.61348
+2447.67801
 </td>
 </tr>
 <tr>
@@ -16562,13 +16594,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 2.6371940
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9402612
+0.9548881
 </td>
 <td style="text-align:right;">
-3246.36650
+2467.86704
 </td>
 </tr>
 <tr>
@@ -16591,13 +16623,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 2.6643580
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.0467547
+1.0661762
 </td>
 <td style="text-align:right;">
-3746.73761
+2902.73303
 </td>
 </tr>
 <tr>
@@ -16620,13 +16652,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 2.6431615
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9288759
+0.9444950
 </td>
 <td style="text-align:right;">
-3188.85100
+2423.00487
 </td>
 </tr>
 <tr>
@@ -16939,13 +16971,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 5.0006758
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5417586
+1.5350631
 </td>
 <td style="text-align:right;">
-52052.91597
+38401.93468
 </td>
 </tr>
 <tr>
@@ -16968,13 +17000,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 3.0025228
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2976742
+1.2917739
 </td>
 <td style="text-align:right;">
-44262.34529
+32697.78236
 </td>
 </tr>
 <tr>
@@ -16997,13 +17029,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 4.9706034
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5393592
+1.5326803
 </td>
 <td style="text-align:right;">
-51978.69059
+38352.28037
 </td>
 </tr>
 <tr>
@@ -17026,13 +17058,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 4.8225777
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5276156
+1.5213866
 </td>
 <td style="text-align:right;">
-51596.98500
+38128.09995
 </td>
 </tr>
 <tr>
@@ -17055,13 +17087,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 4.9531272
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5378132
+1.5311587
 </td>
 <td style="text-align:right;">
-51930.19888
+38320.77927
 </td>
 </tr>
 <tr>
@@ -17084,13 +17116,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 4.0099928
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.4768563
+1.4694169
 </td>
 <td style="text-align:right;">
-50111.49376
+36956.98145
 </td>
 </tr>
 <tr>
@@ -17113,13 +17145,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 4.9516171
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5377317
+1.5310761
 </td>
 <td style="text-align:right;">
-51927.65905
+38319.06284
 </td>
 </tr>
 <tr>
@@ -17142,13 +17174,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 5.6762721
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5820452
+1.5771322
 </td>
 <td style="text-align:right;">
-53178.40515
+39304.76044
 </td>
 </tr>
 <tr>
@@ -17171,13 +17203,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 2.8440875
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3265778
+1.3202599
 </td>
 <td style="text-align:right;">
-45288.18951
+33401.64829
 </td>
 </tr>
 <tr>
@@ -17200,13 +17232,13 @@ cstar_tref ~ temp + nitrate + silicate + phosphate_star
 3.4859853
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.5652780
+1.5556920
 </td>
 <td style="text-align:right;">
-52753.65966
+38836.36844
 </td>
 </tr>
 <tr>
@@ -17519,13 +17551,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 2.6060622
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.9721331
+1.6648504
 </td>
 <td style="text-align:right;">
-611.73023
+403.45870
 </td>
 </tr>
 <tr>
@@ -17548,13 +17580,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 2.4652078
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.9585303
+1.6472368
 </td>
 <td style="text-align:right;">
-612.89038
+404.10584
 </td>
 </tr>
 <tr>
@@ -17577,13 +17609,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 9.3078108
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.3158898
+5.5470918
 </td>
 <td style="text-align:right;">
-1016.22642
+761.41699
 </td>
 </tr>
 <tr>
@@ -17606,13 +17638,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 9.2764548
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.2973284
+5.5338213
 </td>
 <td style="text-align:right;">
-1018.54041
+764.82975
 </td>
 </tr>
 <tr>
@@ -17635,13 +17667,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 9.3373055
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.3124869
+5.5442721
 </td>
 <td style="text-align:right;">
-1015.84732
+761.35420
 </td>
 </tr>
 <tr>
@@ -17664,13 +17696,13 @@ cstar_tref ~ sal + temp + nitrate + phosphate_star
 9.9204795
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.3163106
+5.5178463
 </td>
 <td style="text-align:right;">
-1009.82466
+757.94615
 </td>
 </tr>
 <tr>
@@ -17693,13 +17725,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 8.5032897
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.7308847
+4.8385740
 </td>
 <td style="text-align:right;">
-968.20551
+721.49642
 </td>
 </tr>
 <tr>
@@ -17722,13 +17754,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 9.3383371
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.3122515
+5.5440298
 </td>
 <td style="text-align:right;">
-1015.81374
+761.35409
 </td>
 </tr>
 <tr>
@@ -17751,13 +17783,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 3.8656132
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4807280
+2.1213154
 </td>
 <td style="text-align:right;">
-702.74616
+470.97532
 </td>
 </tr>
 <tr>
@@ -17780,13 +17812,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 3.2656959
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3298830
+2.0334267
 </td>
 <td style="text-align:right;">
-680.66864
+462.22339
 </td>
 </tr>
 <tr>
@@ -18099,13 +18131,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 5.2576592
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7493545
+3.3459220
 </td>
 <td style="text-align:right;">
-2782.84109
+1969.33814
 </td>
 </tr>
 <tr>
@@ -18128,13 +18160,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 4.6966325
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6796680
+3.2995712
 </td>
 <td style="text-align:right;">
-2761.49438
+1957.27253
 </td>
 </tr>
 <tr>
@@ -18157,13 +18189,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 8.7412484
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7363290
+5.6910448
 </td>
 <td style="text-align:right;">
-3352.81661
+2500.26675
 </td>
 </tr>
 <tr>
@@ -18186,13 +18218,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 8.5307956
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.6327530
+5.5538229
 </td>
 <td style="text-align:right;">
-3332.27878
+2481.41511
 </td>
 </tr>
 <tr>
@@ -18215,13 +18247,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 8.6598730
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.9741770
+5.8832371
 </td>
 <td style="text-align:right;">
-3406.78533
+2537.41215
 </td>
 </tr>
 <tr>
@@ -18244,13 +18276,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 7.7024197
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.4590547
+5.3896925
 </td>
 <td style="text-align:right;">
-3283.60712
+2453.96702
 </td>
 </tr>
 <tr>
@@ -18273,42 +18305,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 8.5693521
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.9729585
+5.8818648
 </td>
 <td style="text-align:right;">
-3406.45332
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-2.8263484
-</td>
-<td style="text-align:right;">
-1481.83861
-</td>
-<td style="text-align:right;">
-8.3224184
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-5.9878409
-</td>
-<td style="text-align:right;">
-3405.90577
+2537.36986
 </td>
 </tr>
 <tr>
@@ -18331,13 +18334,13 @@ cstar_tref ~ temp + aou + nitrate + phosphate_star
 5.1593677
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.4015039
+3.8768918
 </td>
 <td style="text-align:right;">
-2993.86921
+2115.64456
 </td>
 </tr>
 <tr>
@@ -18360,13 +18363,42 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 5.1157827
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.3836051
+3.8552455
 </td>
 <td style="text-align:right;">
-2992.51545
+2114.91160
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2.8670616
+</td>
+<td style="text-align:right;">
+1492.39126
+</td>
+<td style="text-align:right;">
+9.3717820
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+5.8827774
+</td>
+<td style="text-align:right;">
+2540.72933
 </td>
 </tr>
 <tr>
@@ -18679,13 +18711,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 18.1887041
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.2276333
+5.2199122
 </td>
 <td style="text-align:right;">
-12244.14208
+9067.81376
 </td>
 </tr>
 <tr>
@@ -18708,13 +18740,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 14.1072854
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.9232103
+4.8960398
 </td>
 <td style="text-align:right;">
-11959.72154
+8803.79843
 </td>
 </tr>
 <tr>
@@ -18737,13 +18769,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 14.6423326
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.7776797
+4.5911927
 </td>
 <td style="text-align:right;">
-11793.63993
+8591.43056
 </td>
 </tr>
 <tr>
@@ -18766,13 +18798,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 9.8669736
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.4779427
+4.2219903
 </td>
 <td style="text-align:right;">
-11483.81102
+8257.21472
 </td>
 </tr>
 <tr>
@@ -18795,13 +18827,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 9.9669921
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5316908
+5.3364717
 </td>
 <td style="text-align:right;">
-12549.69664
+9155.48937
 </td>
 </tr>
 <tr>
@@ -18824,13 +18856,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 10.1228377
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.4901533
+5.3026450
 </td>
 <td style="text-align:right;">
-12514.72846
+9124.84301
 </td>
 </tr>
 <tr>
@@ -18853,13 +18885,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 10.0278785
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5381031
+5.3420337
 </td>
 <td style="text-align:right;">
-12555.96864
+9159.05688
 </td>
 </tr>
 <tr>
@@ -18870,25 +18902,25 @@ SO
 (26.75,27]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
+cstar_tref ~ sal + temp + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
-2.7425077
+2.6552763
 </td>
 <td style="text-align:right;">
-5408.59663
+5334.77269
 </td>
 <td style="text-align:right;">
-18.9403249
+10.0439300
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.5263948
+5.3500299
 </td>
 <td style="text-align:right;">
-12526.22035
+9159.78076
 </td>
 </tr>
 <tr>
@@ -18911,13 +18943,13 @@ cstar_tref ~ temp + aou + phosphate + phosphate_star
 15.2189301
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.8271697
+4.6377719
 </td>
 <td style="text-align:right;">
-11840.72954
+8628.05968
 </td>
 </tr>
 <tr>
@@ -18940,13 +18972,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 13.0686049
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.7067997
+4.4756671
 </td>
 <td style="text-align:right;">
-11724.40025
+8491.07676
 </td>
 </tr>
 <tr>
@@ -19259,13 +19291,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 6.7854438
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6432066
+3.6358191
 </td>
 <td style="text-align:right;">
-23182.61239
+17387.20446
 </td>
 </tr>
 <tr>
@@ -19288,13 +19320,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 8.2373927
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7123495
+3.7331747
 </td>
 <td style="text-align:right;">
-23303.64196
+17638.67546
 </td>
 </tr>
 <tr>
@@ -19317,13 +19349,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 6.7641916
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7713471
+3.7397323
 </td>
 <td style="text-align:right;">
-23586.35482
+17626.06022
 </td>
 </tr>
 <tr>
@@ -19346,13 +19378,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 5.7237378
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.2939436
+3.2765017
 </td>
 <td style="text-align:right;">
-22027.71249
+16494.53845
 </td>
 </tr>
 <tr>
@@ -19375,13 +19407,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 6.8073064
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6701764
+3.6415997
 </td>
 <td style="text-align:right;">
-23274.70777
+17396.54665
 </td>
 </tr>
 <tr>
@@ -19404,13 +19436,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 6.6680866
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6824822
+3.6508409
 </td>
 <td style="text-align:right;">
-23314.34534
+17418.48530
 </td>
 </tr>
 <tr>
@@ -19433,13 +19465,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 6.7371147
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6758003
+3.6474975
 </td>
 <td style="text-align:right;">
-23291.74919
+17410.66239
 </td>
 </tr>
 <tr>
@@ -19462,13 +19494,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 6.0086081
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7006350
+3.6752885
 </td>
 <td style="text-align:right;">
-23361.26007
+17473.09090
 </td>
 </tr>
 <tr>
@@ -19491,13 +19523,13 @@ cstar_tref ~ temp + aou + phosphate + phosphate_star
 8.3941179
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7451662
+3.7594879
 </td>
 <td style="text-align:right;">
-23421.60974
+17690.11435
 </td>
 </tr>
 <tr>
@@ -19520,13 +19552,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 9.0621948
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6067463
+3.6078150
 </td>
 <td style="text-align:right;">
-23049.96656
+17320.93070
 </td>
 </tr>
 <tr>
@@ -19839,13 +19871,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 7.6146459
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8227098
+2.8521600
 </td>
 <td style="text-align:right;">
-22502.92805
+17026.27866
 </td>
 </tr>
 <tr>
@@ -19868,13 +19900,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 7.2977753
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8041864
+2.8256672
 </td>
 <td style="text-align:right;">
-22437.74867
+16940.69754
 </td>
 </tr>
 <tr>
@@ -19897,42 +19929,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 8.0312332
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8350934
+2.8693927
 </td>
 <td style="text-align:right;">
-22546.22237
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(27.25,27.5]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + phosphate_star
-</td>
-<td style="text-align:right;">
-1.5731181
-</td>
-<td style="text-align:right;">
-10113.30250
-</td>
-<td style="text-align:right;">
-7.9703774
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.8384289
-</td>
-<td style="text-align:right;">
-22558.69286
+17084.41298
 </td>
 </tr>
 <tr>
@@ -19955,13 +19958,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 7.7612871
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8297941
+2.8618723
 </td>
 <td style="text-align:right;">
-22530.94298
+17063.19333
 </td>
 </tr>
 <tr>
@@ -19984,13 +19987,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 7.7039666
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8335663
+2.8658361
 </td>
 <td style="text-align:right;">
-22545.05013
+17072.28906
 </td>
 </tr>
 <tr>
@@ -20013,13 +20016,13 @@ cstar_tref ~ sal + temp + nitrate + phosphate_star
 7.6161563
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8238092
+2.8523287
 </td>
 <td style="text-align:right;">
-22505.06058
+17022.86119
 </td>
 </tr>
 <tr>
@@ -20042,13 +20045,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 7.3737885
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8078521
+2.8323754
 </td>
 <td style="text-align:right;">
-22446.55777
+16959.31886
 </td>
 </tr>
 <tr>
@@ -20071,13 +20074,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 7.6683662
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8365771
+2.8689753
 </td>
 <td style="text-align:right;">
-22558.54779
+17082.74171
 </td>
 </tr>
 <tr>
@@ -20100,13 +20103,42 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 8.2059371
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8390614
+2.8648659
 </td>
 <td style="text-align:right;">
-22566.50612
+17070.22683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(27.25,27.5]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1.5764211
+</td>
+<td style="text-align:right;">
+10124.62020
+</td>
+<td style="text-align:right;">
+8.3637115
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.8682449
+</td>
+<td style="text-align:right;">
+17077.79353
 </td>
 </tr>
 <tr>
@@ -20419,13 +20451,42 @@ cstar_tref ~ aou + nitrate + silicate + phosphate_star
 8.4553819
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5692864
+2.5621749
 </td>
 <td style="text-align:right;">
-24083.07211
+18116.91940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + aou + nitrate + silicate
+</td>
+<td style="text-align:right;">
+1.3848221
+</td>
+<td style="text-align:right;">
+10827.96336
+</td>
+<td style="text-align:right;">
+8.2482321
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.5768247
+</td>
+<td style="text-align:right;">
+18171.81141
 </td>
 </tr>
 <tr>
@@ -20448,13 +20509,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 8.3336217
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5606188
+2.5534634
 </td>
 <td style="text-align:right;">
-24048.17931
+18081.93278
 </td>
 </tr>
 <tr>
@@ -20477,13 +20538,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 8.4949881
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5822415
+2.5973115
 </td>
 <td style="text-align:right;">
-24152.59858
+18262.79906
 </td>
 </tr>
 <tr>
@@ -20506,13 +20567,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 8.3250832
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5577963
+2.5639011
 </td>
 <td style="text-align:right;">
-24018.60715
+18124.84714
 </td>
 </tr>
 <tr>
@@ -20535,42 +20596,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 8.2106823
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5506593
+2.5486341
 </td>
 <td style="text-align:right;">
-23990.27278
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1.3979734
-</td>
-<td style="text-align:right;">
-10888.56542
-</td>
-<td style="text-align:right;">
-8.4679060
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.5813589
-</td>
-<td style="text-align:right;">
-24147.14643
+18065.06243
 </td>
 </tr>
 <tr>
@@ -20593,13 +20625,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 8.4706640
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5766395
+2.5918950
 </td>
 <td style="text-align:right;">
-24129.88036
+18243.05373
 </td>
 </tr>
 <tr>
@@ -20622,13 +20654,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 8.3644226
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5785826
+2.5966825
 </td>
 <td style="text-align:right;">
-24132.33627
+18259.10623
 </td>
 </tr>
 <tr>
@@ -20651,13 +20683,13 @@ cstar_tref ~ temp + aou + nitrate + silicate
 8.5032310
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5758302
+2.5840990
 </td>
 <td style="text-align:right;">
-24096.75487
+18209.19871
 </td>
 </tr>
 <tr>
@@ -20680,13 +20712,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 8.2320874
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5552680
+2.5525786
 </td>
 <td style="text-align:right;">
-24008.96012
+18078.75657
 </td>
 </tr>
 <tr>
@@ -20999,13 +21031,13 @@ cstar_tref ~ aou + nitrate + silicate + phosphate_star
 7.4720113
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5738546
+2.5559650
 </td>
 <td style="text-align:right;">
-9792.29094
+7186.19669
 </td>
 </tr>
 <tr>
@@ -21028,13 +21060,13 @@ cstar_tref ~ aou + silicate + phosphate + phosphate_star
 7.7447183
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6238920
+2.6267925
 </td>
 <td style="text-align:right;">
-9905.75740
+7298.42319
 </td>
 </tr>
 <tr>
@@ -21057,13 +21089,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 7.4691884
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5561272
+2.5355244
 </td>
 <td style="text-align:right;">
-9749.22708
+7159.98372
 </td>
 </tr>
 <tr>
@@ -21086,13 +21118,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 7.7289701
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6161669
+2.6180125
 </td>
 <td style="text-align:right;">
-9890.92014
+7289.24779
 </td>
 </tr>
 <tr>
@@ -21115,13 +21147,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 7.5739257
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5963220
+2.5949321
 </td>
 <td style="text-align:right;">
-9844.90634
+7252.80200
 </td>
 </tr>
 <tr>
@@ -21144,13 +21176,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 7.2864267
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5354268
+2.4921128
 </td>
 <td style="text-align:right;">
-9710.62013
+7092.01199
 </td>
 </tr>
 <tr>
@@ -21173,13 +21205,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 7.7718107
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5873962
+2.5767615
 </td>
 <td style="text-align:right;">
-9819.79907
+7233.53593
 </td>
 </tr>
 <tr>
@@ -21202,13 +21234,13 @@ cstar_tref ~ temp + aou + nitrate + silicate
 7.6079330
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6057711
+2.6032403
 </td>
 <td style="text-align:right;">
-9862.31849
+7262.70236
 </td>
 </tr>
 <tr>
@@ -21231,13 +21263,13 @@ cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
 7.2918835
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5567466
+2.5287804
 </td>
 <td style="text-align:right;">
-9763.40363
+7142.87771
 </td>
 </tr>
 <tr>
@@ -21260,13 +21292,13 @@ cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 7.7933797
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.6057513
+2.6020570
 </td>
 <td style="text-align:right;">
-9863.94923
+7266.35390
 </td>
 </tr>
 <tr>
@@ -21579,13 +21611,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 7.5576967
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.0970100
+2.9862536
 </td>
 <td style="text-align:right;">
-11927.33810
+8477.47420
 </td>
 </tr>
 <tr>
@@ -21608,13 +21640,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 7.5123044
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1201037
+3.0426772
 </td>
 <td style="text-align:right;">
-11970.37847
+8560.79500
 </td>
 </tr>
 <tr>
@@ -21637,13 +21669,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 7.6455595
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1508161
+3.0775929
 </td>
 <td style="text-align:right;">
-12031.54996
+8613.51149
 </td>
 </tr>
 <tr>
@@ -21666,13 +21698,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 7.6654953
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.0837335
+2.9562405
 </td>
 <td style="text-align:right;">
-11908.85844
+8435.33837
 </td>
 </tr>
 <tr>
@@ -21695,13 +21727,13 @@ cstar_tref ~ sal + temp + aou + silicate
 7.5639033
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1603237
+3.0843352
 </td>
 <td style="text-align:right;">
-12045.94858
+8620.37736
 </td>
 </tr>
 <tr>
@@ -21724,13 +21756,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 7.7302752
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1436234
+3.0687928
 </td>
 <td style="text-align:right;">
-12021.18508
+8598.85621
 </td>
 </tr>
 <tr>
@@ -21753,13 +21785,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 7.9374816
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.9834123
+2.8731042
 </td>
 <td style="text-align:right;">
-11670.55281
+8309.62504
 </td>
 </tr>
 <tr>
@@ -21782,13 +21814,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 7.7067434
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1411541
+3.0641981
 </td>
 <td style="text-align:right;">
-12017.88550
+8591.56247
 </td>
 </tr>
 <tr>
@@ -21799,25 +21831,25 @@ SO
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
+cstar_tref ~ sal + temp + silicate + phosphate
 </td>
 <td style="text-align:right;">
-1.5862356
+1.5790099
 </td>
 <td style="text-align:right;">
-4932.87059
+4918.92685
 </td>
 <td style="text-align:right;">
-7.7450668
+7.6468512
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1590746
+3.0816754
 </td>
 <td style="text-align:right;">
-12052.30219
+8612.50376
 </td>
 </tr>
 <tr>
@@ -21840,13 +21872,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 7.7425597
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1469104
+3.0705038
 </td>
 <td style="text-align:right;">
-12029.57322
+8600.99637
 </td>
 </tr>
 <tr>
@@ -22159,13 +22191,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 10.1460148
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1430583
+3.1386339
 </td>
 <td style="text-align:right;">
-14913.56907
+11476.45117
 </td>
 </tr>
 <tr>
@@ -22188,13 +22220,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 10.4295953
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1337905
+3.1369517
 </td>
 <td style="text-align:right;">
-14887.20117
+11473.34263
 </td>
 </tr>
 <tr>
@@ -22217,13 +22249,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 10.5314316
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1719393
+3.1797270
 </td>
 <td style="text-align:right;">
-14983.69668
+11554.92345
 </td>
 </tr>
 <tr>
@@ -22246,13 +22278,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 10.1847997
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1409389
+3.1383989
 </td>
 <td style="text-align:right;">
-14911.60600
+11479.95364
 </td>
 </tr>
 <tr>
@@ -22275,13 +22307,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 9.7831608
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1521079
+3.1692821
 </td>
 <td style="text-align:right;">
-14916.22174
+11544.16142
 </td>
 </tr>
 <tr>
@@ -22304,13 +22336,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 10.3999175
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1619905
+3.1654407
 </td>
 <td style="text-align:right;">
-14960.02010
+11527.48550
 </td>
 </tr>
 <tr>
@@ -22333,13 +22365,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 10.5933192
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.9374284
+2.9117809
 </td>
 <td style="text-align:right;">
-14361.02607
+11038.40685
 </td>
 </tr>
 <tr>
@@ -22362,13 +22394,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 10.4086254
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1504584
+3.1522875
 </td>
 <td style="text-align:right;">
-14930.29543
+11502.89259
 </td>
 </tr>
 <tr>
@@ -22391,13 +22423,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 10.4029230
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1583743
+3.1628315
 </td>
 <td style="text-align:right;">
-14950.38759
+11522.56982
 </td>
 </tr>
 <tr>
@@ -22420,13 +22452,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 10.3817663
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1557502
+3.1582859
 </td>
 <td style="text-align:right;">
-14944.20287
+11513.93999
 </td>
 </tr>
 <tr>
@@ -22727,35 +22759,6 @@ SO
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1.3438859
-</td>
-<td style="text-align:right;">
-3393.00166
-</td>
-<td style="text-align:right;">
-8.7431536
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.5698940
-</td>
-<td style="text-align:right;">
-7714.89798
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -22768,13 +22771,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 8.8474142
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5421243
+2.5006816
 </td>
 <td style="text-align:right;">
-7660.15364
+5793.00747
 </td>
 </tr>
 <tr>
@@ -22797,13 +22800,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 8.8330092
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5728268
+2.5334442
 </td>
 <td style="text-align:right;">
-7718.21876
+5837.74430
 </td>
 </tr>
 <tr>
@@ -22826,13 +22829,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 8.8090393
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5634430
+2.5202893
 </td>
 <td style="text-align:right;">
-7701.74580
+5824.64315
 </td>
 </tr>
 <tr>
@@ -22855,13 +22858,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 8.5951579
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3760479
+2.3525401
 </td>
 <td style="text-align:right;">
-7337.81143
+5580.11664
 </td>
 </tr>
 <tr>
@@ -22884,13 +22887,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 8.8341457
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5704220
+2.5290041
 </td>
 <td style="text-align:right;">
-7713.09485
+5831.97052
 </td>
 </tr>
 <tr>
@@ -22913,13 +22916,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 8.8179078
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3100525
+2.2662508
 </td>
 <td style="text-align:right;">
-7193.31986
+5457.25361
 </td>
 </tr>
 <tr>
@@ -22942,13 +22945,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 8.8432786
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5685779
+2.5259590
 </td>
 <td style="text-align:right;">
-7708.91512
+5828.04951
 </td>
 </tr>
 <tr>
@@ -22971,13 +22974,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 8.7877315
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5704359
+2.5282572
 </td>
 <td style="text-align:right;">
-7713.00954
+5831.02709
 </td>
 </tr>
 <tr>
@@ -23000,13 +23003,42 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 8.8259138
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5682610
+2.5258391
 </td>
 <td style="text-align:right;">
-7709.17509
+5827.68749
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1.3625400
+</td>
+<td style="text-align:right;">
+3420.18621
+</td>
+<td style="text-align:right;">
+9.0816684
+</td>
+<td style="text-align:left;">
+1990-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.5408523
+</td>
+<td style="text-align:right;">
+5844.71130
 </td>
 </tr>
 <tr>
@@ -23319,13 +23351,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 11.9375596
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5548845
+2.5999182
 </td>
 <td style="text-align:right;">
-44647.68070
+33935.05310
 </td>
 </tr>
 <tr>
@@ -23348,13 +23380,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 16.2130353
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5386331
+2.5782368
 </td>
 <td style="text-align:right;">
-44464.86029
+33770.74610
 </td>
 </tr>
 <tr>
@@ -23377,13 +23409,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 11.3375927
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5414698
+2.5846656
 </td>
 <td style="text-align:right;">
-44524.51141
+33814.54524
 </td>
 </tr>
 <tr>
@@ -23406,13 +23438,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 13.0115833
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.4739503
+2.5161177
 </td>
 <td style="text-align:right;">
-43767.78116
+33283.51587
 </td>
 </tr>
 <tr>
@@ -23435,13 +23467,13 @@ cstar_tref ~ sal + temp + aou + silicate
 14.1837958
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5670731
+2.6126673
 </td>
 <td style="text-align:right;">
-44741.87158
+34033.72019
 </td>
 </tr>
 <tr>
@@ -23464,13 +23496,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 11.9392595
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5548278
+2.5998737
 </td>
 <td style="text-align:right;">
-44646.59466
+33934.77876
 </td>
 </tr>
 <tr>
@@ -23493,13 +23525,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 11.9334460
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5543901
+2.5995344
 </td>
 <td style="text-align:right;">
-44645.15958
+33936.23026
 </td>
 </tr>
 <tr>
@@ -23522,13 +23554,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 11.9374306
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5548142
+2.5998642
 </td>
 <td style="text-align:right;">
-44646.49508
+33934.69638
 </td>
 </tr>
 <tr>
@@ -23551,13 +23583,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 11.9980032
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5210907
+2.5657694
 </td>
 <td style="text-align:right;">
-44281.88006
+33670.16881
 </td>
 </tr>
 <tr>
@@ -23580,13 +23612,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 11.9386896
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5547899
+2.5998503
 </td>
 <td style="text-align:right;">
-44645.96619
+33934.62592
 </td>
 </tr>
 <tr>
@@ -23899,13 +23931,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 3.9003989
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2560218
+1.1962844
 </td>
 <td style="text-align:right;">
-1703.11610
+1230.97499
 </td>
 </tr>
 <tr>
@@ -23928,13 +23960,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 3.9032738
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2805809
+1.2210167
 </td>
 <td style="text-align:right;">
-1737.24570
+1257.49237
 </td>
 </tr>
 <tr>
@@ -23957,13 +23989,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 3.9106052
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2460146
+1.1930069
 </td>
 <td style="text-align:right;">
-1689.93813
+1234.28617
 </td>
 </tr>
 <tr>
@@ -23986,13 +24018,13 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 3.0423706
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.1114802
+1.0830298
 </td>
 <td style="text-align:right;">
-1485.78274
+1098.53429
 </td>
 </tr>
 <tr>
@@ -24015,13 +24047,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 3.9353435
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2775375
+1.2191071
 </td>
 <td style="text-align:right;">
-1732.59774
+1255.95653
 </td>
 </tr>
 <tr>
@@ -24044,13 +24076,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 3.0195497
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.0059634
+0.9560293
 </td>
 <td style="text-align:right;">
-1319.88766
+935.80213
 </td>
 </tr>
 <tr>
@@ -24073,13 +24105,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 3.9251369
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2780864
+1.2195258
 </td>
 <td style="text-align:right;">
-1733.43984
+1256.29877
 </td>
 </tr>
 <tr>
@@ -24102,13 +24134,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 3.9128101
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2793316
+1.2209606
 </td>
 <td style="text-align:right;">
-1735.24001
+1257.66926
 </td>
 </tr>
 <tr>
@@ -24131,13 +24163,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 3.9302967
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2776691
+1.2190454
 </td>
 <td style="text-align:right;">
-1732.85534
+1255.81081
 </td>
 </tr>
 <tr>
@@ -24160,13 +24192,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 3.9006094
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2796034
+1.2217845
 </td>
 <td style="text-align:right;">
-1731.62729
+1254.43483
 </td>
 </tr>
 <tr>
@@ -24479,13 +24511,13 @@ cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 1.9731125
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7756295
+0.6597639
 </td>
 <td style="text-align:right;">
-1058.56619
+543.54104
 </td>
 </tr>
 <tr>
@@ -24508,13 +24540,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 1.7616736
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7920706
+0.6620139
 </td>
 <td style="text-align:right;">
-1099.88046
+556.87769
 </td>
 </tr>
 <tr>
@@ -24537,13 +24569,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 2.0579502
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7925566
+0.6717058
 </td>
 <td style="text-align:right;">
-1105.32943
+572.35143
 </td>
 </tr>
 <tr>
@@ -24566,13 +24598,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 1.9959819
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7605206
+0.6237079
 </td>
 <td style="text-align:right;">
-1019.37514
+464.41439
 </td>
 </tr>
 <tr>
@@ -24595,13 +24627,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate
 1.9967095
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7849647
+0.6678569
 </td>
 <td style="text-align:right;">
-1084.18392
+563.53882
 </td>
 </tr>
 <tr>
@@ -24624,13 +24656,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 1.6951390
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.6895740
+0.6008897
 </td>
 <td style="text-align:right;">
-809.81456
+388.86282
 </td>
 </tr>
 <tr>
@@ -24653,13 +24685,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate_star
 2.0074159
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7859217
+0.6682795
 </td>
 <td style="text-align:right;">
-1086.84900
+564.56153
 </td>
 </tr>
 <tr>
@@ -24682,13 +24714,13 @@ cstar_tref ~ sal + temp + nitrate + silicate + phosphate_star
 2.0277799
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7885432
+0.6684643
 </td>
 <td style="text-align:right;">
-1094.07589
+565.44299
 </td>
 </tr>
 <tr>
@@ -24711,13 +24743,13 @@ cstar_tref ~ sal + temp + silicate + phosphate + phosphate_star
 2.0025710
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7854607
+0.6680973
 </td>
 <td style="text-align:right;">
-1085.58551
+564.06159
 </td>
 </tr>
 <tr>
@@ -24740,13 +24772,13 @@ cstar_tref ~ sal + temp + silicate + phosphate_star
 2.1687881
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7971249
+0.6728531
 </td>
 <td style="text-align:right;">
-1113.53493
+572.38412
 </td>
 </tr>
 <tr>
@@ -25059,13 +25091,13 @@ cstar_tref ~ sal + aou + nitrate
 12.0893822
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3569627
+1.2778208
 </td>
 <td style="text-align:right;">
-9206.46456
+6647.83518
 </td>
 </tr>
 <tr>
@@ -25088,13 +25120,13 @@ cstar_tref ~ sal + aou + nitrate + phosphate_star
 12.0110983
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3537175
+1.2754064
 </td>
 <td style="text-align:right;">
-9184.58387
+6638.93475
 </td>
 </tr>
 <tr>
@@ -25117,13 +25149,13 @@ cstar_tref ~ sal + aou + nitrate + silicate
 11.9462358
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3405188
+1.2634391
 </td>
 <td style="text-align:right;">
-9093.93866
+6575.31714
 </td>
 </tr>
 <tr>
@@ -25146,13 +25178,13 @@ cstar_tref ~ sal + aou + nitrate + silicate + phosphate_star
 12.2325861
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3311150
+1.2545447
 </td>
 <td style="text-align:right;">
-9039.50439
+6531.94199
 </td>
 </tr>
 <tr>
@@ -25175,13 +25207,13 @@ cstar_tref ~ sal + temp + aou + nitrate
 12.5833679
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3473202
+1.2670795
 </td>
 <td style="text-align:right;">
-9152.74568
+6595.08177
 </td>
 </tr>
 <tr>
@@ -25204,13 +25236,13 @@ cstar_tref ~ sal + temp + aou + nitrate + phosphate_star
 12.4914986
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3396670
+1.2599852
 </td>
 <td style="text-align:right;">
-9098.61276
+6560.92143
 </td>
 </tr>
 <tr>
@@ -25233,13 +25265,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate
 12.3554892
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3359295
+1.2579972
 </td>
 <td style="text-align:right;">
-9071.15172
+6550.31911
 </td>
 </tr>
 <tr>
@@ -25262,13 +25294,13 @@ cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 10.3943432
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3030614
+1.2423182
 </td>
 <td style="text-align:right;">
-8835.26896
+6470.37117
 </td>
 </tr>
 <tr>
@@ -25291,13 +25323,13 @@ cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 13.4335742
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3505030
+1.2550240
 </td>
 <td style="text-align:right;">
-9239.79017
+6539.14538
 </td>
 </tr>
 <tr>
@@ -25308,25 +25340,25 @@ SO
 (28.2, Inf]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + aou + nitrate + silicate + phosphate_star
+cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
-0.7405969
+0.7224005
 </td>
 <td style="text-align:right;">
-4367.74573
+4270.92535
 </td>
 <td style="text-align:right;">
-8.3795106
+13.4191265
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3246881
+1.2695446
 </td>
 <td style="text-align:right;">
-8955.38390
+6611.85947
 </td>
 </tr>
 <tr>
@@ -25664,13 +25696,13 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7226446
+2.5017364
 </td>
 <td style="text-align:right;">
-1159.8472
+829.3495
 </td>
 </tr>
 <tr>
@@ -25698,13 +25730,13 @@ Atlantic
 (26,26.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3998848
+7.3718997
 </td>
 <td style="text-align:right;">
-12608.2457
+9335.2549
 </td>
 </tr>
 <tr>
@@ -25732,13 +25764,13 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.0268935
+6.9996410
 </td>
 <td style="text-align:right;">
-15880.5819
+11882.0953
 </td>
 </tr>
 <tr>
@@ -25766,13 +25798,13 @@ Atlantic
 (26.75,27]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.9697143
+3.9449653
 </td>
 <td style="text-align:right;">
-20703.7880
+15753.0654
 </td>
 </tr>
 <tr>
@@ -25800,13 +25832,13 @@ Atlantic
 (27,27.25]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.5758210
+3.6001823
 </td>
 <td style="text-align:right;">
-17151.3325
+12958.6862
 </td>
 </tr>
 <tr>
@@ -25834,13 +25866,13 @@ Atlantic
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.3458741
+4.2788762
 </td>
 <td style="text-align:right;">
-18285.3854
+13624.0100
 </td>
 </tr>
 <tr>
@@ -25868,13 +25900,13 @@ Atlantic
 (27.5,27.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.7238524
+3.3854033
 </td>
 <td style="text-align:right;">
-19414.5214
+13898.9845
 </td>
 </tr>
 <tr>
@@ -25902,13 +25934,13 @@ Atlantic
 (27.75,27.85]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0973424
+4.0985779
 </td>
 <td style="text-align:right;">
-7914.4410
+5854.9536
 </td>
 </tr>
 <tr>
@@ -25936,13 +25968,13 @@ Atlantic
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.8799543
+7.0329195
 </td>
 <td style="text-align:right;">
-8446.6286
+6058.4543
 </td>
 </tr>
 <tr>
@@ -25970,13 +26002,13 @@ Atlantic
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.7867941
+6.8686986
 </td>
 <td style="text-align:right;">
-9294.0129
+6798.3572
 </td>
 </tr>
 <tr>
@@ -26004,13 +26036,13 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.2553266
+0.2514129
 </td>
 <td style="text-align:right;">
--1235.3811
+-945.9181
 </td>
 </tr>
 <tr>
@@ -26038,13 +26070,13 @@ Atlantic
 (28.1,28.15]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3422611
+0.3467343
 </td>
 <td style="text-align:right;">
--924.1296
+-661.3423
 </td>
 </tr>
 <tr>
@@ -26072,13 +26104,13 @@ Atlantic
 (28.15,28.2]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4025078
+0.4024588
 </td>
 <td style="text-align:right;">
--1008.7940
+-832.7964
 </td>
 </tr>
 <tr>
@@ -26106,13 +26138,13 @@ Atlantic
 (28.2, Inf]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.4278135
+0.4203693
 </td>
 <td style="text-align:right;">
--522.9635
+-607.6316
 </td>
 </tr>
 <tr>
@@ -26140,13 +26172,13 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.1606084
+12.0140205
 </td>
 <td style="text-align:right;">
-74463.1269
+54189.2940
 </td>
 </tr>
 <tr>
@@ -26174,13 +26206,13 @@ Indo-Pacific
 (26,26.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-8.3902703
+8.3556675
 </td>
 <td style="text-align:right;">
-72152.4004
+54081.6714
 </td>
 </tr>
 <tr>
@@ -26208,13 +26240,13 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.3345681
+7.3331014
 </td>
 <td style="text-align:right;">
-55600.8876
+41781.3021
 </td>
 </tr>
 <tr>
@@ -26242,13 +26274,13 @@ Indo-Pacific
 (26.75,27]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.4453276
+7.5768194
 </td>
 <td style="text-align:right;">
-61780.1077
+46726.8421
 </td>
 </tr>
 <tr>
@@ -26276,13 +26308,13 @@ Indo-Pacific
 (27,27.25]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.1428211
+7.3341600
 </td>
 <td style="text-align:right;">
-56590.1535
+42975.1450
 </td>
 </tr>
 <tr>
@@ -26310,13 +26342,13 @@ Indo-Pacific
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.6302222
+5.6819300
 </td>
 <td style="text-align:right;">
-42567.9928
+31971.9166
 </td>
 </tr>
 <tr>
@@ -26344,13 +26376,13 @@ Indo-Pacific
 (27.5,27.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.4205152
+3.4103392
 </td>
 <td style="text-align:right;">
-29810.4097
+22234.0701
 </td>
 </tr>
 <tr>
@@ -26378,13 +26410,13 @@ Indo-Pacific
 (27.75,27.85]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.7835068
+2.8387177
 </td>
 <td style="text-align:right;">
-9497.1825
+7113.2272
 </td>
 </tr>
 <tr>
@@ -26412,13 +26444,13 @@ Indo-Pacific
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3889915
+2.3194525
 </td>
 <td style="text-align:right;">
-12897.6268
+9486.5081
 </td>
 </tr>
 <tr>
@@ -26446,13 +26478,13 @@ Indo-Pacific
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2280679
+1.2119832
 </td>
 <td style="text-align:right;">
-6390.3427
+4714.8571
 </td>
 </tr>
 <tr>
@@ -26480,13 +26512,13 @@ Indo-Pacific
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.9522937
+0.9677778
 </td>
 <td style="text-align:right;">
-3303.6391
+2514.9414
 </td>
 </tr>
 <tr>
@@ -26514,13 +26546,13 @@ Indo-Pacific
 (28.1, Inf]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.4932710
+1.4865640
 </td>
 <td style="text-align:right;">
-50508.0543
+37271.9698
 </td>
 </tr>
 <tr>
@@ -26548,13 +26580,13 @@ SO
 (26,26.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0026426
+3.9992464
 </td>
 <td style="text-align:right;">
-865.2493
+626.9161
 </td>
 </tr>
 <tr>
@@ -26582,13 +26614,13 @@ SO
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.0977245
+4.8660070
 </td>
 <td style="text-align:right;">
-3171.8567
+2320.8327
 </td>
 </tr>
 <tr>
@@ -26616,13 +26648,13 @@ SO
 (26.75,27]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.1026778
+4.9373754
 </td>
 <td style="text-align:right;">
-12119.3058
+8843.8564
 </td>
 </tr>
 <tr>
@@ -26650,13 +26682,13 @@ SO
 (27,27.25]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.6501853
+3.6367757
 </td>
 <td style="text-align:right;">
-23181.3960
+17385.6309
 </td>
 </tr>
 <tr>
@@ -26684,13 +26716,13 @@ SO
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.8271079
+2.8561719
 </td>
 <td style="text-align:right;">
-22519.8257
+17039.9814
 </td>
 </tr>
 <tr>
@@ -26718,13 +26750,13 @@ SO
 (27.5,27.75]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5688282
+2.5727565
 </td>
 <td style="text-align:right;">
-24080.7808
+18161.3487
 </td>
 </tr>
 <tr>
@@ -26752,13 +26784,13 @@ SO
 (27.75,27.85]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5857455
+2.5734178
 </td>
 <td style="text-align:right;">
-9820.3192
+7218.4135
 </td>
 </tr>
 <tr>
@@ -26786,13 +26818,13 @@ SO
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1186162
+3.0305374
 </td>
 <td style="text-align:right;">
-11967.5572
+8542.1040
 </td>
 </tr>
 <tr>
@@ -26820,13 +26852,13 @@ SO
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.1305837
+3.1313620
 </td>
 <td style="text-align:right;">
-14875.8227
+11463.4127
 </td>
 </tr>
 <tr>
@@ -26854,13 +26886,13 @@ SO
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5212085
+2.4823118
 </td>
 <td style="text-align:right;">
-7617.0342
+5765.6211
 </td>
 </tr>
 <tr>
@@ -26888,13 +26920,13 @@ SO
 (28.1, Inf]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.5415923
+2.5856498
 </td>
 <td style="text-align:right;">
-44501.2801
+33824.8081
 </td>
 </tr>
 <tr>
@@ -26922,13 +26954,13 @@ SO
 (28.1,28.15]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.2292289
+1.1749791
 </td>
 <td style="text-align:right;">
-1660.1731
+1203.7260
 </td>
 </tr>
 <tr>
@@ -26956,13 +26988,13 @@ SO
 (28.15,28.2]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.7752366
+0.6563632
 </td>
 <td style="text-align:right;">
-1055.7195
+535.6036
 </td>
 </tr>
 <tr>
@@ -26990,13 +27022,13 @@ SO
 (28.2, Inf]
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+1990-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3383483
+1.2623160
 </td>
 <td style="text-align:right;">
-9087.7445
+6572.1727
 </td>
 </tr>
 <tr>
@@ -27327,6 +27359,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">1fad5f1</a>
@@ -27949,6 +27992,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">1fad5f1</a>
@@ -28591,6 +28645,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">1fad5f1</a>
 </td>
 <td>
@@ -29204,6 +29269,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">1fad5f1</a>
@@ -30179,16 +30255,16 @@ lm_all_stats %&gt;%
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
-      <td colspan="8" class="gt_group_heading">Atlantic - 1982-1999 --&gt; 2000-2012</td>
+      <td colspan="8" class="gt_group_heading">Atlantic - 1990-1999 --&gt; 2000-2012</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">2</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">8</td>
     </tr>
     <tr>
@@ -30217,17 +30293,17 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">2</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27,27.25]</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
     </tr>
@@ -30323,13 +30399,13 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">116.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">66.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">114.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">67.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">61.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">113.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">109.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">115.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">114.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="8" class="gt_group_heading">Atlantic - 2000-2012 --&gt; 2013-2019</td>
@@ -30485,27 +30561,27 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">107.00</td>
     </tr>
     <tr class="gt_group_heading_row">
-      <td colspan="8" class="gt_group_heading">Indo-Pacific - 1982-1999 --&gt; 2000-2012</td>
+      <td colspan="8" class="gt_group_heading">Indo-Pacific - 1990-1999 --&gt; 2000-2012</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">2</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">8</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
       <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">2</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">8</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
@@ -30520,11 +30596,11 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">0</td>
-      <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">1</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">6</td>
     </tr>
     <tr>
@@ -30569,22 +30645,22 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.85,27.95]</td>
-      <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">8</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.95,28.05]</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">2</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">8</td>
     </tr>
     <tr>
@@ -30609,12 +30685,12 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">104.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">33.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">75.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">103.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">90.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">102.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">33.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">76.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">105.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">92.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">103.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">91.00</td>
     </tr>
     <tr class="gt_group_heading_row">
@@ -30751,7 +30827,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">92.00</td>
     </tr>
     <tr class="gt_group_heading_row">
-      <td colspan="8" class="gt_group_heading">SO - 1982-1999 --&gt; 2000-2012</td>
+      <td colspan="8" class="gt_group_heading">SO - 1990-1999 --&gt; 2000-2012</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -30765,21 +30841,21 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
@@ -30795,23 +30871,23 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.25,27.5]</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.5,27.75]</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">2</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.75,27.85]</td>
@@ -30826,9 +30902,9 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.85,27.95]</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">8</td>
@@ -30845,13 +30921,13 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">9</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.1, Inf]</td>
@@ -30886,8 +30962,8 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.2, Inf]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">1</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">2</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">6</td>
@@ -30895,12 +30971,12 @@ lm_all_stats %&gt;%
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">66.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">56.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">115.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">121.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">115.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">109.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">65.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">57.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">114.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">120.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">117.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">120.00</td>
     </tr>
     <tr class="gt_group_heading_row">
@@ -31092,6 +31168,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">1fad5f1</a>
@@ -31696,6 +31783,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2f095d7c0a9630c511f611cce6222150e8b89063/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">2f095d7</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">1fad5f1</a>
