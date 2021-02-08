@@ -230,8 +230,8 @@ Plots below show the calculated climatological pCO~2~ values.
 ```{r calc_pCO2_climatology}
 
 if (params_local$depth_min != 0) {
-  if (params_local$surface_DIC_calculation == "revelle factor") {
-    
+  if (params_local$surface_DIC_calculation == "revelle factor" |
+      params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
     # calculate pCO2 from talk and tco2 climatology
     predictors_surface <- predictors_surface %>%
       mutate(
@@ -333,7 +333,6 @@ if (params_local$depth_min != 0) {
 ### Cant calculation
 
 ```{r calc_cant_surface}
-
 
 if (params_local$depth_min != 0) {
   

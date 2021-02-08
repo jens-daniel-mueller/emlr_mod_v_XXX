@@ -143,33 +143,44 @@ Samples were assigned to following eras:
 ```{r assign_eras}
 
 # create labels for era
-labels <- bind_cols(
-  start = params_local$era_breaks+1,
-  end = lead(params_local$era_breaks))
+labels_GLODAP <- bind_cols(
+  start = params_local$era_breaks_GLODAP+1,
+  end = lead(params_local$era_breaks_GLODAP))
 
-labels <- labels %>% 
+labels_GLODAP <- labels_GLODAP %>% 
   filter(!is.na(end)) %>% 
   mutate(end = if_else(end == Inf, max(GLODAP$year), end),
          label = paste(start, end, sep = "-")) %>% 
   select(label) %>% 
   pull()
 
+labels_random <- bind_cols(
+  start = params_local$era_breaks_random+1,
+  end = lead(params_local$era_breaks_random))
+
+labels_random <- labels_random %>% 
+  filter(!is.na(end)) %>% 
+  mutate(end = if_else(end == Inf, max(random$year), end),
+         label = paste(start, end, sep = "-")) %>% 
+  select(label) %>% 
+  pull()
+
 # cut observation years into era applying the labels
 GLODAP <- GLODAP %>%
-  filter(year > params_local$era_breaks[1]) %>% 
+  filter(year > params_local$era_breaks_GLODAP[1]) %>% 
   mutate(era = cut(year,
-                   params_local$era_breaks,
-                   labels = labels))
+                   params_local$era_breaks_GLODAP,
+                   labels = labels_GLODAP))
 
 random <- random %>%
-  filter(year > params_local$era_breaks[1]) %>% 
+  filter(year > params_local$era_breaks_random[1]) %>% 
   mutate(era = cut(year,
-                   params_local$era_breaks,
-                   labels = labels))
+                   params_local$era_breaks_random,
+                   labels = labels_random))
 
 levels(GLODAP$era)
 levels(random$era)
-rm(labels)
+rm(labels_GLODAP, labels_random)
 
 ```
 

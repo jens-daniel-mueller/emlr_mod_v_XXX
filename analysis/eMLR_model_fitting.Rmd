@@ -181,7 +181,7 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[15]
+      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[14]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab <- GLODAP_basin_era %>%
@@ -194,18 +194,17 @@ for (i_basin in unique(GLODAP$basin)) {
           # extract one model definition
           i_lm <- lm_all %>%
             filter(predictors == i_predictors) %>%
-            dplyr::select(lm_coeff) %>%
+            select(lm_coeff) %>%
             pull()
           
           # extract number of predictors
           i_n_predictors <- lm_all %>%
             filter(predictors == i_predictors) %>%
-            dplyr::select(n) %>%
+            select(n) %>%
             pull()
           
           # fit model
           if (params_local$MLR_type == "rlm") {
-          library(MASS)
           i_lm_fit <- rlm(as.formula(i_lm),
                           data = GLODAP_basin_era_slab)
           }
