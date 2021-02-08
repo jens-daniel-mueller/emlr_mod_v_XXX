@@ -167,7 +167,6 @@ as a function of each predictor combination. Fitting was performed separately wi
 
 ```{r fit_all_models, results='hide'}
 
-
 # loop across all basins, era, gamma slabs, and MLRs
 # fit all MLR models
 for (i_basin in unique(GLODAP$basin)) {
@@ -205,7 +204,7 @@ for (i_basin in unique(GLODAP$basin)) {
           
           # fit model
           if (params_local$MLR_type == "rlm") {
-          i_lm_fit <- rlm(as.formula(i_lm),
+          i_lm_fit <- MASS::rlm(as.formula(i_lm),
                           data = GLODAP_basin_era_slab)
           }
           
@@ -216,10 +215,10 @@ for (i_basin in unique(GLODAP$basin)) {
           
           # find max predictor correlation
           i_cor_max <- GLODAP_basin_era_slab %>%
-            dplyr::select(!!!syms(str_split(i_predictors, " ",
+            select(!!!syms(str_split(i_predictors, " ",
                                             simplify = TRUE))) %>%
             correlate(quiet = TRUE) %>%
-            dplyr::select(-term) %>%
+            select(-term) %>%
             abs() %>%
             max(na.rm = TRUE)
           
@@ -294,7 +293,7 @@ Coefficients are prepared for the mapping of Cant and the chosen target variable
 
 # select relevant columns
 lm_all_fitted <- lm_all_fitted %>%
-  dplyr::select(
+  select(
     basin,
     gamma_slab,
     era,
@@ -354,7 +353,7 @@ lm_all_fitted_wide <- lm_all_fitted_wide %>%
 
 # calculate RMSE sum for adjacent eras
 lm_all_fitted_wide_eras <- lm_all_fitted_wide  %>%
-  dplyr::select(basin, gamma_slab, model, era, rmse, aic, resid_max) %>%
+  select(basin, gamma_slab, model, era, rmse, aic, resid_max) %>%
   arrange(era) %>%
   group_by(basin, gamma_slab, model) %>%
   mutate(
@@ -363,7 +362,7 @@ lm_all_fitted_wide_eras <- lm_all_fitted_wide  %>%
     aic_sum = aic + lag(aic)
   ) %>%
   ungroup() %>%
-  dplyr::select(-c(era)) %>%
+  select(-c(era)) %>%
   drop_na()
 
 # subset models with lowest summed criterion
@@ -433,7 +432,7 @@ eras_forward <- lm_all_fitted_wide %>%
   group_by(basin, gamma_slab, model) %>% 
   mutate(eras = paste(era, lead(era), sep = " --> ")) %>% 
   ungroup() %>% 
-  dplyr::select(era, eras) %>% 
+  select(era, eras) %>% 
   unique()
 
 eras_backward <- lm_all_fitted_wide %>%
@@ -441,7 +440,7 @@ eras_backward <- lm_all_fitted_wide %>%
   group_by(basin, gamma_slab, model) %>% 
   mutate(eras = paste(lag(era), era, sep = " --> ")) %>% 
   ungroup() %>% 
-  dplyr::select(era, eras) %>% 
+  select(era, eras) %>% 
   unique()
 
 eras_era <- full_join(eras_backward, eras_forward) %>% 
@@ -449,7 +448,7 @@ eras_era <- full_join(eras_backward, eras_forward) %>%
 
 # extend best model selection from eras to era
 lm_best_target <- full_join(
-  lm_best %>% dplyr::select(basin, gamma_slab, model, eras),
+  lm_best %>% select(basin, gamma_slab, model, eras),
   eras_era)
 
 lm_best_target <- left_join(lm_best_target, lm_all_fitted_wide)
@@ -467,7 +466,7 @@ rm(eras_era, eras_forward, eras_backward,
 if (params_local$plot_all_figures == "y") {
   # mutate predictors column
   lm_best_plot <- lm_best_target %>%
-    dplyr::select(basin, gamma_slab, model, eras, era) %>%
+    select(basin, gamma_slab, model, eras, era) %>%
     mutate(
       predictors = str_remove(model, paste(params_local$MLR_target, "~ ")),
       predictors = str_replace_all(predictors, "\\+ ", "")
@@ -508,7 +507,7 @@ if (params_local$plot_all_figures == "y") {
             # extract one model definition
             i_lm <- lm_all %>%
               filter(predictors == i_predictors) %>%
-              dplyr::select(lm_coeff) %>%
+              select(lm_coeff) %>%
               pull()
             
             # fit model
@@ -665,7 +664,7 @@ lm_best_long <- lm_best_long %>%
   ungroup() %>%
   arrange(basin, gamma_slab, model, term, eras) %>%
   drop_na() %>%
-  dplyr::select(-c(era,estimate))
+  select(-c(era,estimate))
 
 # pivot back to wide format
 lm_best_cant <- lm_best_long %>%
@@ -682,7 +681,7 @@ lm_best_cant <- lm_best_long %>%
 ```{r write_model_coefficients_files}
 
 lm_best_target %>%
-  dplyr::select(
+  select(
     basin,
     gamma_slab,
     model,
@@ -695,7 +694,7 @@ lm_best_target %>%
                   sep = ""))
 
 lm_best_cant %>%
-  dplyr::select(
+  select(
     basin,
     gamma_slab,
     model,
