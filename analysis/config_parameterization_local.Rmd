@@ -76,9 +76,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
@@ -127,7 +127,7 @@ params_local <-
     # Offset P to O (PO4* calculation)
     rPO_offset = 1.95,
     # surface DIC calculation with options of "revelle factor" or "atmospheric equilibrium" or "atmospheric pCO2 increase"
-    surface_DIC_calculation = "atmospheric pCO2 increase",
+    surface_DIC_calculation = "revelle factor",
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)

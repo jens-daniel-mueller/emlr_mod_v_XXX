@@ -256,7 +256,8 @@ if (params_local$depth_min != 0) {
 ```{r pCO2_climatology_map, fig.asp=0.6}
 
 if (params_local$depth_min != 0) {
-  if (params_local$surface_DIC_calculation == "revelle factor") {
+  if (params_local$surface_DIC_calculation == "revelle factor" |
+      params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
     p_map_climatology(df = predictors_surface,
                       var = "pCO2")
   }
