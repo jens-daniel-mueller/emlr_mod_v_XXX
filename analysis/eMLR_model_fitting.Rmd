@@ -171,8 +171,8 @@ as a function of each predictor combination. Fitting was performed separately wi
 # fit all MLR models
 for (i_basin in unique(GLODAP$basin)) {
   for (i_era in unique(GLODAP$era)) {
-    #i_basin <- unique(GLODAP$basin)[1]
-    #i_era   <- unique(GLODAP$era)[1]
+    #i_basin <- unique(GLODAP$basin)[2]
+    #i_era   <- unique(GLODAP$era)[3]
     print(i_basin)
     print(i_era)
     
@@ -180,43 +180,44 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[14]
+      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[12]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab <- GLODAP_basin_era %>%
         filter(gamma_slab == i_gamma_slab)
       
-      if (nrow(GLODAP_basin_era_slab) > 2) {
-        for (i_predictors in unique(lm_all$predictors)) {
-          # i_predictors <- unique(lm_all$predictors)[1]
-          
-          # extract one model definition
-          i_lm <- lm_all %>%
-            filter(predictors == i_predictors) %>%
-            select(lm_coeff) %>%
-            pull()
-          
-          # extract number of predictors
-          i_n_predictors <- lm_all %>%
-            filter(predictors == i_predictors) %>%
-            select(n) %>%
-            pull()
+      for (i_predictors in unique(lm_all$predictors)) {
+        #i_predictors <- unique(lm_all$predictors)[78]
+        
+        # extract one model definition
+        i_lm <- lm_all %>%
+          filter(predictors == i_predictors) %>%
+          select(lm_coeff) %>%
+          pull()
+        
+        # extract number of predictors
+        i_n_predictors <- lm_all %>%
+          filter(predictors == i_predictors) %>%
+          select(n) %>%
+          pull()
+        
+        if (nrow(GLODAP_basin_era_slab) > i_n_predictors) {
           
           # fit model
           if (params_local$MLR_type == "rlm") {
-          i_lm_fit <- MASS::rlm(as.formula(i_lm),
-                          data = GLODAP_basin_era_slab)
+            i_lm_fit <- MASS::rlm(as.formula(i_lm),
+                                  data = GLODAP_basin_era_slab)
           }
           
           if (params_local$MLR_type == "lm") {
-          i_lm_fit <- lm(as.formula(i_lm),
-                          data = GLODAP_basin_era_slab)
-        }
+            i_lm_fit <- lm(as.formula(i_lm),
+                           data = GLODAP_basin_era_slab)
+          }
           
           # find max predictor correlation
           i_cor_max <- GLODAP_basin_era_slab %>%
             select(!!!syms(str_split(i_predictors, " ",
-                                            simplify = TRUE))) %>%
+                                     simplify = TRUE))) %>%
             correlate(quiet = TRUE) %>%
             select(-term) %>%
             abs() %>%
@@ -257,8 +258,6 @@ for (i_basin in unique(GLODAP$basin)) {
             lm_all_fitted <- coefficients
           }
         }
-        
-        
       }
     }
   }

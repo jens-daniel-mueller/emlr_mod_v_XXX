@@ -163,6 +163,24 @@ GLODAP <- GLODAP %>%
 
 ```
 
+# SiO~3~*
+
+## Calculation 
+
+The predictor SiO~3~* was be calculated according to Sarmiento et al. (2004), ie based on silicate and nitrate.
+
+Here we use following equation:
+
+```{r calculate_silicate_star}
+
+print(b_silicate_star)
+
+if ("silicate_star" %in% params_local$MLR_predictors) {
+GLODAP <- GLODAP %>% 
+  mutate(silicate_star = b_silicate_star(silicate, nitrate))
+}
+
+```
 
 # C*
 
