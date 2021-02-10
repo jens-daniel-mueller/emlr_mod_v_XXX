@@ -94,18 +94,18 @@ params_local <-
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
-    gamma_min = 26,
+    gamma_min = 27,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
     era_breaks_random = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "2",
+    MLR_basins = "SO",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 5,
+    MLR_predictors_max = 6,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
@@ -127,7 +127,7 @@ params_local <-
     # Offset P to O (PO4* calculation)
     rPO_offset = 1.95,
     # surface DIC calculation with options of "revelle factor" or "atmospheric equilibrium" or "atmospheric pCO2 increase"
-    surface_DIC_calculation = "revelle factor",
+    surface_DIC_calculation = "atmospheric pCO2 increase",
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)
