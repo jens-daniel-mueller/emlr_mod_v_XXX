@@ -70,6 +70,7 @@ MLR_predictors <- c(
                 "aou",
                 "nitrate",
                 "silicate",
+                "silicate_star",
                 "phosphate",
                 "phosphate_star")
 
@@ -94,7 +95,7 @@ params_local <-
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
-    gamma_min = 27,
+    gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
     era_breaks_random = c(1981, 1999, 2012, Inf),

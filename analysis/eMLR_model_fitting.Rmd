@@ -126,6 +126,11 @@ lm_all <- lm_all %>%
     str_detect(lm_coeff_filter, "nitrate") &
       str_detect(lm_coeff_filter, "phosphate")
   )) %>%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, "silicate_star")) %>%
+  filter(!(
+    str_detect(lm_coeff_filter, "nitrate") &
+      str_detect(lm_coeff_filter, "silicate")
+  )) %>%
   select(-lm_coeff_filter)
 
 # remove helper objects
@@ -171,8 +176,8 @@ as a function of each predictor combination. Fitting was performed separately wi
 # fit all MLR models
 for (i_basin in unique(GLODAP$basin)) {
   for (i_era in unique(GLODAP$era)) {
-    #i_basin <- unique(GLODAP$basin)[2]
-    #i_era   <- unique(GLODAP$era)[3]
+    #i_basin <- unique(GLODAP$basin)[1]
+    #i_era   <- unique(GLODAP$era)[1]
     print(i_basin)
     print(i_era)
     
@@ -180,14 +185,17 @@ for (i_basin in unique(GLODAP$basin)) {
       filter(basin == i_basin, era == i_era)
     
     for (i_gamma_slab in unique(GLODAP_basin_era$gamma_slab)) {
-      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[12]
+      #i_gamma_slab <- unique(GLODAP_basin_era$gamma_slab)[1]
       print(i_gamma_slab)
       
       GLODAP_basin_era_slab <- GLODAP_basin_era %>%
         filter(gamma_slab == i_gamma_slab)
       
+      # number of observations used for each fitting model
+      i_nr_obs = nrow(GLODAP_basin_era_slab)
+      
       for (i_predictors in unique(lm_all$predictors)) {
-        #i_predictors <- unique(lm_all$predictors)[78]
+        #i_predictors <- unique(lm_all$predictors)[1]
         
         # extract one model definition
         i_lm <- lm_all %>%
@@ -201,8 +209,7 @@ for (i_basin in unique(GLODAP$basin)) {
           select(n) %>%
           pull()
         
-        if (nrow(GLODAP_basin_era_slab) > i_n_predictors) {
-          
+        if (i_nr_obs > i_n_predictors) {
           # fit model
           if (params_local$MLR_type == "rlm") {
             i_lm_fit <- MASS::rlm(as.formula(i_lm),
@@ -242,6 +249,7 @@ for (i_basin in unique(GLODAP$basin)) {
               era = i_era,
               gamma_slab = i_gamma_slab,
               model = i_lm,
+              nr_obs = i_nr_obs,
               rmse = i_rmse,
               aic = i_aic,
               resid_max = i_resid_max,
@@ -273,6 +281,7 @@ rm(
   i_basin,
   i_era,
   i_gamma_slab,
+  i_nr_obs,
   i_predictors,
   i_aic,
   i_n_predictors,
@@ -297,6 +306,7 @@ lm_all_fitted <- lm_all_fitted %>%
     gamma_slab,
     era,
     model,
+    nr_obs,
     n_predictors,
     term,
     estimate,
@@ -338,7 +348,7 @@ The criterion was summed up for two adjacent eras, and the models with lowest su
 Please note, that currently the `lm()` function produces NAs for some predictors. It is not yet entirely clear when this happens, but presumably it is caused by some form of collinearity between predictors, such that including another predictor does not help to explain the target variable any better. The issues also expresses as exactly identical rmse values of different models. As an interim solution, models with fitted NA predictors were not included.
 
 
-```{r remove_predictor_NA}
+```{r remove_predictor_NA, eval=FALSE}
 
 # remove models with predictors fitted as NA
 
@@ -352,7 +362,7 @@ lm_all_fitted_wide <- lm_all_fitted_wide %>%
 
 # calculate RMSE sum for adjacent eras
 lm_all_fitted_wide_eras <- lm_all_fitted_wide  %>%
-  select(basin, gamma_slab, model, era, rmse, aic, resid_max) %>%
+  select(basin, gamma_slab, model, era, nr_obs, rmse, aic, resid_max) %>%
   arrange(era) %>%
   group_by(basin, gamma_slab, model) %>%
   mutate(
@@ -384,7 +394,6 @@ if (params_local$MLR_criterion == "aic") {
     ungroup() %>%
     arrange(basin, gamma_slab, eras, model)
 }
-
 
 ```
 
@@ -509,9 +518,16 @@ if (params_local$plot_all_figures == "y") {
               select(lm_coeff) %>%
               pull()
             
-            # fit model
+             # fit model
+          if (params_local$MLR_type == "rlm") {
+            i_lm_fit <- MASS::rlm(as.formula(i_lm),
+                                  data = GLODAP_basin_era_slab)
+          }
+          
+          if (params_local$MLR_type == "lm") {
             i_lm_fit <- lm(as.formula(i_lm),
                            data = GLODAP_basin_era_slab)
+          }
             
             # plot model diagnostics vs predictors
             
