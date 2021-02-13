@@ -242,6 +242,18 @@ predictors <- predictors %>%
 
 ```
 
+## SiO~3~* calculation
+
+The predictor SiO~3~* was be calculated according to Sarmiento et al. (2004), ie based on silicate and nitrate.
+
+```{r calculate_silicate_star_Sarmiento}
+
+predictors <- predictors %>% 
+  mutate(silicate_star = b_silicate_star(silicate, nitrate))
+
+```
+
+
 ### Maps
 
 ```{r PO4_star_climatology_maps, fig.asp=0.6}
@@ -253,6 +265,15 @@ p_map_climatology(
 
 ```
 
+```{r SiO3_star_climatology_maps, fig.asp=0.6}
+
+p_map_climatology(
+  df = predictors,
+  var = "silicate_star",
+  col = "divergent")
+
+```
+
 ### Global section
 
 ```{r PO4_star_climatology_section}
@@ -260,6 +281,15 @@ p_map_climatology(
 p_section_global(
   df = predictors,
   var = "phosphate_star",
+  col = "divergent")
+
+```
+
+```{r SiO3_star_climatology_section}
+
+p_section_global(
+  df = predictors,
+  var = "silicate_star",
   col = "divergent")
 
 ```
