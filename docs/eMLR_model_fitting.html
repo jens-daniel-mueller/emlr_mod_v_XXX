@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9f346bd4cc84410162507b733831274e26d08712targetblank9f346bda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9f346bd4cc84410162507b733831274e26d08712" target="_blank">9f346bd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree5a31947161a765442920a77eddd75a5e4cc58428targetblank5a31947a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/5a31947161a765442920a77eddd75a5e4cc58428" target="_blank">5a31947</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree9f346bd4cc84410162507b733831274e26d08712targetblank9f346bda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree5a31947161a765442920a77eddd75a5e4cc58428targetblank5a31947a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/9f346bd4cc84410162507b733831274e26d08712" target="_blank">9f346bd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/5a31947161a765442920a77eddd75a5e4cc58428" target="_blank">5a31947</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -678,6 +678,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/eMLR_model_fitting.html" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -2617,7 +2634,7 @@ lm_all_fitted_wide &lt;- lm_all_fitted %&gt;%
 </ul>
 <p>The criterion used to select the best models was:</p>
 <ul>
-<li>rmse</li>
+<li>aic</li>
 </ul>
 <p>The criterion was summed up for two adjacent eras, and the models with lowest summed values were selected.</p>
 <p>Please note, that currently the <code>lm()</code> function produces NAs for some predictors. It is not yet entirely clear when this happens, but presumably it is caused by some form of collinearity between predictors, such that including another predictor does not help to explain the target variable any better. The issues also expresses as exactly identical rmse values of different models. As an interim solution, models with fitted NA predictors were not included.</p>
@@ -2746,7 +2763,135 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1.0102185
+</td>
+<td style="text-align:right;">
+467.5972
+</td>
+<td style="text-align:right;">
+3.339750
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.3458438
+</td>
+<td style="text-align:right;">
+1194.2659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1.0102185
+</td>
+<td style="text-align:right;">
+467.5972
+</td>
+<td style="text-align:right;">
+3.339750
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.3458438
+</td>
+<td style="text-align:right;">
+1194.2659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1.0102185
+</td>
+<td style="text-align:right;">
+467.5972
+</td>
+<td style="text-align:right;">
+3.339750
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.3458438
+</td>
+<td style="text-align:right;">
+1194.2659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1.0102185
+</td>
+<td style="text-align:right;">
+467.5972
+</td>
+<td style="text-align:right;">
+3.339750
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.3458438
+</td>
+<td style="text-align:right;">
+1194.2659
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 158
@@ -2810,28 +2955,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
 158
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0137290
 </td>
 <td style="text-align:right;">
-469.3256
+468.6934
 </td>
 <td style="text-align:right;">
-3.392692
+3.297715
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3449212
+2.3505653
 </td>
 <td style="text-align:right;">
-1197.9773
+1195.7391
 </td>
 </tr>
 <tr>
@@ -2842,28 +2987,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
+cstar_tref ~ sal + temp + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 158
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0137290
 </td>
 <td style="text-align:right;">
-469.3256
+468.6934
 </td>
 <td style="text-align:right;">
-3.392692
+3.297715
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3449212
+2.3505653
 </td>
 <td style="text-align:right;">
-1197.9773
+1195.7391
 </td>
 </tr>
 <tr>
@@ -2874,28 +3019,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
+cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 158
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0137290
 </td>
 <td style="text-align:right;">
-469.3256
+468.6934
 </td>
 <td style="text-align:right;">
-3.392692
+3.297715
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3449212
+2.3505653
 </td>
 <td style="text-align:right;">
-1197.9773
+1195.7391
 </td>
 </tr>
 <tr>
@@ -2906,28 +3051,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
+cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
-158
+72
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0834728
 </td>
 <td style="text-align:right;">
-469.3256
+231.8718
 </td>
 <td style="text-align:right;">
-3.392692
+2.650796
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.3449212
+2.0936914
 </td>
 <td style="text-align:right;">
-1197.9773
+699.4691
 </td>
 </tr>
 <tr>
@@ -2938,28 +3083,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
-158
+72
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0834728
 </td>
 <td style="text-align:right;">
-469.3256
+231.8718
 </td>
 <td style="text-align:right;">
-3.392692
+2.650796
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.3449212
+2.0936914
 </td>
 <td style="text-align:right;">
-1197.9773
+699.4691
 </td>
 </tr>
 <tr>
@@ -2970,28 +3115,28 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
-158
+72
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0834728
 </td>
 <td style="text-align:right;">
-469.3256
+231.8718
 </td>
 <td style="text-align:right;">
-3.392692
+2.650796
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.3449212
+2.0936914
 </td>
 <td style="text-align:right;">
-1197.9773
+699.4691
 </td>
 </tr>
 <tr>
@@ -3002,28 +3147,124 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
-158
+72
 </td>
 <td style="text-align:right;">
-1.0093505
+1.0834728
 </td>
 <td style="text-align:right;">
-469.3256
+231.8718
 </td>
 <td style="text-align:right;">
-3.392692
+2.650796
 </td>
 <td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
+2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.3449212
+2.0936914
 </td>
 <td style="text-align:right;">
-1197.9773
+699.4691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+1.0834728
+</td>
+<td style="text-align:right;">
+231.8718
+</td>
+<td style="text-align:right;">
+2.650796
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+2.0936914
+</td>
+<td style="text-align:right;">
+699.4691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+1.0834728
+</td>
+<td style="text-align:right;">
+231.8718
+</td>
+<td style="text-align:right;">
+2.650796
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+2.0936914
+</td>
+<td style="text-align:right;">
+699.4691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+1.0834728
+</td>
+<td style="text-align:right;">
+231.8718
+</td>
+<td style="text-align:right;">
+2.650796
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+2.0936914
+</td>
+<td style="text-align:right;">
+699.4691
 </td>
 </tr>
 <tr>
@@ -3127,230 +3368,6 @@ cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate
 Atlantic
 </td>
 <td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-72
-</td>
-<td style="text-align:right;">
-1.0760286
-</td>
-<td style="text-align:right;">
-232.8790
-</td>
-<td style="text-align:right;">
-2.653279
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-2.0853791
-</td>
-<td style="text-align:right;">
-702.2046
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
 (26,26.5]
 </td>
 <td style="text-align:left;">
@@ -4058,135 +4075,7 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1397
-</td>
-<td style="text-align:right;">
-3.1332896
-</td>
-<td style="text-align:right;">
-7173.4954
-</td>
-<td style="text-align:right;">
-8.794157
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.0826758
-</td>
-<td style="text-align:right;">
-16678.5275
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1397
-</td>
-<td style="text-align:right;">
-3.1332896
-</td>
-<td style="text-align:right;">
-7173.4954
-</td>
-<td style="text-align:right;">
-8.794157
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.0826758
-</td>
-<td style="text-align:right;">
-16678.5275
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1397
-</td>
-<td style="text-align:right;">
-3.1332896
-</td>
-<td style="text-align:right;">
-7173.4954
-</td>
-<td style="text-align:right;">
-8.794157
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.0826758
-</td>
-<td style="text-align:right;">
-16678.5275
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1397
-</td>
-<td style="text-align:right;">
-3.1332896
-</td>
-<td style="text-align:right;">
-7173.4954
-</td>
-<td style="text-align:right;">
-8.794157
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.0826758
-</td>
-<td style="text-align:right;">
-16678.5275
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 1397
@@ -4282,6 +4171,102 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1397
+</td>
+<td style="text-align:right;">
+3.1332904
+</td>
+<td style="text-align:right;">
+7171.4961
+</td>
+<td style="text-align:right;">
+8.793931
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+6.0827330
+</td>
+<td style="text-align:right;">
+16674.6008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1397
+</td>
+<td style="text-align:right;">
+3.1332904
+</td>
+<td style="text-align:right;">
+7171.4961
+</td>
+<td style="text-align:right;">
+8.793931
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+6.0827330
+</td>
+<td style="text-align:right;">
+16674.6008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1397
+</td>
+<td style="text-align:right;">
+3.1332904
+</td>
+<td style="text-align:right;">
+7171.4961
+</td>
+<td style="text-align:right;">
+8.793931
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+6.0827330
+</td>
+<td style="text-align:right;">
+16674.6008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
@@ -4314,60 +4299,28 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
-656
+1397
 </td>
 <td style="text-align:right;">
-3.2676102
+3.1332904
 </td>
 <td style="text-align:right;">
-3433.1326
+7171.4961
 </td>
 <td style="text-align:right;">
-9.323441
+8.793931
 </td>
 <td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
+1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.4008998
+6.0827330
 </td>
 <td style="text-align:right;">
-10606.6280
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-656
-</td>
-<td style="text-align:right;">
-3.2676102
-</td>
-<td style="text-align:right;">
-3433.1326
-</td>
-<td style="text-align:right;">
-9.323441
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-6.4008998
-</td>
-<td style="text-align:right;">
-10606.6280
+16674.6008
 </td>
 </tr>
 <tr>
@@ -4410,71 +4363,7 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-656
-</td>
-<td style="text-align:right;">
-3.2676102
-</td>
-<td style="text-align:right;">
-3433.1326
-</td>
-<td style="text-align:right;">
-9.323441
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-6.4008998
-</td>
-<td style="text-align:right;">
-10606.6280
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-656
-</td>
-<td style="text-align:right;">
-3.2676102
-</td>
-<td style="text-align:right;">
-3433.1326
-</td>
-<td style="text-align:right;">
-9.323441
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-6.4008998
-</td>
-<td style="text-align:right;">
-10606.6280
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 656
@@ -4570,7 +4459,135 @@ Atlantic
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+656
+</td>
+<td style="text-align:right;">
+3.2691905
+</td>
+<td style="text-align:right;">
+3431.7670
+</td>
+<td style="text-align:right;">
+9.293088
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+6.4024809
+</td>
+<td style="text-align:right;">
+10603.2631
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+656
+</td>
+<td style="text-align:right;">
+3.2691905
+</td>
+<td style="text-align:right;">
+3431.7670
+</td>
+<td style="text-align:right;">
+9.293088
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+6.4024809
+</td>
+<td style="text-align:right;">
+10603.2631
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+656
+</td>
+<td style="text-align:right;">
+3.2691905
+</td>
+<td style="text-align:right;">
+3431.7670
+</td>
+<td style="text-align:right;">
+9.293088
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+6.4024809
+</td>
+<td style="text-align:right;">
+10603.2631
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+656
+</td>
+<td style="text-align:right;">
+3.2691905
+</td>
+<td style="text-align:right;">
+3431.7670
+</td>
+<td style="text-align:right;">
+9.293088
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+6.4024809
+</td>
+<td style="text-align:right;">
+10603.2631
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 656
@@ -6234,6 +6251,70 @@ Atlantic
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1109
+</td>
+<td style="text-align:right;">
+2.7064010
+</td>
+<td style="text-align:right;">
+5371.4902
+</td>
+<td style="text-align:right;">
+19.005456
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.8456617
+</td>
+<td style="text-align:right;">
+14214.0555
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.25,27.5]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1109
+</td>
+<td style="text-align:right;">
+2.7064010
+</td>
+<td style="text-align:right;">
+5371.4902
+</td>
+<td style="text-align:right;">
+19.005456
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.8456617
+</td>
+<td style="text-align:right;">
+14214.0555
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.25,27.5]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -6330,28 +6411,28 @@ Atlantic
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 1109
 </td>
 <td style="text-align:right;">
-2.7053602
+2.7064010
 </td>
 <td style="text-align:right;">
-5372.6371
+5371.4902
 </td>
 <td style="text-align:right;">
-20.139108
+19.005456
 </td>
 <td style="text-align:left;">
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-4.8445332
+4.8456617
 </td>
 <td style="text-align:right;">
-14217.0362
+14214.0555
 </td>
 </tr>
 <tr>
@@ -6362,28 +6443,28 @@ Atlantic
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 1109
 </td>
 <td style="text-align:right;">
-2.7053602
+2.7064010
 </td>
 <td style="text-align:right;">
-5372.6371
+5371.4902
 </td>
 <td style="text-align:right;">
-20.139108
+19.005456
 </td>
 <td style="text-align:left;">
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-4.8445332
+4.8456617
 </td>
 <td style="text-align:right;">
-14217.0362
+14214.0555
 </td>
 </tr>
 <tr>
@@ -6459,70 +6540,6 @@ Atlantic
 </td>
 <td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1109
-</td>
-<td style="text-align:right;">
-2.7053602
-</td>
-<td style="text-align:right;">
-5372.6371
-</td>
-<td style="text-align:right;">
-20.139108
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.8445332
-</td>
-<td style="text-align:right;">
-14217.0362
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.25,27.5]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1109
-</td>
-<td style="text-align:right;">
-2.7053602
-</td>
-<td style="text-align:right;">
-5372.6371
-</td>
-<td style="text-align:right;">
-20.139108
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.8445332
-</td>
-<td style="text-align:right;">
-14217.0362
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.25,27.5]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 1109
@@ -6874,6 +6891,230 @@ Atlantic
 (27.5,27.75]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1515
+</td>
+<td style="text-align:right;">
+2.6926942
+</td>
+<td style="text-align:right;">
+7316.7268
+</td>
+<td style="text-align:right;">
+20.089368
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.0573857
+</td>
+<td style="text-align:right;">
+20116.6457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
@@ -6960,230 +7201,6 @@ cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 20116.4595
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1515
-</td>
-<td style="text-align:right;">
-2.6919437
-</td>
-<td style="text-align:right;">
-7317.8822
-</td>
-<td style="text-align:right;">
-19.885854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.0565164
-</td>
-<td style="text-align:right;">
-20119.5192
 </td>
 </tr>
 <tr>
@@ -8474,7 +8491,7 @@ Atlantic
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + nitrate + silicate_star + phosphate_star
+cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 1204
@@ -8794,7 +8811,7 @@ Atlantic
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + nitrate + silicate_star + phosphate_star
+cstar_tref ~ sal + temp + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 666
@@ -9114,28 +9131,28 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+cstar_tref ~ sal + temp + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 804
 </td>
 <td style="text-align:right;">
-0.9868544
+0.9873842
 </td>
 <td style="text-align:right;">
-2278.3749
+2277.2379
 </td>
 <td style="text-align:right;">
-8.854339
+8.903940
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.8168843
+1.8184314
 </td>
 <td style="text-align:right;">
-4949.0267
+4948.5258
 </td>
 </tr>
 <tr>
@@ -9242,38 +9259,6 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-804
-</td>
-<td style="text-align:right;">
-0.9868544
-</td>
-<td style="text-align:right;">
-2278.3749
-</td>
-<td style="text-align:right;">
-8.854339
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-1.8168843
-</td>
-<td style="text-align:right;">
-4949.0267
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -9306,28 +9291,60 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+cstar_tref ~ sal + temp + oxygen + aou + silicate + phosphate
 </td>
 <td style="text-align:right;">
 804
 </td>
 <td style="text-align:right;">
-0.9868544
+0.9873842
 </td>
 <td style="text-align:right;">
-2278.3749
+2277.2379
 </td>
 <td style="text-align:right;">
-8.854339
+8.903940
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.8168843
+1.8184314
 </td>
 <td style="text-align:right;">
-4949.0267
+4948.5258
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+804
+</td>
+<td style="text-align:right;">
+0.9873842
+</td>
+<td style="text-align:right;">
+2277.2379
+</td>
+<td style="text-align:right;">
+8.903940
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+1.8184314
+</td>
+<td style="text-align:right;">
+4948.5258
 </td>
 </tr>
 <tr>
@@ -9466,28 +9483,28 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+cstar_tref ~ sal + temp + aou + silicate_star + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 434
 </td>
 <td style="text-align:right;">
-1.0166672
+1.0173601
 </td>
 <td style="text-align:right;">
-1263.9865
+1262.5779
 </td>
 <td style="text-align:right;">
-9.190678
+9.260481
 </td>
 <td style="text-align:left;">
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.0035216
+2.0048435
 </td>
 <td style="text-align:right;">
-3542.3614
+3539.9774
 </td>
 </tr>
 <tr>
@@ -9690,28 +9707,28 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 434
 </td>
 <td style="text-align:right;">
-1.0166672
+1.0173601
 </td>
 <td style="text-align:right;">
-1263.9865
+1262.5779
 </td>
 <td style="text-align:right;">
-9.190678
+9.260481
 </td>
 <td style="text-align:left;">
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.0035216
+2.0048435
 </td>
 <td style="text-align:right;">
-3542.3614
+3539.9774
 </td>
 </tr>
 <tr>
@@ -9722,28 +9739,28 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
+cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 434
 </td>
 <td style="text-align:right;">
-1.0166672
+1.0173601
 </td>
 <td style="text-align:right;">
-1263.9865
+1262.5779
 </td>
 <td style="text-align:right;">
-9.190678
+9.260481
 </td>
 <td style="text-align:left;">
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.0035216
+2.0048435
 </td>
 <td style="text-align:right;">
-3542.3614
+3539.9774
 </td>
 </tr>
 <tr>
@@ -9786,28 +9803,28 @@ Atlantic
 (28.1,28.15]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate_star + phosphate + phosphate_star
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate
 </td>
 <td style="text-align:right;">
 936
 </td>
 <td style="text-align:right;">
-0.7354662
+0.7504876
 </td>
 <td style="text-align:right;">
-2097.0797
+2134.9287
 </td>
 <td style="text-align:right;">
-6.988028
+7.809835
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3151633
+1.3189048
 </td>
 <td style="text-align:right;">
-4375.9339
+4362.8898
 </td>
 </tr>
 <tr>
@@ -9882,6 +9899,38 @@ Atlantic
 (28.1,28.15]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star
+</td>
+<td style="text-align:right;">
+936
+</td>
+<td style="text-align:right;">
+0.7504876
+</td>
+<td style="text-align:right;">
+2134.9287
+</td>
+<td style="text-align:right;">
+7.809835
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+1.3189048
+</td>
+<td style="text-align:right;">
+4362.8898
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.1,28.15]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
@@ -9946,6 +9995,38 @@ Atlantic
 (28.1,28.15]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star
+</td>
+<td style="text-align:right;">
+936
+</td>
+<td style="text-align:right;">
+0.7504876
+</td>
+<td style="text-align:right;">
+2134.9287
+</td>
+<td style="text-align:right;">
+7.809835
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+1.3189048
+</td>
+<td style="text-align:right;">
+4362.8898
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.1,28.15]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
@@ -10000,70 +10081,6 @@ cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_st
 </td>
 <td style="text-align:right;">
 4297.7757
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.1,28.15]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-936
-</td>
-<td style="text-align:right;">
-0.7354662
-</td>
-<td style="text-align:right;">
-2097.0797
-</td>
-<td style="text-align:right;">
-6.988028
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-1.3151633
-</td>
-<td style="text-align:right;">
-4375.9339
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.1,28.15]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-936
-</td>
-<td style="text-align:right;">
-0.7354662
-</td>
-<td style="text-align:right;">
-2097.0797
-</td>
-<td style="text-align:right;">
-6.988028
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-1.3151633
-</td>
-<td style="text-align:right;">
-4375.9339
 </td>
 </tr>
 <tr>
@@ -10746,6 +10763,70 @@ Atlantic
 (28.15,28.2]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + phosphate
+</td>
+<td style="text-align:right;">
+819
+</td>
+<td style="text-align:right;">
+0.6071981
+</td>
+<td style="text-align:right;">
+1523.0228
+</td>
+<td style="text-align:right;">
+5.764461
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+0.9476199
+</td>
+<td style="text-align:right;">
+2590.4388
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.15,28.2]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + phosphate_star
+</td>
+<td style="text-align:right;">
+819
+</td>
+<td style="text-align:right;">
+0.6071981
+</td>
+<td style="text-align:right;">
+1523.0228
+</td>
+<td style="text-align:right;">
+5.764461
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+0.9476199
+</td>
+<td style="text-align:right;">
+2590.4388
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.15,28.2]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate
 </td>
 <td style="text-align:right;">
@@ -10842,38 +10923,6 @@ Atlantic
 (28.15,28.2]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star
-</td>
-<td style="text-align:right;">
-819
-</td>
-<td style="text-align:right;">
-0.5919930
-</td>
-<td style="text-align:right;">
-1481.4826
-</td>
-<td style="text-align:right;">
-5.113831
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-0.9419591
-</td>
-<td style="text-align:right;">
-2634.0632
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.15,28.2]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
@@ -10928,38 +10977,6 @@ cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_sta
 </td>
 <td style="text-align:right;">
 2510.9133
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.15,28.2]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star
-</td>
-<td style="text-align:right;">
-819
-</td>
-<td style="text-align:right;">
-0.5919930
-</td>
-<td style="text-align:right;">
-1481.4826
-</td>
-<td style="text-align:right;">
-5.113831
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-0.9419591
-</td>
-<td style="text-align:right;">
-2634.0632
 </td>
 </tr>
 <tr>
@@ -11610,7 +11627,7 @@ Atlantic
 (28.2, Inf]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + nitrate + silicate + phosphate_star
+cstar_tref ~ sal + temp + oxygen + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 1557
@@ -11642,7 +11659,7 @@ Atlantic
 (28.2, Inf]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + nitrate + silicate_star + phosphate_star
+cstar_tref ~ sal + temp + oxygen + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 1557
@@ -11706,7 +11723,135 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+5288
+</td>
+<td style="text-align:right;">
+5.8704994
+</td>
+<td style="text-align:right;">
+33741.5762
+</td>
+<td style="text-align:right;">
+32.823104
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.0405560
+</td>
+<td style="text-align:right;">
+80348.7455
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+5288
+</td>
+<td style="text-align:right;">
+5.8704994
+</td>
+<td style="text-align:right;">
+33741.5762
+</td>
+<td style="text-align:right;">
+32.823104
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.0405560
+</td>
+<td style="text-align:right;">
+80348.7455
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+5288
+</td>
+<td style="text-align:right;">
+5.8704994
+</td>
+<td style="text-align:right;">
+33741.5762
+</td>
+<td style="text-align:right;">
+32.823104
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.0405560
+</td>
+<td style="text-align:right;">
+80348.7455
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+5288
+</td>
+<td style="text-align:right;">
+5.8704994
+</td>
+<td style="text-align:right;">
+33741.5762
+</td>
+<td style="text-align:right;">
+32.823104
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.0405560
+</td>
+<td style="text-align:right;">
+80348.7455
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 5288
@@ -11802,135 +11947,7 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-5288
-</td>
-<td style="text-align:right;">
-5.8703920
-</td>
-<td style="text-align:right;">
-33743.3827
-</td>
-<td style="text-align:right;">
-32.845116
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.0393795
-</td>
-<td style="text-align:right;">
-80350.0591
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-5288
-</td>
-<td style="text-align:right;">
-5.8703920
-</td>
-<td style="text-align:right;">
-33743.3827
-</td>
-<td style="text-align:right;">
-32.845116
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.0393795
-</td>
-<td style="text-align:right;">
-80350.0591
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-5288
-</td>
-<td style="text-align:right;">
-5.8703920
-</td>
-<td style="text-align:right;">
-33743.3827
-</td>
-<td style="text-align:right;">
-32.845116
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.0393795
-</td>
-<td style="text-align:right;">
-80350.0591
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-5288
-</td>
-<td style="text-align:right;">
-5.8703920
-</td>
-<td style="text-align:right;">
-33743.3827
-</td>
-<td style="text-align:right;">
-32.845116
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.0393795
-</td>
-<td style="text-align:right;">
-80350.0591
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 5288
@@ -11994,6 +12011,38 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2816
+</td>
+<td style="text-align:right;">
+5.5779109
+</td>
+<td style="text-align:right;">
+17687.8240
+</td>
+<td style="text-align:right;">
+25.740680
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+11.4484102
+</td>
+<td style="text-align:right;">
+51429.4002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
@@ -12026,7 +12075,103 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+2816
+</td>
+<td style="text-align:right;">
+5.5779109
+</td>
+<td style="text-align:right;">
+17687.8240
+</td>
+<td style="text-align:right;">
+25.740680
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+11.4484102
+</td>
+<td style="text-align:right;">
+51429.4002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+2816
+</td>
+<td style="text-align:right;">
+5.5779109
+</td>
+<td style="text-align:right;">
+17687.8240
+</td>
+<td style="text-align:right;">
+25.740680
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+11.4484102
+</td>
+<td style="text-align:right;">
+51429.4002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2816
+</td>
+<td style="text-align:right;">
+5.5779109
+</td>
+<td style="text-align:right;">
+17687.8240
+</td>
+<td style="text-align:right;">
+25.740680
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+11.4484102
+</td>
+<td style="text-align:right;">
+51429.4002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 2816
@@ -12122,135 +12267,7 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-2816
-</td>
-<td style="text-align:right;">
-5.5768716
-</td>
-<td style="text-align:right;">
-17688.7746
-</td>
-<td style="text-align:right;">
-25.837968
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-11.4472636
-</td>
-<td style="text-align:right;">
-51432.1573
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-2816
-</td>
-<td style="text-align:right;">
-5.5768716
-</td>
-<td style="text-align:right;">
-17688.7746
-</td>
-<td style="text-align:right;">
-25.837968
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-11.4472636
-</td>
-<td style="text-align:right;">
-51432.1573
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2816
-</td>
-<td style="text-align:right;">
-5.5768716
-</td>
-<td style="text-align:right;">
-17688.7746
-</td>
-<td style="text-align:right;">
-25.837968
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-11.4472636
-</td>
-<td style="text-align:right;">
-51432.1573
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-2816
-</td>
-<td style="text-align:right;">
-5.5768716
-</td>
-<td style="text-align:right;">
-17688.7746
-</td>
-<td style="text-align:right;">
-25.837968
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-11.4472636
-</td>
-<td style="text-align:right;">
-51432.1573
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 2816
@@ -12314,39 +12331,7 @@ Indo-Pacific
 (26,26.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-5525
-</td>
-<td style="text-align:right;">
-4.3935346
-</td>
-<td style="text-align:right;">
-32050.7520
-</td>
-<td style="text-align:right;">
-50.440434
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-8.4460883
-</td>
-<td style="text-align:right;">
-75535.9915
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26,26.5]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 5525
@@ -12379,6 +12364,38 @@ Indo-Pacific
 </td>
 <td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+5525
+</td>
+<td style="text-align:right;">
+4.3935346
+</td>
+<td style="text-align:right;">
+32050.7520
+</td>
+<td style="text-align:right;">
+50.440434
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+8.4460883
+</td>
+<td style="text-align:right;">
+75535.9915
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26,26.5]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 5525
@@ -12954,7 +12971,7 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
 4544
@@ -12986,7 +13003,7 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + nitrate + silicate_star + phosphate_star
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 4544
@@ -13275,6 +13292,38 @@ Indo-Pacific
 </td>
 <td style="text-align:left;">
 cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2447
+</td>
+<td style="text-align:right;">
+4.1263148
+</td>
+<td style="text-align:right;">
+13896.9659
+</td>
+<td style="text-align:right;">
+30.566323
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+7.9236390
+</td>
+<td style="text-align:right;">
+38934.3673
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + nitrate + silicate + phosphate
 </td>
 <td style="text-align:right;">
 2447
@@ -13338,38 +13387,6 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2447
-</td>
-<td style="text-align:right;">
-4.1263148
-</td>
-<td style="text-align:right;">
-13896.9659
-</td>
-<td style="text-align:right;">
-30.566323
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-7.9236390
-</td>
-<td style="text-align:right;">
-38934.3673
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -16858,135 +16875,7 @@ Indo-Pacific
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-2907
-</td>
-<td style="text-align:right;">
-2.7004857
-</td>
-<td style="text-align:right;">
-14043.5202
-</td>
-<td style="text-align:right;">
-28.455559
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.7932875
-</td>
-<td style="text-align:right;">
-31364.2073
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2907
-</td>
-<td style="text-align:right;">
-2.7004857
-</td>
-<td style="text-align:right;">
-14043.5202
-</td>
-<td style="text-align:right;">
-28.455559
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.7932875
-</td>
-<td style="text-align:right;">
-31364.2073
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-2907
-</td>
-<td style="text-align:right;">
-2.7004857
-</td>
-<td style="text-align:right;">
-14043.5202
-</td>
-<td style="text-align:right;">
-28.455559
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.7932875
-</td>
-<td style="text-align:right;">
-31364.2073
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2907
-</td>
-<td style="text-align:right;">
-2.7004857
-</td>
-<td style="text-align:right;">
-14043.5202
-</td>
-<td style="text-align:right;">
-28.455559
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.7932875
-</td>
-<td style="text-align:right;">
-31364.2073
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
 </td>
 <td style="text-align:right;">
 2907
@@ -17082,7 +16971,7 @@ Indo-Pacific
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 2907
@@ -17114,380 +17003,28 @@ Indo-Pacific
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1760747
-</td>
-<td style="text-align:right;">
-7958.0189
-</td>
-<td style="text-align:right;">
-31.994368
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8765604
-</td>
-<td style="text-align:right;">
-22001.5392
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1761372
-</td>
-<td style="text-align:right;">
-7956.0795
-</td>
-<td style="text-align:right;">
-31.940854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8772832
-</td>
-<td style="text-align:right;">
-21999.0214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1542
-</td>
-<td style="text-align:right;">
-3.1761372
-</td>
-<td style="text-align:right;">
-7956.0795
-</td>
-<td style="text-align:right;">
-31.940854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8772832
-</td>
-<td style="text-align:right;">
-21999.0214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
-1542
+2907
 </td>
 <td style="text-align:right;">
-3.1761372
+2.7011461
 </td>
 <td style="text-align:right;">
-7956.0795
+14042.9418
 </td>
 <td style="text-align:right;">
-31.940854
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8772832
-</td>
-<td style="text-align:right;">
-21999.0214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
+28.633357
 </td>
 <td style="text-align:left;">
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.0117616
+4.7939723
 </td>
 <td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1646542
-</td>
-<td style="text-align:right;">
-10827.3766
-</td>
-<td style="text-align:right;">
-8.110250
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0281263
-</td>
-<td style="text-align:right;">
-25308.5953
+31361.7225
 </td>
 </tr>
 <tr>
@@ -17495,874 +17032,1354 @@ cstar_tref ~ sal + temp + aou + silicate_star + phosphate + phosphate_star
 Indo-Pacific
 </td>
 <td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1513187
-</td>
-<td style="text-align:right;">
-10798.8864
-</td>
-<td style="text-align:right;">
-8.032399
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0117616
-</td>
-<td style="text-align:right;">
-25270.5770
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1646542
-</td>
-<td style="text-align:right;">
-10827.3766
-</td>
-<td style="text-align:right;">
-8.110250
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0281263
-</td>
-<td style="text-align:right;">
-25308.5953
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-2467
-</td>
-<td style="text-align:right;">
-2.1646542
-</td>
-<td style="text-align:right;">
-10827.3766
-</td>
-<td style="text-align:right;">
-8.110250
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.0281263
-</td>
-<td style="text-align:right;">
-25308.5953
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3828037
-</td>
-<td style="text-align:right;">
-6209.7818
-</td>
-<td style="text-align:right;">
-8.123602
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5373781
-</td>
-<td style="text-align:right;">
-17014.1295
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3828037
-</td>
-<td style="text-align:right;">
-6209.7818
-</td>
-<td style="text-align:right;">
-8.123602
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5373781
-</td>
-<td style="text-align:right;">
-17014.1295
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3828037
-</td>
-<td style="text-align:right;">
-6209.7818
-</td>
-<td style="text-align:right;">
-8.123602
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5373781
-</td>
-<td style="text-align:right;">
-17014.1295
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27.95,28.05]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1354
-</td>
-<td style="text-align:right;">
-2.3752818
-</td>
-<td style="text-align:right;">
-6203.2199
-</td>
-<td style="text-align:right;">
-8.355865
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.5266005
-</td>
-<td style="text-align:right;">
-17002.1063
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6596412
-</td>
-<td style="text-align:right;">
-6634.1553
-</td>
-<td style="text-align:right;">
-10.112265
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.0763941
-</td>
-<td style="text-align:right;">
-15679.5548
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + aou + silicate + silicate_star + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6851843
-</td>
-<td style="text-align:right;">
-6684.6350
-</td>
-<td style="text-align:right;">
-9.508440
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.1119376
-</td>
-<td style="text-align:right;">
-15763.9638
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
-</td>
-<td style="text-align:right;">
-1718
-</td>
-<td style="text-align:right;">
-1.6851843
-</td>
-<td style="text-align:right;">
-6684.6350
-</td>
-<td style="text-align:right;">
-9.508440
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.1119376
-</td>
-<td style="text-align:right;">
-15763.9638
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
+(27.85,27.95]
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2907
+</td>
+<td style="text-align:right;">
+2.7011461
+</td>
+<td style="text-align:right;">
+14042.9418
+</td>
+<td style="text-align:right;">
+28.633357
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.7939723
+</td>
+<td style="text-align:right;">
+31361.7225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+2907
+</td>
+<td style="text-align:right;">
+2.7011461
+</td>
+<td style="text-align:right;">
+14042.9418
+</td>
+<td style="text-align:right;">
+28.633357
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.7939723
+</td>
+<td style="text-align:right;">
+31361.7225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2907
+</td>
+<td style="text-align:right;">
+2.7011461
+</td>
+<td style="text-align:right;">
+14042.9418
+</td>
+<td style="text-align:right;">
+28.633357
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.7939723
+</td>
+<td style="text-align:right;">
+31361.7225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1767440
+</td>
+<td style="text-align:right;">
+7956.6687
+</td>
+<td style="text-align:right;">
+31.881688
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8784226
+</td>
+<td style="text-align:right;">
+22000.7567
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + phosphate
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1767686
+</td>
+<td style="text-align:right;">
+7954.6926
+</td>
+<td style="text-align:right;">
+31.850384
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8794254
+</td>
+<td style="text-align:right;">
+21998.8853
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1767686
+</td>
+<td style="text-align:right;">
+7954.6926
+</td>
+<td style="text-align:right;">
+31.850384
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8794254
+</td>
+<td style="text-align:right;">
+21998.8853
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1542
+</td>
+<td style="text-align:right;">
+3.1761372
+</td>
+<td style="text-align:right;">
+7956.0795
+</td>
+<td style="text-align:right;">
+31.940854
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.8772832
+</td>
+<td style="text-align:right;">
+21999.0214
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1646542
+</td>
+<td style="text-align:right;">
+10827.3766
+</td>
+<td style="text-align:right;">
+8.110250
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0281263
+</td>
+<td style="text-align:right;">
+25308.5953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1513187
+</td>
+<td style="text-align:right;">
+10798.8864
+</td>
+<td style="text-align:right;">
+8.032399
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0117616
+</td>
+<td style="text-align:right;">
+25270.5770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1646542
+</td>
+<td style="text-align:right;">
+10827.3766
+</td>
+<td style="text-align:right;">
+8.110250
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0281263
+</td>
+<td style="text-align:right;">
+25308.5953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+2467
+</td>
+<td style="text-align:right;">
+2.1646542
+</td>
+<td style="text-align:right;">
+10827.3766
+</td>
+<td style="text-align:right;">
+8.110250
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.0281263
+</td>
+<td style="text-align:right;">
+25308.5953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3828037
+</td>
+<td style="text-align:right;">
+6209.7818
+</td>
+<td style="text-align:right;">
+8.123602
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5373781
+</td>
+<td style="text-align:right;">
+17014.1295
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3828037
+</td>
+<td style="text-align:right;">
+6209.7818
+</td>
+<td style="text-align:right;">
+8.123602
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5373781
+</td>
+<td style="text-align:right;">
+17014.1295
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3828037
+</td>
+<td style="text-align:right;">
+6209.7818
+</td>
+<td style="text-align:right;">
+8.123602
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5373781
+</td>
+<td style="text-align:right;">
+17014.1295
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27.95,28.05]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1354
+</td>
+<td style="text-align:right;">
+2.3752818
+</td>
+<td style="text-align:right;">
+6203.2199
+</td>
+<td style="text-align:right;">
+8.355865
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+4.5266005
+</td>
+<td style="text-align:right;">
+17002.1063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate + silicate_star + phosphate_star
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6596412
+</td>
+<td style="text-align:right;">
+6634.1553
+</td>
+<td style="text-align:right;">
+10.112265
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.0763941
+</td>
+<td style="text-align:right;">
+15679.5548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + aou + silicate + silicate_star + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6851843
+</td>
+<td style="text-align:right;">
+6684.6350
+</td>
+<td style="text-align:right;">
+9.508440
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.1119376
+</td>
+<td style="text-align:right;">
+15763.9638
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1718
+</td>
+<td style="text-align:right;">
+1.6851843
+</td>
+<td style="text-align:right;">
+6684.6350
+</td>
+<td style="text-align:right;">
+9.508440
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.1119376
+</td>
+<td style="text-align:right;">
+15763.9638
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 1718
@@ -19290,7 +19307,7 @@ Indo-Pacific
 (28.1, Inf]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + nitrate + silicate_star + phosphate_star
+cstar_tref ~ temp + oxygen + aou + silicate + silicate_star + phosphate
 </td>
 <td style="text-align:right;">
 7804
@@ -19394,10 +19411,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3451980
+2.3472602
 </td>
 <td style="text-align:right;">
-1196.8638
+1194.7078
 </td>
 </tr>
 <tr>
@@ -19411,10 +19428,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.0875503
+2.0933689
 </td>
 <td style="text-align:right;">
-701.5296
+699.6147
 </td>
 </tr>
 <tr>
@@ -19462,10 +19479,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.0826930
+6.0827159
 </td>
 <td style="text-align:right;">
-16677.3495
+16675.7788
 </td>
 </tr>
 <tr>
@@ -19479,10 +19496,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-6.4013741
+6.4020066
 </td>
 <td style="text-align:right;">
-10605.6185
+10604.2726
 </td>
 </tr>
 <tr>
@@ -19581,10 +19598,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-4.8448718
+4.8453232
 </td>
 <td style="text-align:right;">
-14216.1420
+14214.9497
 </td>
 </tr>
 <tr>
@@ -19615,10 +19632,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-5.0566353
+5.0572439
 </td>
 <td style="text-align:right;">
-20118.6013
+20116.5898
 </td>
 </tr>
 <tr>
@@ -19734,10 +19751,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.8172870
+1.8177512
 </td>
 <td style="text-align:right;">
-4948.6889
+4948.5386
 </td>
 </tr>
 <tr>
@@ -19751,10 +19768,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-2.0038851
+2.0042817
 </td>
 <td style="text-align:right;">
-3541.5949
+3540.8797
 </td>
 </tr>
 <tr>
@@ -19768,10 +19785,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-1.3018012
+1.3029237
 </td>
 <td style="text-align:right;">
-4321.2232
+4317.3099
 </td>
 </tr>
 <tr>
@@ -19819,10 +19836,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-0.9280565
+0.9291886
 </td>
 <td style="text-align:right;">
-2547.8583
+2539.1334
 </td>
 </tr>
 <tr>
@@ -19870,10 +19887,10 @@ Indo-Pacific
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.0397325
+12.0402031
 </td>
 <td style="text-align:right;">
-80349.6650
+80349.1396
 </td>
 </tr>
 <tr>
@@ -19887,10 +19904,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-11.4476076
+11.4480662
 </td>
 <td style="text-align:right;">
-51431.3302
+51430.2273
 </td>
 </tr>
 <tr>
@@ -20142,10 +20159,10 @@ Indo-Pacific
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.7934930
+4.7937669
 </td>
 <td style="text-align:right;">
-31363.4619
+31362.4679
 </td>
 </tr>
 <tr>
@@ -20159,10 +20176,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-5.8767773
+5.8778256
 </td>
 <td style="text-align:right;">
-22000.7838
+21999.1677
 </td>
 </tr>
 <tr>
@@ -20550,7 +20567,7 @@ lm_best_cant %&gt;%
 <h1 number="6"><span class="header-section-number">6</span> Model diagnotics</h1>
 <div id="selection-criterion-vs-predictors" class="section level2" number="6.1">
 <h2 number="6.1"><span class="header-section-number">6.1</span> Selection criterion vs predictors</h2>
-<p>The selection criterion (rmse) was plotted against the number of predictors (limited to 2 - 7).</p>
+<p>The selection criterion (aic) was plotted against the number of predictors (limited to 2 - 7).</p>
 <div id="all-models" class="section level3" number="6.1.1">
 <h3 number="6.1.1"><span class="header-section-number">6.1.1</span> All models</h3>
 <pre class="r"><code>lm_all_fitted_wide %&gt;%
@@ -20585,6 +20602,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">5dce4b1</a>
@@ -21317,6 +21345,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">5dce4b1</a>
@@ -22069,6 +22108,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">5dce4b1</a>
 </td>
 <td>
@@ -22792,6 +22842,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">5dce4b1</a>
@@ -23884,14 +23945,14 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -23912,7 +23973,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
@@ -23997,32 +24058,32 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.1,28.15]</td>
       <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -24052,14 +24113,14 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">137.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">78.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">113.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">83.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">74.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">134.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">93.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">95.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">131.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">80.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">112.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">82.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">70.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">130.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">96.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">90.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">127.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="10" class="gt_group_heading">Atlantic - 2000-2012 --&gt; 2013-2019</td>
@@ -24074,7 +24135,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -24091,13 +24152,13 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">9</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -24134,7 +24195,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.5,27.75]</td>
@@ -24146,7 +24207,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.75,27.85]</td>
@@ -24180,8 +24241,8 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -24192,7 +24253,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
@@ -24211,38 +24272,38 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.15,28.2]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.2, Inf]</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">137.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">78.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">114.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">77.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">115.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">78.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">76.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">137.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">94.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">94.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">131.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">133.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">92.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">91.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">113.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="10" class="gt_group_heading">Indo-Pacific - 1982-1999 --&gt; 2000-2012</td>
@@ -24257,17 +24318,17 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
     </tr>
@@ -24276,11 +24337,11 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">4</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
     </tr>
     <tr>
@@ -24350,7 +24411,7 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
@@ -24372,11 +24433,11 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">8</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -24394,14 +24455,14 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">120.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">61.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">60.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">99.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">70.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">71.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">74.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">90.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">104.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">77.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">88.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">107.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="10" class="gt_group_heading">Indo-Pacific - 2000-2012 --&gt; 2013-2019</td>
@@ -24409,14 +24470,14 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">3</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -24433,13 +24494,13 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">7</td>
     </tr>
     <tr>
@@ -24505,13 +24566,13 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.85,27.95]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">9</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">1</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -24541,12 +24602,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.1, Inf]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">8</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">10</td>
     </tr>
@@ -24555,12 +24616,12 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">120.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">59.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">99.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">69.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">72.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">68.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">73.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">105.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">75.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">91.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">88.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">104.00</td>
     </tr>
   </tbody>
   
@@ -24598,6 +24659,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">5dce4b1</a>
@@ -25312,6 +25384,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e3bba843bb6dacb98febc3e3d4e581791784b42c/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">e3bba84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-02-15
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5dce4b1a0ff2ad0bb481fb65db7484de1220b6fa/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">5dce4b1</a>
