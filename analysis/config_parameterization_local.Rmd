@@ -107,9 +107,9 @@ params_local <-
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 7,
+    MLR_predictors_max = 6,
     # Minimum number of MLR predictors
-    MLR_predictors_min = 2,
+    MLR_predictors_min = 3,
     # Total number of MLR fits taken into account
     MLR_number = 10,
     # Fitted model type rlm or lm
