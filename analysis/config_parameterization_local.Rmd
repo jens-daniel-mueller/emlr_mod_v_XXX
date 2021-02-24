@@ -101,7 +101,7 @@ params_local <-
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
     era_breaks_random = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "SO",
+    MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
@@ -115,7 +115,7 @@ params_local <-
     # Fitted model type rlm or lm
     MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic"
-    MLR_criterion = "aic",
+    MLR_criterion = "rmse",
     # see above
     slabs_Atl = slabs_Atl,
     # see above
