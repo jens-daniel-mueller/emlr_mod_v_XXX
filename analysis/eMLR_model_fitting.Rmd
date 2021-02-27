@@ -151,20 +151,20 @@ lm_all <- lm_all %>%
 
 #remove temp sal predictor combination
 lm_all <- lm_all %>%
- # mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
   filter(!(
-    str_detect(lm_coeff, "nitrate") &
-      str_detect(lm_coeff, "phosphate")
+    str_detect(lm_coeff_filter, "nitrate") &
+      str_detect(lm_coeff_filter, "phosphate")
   )) %>%
   filter(!(
-    str_detect(lm_coeff, "temp") &
-      str_detect(lm_coeff, "sal")
+    str_detect(lm_coeff_filter, "temp") &
+      str_detect(lm_coeff_filter, "sal")
   )) %>%
   filter(!(
-    str_detect(lm_coeff, "oxygen") &
-      str_detect(lm_coeff, "aou")
-  ))
- # select(-lm_coeff_filter)
+    str_detect(lm_coeff_filter, "oxygen") &
+      str_detect(lm_coeff_filter, "aou")
+  )) %>%
+  select(-lm_coeff_filter)
 
 # # remove certain predictor combinations
 # lm_rm_ph <- lm_all %>%
