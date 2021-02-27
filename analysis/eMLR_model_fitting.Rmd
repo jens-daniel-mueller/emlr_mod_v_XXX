@@ -159,6 +159,10 @@ lm_all <- lm_all %>%
   filter(!(
     str_detect(lm_coeff, "temp") &
       str_detect(lm_coeff, "sal")
+  )) %>%
+  filter(!(
+    str_detect(lm_coeff, "oxygen") &
+      str_detect(lm_coeff, "aou")
   ))
  # select(-lm_coeff_filter)
 
