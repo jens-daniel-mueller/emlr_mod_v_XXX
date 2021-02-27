@@ -72,8 +72,8 @@ MLR_predictors <- c(
                 "nitrate",
                 "silicate",
              #   "silicate_star",
-                "phosphate",
-                "phosphate_star")
+                "phosphate")
+             #   "phosphate_star")
 
 params_local <-
   lst(
