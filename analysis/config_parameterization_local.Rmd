@@ -68,7 +68,7 @@ MLR_predictors <- c(
                 "sal",
                 "temp",
                 "oxygen",
-                #"aou",
+                "aou",
                 "nitrate",
                 "silicate",
               #  "silicate_star",
