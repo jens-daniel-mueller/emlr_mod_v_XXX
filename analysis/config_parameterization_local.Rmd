@@ -98,8 +98,8 @@ params_local <-
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
-    era_breaks_GLODAP = c(1981, 1999, 2010, Inf),
-    era_breaks_random = c(1981, 1999, 2010, Inf),
+    era_breaks_GLODAP = c(1981, 1999, 2008, Inf),
+    era_breaks_random = c(1981, 1999, 2008, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
     MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
