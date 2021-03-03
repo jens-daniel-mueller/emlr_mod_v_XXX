@@ -146,25 +146,25 @@ lm_all <- lm_all %>%
 #   unique()
 
 
-#remove temp sal predictor combination
-# lm_all <- lm_all %>%
-#   # filter(!(
-#   #   str_detect(lm_coeff, "temp") &
-#   #     str_detect(lm_coeff, "phosphate_star")
-#   # )) %>%
-#   mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
-#   filter(!(str_detect(lm_coeff_filter, "nitrate") &
-#              str_detect(lm_coeff_filter, "phosphate")
-#   )) %>%
-#   filter(!(
-#     str_detect(lm_coeff_filter, "temp") &
-#       str_detect(lm_coeff_filter, "sal")
-#   )) %>%
-#   filter(!(
-#     str_detect(lm_coeff_filter, "oxygen") &
-#       str_detect(lm_coeff_filter, "aou")
-#   )) %>%
-#   select(-lm_coeff_filter)
+# remove temp sal predictor combination
+lm_all <- lm_all %>%
+  # filter(!(
+  #   str_detect(lm_coeff, "temp") &
+  #     str_detect(lm_coeff, "phosphate_star")
+  # )) %>%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
+  filter(!(str_detect(lm_coeff_filter, "nitrate") &
+             str_detect(lm_coeff_filter, "phosphate")
+  )) %>%
+  filter(!(
+    str_detect(lm_coeff_filter, "temp") &
+      str_detect(lm_coeff_filter, "sal")
+  )) %>%
+  filter(!(
+    str_detect(lm_coeff_filter, "oxygen") &
+      str_detect(lm_coeff_filter, "aou")
+  )) %>%
+  select(-lm_coeff_filter)
 
 # lm_rm <- lm_rm_ph %>%
 #   select(-lm_coeff_filter) %>%

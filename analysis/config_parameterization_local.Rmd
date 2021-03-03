@@ -71,7 +71,7 @@ MLR_predictors <- c(
                 "aou",
                 "nitrate",
                 "silicate",
-                "silicate_star",
+               # "silicate_star",
                 "phosphate",
                 "phosphate_star")
 
