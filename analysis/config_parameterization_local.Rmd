@@ -111,7 +111,7 @@ params_local <-
     # Minimum number of MLR predictors
     MLR_predictors_min = 3,
     # Total number of MLR fits taken into account
-    MLR_number = 10,
+    MLR_number = 5,
     # Fitted model type rlm or lm
     MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic"
