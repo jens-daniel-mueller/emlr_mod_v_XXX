@@ -103,7 +103,7 @@ params_local <-
     # ID for basins for MLR fits: 2, 5, SO, AIP
     MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
-    MLR_target = "tco2",
+    MLR_target = "cstar",
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
