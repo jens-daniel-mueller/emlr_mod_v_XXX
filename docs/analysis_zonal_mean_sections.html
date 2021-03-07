@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d09ab25e7af6d5eff03ea2ec23b83a143379b5ftargetblank6d09ab2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d09ab25e7af6d5eff03ea2ec23b83a143379b5f" target="_blank">6d09ab2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree5f550edb9396392977cb8526dfae88897aea962etargetblank5f550eda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/5f550edb9396392977cb8526dfae88897aea962e" target="_blank">5f550ed</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d09ab25e7af6d5eff03ea2ec23b83a143379b5ftargetblank6d09ab2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree5f550edb9396392977cb8526dfae88897aea962etargetblank5f550eda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d09ab25e7af6d5eff03ea2ec23b83a143379b5f" target="_blank">6d09ab2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/5f550edb9396392977cb8526dfae88897aea962e" target="_blank">5f550ed</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -677,6 +677,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5f550edb9396392977cb8526dfae88897aea962e/analysis/analysis_zonal_mean_sections.Rmd" target="_blank">5f550ed</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/analysis_zonal_mean_sections.html" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -2785,7 +2819,11 @@ cant_zonal_wide &lt;- cant_zonal_wide %&gt;%
 <div id="cant---positive-only" class="section level2" number="2.1">
 <h2 number="2.1"><span class="header-section-number">2.1</span> Cant - positive only</h2>
 <p>In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections.</p>
-<pre class="r"><code>for (i_eras in unique(cant_zonal_long$eras)) {
+<pre class="r"><code>#i_eras = unique(cant_zonal_long$eras)[1]
+#i_basin_AIP = unique(cant_zonal_long$basin_AIP)[1]
+#i_estimate = unique(cant_zonal_long$estimate)[2]
+
+for (i_eras in unique(cant_zonal_long$eras)) {
   for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
     for (i_estimate in unique(cant_zonal_long$estimate)) {
       # Absolute values
@@ -2851,6 +2889,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-1.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-1.png" target="_blank">627c8fb</a>
@@ -4024,6 +4073,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-2.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-2.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -4533,6 +4593,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-3.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-3.png" target="_blank">627c8fb</a>
@@ -5717,6 +5788,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-4.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-4.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -6899,6 +6981,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-5.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-5.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -7408,6 +7501,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-6.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-6.png" target="_blank">627c8fb</a>
@@ -8592,6 +8696,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-7.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-7.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -9752,6 +9867,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-8.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-8.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -10261,6 +10387,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-9.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-9.png" target="_blank">627c8fb</a>
@@ -11421,6 +11558,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-10.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-10.png" target="_blank">627c8fb</a>
@@ -12594,6 +12742,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-11.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-11.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -13114,6 +13273,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-12.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-12.png" target="_blank">627c8fb</a>
@@ -14287,6 +14457,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-13.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-13.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -15436,6 +15617,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-14.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-14.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -15901,6 +16093,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-15.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-15.png" target="_blank">627c8fb</a>
@@ -17052,6 +17255,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-16.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-16.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -18179,6 +18393,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-17.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-17.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -18644,6 +18869,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-18.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_pos_zonal_mean_section-18.png" target="_blank">627c8fb</a>
@@ -19828,6 +20064,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-1.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-1.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -20999,6 +21246,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-2.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-2.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -21508,6 +21766,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-3.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-3.png" target="_blank">627c8fb</a>
@@ -22692,6 +22961,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-4.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-4.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -23874,6 +24154,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-5.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-5.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -24383,6 +24674,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-6.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-6.png" target="_blank">627c8fb</a>
@@ -25567,6 +25869,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-7.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-7.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -26727,6 +27040,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-8.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-8.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -27236,6 +27560,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-9.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-9.png" target="_blank">627c8fb</a>
@@ -28396,6 +28731,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-10.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-10.png" target="_blank">627c8fb</a>
@@ -29569,6 +29915,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-11.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-11.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -30089,6 +30446,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-12.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-12.png" target="_blank">627c8fb</a>
@@ -31262,6 +31630,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-13.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-13.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -32411,6 +32790,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-14.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-14.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -32876,6 +33266,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-15.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-15.png" target="_blank">627c8fb</a>
@@ -34027,6 +34428,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-16.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-16.png" target="_blank">627c8fb</a>
 </td>
 <td>
@@ -35154,6 +35566,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-17.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-17.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -35619,6 +36042,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/3fbbfa46df858b47a2be7f0f23696449dc2f0f35/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-18.png" target="_blank">3fbbfa4</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/analysis_zonal_mean_sections.Rmd/cant_zonal_mean_section-18.png" target="_blank">627c8fb</a>
