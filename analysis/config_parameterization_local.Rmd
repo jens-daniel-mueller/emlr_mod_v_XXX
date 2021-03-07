@@ -90,7 +90,7 @@ params_local <-
     # qc flags accepted for GLODAP data
     flag_qc = c(1),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
-    A16_GO_SHIP = "n",
+    A16_GO_SHIP = "y",
     # Shallowest depth for data to be included in MLR fitting
     depth_min = 150,
     # Shallowest water depth for data to be included in MLR fitting
@@ -101,7 +101,7 @@ params_local <-
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
     era_breaks_random = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "2",
+    MLR_basins = "SO",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
