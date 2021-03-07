@@ -137,6 +137,9 @@ cant_zonal_wide <- cant_zonal_wide %>%
 In a first series of plots we explore the distribution of Cant, taking only positive estimates into account (positive here refers to the mean cant estimate across MLR model predictions available for each grid cell). Negative values were set to zero before calculating mean sections.
 
 ```{r cant_pos_zonal_mean_section, fig.asp=0.6}
+#i_eras = unique(cant_zonal_long$eras)[1]
+#i_basin_AIP = unique(cant_zonal_long$basin_AIP)[1]
+#i_estimate = unique(cant_zonal_long$estimate)[2]
 
 for (i_eras in unique(cant_zonal_long$eras)) {
   for (i_basin_AIP in unique(cant_zonal_long$basin_AIP)) {
