@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree1d44c608d9551e84d1874ba72e752e8850201968targetblank1d44c60a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/1d44c608d9551e84d1874ba72e752e8850201968" target="_blank">1d44c60</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d09ab25e7af6d5eff03ea2ec23b83a143379b5ftargetblank6d09ab2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d09ab25e7af6d5eff03ea2ec23b83a143379b5f" target="_blank">6d09ab2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree1d44c608d9551e84d1874ba72e752e8850201968targetblank1d44c60a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d09ab25e7af6d5eff03ea2ec23b83a143379b5ftargetblank6d09ab2a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/1d44c608d9551e84d1874ba72e752e8850201968" target="_blank">1d44c60</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d09ab25e7af6d5eff03ea2ec23b83a143379b5f" target="_blank">6d09ab2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -679,6 +679,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/eMLR_data_preparation.html" target="_blank">627c8fb</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -3138,7 +3155,7 @@ year
 1982-1999
 </td>
 <td style="text-align:right;">
-1991
+1995
 </td>
 </tr>
 <tr>
@@ -3146,7 +3163,7 @@ year
 2000-2012
 </td>
 <td style="text-align:right;">
-2006
+2007
 </td>
 </tr>
 <tr>
@@ -3154,7 +3171,7 @@ year
 2013-2019
 </td>
 <td style="text-align:right;">
-2016
+2015
 </td>
 </tr>
 </tbody>
@@ -4208,32 +4225,6 @@ if (params_local$subsetting == &quot;GLODAP&quot;) {
     scale_color_brewer(palette = &quot;Dark2&quot;, name = &quot;&quot;) +
     labs(title = &quot;Cant interpolation to subsetting depth - example profile&quot;)
   
-}
-
-if (params_local$subsetting == &quot;random&quot;) {
-  ggplot() +
-    geom_path(
-      data = GLODAP_cant_obs %&gt;%
-        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %&gt;%
-        arrange(depth),
-      aes(cant_total, depth, col = &quot;mapped&quot;)
-    ) +
-    geom_point(
-      data = GLODAP_cant_obs %&gt;%
-        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %&gt;%
-        arrange(depth),
-      aes(cant_total, depth, col = &quot;mapped&quot;)
-    ) +
-    geom_point(
-      data = GLODAP_cant_obs %&gt;%
-        filter(lat == 48.5, lon == 165.5, month == 6),
-      aes(cant_int, depth, col = &quot;interpolated&quot;)
-    ) +
-    scale_y_reverse() +
-    facet_wrap( ~ era) +
-    scale_color_brewer(palette = &quot;Dark2&quot;, name = &quot;&quot;) +
-    labs(title = &quot;Cant interpolation to subsetting depth - example profile&quot;)
-  
 }</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -4779,7 +4770,33 @@ jens-daniel-mueller
 </table>
 </div>
 </div>
-<pre class="r"><code># remove cant data at grid cells without observations
+<pre class="r"><code>if (params_local$subsetting == &quot;random&quot;) {
+  ggplot() +
+    geom_path(
+      data = GLODAP_cant_obs %&gt;%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %&gt;%
+        arrange(depth),
+      aes(cant_total, depth, col = &quot;mapped&quot;)
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %&gt;%
+        filter(lat == 48.5, lon == 165.5, !is.na(cant_total)) %&gt;%
+        arrange(depth),
+      aes(cant_total, depth, col = &quot;mapped&quot;)
+    ) +
+    geom_point(
+      data = GLODAP_cant_obs %&gt;%
+        filter(lat == 48.5, lon == 165.5, month == 6),
+      aes(cant_int, depth, col = &quot;interpolated&quot;)
+    ) +
+    scale_y_reverse() +
+    facet_wrap( ~ era) +
+    scale_color_brewer(palette = &quot;Dark2&quot;, name = &quot;&quot;) +
+    labs(title = &quot;Cant interpolation to subsetting depth - example profile&quot;)
+  
+}
+
+# remove cant data at grid cells without observations
 GLODAP &lt;- GLODAP_cant_obs %&gt;%
   filter(!is.na(cstar)) %&gt;%
   mutate(cant_total_pos = cant_int) %&gt;%
@@ -6494,17 +6511,6 @@ if (params_local$subsetting == &quot;random&quot;) {
                aes(lon, lat, col = date)) +
     scale_color_viridis_c(trans = &quot;date&quot;) +
     labs(title = paste(&quot;Cruise year:&quot;, mean(GLODAP_cruise$year)))
-}
-
-if (params_local$subsetting == &quot;random&quot;) {
-  map +
-    geom_path(data = GLODAP_cruise,
-              aes(lon, lat)) +
-    geom_point(data = GLODAP_cruise,
-               aes(lon, lat)) +
-    scale_color_viridis_c(trans = &quot;date&quot;) +
-    labs(title = paste(&quot;Cruise year:&quot;, mean(GLODAP_cruise$year)))
-  
 }</code></pre>
 <p><img src="figure/eMLR_data_preparation.Rmd/meridional_sections-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -6907,7 +6913,18 @@ jens-daniel-mueller
 </table>
 </div>
 </div>
-<pre class="r"><code>lat_section &lt;-
+<pre class="r"><code>if (params_local$subsetting == &quot;random&quot;) {
+  map +
+    geom_path(data = GLODAP_cruise,
+              aes(lon, lat)) +
+    geom_point(data = GLODAP_cruise,
+               aes(lon, lat)) +
+    scale_color_viridis_c(trans = &quot;date&quot;) +
+    labs(title = paste(&quot;Cruise year:&quot;, mean(GLODAP_cruise$year)))
+  
+}
+
+lat_section &lt;-
   GLODAP_cruise %&gt;%
   ggplot(aes(lat, depth)) +
   scale_y_reverse() +
@@ -10097,6 +10114,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">627c8fb</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -10795,6 +10823,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/627c8fba15fb122e1a6ece2d8d43dff1872042cf/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">627c8fb</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-07
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8c1e97876e2246e69e27ca96fa9cd2624684bed8/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">8c1e978</a>
 </td>
 <td>
@@ -11456,297 +11495,6 @@ Donghe-Zhu
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">c8b76b3</a>
-</td>
-<td>
-jens-daniel-mueller
-</td>
-<td>
-2020-12-19
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-obs_gamma_slab-3">
-Past versions of obs_gamma_slab-3.png
-</button>
-</p>
-<div id="fig-obs_gamma_slab-3" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/19edd1ed75fd7aa08d687f507fd601cdfcca3379/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">19edd1e</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-27
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/f20483f7ecdbe034cfd419e6e8f8464609678173/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">f20483f</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-26
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/57f701ea32e00c076290c1882a9a5988387c3645/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">57f701e</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-24
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/06f3149209c01361f6681902c228e50037bad44f/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">06f3149</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-16
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/4469a0c0d25f8637d3b5d3a93734c9f76fec2846/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">4469a0c</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-13
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/5ae6a69643bbc750e966f7b07395aafd2877848a/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">5ae6a69</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-10
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a145fa754fe205202dd73e0fd82d8ba724040fac/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">a145fa7</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-09
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c344e424775f3c2225769c4f7e6f0e78c82ff7a2/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">c344e42</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-08
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/1fad5f16ba7e5bcf639229f904f01817b0068e90/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">1fad5f1</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-02-07
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/59e006e05cfd6b6bee5787a99aa8e9375c742696/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">59e006e</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-31
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a1c8f87003c32940bd3763537c257ba66c29cb2b/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">a1c8f87</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-31
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ae5c18f815678535d22390434cd36dcfda091a05/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">ae5c18f</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-31
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/16fba4034ae9c624ddd143f427471b45c85a4414/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">16fba40</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-28
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/12bc5677c8b4b7f1de40698381c832b0b39f284d/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">12bc567</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-27
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ceed31b9b3928c3c4305dddd04e17dff65b25179/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">ceed31b</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-27
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/61efb566f7dcf51f6455c72b342f2f2d3ffc1f89/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">61efb56</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-25
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/48f638e94d0e82a7a02234d674a7548985328a1a/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">48f638e</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-25
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a2f0d56a42181f75e0519cdc33dba813cf23aeb2/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">a2f0d56</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/28509fc257e2c3b940c36d44364d4fccc15213c3/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">28509fc</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-23
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/4c28e4a5d06c12731768a5c2941d0086439e30be/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">4c28e4a</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-22
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e5cb81a77276d8f86383d5f95c523932c41c9865/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">e5cb81a</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-05
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/a499f10132c7aed82d37bf328e1ad36bf54376c9/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">a499f10</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2021-01-05
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/8fae0b2d481831f621ba6a21679a630579683af5/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">8fae0b2</a>
-</td>
-<td>
-Donghe-Zhu
-</td>
-<td>
-2020-12-21
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/c8b76b36b46e80eac099b4e045d746a1ac2ec618/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-3.png" target="_blank">c8b76b3</a>
 </td>
 <td>
 jens-daniel-mueller
