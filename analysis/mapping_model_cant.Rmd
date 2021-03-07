@@ -62,7 +62,8 @@ Results from this study are referred to as JDM. Unique eras information is subtr
 lm_best_cant <-
   read_csv(paste(path_version_data,
                  "lm_best_cant.csv",
-                 sep = ""))
+                 sep = "")) %>%
+  arrange(eras)
 
 ```
 
