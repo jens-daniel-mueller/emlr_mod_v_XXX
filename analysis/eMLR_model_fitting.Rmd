@@ -186,6 +186,21 @@ rm(
   lm_rm
 )
 
+# lm_full <- lm(paste(
+#   params_local$MLR_target,
+#   paste(params_local$MLR_predictors, collapse = " + "),
+#   sep = " ~ "
+# ),
+# data = GLODAP_basin_era_slab)
+# 
+# lm_full <-
+#   loess(
+#     cstar_tref ~ sal + temp + aou + phosphate,
+#     span = 0.1,
+#     degree = 1,
+#     data = GLODAP_basin_era_slab
+#   )
+
 ```
 
 # Apply predictor threshold
