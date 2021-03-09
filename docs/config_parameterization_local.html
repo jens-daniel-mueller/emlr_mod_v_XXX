@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34744ec90fe72fc4a1e30080ed6ad74c51215580targetblank34744eca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34744ec90fe72fc4a1e30080ed6ad74c51215580" target="_blank">34744ec</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree4a4a400e17c17bdd98d37efc073bce9a8d59c409targetblank4a4a400a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/4a4a400e17c17bdd98d37efc073bce9a8d59c409" target="_blank">4a4a400</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34744ec90fe72fc4a1e30080ed6ad74c51215580targetblank34744eca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree4a4a400e17c17bdd98d37efc073bce9a8d59c409targetblank4a4a400a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34744ec90fe72fc4a1e30080ed6ad74c51215580" target="_blank">34744ec</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/4a4a400e17c17bdd98d37efc073bce9a8d59c409" target="_blank">4a4a400</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -677,6 +677,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/4a4a400e17c17bdd98d37efc073bce9a8d59c409/analysis/config_parameterization_local.Rmd" target="_blank">4a4a400</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/c024d1a2d8491734982149aa153b4cee5de09bca/docs/config_parameterization_local.html" target="_blank">c024d1a</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -5011,9 +5045,9 @@ slabs_Ind_Pac &lt;-
 MLR_predictors &lt;- c(
                 &quot;sal&quot;,
                 &quot;temp&quot;,
-                &quot;oxygen&quot;,
+               # &quot;oxygen&quot;,
                 &quot;aou&quot;,
-               # &quot;nitrate&quot;,
+                &quot;nitrate&quot;,
                 &quot;silicate&quot;,
                # &quot;silicate_star&quot;,
                 &quot;phosphate&quot;,
@@ -5051,7 +5085,7 @@ params_local &lt;-
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 5,
+    MLR_predictors_max = 8,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
