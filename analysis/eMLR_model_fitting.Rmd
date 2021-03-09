@@ -411,7 +411,6 @@ Please note, that currently the `lm()` function produces NAs for some predictors
 ```{r remove_predictor_NA, eval=FALSE}
 
 # remove models with predictors fitted as NA
-
 lm_all_fitted_wide <- lm_all_fitted_wide %>%
   filter(na_predictor == FALSE)
 
@@ -421,7 +420,7 @@ lm_all_fitted_wide <- lm_all_fitted_wide %>%
 ```{r predictor_selection}
 
 # calculate RMSE sum for adjacent eras
-lm_all_fitted_wide_eras <- lm_all_fitted_wide  %>%
+lm_all_fitted_wide_eras <- lm_all_fitted_wide %>%
   select(basin, gamma_slab, model, era, nr_obs, rmse, aic, resid_max) %>%
   arrange(era) %>%
   group_by(basin, gamma_slab, model) %>%
@@ -731,7 +730,7 @@ lm_best_long <- lm_best_target %>%
                values_to = "estimate",
                names_prefix = "coeff_")
 
-# subtract coefficients of adjacent era  
+# subtract coefficients of adjacent era
 lm_best_long <- lm_best_long %>%
   arrange(era) %>%
   group_by(basin, gamma_slab, eras, model, term) %>%
@@ -778,6 +777,11 @@ lm_best_cant %>%
   ) %>%
   write_csv(paste(path_version_data,
                   "lm_best_cant.csv",
+                  sep = ""))
+
+lm_best %>%
+  write_csv(paste(path_version_data,
+                  "lm_best.csv",
                   sep = ""))
 
 ```
