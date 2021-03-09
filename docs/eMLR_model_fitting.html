@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34e7be895d8931e96aef18168ea595de44690c8ftargetblank34e7be8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34e7be895d8931e96aef18168ea595de44690c8f" target="_blank">34e7be8</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34744ec90fe72fc4a1e30080ed6ad74c51215580targetblank34744eca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34744ec90fe72fc4a1e30080ed6ad74c51215580" target="_blank">34744ec</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34e7be895d8931e96aef18168ea595de44690c8ftargetblank34e7be8a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree34744ec90fe72fc4a1e30080ed6ad74c51215580targetblank34744eca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34e7be895d8931e96aef18168ea595de44690c8f" target="_blank">34e7be8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/34744ec90fe72fc4a1e30080ed6ad74c51215580" target="_blank">34744ec</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -679,6 +679,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/34744ec90fe72fc4a1e30080ed6ad74c51215580/analysis/eMLR_model_fitting.Rmd" target="_blank">34744ec</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/eMLR_model_fitting.html" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -3666,13 +3700,13 @@ lm_all &lt;- lm_all %&gt;%
          lm_coeff = paste(params_local$MLR_target, &quot;~&quot;, lm_coeff))
 
 # remove certain predictor combinations
-# lm_rm_ph &lt;- lm_all %&gt;%
-#   filter(str_detect(lm_coeff, &quot;phosphate_star&quot;)) %&gt;%
-#   mutate(lm_coeff_filter = str_remove(lm_coeff, &quot;phosphate_star&quot;)) %&gt;%
-#   filter(
-#     str_detect(lm_coeff_filter, &quot;oxygen&quot;) &amp;
-#       str_detect(lm_coeff_filter, &quot;phosphate&quot;)
-#   )
+lm_rm_ph &lt;- lm_all %&gt;%
+  filter(str_detect(lm_coeff, &quot;phosphate_star&quot;)) %&gt;%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, &quot;phosphate_star&quot;)) %&gt;%
+  filter(
+    str_detect(lm_coeff_filter, &quot;oxygen&quot;) &amp;
+      str_detect(lm_coeff_filter, &quot;phosphate&quot;)
+  )
 
 # lm_rm_si &lt;- lm_all %&gt;%
 #   filter(str_detect(lm_coeff, &quot;silicate_star&quot;)) %&gt;%
@@ -3712,11 +3746,11 @@ lm_all &lt;- lm_all %&gt;%
   # )) %&gt;%
   # select(-lm_coeff_filter)
 
-# lm_rm &lt;- lm_rm_ph %&gt;%
-#   select(-lm_coeff_filter) %&gt;%
-#   unique()
-# 
-# lm_all &lt;- anti_join(lm_all, lm_rm)
+lm_rm &lt;- lm_rm_ph %&gt;%
+  select(-lm_coeff_filter) %&gt;%
+  unique()
+
+lm_all &lt;- anti_join(lm_all, lm_rm)
 
 # remove helper objects
 rm(
@@ -3760,7 +3794,7 @@ rm(
          n &lt;= params_local$MLR_predictors_max)</code></pre>
 <p>This results in a total number of MLR models of:</p>
 <ul>
-<li>112</li>
+<li>101</li>
 </ul>
 </div>
 <div id="fit-all-models" class="section level1" number="4">
@@ -4122,38 +4156,6 @@ Atlantic
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-158
-</td>
-<td style="text-align:right;">
-1.0492038
-</td>
-<td style="text-align:right;">
-475.562558
-</td>
-<td style="text-align:right;">
-4.3578441
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.3855522
-</td>
-<td style="text-align:right;">
-1198.45637
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -4272,6 +4274,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 1201.07344
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1.0538228
+</td>
+<td style="text-align:right;">
+478.950654
+</td>
+<td style="text-align:right;">
+4.4968455
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.3907671
+</td>
+<td style="text-align:right;">
+1204.02994
 </td>
 </tr>
 <tr>
@@ -7322,38 +7356,6 @@ Atlantic
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-1621
-</td>
-<td style="text-align:right;">
-2.8128853
-</td>
-<td style="text-align:right;">
-7965.109998
-</td>
-<td style="text-align:right;">
-20.4458923
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-5.1118884
-</td>
-<td style="text-align:right;">
-18103.97065
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.25,27.5]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -7472,6 +7474,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 18034.36215
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.25,27.5]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+1621
+</td>
+<td style="text-align:right;">
+2.8170045
+</td>
+<td style="text-align:right;">
+7971.854070
+</td>
+<td style="text-align:right;">
+20.5252245
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+5.1546411
+</td>
+<td style="text-align:right;">
+18187.67323
 </td>
 </tr>
 <tr>
@@ -8026,38 +8060,6 @@ Atlantic
 (27.5,27.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + temp + oxygen + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2079
-</td>
-<td style="text-align:right;">
-2.3560092
-</td>
-<td style="text-align:right;">
-9475.224293
-</td>
-<td style="text-align:right;">
-16.7638042
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.5113248
-</td>
-<td style="text-align:right;">
-21694.36440
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.5,27.75]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -8144,6 +8146,38 @@ cstar_tref ~ sal + temp + oxygen + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 21662.00303
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.5,27.75]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2079
+</td>
+<td style="text-align:right;">
+2.3560092
+</td>
+<td style="text-align:right;">
+9475.224293
+</td>
+<td style="text-align:right;">
+16.7638042
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+4.5113248
+</td>
+<td style="text-align:right;">
+21694.36440
 </td>
 </tr>
 <tr>
@@ -8826,6 +8860,38 @@ Atlantic
 (27.75,27.85]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+364
+</td>
+<td style="text-align:right;">
+1.7438081
+</td>
+<td style="text-align:right;">
+1449.807133
+</td>
+<td style="text-align:right;">
+12.2711012
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+3.3792145
+</td>
+<td style="text-align:right;">
+4221.04551
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.75,27.85]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -8859,38 +8925,6 @@ Atlantic
 </td>
 <td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-364
-</td>
-<td style="text-align:right;">
-1.7438081
-</td>
-<td style="text-align:right;">
-1449.807133
-</td>
-<td style="text-align:right;">
-12.2711012
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-3.3792145
-</td>
-<td style="text-align:right;">
-4221.04551
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.75,27.85]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 364
@@ -9210,38 +9244,6 @@ Atlantic
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-694
-</td>
-<td style="text-align:right;">
-2.8412740
-</td>
-<td style="text-align:right;">
-3430.909237
-</td>
-<td style="text-align:right;">
-20.0203261
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-5.7998788
-</td>
-<td style="text-align:right;">
-8259.94399
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -9360,6 +9362,38 @@ cstar_tref ~ sal + oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 8225.85675
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+694
+</td>
+<td style="text-align:right;">
+2.8772505
+</td>
+<td style="text-align:right;">
+3450.373867
+</td>
+<td style="text-align:right;">
+20.1802195
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+5.8300293
+</td>
+<td style="text-align:right;">
+8277.61627
 </td>
 </tr>
 <tr>
@@ -9530,38 +9564,6 @@ Atlantic
 (27.85,27.95]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-415
-</td>
-<td style="text-align:right;">
-3.0542817
-</td>
-<td style="text-align:right;">
-2116.450869
-</td>
-<td style="text-align:right;">
-18.0269148
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-5.8955557
-</td>
-<td style="text-align:right;">
-5547.36011
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(27.85,27.95]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -9680,6 +9682,38 @@ cstar_tref ~ sal + oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 5510.40338
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(27.85,27.95]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+415
+</td>
+<td style="text-align:right;">
+3.0407759
+</td>
+<td style="text-align:right;">
+2114.772546
+</td>
+<td style="text-align:right;">
+18.0277960
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.9180264
+</td>
+<td style="text-align:right;">
+5565.14641
 </td>
 </tr>
 <tr>
@@ -10042,7 +10076,7 @@ Atlantic
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + silicate + phosphate + phosphate_star
+cstar_tref ~ temp + oxygen + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 723
@@ -10490,38 +10524,6 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-436
-</td>
-<td style="text-align:right;">
-0.2179047
-</td>
-<td style="text-align:right;">
--79.349662
-</td>
-<td style="text-align:right;">
-1.3640876
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-0.3337049
-</td>
-<td style="text-align:right;">
--947.26878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -10640,6 +10642,38 @@ cstar_tref ~ sal + oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 -979.71285
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+436
+</td>
+<td style="text-align:right;">
+0.2175423
+</td>
+<td style="text-align:right;">
+-78.801383
+</td>
+<td style="text-align:right;">
+1.4425099
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+0.3337872
+</td>
+<td style="text-align:right;">
+-940.14322
 </td>
 </tr>
 <tr>
@@ -10842,38 +10876,6 @@ Atlantic
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-229
-</td>
-<td style="text-align:right;">
-0.2500674
-</td>
-<td style="text-align:right;">
-27.074573
-</td>
-<td style="text-align:right;">
-0.9325065
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-0.4621040
-</td>
-<td style="text-align:right;">
--76.08002
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Atlantic
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -10992,6 +10994,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 -142.21867
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Atlantic
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+229
+</td>
+<td style="text-align:right;">
+0.2552708
+</td>
+<td style="text-align:right;">
+38.506822
+</td>
+<td style="text-align:right;">
+1.1720676
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+0.4728131
+</td>
+<td style="text-align:right;">
+-40.29456
 </td>
 </tr>
 <tr>
@@ -13082,38 +13116,6 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-5288
-</td>
-<td style="text-align:right;">
-6.2360939
-</td>
-<td style="text-align:right;">
-34376.517925
-</td>
-<td style="text-align:right;">
-29.9685673
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-12.7664702
-</td>
-<td style="text-align:right;">
-81783.00523
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -13232,6 +13234,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 81777.37841
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+5288
+</td>
+<td style="text-align:right;">
+6.3160008
+</td>
+<td style="text-align:right;">
+34513.173890
+</td>
+<td style="text-align:right;">
+29.8497761
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+12.9040860
+</td>
+<td style="text-align:right;">
+82048.19652
 </td>
 </tr>
 <tr>
@@ -13402,38 +13436,6 @@ Indo-Pacific
 (-Inf,26]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2815
-</td>
-<td style="text-align:right;">
-5.9530030
-</td>
-<td style="text-align:right;">
-18043.957291
-</td>
-<td style="text-align:right;">
-24.8937268
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-12.1890969
-</td>
-<td style="text-align:right;">
-52420.47522
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(-Inf,26]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -13552,6 +13554,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 52416.37493
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(-Inf,26]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+2815
+</td>
+<td style="text-align:right;">
+5.9886169
+</td>
+<td style="text-align:right;">
+18079.538454
+</td>
+<td style="text-align:right;">
+24.9064180
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+12.3046177
+</td>
+<td style="text-align:right;">
+52592.71234
 </td>
 </tr>
 <tr>
@@ -14266,7 +14300,7 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate
+cstar_tref ~ aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 4269
@@ -14298,7 +14332,7 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate + phosphate_star
+cstar_tref ~ oxygen + aou + silicate + phosphate
 </td>
 <td style="text-align:right;">
 4269
@@ -14650,38 +14684,6 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ oxygen + aou + silicate + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2324
-</td>
-<td style="text-align:right;">
-4.4254119
-</td>
-<td style="text-align:right;">
-13520.491182
-</td>
-<td style="text-align:right;">
-24.9112112
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-8.4800280
-</td>
-<td style="text-align:right;">
-37599.35903
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -14810,6 +14812,38 @@ Indo-Pacific
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate
+</td>
+<td style="text-align:right;">
+2324
+</td>
+<td style="text-align:right;">
+4.4417007
+</td>
+<td style="text-align:right;">
+13539.567831
+</td>
+<td style="text-align:right;">
+24.4985770
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+8.5054396
+</td>
+<td style="text-align:right;">
+37639.62439
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ temp + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -14906,6 +14940,38 @@ Indo-Pacific
 (26.75,27]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+4557
+</td>
+<td style="text-align:right;">
+4.3862266
+</td>
+<td style="text-align:right;">
+26420.975208
+</td>
+<td style="text-align:right;">
+21.0605286
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+8.0872756
+</td>
+<td style="text-align:right;">
+61505.87489
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26.75,27]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -15098,38 +15164,6 @@ Indo-Pacific
 (26.75,27]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-4557
-</td>
-<td style="text-align:right;">
-4.1598161
-</td>
-<td style="text-align:right;">
-25935.947216
-</td>
-<td style="text-align:right;">
-23.1614170
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-7.7437292
-</td>
-<td style="text-align:right;">
-60605.32053
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26.75,27]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -15216,6 +15250,38 @@ cstar_tref ~ temp + oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 60492.01106
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(26.75,27]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+2460
+</td>
+<td style="text-align:right;">
+4.7910605
+</td>
+<td style="text-align:right;">
+14703.596395
+</td>
+<td style="text-align:right;">
+19.4544536
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+9.1772872
+</td>
+<td style="text-align:right;">
+41124.57160
 </td>
 </tr>
 <tr>
@@ -15418,38 +15484,6 @@ Indo-Pacific
 (26.75,27]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
-</td>
-<td style="text-align:right;">
-2460
-</td>
-<td style="text-align:right;">
-4.6128201
-</td>
-<td style="text-align:right;">
-14515.067487
-</td>
-<td style="text-align:right;">
-16.6134065
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-8.7726362
-</td>
-<td style="text-align:right;">
-40451.01470
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(26.75,27]
-</td>
-<td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -15536,6 +15570,38 @@ cstar_tref ~ temp + oxygen + aou + silicate + phosphate_star
 </td>
 <td style="text-align:right;">
 40388.87737
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27,27.25]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+4267
+</td>
+<td style="text-align:right;">
+4.2143064
+</td>
+<td style="text-align:right;">
+24399.252678
+</td>
+<td style="text-align:right;">
+44.7114638
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+7.5507703
+</td>
+<td style="text-align:right;">
+54676.73929
 </td>
 </tr>
 <tr>
@@ -15707,38 +15773,6 @@ Indo-Pacific
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-4267
-</td>
-<td style="text-align:right;">
-3.7387791
-</td>
-<td style="text-align:right;">
-23375.511647
-</td>
-<td style="text-align:right;">
-42.2525000
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.7614943
-</td>
-<td style="text-align:right;">
-52511.94640
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27,27.25]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 4267
@@ -15952,6 +15986,38 @@ cstar_tref ~ sal + temp + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
 37143.42005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indo-Pacific
+</td>
+<td style="text-align:left;">
+(27,27.25]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + oxygen + aou + silicate
+</td>
+<td style="text-align:right;">
+2344
+</td>
+<td style="text-align:right;">
+4.7694276
+</td>
+<td style="text-align:right;">
+13989.700735
+</td>
+<td style="text-align:right;">
+41.9566499
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+9.2207679
+</td>
+<td style="text-align:right;">
+38855.93567
 </td>
 </tr>
 <tr>
@@ -16027,38 +16093,6 @@ Indo-Pacific
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-2344
-</td>
-<td style="text-align:right;">
-4.5558378
-</td>
-<td style="text-align:right;">
-13772.911312
-</td>
-<td style="text-align:right;">
-35.4736376
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-8.2946169
-</td>
-<td style="text-align:right;">
-37148.42296
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Indo-Pacific
-</td>
-<td style="text-align:left;">
-(27,27.25]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 2344
@@ -21338,6 +21372,38 @@ SO
 (26.5,26.75]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+312
+</td>
+<td style="text-align:right;">
+3.2867067
+</td>
+<td style="text-align:right;">
+1641.906542
+</td>
+<td style="text-align:right;">
+10.0386801
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+6.9067437
+</td>
+<td style="text-align:right;">
+3928.46167
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(26.5,26.75]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + phosphate
 </td>
 <td style="text-align:right;">
@@ -21467,38 +21533,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-312
-</td>
-<td style="text-align:right;">
-3.2799039
-</td>
-<td style="text-align:right;">
-1638.613652
-</td>
-<td style="text-align:right;">
-10.5986533
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-6.8388507
-</td>
-<td style="text-align:right;">
-3908.87235
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(26.5,26.75]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 312
@@ -21978,6 +22012,38 @@ SO
 (26.75,27]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1061
+</td>
+<td style="text-align:right;">
+2.8283940
+</td>
+<td style="text-align:right;">
+5231.250170
+</td>
+<td style="text-align:right;">
+9.1586744
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+5.7833809
+</td>
+<td style="text-align:right;">
+12827.62141
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(26.75,27]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + phosphate
 </td>
 <td style="text-align:right;">
@@ -22107,38 +22173,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-1061
-</td>
-<td style="text-align:right;">
-2.3658852
-</td>
-<td style="text-align:right;">
-4850.352635
-</td>
-<td style="text-align:right;">
-11.7790894
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-4.8536773
-</td>
-<td style="text-align:right;">
-11923.26504
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(26.75,27]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 1061
@@ -22298,6 +22332,38 @@ SO
 (26.75,27]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+550
+</td>
+<td style="text-align:right;">
+2.8763685
+</td>
+<td style="text-align:right;">
+2737.013799
+</td>
+<td style="text-align:right;">
+9.5868252
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+5.7047625
+</td>
+<td style="text-align:right;">
+7968.26397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(26.75,27]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + temp + oxygen + aou + phosphate
 </td>
 <td style="text-align:right;">
@@ -22427,38 +22493,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-550
-</td>
-<td style="text-align:right;">
-2.3957372
-</td>
-<td style="text-align:right;">
-2533.892462
-</td>
-<td style="text-align:right;">
-15.4998931
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-4.7616224
-</td>
-<td style="text-align:right;">
-7384.24510
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(26.75,27]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 550
@@ -22608,6 +22642,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 22808.83415
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(27,27.25]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+2513
+</td>
+<td style="text-align:right;">
+1.8324114
+</td>
+<td style="text-align:right;">
+10189.495572
+</td>
+<td style="text-align:right;">
+14.0129707
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+3.6402091
+</td>
+<td style="text-align:right;">
+24031.46072
 </td>
 </tr>
 <tr>
@@ -22747,38 +22813,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-2513
-</td>
-<td style="text-align:right;">
-1.7159114
-</td>
-<td style="text-align:right;">
-9857.345457
-</td>
-<td style="text-align:right;">
-16.6672621
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-3.3256604
-</td>
-<td style="text-align:right;">
-22899.48106
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(27,27.25]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 2513
@@ -22928,6 +22962,38 @@ cstar_tref ~ sal + temp + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 15207.82605
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(27,27.25]
+</td>
+<td style="text-align:left;">
+cstar_tref ~ sal + temp + aou + silicate + phosphate_star
+</td>
+<td style="text-align:right;">
+1286
+</td>
+<td style="text-align:right;">
+1.9306015
+</td>
+<td style="text-align:right;">
+5355.452856
+</td>
+<td style="text-align:right;">
+8.6195738
+</td>
+<td style="text-align:left;">
+2000-2012 –&gt; 2013-2019
+</td>
+<td style="text-align:right;">
+3.7630129
+</td>
+<td style="text-align:right;">
+15544.94843
 </td>
 </tr>
 <tr>
@@ -23067,38 +23133,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ temp + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-1286
-</td>
-<td style="text-align:right;">
-1.9277877
-</td>
-<td style="text-align:right;">
-5349.701445
-</td>
-<td style="text-align:right;">
-11.5137595
-</td>
-<td style="text-align:left;">
-2000-2012 –&gt; 2013-2019
-</td>
-<td style="text-align:right;">
-3.6436991
-</td>
-<td style="text-align:right;">
-15207.04690
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(27,27.25]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ temp + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 1286
@@ -23514,7 +23548,7 @@ SO
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + silicate + phosphate + phosphate_star
+cstar_tref ~ temp + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 2731
@@ -23834,7 +23868,7 @@ SO
 (27.25,27.5]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ temp + oxygen + silicate + phosphate + phosphate_star
+cstar_tref ~ temp + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 1453
@@ -25882,7 +25916,7 @@ SO
 (27.95,28.05]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
+cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
 1786
@@ -26426,6 +26460,38 @@ SO
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
+cstar_tref ~ sal + aou + phosphate + phosphate_star
+</td>
+<td style="text-align:right;">
+1071
+</td>
+<td style="text-align:right;">
+1.1929018
+</td>
+<td style="text-align:right;">
+3429.191146
+</td>
+<td style="text-align:right;">
+10.1579725
+</td>
+<td style="text-align:left;">
+1982-1999 –&gt; 2000-2012
+</td>
+<td style="text-align:right;">
+2.2787248
+</td>
+<td style="text-align:right;">
+7987.05738
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SO
+</td>
+<td style="text-align:left;">
+(28.05,28.1]
+</td>
+<td style="text-align:left;">
 cstar_tref ~ sal + aou + silicate + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
@@ -26459,38 +26525,6 @@ SO
 </td>
 <td style="text-align:left;">
 cstar_tref ~ sal + oxygen + aou + phosphate
-</td>
-<td style="text-align:right;">
-1071
-</td>
-<td style="text-align:right;">
-1.1929018
-</td>
-<td style="text-align:right;">
-3429.191146
-</td>
-<td style="text-align:right;">
-10.1579725
-</td>
-<td style="text-align:left;">
-1982-1999 –&gt; 2000-2012
-</td>
-<td style="text-align:right;">
-2.2787248
-</td>
-<td style="text-align:right;">
-7987.05738
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SO
-</td>
-<td style="text-align:left;">
-(28.05,28.1]
-</td>
-<td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
 </td>
 <td style="text-align:right;">
 1071
@@ -26842,7 +26876,7 @@ SO
 (28.05,28.1]
 </td>
 <td style="text-align:left;">
-cstar_tref ~ sal + oxygen + aou + phosphate + phosphate_star
+cstar_tref ~ sal + oxygen + aou + phosphate_star
 </td>
 <td style="text-align:right;">
 606
@@ -29666,10 +29700,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-2.3836462
+2.3841677
 </td>
 <td style="text-align:right;">
-1200.27892
+1200.83627
 </td>
 </tr>
 <tr>
@@ -29836,10 +29870,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.0977111
+5.1019864
 </td>
 <td style="text-align:right;">
-18081.78399
+18090.15425
 </td>
 </tr>
 <tr>
@@ -29938,10 +29972,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-5.7296585
+5.7326736
 </td>
 <td style="text-align:right;">
-8226.78057
+8228.54780
 </td>
 </tr>
 <tr>
@@ -29955,10 +29989,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-5.8115872
+5.8138343
 </td>
 <td style="text-align:right;">
-5511.60653
+5513.38516
 </td>
 </tr>
 <tr>
@@ -30006,10 +30040,10 @@ Atlantic
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-0.3312265
+0.3312348
 </td>
 <td style="text-align:right;">
--956.88019
+-956.16763
 </td>
 </tr>
 <tr>
@@ -30023,10 +30057,10 @@ Atlantic
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-0.4536295
+0.4547004
 </td>
 <td style="text-align:right;">
--97.65149
+-94.07294
 </td>
 </tr>
 <tr>
@@ -30142,10 +30176,10 @@ Indo-Pacific
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-12.7367128
+12.7504744
 </td>
 <td style="text-align:right;">
-81726.80280
+81753.32193
 </td>
 </tr>
 <tr>
@@ -30159,10 +30193,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-12.1521862
+12.1637383
 </td>
 <td style="text-align:right;">
-52377.17875
+52394.40246
 </td>
 </tr>
 <tr>
@@ -30227,10 +30261,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-8.3490320
+8.3515731
 </td>
 <td style="text-align:right;">
-37391.88486
+37395.91140
 </td>
 </tr>
 <tr>
@@ -30244,10 +30278,10 @@ Indo-Pacific
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-7.7175511
+7.7519058
 </td>
 <td style="text-align:right;">
-60525.08512
+60615.14055
 </td>
 </tr>
 <tr>
@@ -30261,10 +30295,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-8.7578995
+8.7983646
 </td>
 <td style="text-align:right;">
-40428.27501
+40495.63070
 </td>
 </tr>
 <tr>
@@ -30278,10 +30312,10 @@ Indo-Pacific
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.5835373
+6.6624649
 </td>
 <td style="text-align:right;">
-51969.75089
+52186.23018
 </td>
 </tr>
 <tr>
@@ -30295,10 +30329,10 @@ Indo-Pacific
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-8.0122490
+8.1048641
 </td>
 <td style="text-align:right;">
-36708.59511
+36879.34638
 </td>
 </tr>
 <tr>
@@ -30584,10 +30618,10 @@ SO
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-6.7897864
+6.7965757
 </td>
 <td style="text-align:right;">
-3900.94337
+3902.90230
 </td>
 </tr>
 <tr>
@@ -30618,10 +30652,10 @@ SO
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-4.8235969
+4.9165672
 </td>
 <td style="text-align:right;">
-11893.27836
+11983.71400
 </td>
 </tr>
 <tr>
@@ -30635,10 +30669,10 @@ SO
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-4.7105909
+4.8049049
 </td>
 <td style="text-align:right;">
-7356.40498
+7414.80687
 </td>
 </tr>
 <tr>
@@ -30652,10 +30686,10 @@ SO
 1982-1999 –&gt; 2000-2012
 </td>
 <td style="text-align:right;">
-3.3019565
+3.3334114
 </td>
 <td style="text-align:right;">
-22821.65340
+22934.85136
 </td>
 </tr>
 <tr>
@@ -30669,10 +30703,10 @@ SO
 2000-2012 –&gt; 2013-2019
 </td>
 <td style="text-align:right;">
-3.6035436
+3.6154750
 </td>
 <td style="text-align:right;">
-15128.33506
+15162.12521
 </td>
 </tr>
 <tr>
@@ -31338,6 +31372,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6f50bc6a535f6552446a668b8b1c46e55043c336/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_all-1.png" target="_blank">6f50bc6</a>
@@ -32653,6 +32698,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6f50bc6a535f6552446a668b8b1c46e55043c336/docs/figure/eMLR_model_fitting.Rmd/eMLR_predictor_model_quality_best-1.png" target="_blank">6f50bc6</a>
@@ -33988,6 +34044,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/169115670e7e5a89ae17c1874e284d7c78408f2f/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">1691156</a>
 </td>
 <td>
@@ -35250,6 +35317,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6f50bc6a535f6552446a668b8b1c46e55043c336/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">6f50bc6</a>
@@ -36923,12 +37001,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -36973,19 +37051,19 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.25,27.5]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.5,27.75]</td>
       <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
@@ -37003,19 +37081,19 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.85,27.95]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.95,28.05]</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">10</td>
@@ -37023,12 +37101,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.1,28.15]</td>
@@ -37063,12 +37141,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">106.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">81.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">91.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">85.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">116.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">83.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">76.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">90.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">87.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">110.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">118.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">87.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="8" class="gt_group_heading">Atlantic - 2000-2012 --&gt; 2013-2019</td>
@@ -37146,9 +37224,9 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.75,27.85]</td>
       <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">4</td>
@@ -37156,12 +37234,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(27.85,27.95]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.95,28.05]</td>
@@ -37176,12 +37254,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(28.1,28.15]</td>
@@ -37216,12 +37294,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">106.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">78.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">75.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">89.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">84.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">121.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">110.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">87.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">85.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">122.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">89.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="8" class="gt_group_heading">Indo-Pacific - 1982-1999 --&gt; 2000-2012</td>
@@ -37229,12 +37307,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -37249,9 +37327,9 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
       <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
@@ -37259,22 +37337,22 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">9</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27,27.25]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">9</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.25,27.5]</td>
@@ -37349,12 +37427,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">103.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">73.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">69.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">78.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">74.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">81.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">93.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">81.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">77.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">83.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">96.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">80.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="8" class="gt_group_heading">Indo-Pacific - 2000-2012 --&gt; 2013-2019</td>
@@ -37362,12 +37440,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(-Inf,26]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26,26.5]</td>
@@ -37382,31 +37460,31 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">4</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">10</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">9</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27,27.25]</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
@@ -37482,12 +37560,12 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">103.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">74.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">76.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">72.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">83.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">93.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">79.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">71.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">75.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">73.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">86.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">96.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">80.00</td>
     </tr>
     <tr class="gt_group_heading_row">
       <td colspan="8" class="gt_group_heading">SO - 1982-1999 --&gt; 2000-2012</td>
@@ -37505,39 +37583,39 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.5,26.75]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27,27.25]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.25,27.5]</td>
       <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">10</td>
@@ -37576,8 +37654,8 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_left gt_stub">(27.95,28.05]</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">4</td>
@@ -37585,9 +37663,9 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">8</td>
+      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">4</td>
@@ -37635,11 +37713,11 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">113.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">85.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">90.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">82.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">93.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">80.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">86.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">88.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">111.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">96.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">103.00</td>
     </tr>
     <tr class="gt_group_heading_row">
@@ -37668,29 +37746,29 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_left gt_stub">(26.75,27]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27,27.25]</td>
       <td class="gt_row gt_center">10</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">3</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">4</td>
+      <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">10</td>
     </tr>
     <tr>
       <td class="gt_row gt_left gt_stub">(27.25,27.5]</td>
       <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">6</td>
-      <td class="gt_row gt_center">7</td>
       <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">7</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">5</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">10</td>
@@ -37739,8 +37817,8 @@ lm_all_stats %&gt;%
       <td class="gt_row gt_left gt_stub">(28.05,28.1]</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">5</td>
+      <td class="gt_row gt_center">6</td>
+      <td class="gt_row gt_center">6</td>
       <td class="gt_row gt_center">10</td>
       <td class="gt_row gt_center">4</td>
       <td class="gt_row gt_center">4</td>
@@ -37788,11 +37866,11 @@ lm_all_stats %&gt;%
     <tr>
       <td class="gt_row gt_stub gt_right gt_summary_row gt_first_summary_row">total</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">108.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">82.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">88.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">82.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">110.00</td>
-      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">104.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">79.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">85.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">86.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">112.00</td>
+      <td class="gt_row gt_center gt_summary_row gt_first_summary_row">106.00</td>
       <td class="gt_row gt_center gt_summary_row gt_first_summary_row">101.00</td>
     </tr>
   </tbody>
@@ -37831,6 +37909,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/169115670e7e5a89ae17c1874e284d7c78408f2f/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">1691156</a>
@@ -39084,6 +39173,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/02f7242588a83df2e3f1e188c7bb6f42aab3e344/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">02f7242</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-09
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6f50bc6a535f6552446a668b8b1c46e55043c336/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">6f50bc6</a>
