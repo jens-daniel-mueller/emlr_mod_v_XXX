@@ -120,13 +120,13 @@ lm_all <- lm_all %>%
          lm_coeff = paste(params_local$MLR_target, "~", lm_coeff))
 
 # remove certain predictor combinations
-# lm_rm_ph <- lm_all %>%
-#   filter(str_detect(lm_coeff, "phosphate_star")) %>%
-#   mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
-#   filter(
-#     str_detect(lm_coeff_filter, "oxygen") &
-#       str_detect(lm_coeff_filter, "phosphate")
-#   )
+lm_rm_ph <- lm_all %>%
+  filter(str_detect(lm_coeff, "phosphate_star")) %>%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, "phosphate_star")) %>%
+  filter(
+    str_detect(lm_coeff_filter, "oxygen") &
+      str_detect(lm_coeff_filter, "phosphate")
+  )
 
 # lm_rm_si <- lm_all %>%
 #   filter(str_detect(lm_coeff, "silicate_star")) %>%
@@ -166,11 +166,11 @@ lm_all <- lm_all %>%
   # )) %>%
   # select(-lm_coeff_filter)
 
-# lm_rm <- lm_rm_ph %>%
-#   select(-lm_coeff_filter) %>%
-#   unique()
-# 
-# lm_all <- anti_join(lm_all, lm_rm)
+lm_rm <- lm_rm_ph %>%
+  select(-lm_coeff_filter) %>%
+  unique()
+
+lm_all <- anti_join(lm_all, lm_rm)
 
 # remove helper objects
 rm(
