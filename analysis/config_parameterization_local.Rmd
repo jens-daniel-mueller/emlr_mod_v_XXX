@@ -72,7 +72,7 @@ MLR_predictors <- c(
                # "nitrate",
                 "silicate",
                # "silicate_star",
-                "phosphate",
+               # "phosphate",
                 "phosphate_star")
 
 params_local <-
@@ -115,7 +115,7 @@ params_local <-
     # Fitted model type rlm or lm
     MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic"
-    MLR_criterion = "aic",
+    MLR_criterion = "rmse",
     # see above
     slabs_Atl = slabs_Atl,
     # see above
