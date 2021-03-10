@@ -115,7 +115,7 @@ params_local <-
     # Fitted model type rlm or lm
     MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic"
-    MLR_criterion = "rmse",
+    MLR_criterion = "aic",
     # see above
     slabs_Atl = slabs_Atl,
     # see above
