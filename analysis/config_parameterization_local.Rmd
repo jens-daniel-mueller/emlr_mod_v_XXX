@@ -33,12 +33,12 @@ slabs_Atl <-
     -Inf,
     26.00,
     26.50,
-  #  26.75,
+    26.75,
     27.00,
     27.25,
     27.50,
     27.75,
-   # 27.85,
+    27.85,
     27.95,
     28.05,
     28.10,
@@ -101,7 +101,7 @@ params_local <-
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
     era_breaks_random = c(1981, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "2",
+    MLR_basins = "SO",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
