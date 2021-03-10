@@ -84,7 +84,7 @@ if (params_local$model_runs == "AD") {
 
 if (params_local$model_runs == "CB") {
   
-  climatology <- read_csv(paste(path_preprocessing, "climatology_runC_2000.csv", sep = ""))
+  climatology <- read_csv(paste(path_preprocessing, "climatology_runC_2007.csv", sep = ""))
   
 }
 
