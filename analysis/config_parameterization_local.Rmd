@@ -67,9 +67,9 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "oxygen",
+               # "oxygen",
                 "aou",
-                #"nitrate",
+                "nitrate",
                 "silicate",
                # "silicate_star",
                 "phosphate",
@@ -78,9 +78,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "AD",
+    model_runs = "CB",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "GLODAP",
+    subsetting = "random",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
@@ -99,7 +99,7 @@ params_local <-
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks_GLODAP = c(1981, 1999, 2012, Inf),
-    era_breaks_random = c(1981, 1999, 2012, Inf),
+    era_breaks_random = c(1986, 1999, 2012, Inf),
     # ID for basins for MLR fits: 2, 5, SO, AIP
     MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
