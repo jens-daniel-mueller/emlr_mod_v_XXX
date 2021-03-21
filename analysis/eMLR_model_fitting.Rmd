@@ -54,7 +54,6 @@ library(knitr)
 library(kableExtra)
 library(broom)
 library(corrr)
-library(GGally)
 library(gt)
 ```
 
