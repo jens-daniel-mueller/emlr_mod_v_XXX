@@ -67,9 +67,9 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "oxygen",
+               # "oxygen",
                 "aou",
-               # "nitrate",
+                "nitrate",
                 "silicate",
                # "silicate_star",
                 "phosphate",
@@ -107,7 +107,7 @@ params_local <-
     # see above
     MLR_predictors = MLR_predictors,
     # Maxmimum number of MLR predictors
-    MLR_predictors_max = 5,
+    MLR_predictors_max = 7,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
@@ -129,7 +129,7 @@ params_local <-
     # Offset P to O (PO4* calculation)
     rPO_offset = 1.95,
     # surface DIC calculation with options of "revelle factor" or "atmospheric equilibrium" or "atmospheric pCO2 increase"
-    surface_DIC_calculation = "revelle factor",
+    surface_DIC_calculation = "atmospheric pCO2 increase",
     # Preindustrial atmospheric pCO2
     preind_atm_pCO2 = 280,
     # generate a high number of diagnostic plots while running the analysis (y/n)
