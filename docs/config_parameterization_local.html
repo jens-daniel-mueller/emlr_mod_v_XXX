@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreee32af143c92f6ba02cfdb9ad48b533e1390e0cfdtargetblanke32af14a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/e32af143c92f6ba02cfdb9ad48b533e1390e0cfd" target="_blank">e32af14</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree195db9585ad72dbadd1240ad2ed5abc2edff4b88targetblank195db95a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/195db9585ad72dbadd1240ad2ed5abc2edff4b88" target="_blank">195db95</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreee32af143c92f6ba02cfdb9ad48b533e1390e0cfdtargetblanke32af14a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree195db9585ad72dbadd1240ad2ed5abc2edff4b88targetblank195db95a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/e32af143c92f6ba02cfdb9ad48b533e1390e0cfd" target="_blank">e32af14</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/195db9585ad72dbadd1240ad2ed5abc2edff4b88" target="_blank">195db95</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -636,20 +636,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  2_Pac_inv.png
-    Untracked:  2_Pac_inv_offset.png
-    Untracked:  2_Pac_zon_em.png
-    Untracked:  ref_res_rmse_e1.png
-    Untracked:  ref_res_rmse_e2.png
-    Untracked:  residual_e1_r2.png
-    Untracked:  residual_e1_rso.png
-    Untracked:  residual_e2_r2.png
-    Untracked:  residual_e2_rso.png
-    Untracked:  specific_correlation_pairs.png
-    Untracked:  vg_inv_off.png
-
 Unstaged changes:
+    Deleted:    README.md
     Deleted:    a.png
     Modified:   data/auxillary/params_local.rds
 
@@ -690,6 +678,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/195db9585ad72dbadd1240ad2ed5abc2edff4b88/analysis/config_parameterization_local.Rmd" target="_blank">195db95</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-24
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/1914a110f353f505a1a0f12384a1c7b3d1484973/docs/config_parameterization_local.html" target="_blank">1914a11</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-24
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -6297,6 +6319,8 @@ params_local &lt;-
     MLR_type = &quot;lm&quot;,
     # Criterion to select best MLR fits, either &quot;rmse&quot; or &quot;aic&quot;
     MLR_criterion = &quot;rmse&quot;,
+    # VIF threshold
+    vif_max = 10,
     # see above
     slabs_Atl = slabs_Atl,
     # see above
