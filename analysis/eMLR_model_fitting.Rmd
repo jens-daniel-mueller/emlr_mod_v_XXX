@@ -55,6 +55,7 @@ library(kableExtra)
 library(broom)
 library(corrr)
 library(gt)
+library(car)
 ```
 
 # Required data
@@ -253,7 +254,7 @@ for (i_basin in unique(GLODAP$basin)) {
       i_nr_obs = nrow(GLODAP_basin_era_slab)
       
       for (i_predictors in unique(lm_all$predictors)) {
-        #i_predictors <- unique(lm_all$predictors)[1]
+        #i_predictors <- unique(lm_all$predictors)[100]
         
         # extract one model definition
         i_lm <- lm_all %>%
@@ -298,6 +299,13 @@ for (i_basin in unique(GLODAP$basin)) {
           # calculate Akaike information criterion aic
           i_aic <- AIC(i_lm_fit)
           
+          # calculate max VIF
+          if (is.na(max(i_lm_fit$coefficients))){
+            i_vif_max <- as.double("NA")
+          } else{
+          i_vif_max <- max(vif(i_lm_fit))
+          }
+          
           # collect model coefficients and diagnostics
           coefficients <- tidy(i_lm_fit)
           
@@ -310,6 +318,7 @@ for (i_basin in unique(GLODAP$basin)) {
               nr_obs = i_nr_obs,
               rmse = i_rmse,
               aic = i_aic,
+              vif_max = i_vif_max,
               resid_max = i_resid_max,
               n_predictors = i_n_predictors,
               na_predictor = anyNA(coefficients$estimate),
@@ -342,6 +351,7 @@ rm(
   i_nr_obs,
   i_predictors,
   i_aic,
+  i_vif_max,
   i_n_predictors,
   i_resid_max
 )
@@ -370,6 +380,7 @@ lm_all_fitted <- lm_all_fitted %>%
     estimate,
     rmse,
     aic,
+    vif_max,
     resid_max,
     na_predictor,
     cor_max
@@ -406,11 +417,32 @@ The criterion was summed up for two adjacent eras, and the models with lowest su
 Please note, that currently the `lm()` function produces NAs for some predictors. It is not yet entirely clear when this happens, but presumably it is caused by some form of collinearity between predictors, such that including another predictor does not help to explain the target variable any better. The issues also expresses as exactly identical rmse values of different models. As an interim solution, models with fitted NA predictors were not included.
 
 
-```{r remove_predictor_NA, eval=FALSE}
+```{r remove_predictor_NA}
 
 # remove models with predictors fitted as NA
 lm_all_fitted_wide <- lm_all_fitted_wide %>%
   filter(na_predictor == FALSE)
+
+```
+
+## VIF threshold
+
+To avoid multicollinearity among predictors, models were excluded with a VIF above:  
+
+- `r params_local$vif_max`
+
+After removing models affected by multicollinearity, the targeted number of MLRs (`r params_local$MLR_number`) was undercut in following fitting units:
+
+```{r VIF_threshold}
+
+# remove models with predictors fitted as NA
+lm_all_fitted_wide <- lm_all_fitted_wide %>%
+  filter(vif_max <= params_local$vif_max)
+
+lm_all_fitted_wide_check <- lm_all_fitted_wide %>%
+  group_by(era, basin, gamma_slab) %>% 
+  count() %>% 
+  filter(n < params_local$MLR_number)
 
 ```
 
@@ -429,7 +461,8 @@ lm_all_fitted_wide_eras <- lm_all_fitted_wide %>%
   ) %>%
   ungroup() %>%
   select(-c(era)) %>%
-  drop_na()
+  drop_na() %>%
+  filter(eras != "1982-1999 --> 2010-2019")
 
 # subset models with lowest summed criterion
 # chose which criterion is applied
