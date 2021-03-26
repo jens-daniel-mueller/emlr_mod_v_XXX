@@ -417,7 +417,7 @@ The criterion was summed up for two adjacent eras, and the models with lowest su
 Please note, that currently the `lm()` function produces NAs for some predictors. It is not yet entirely clear when this happens, but presumably it is caused by some form of collinearity between predictors, such that including another predictor does not help to explain the target variable any better. The issues also expresses as exactly identical rmse values of different models. As an interim solution, models with fitted NA predictors were not included.
 
 
-```{r remove_predictor_NA}
+```{r remove_predictor_NA, eval=FALSE}
 
 # remove models with predictors fitted as NA
 lm_all_fitted_wide <- lm_all_fitted_wide %>%
@@ -433,7 +433,7 @@ To avoid multicollinearity among predictors, models were excluded with a VIF abo
 
 After removing models affected by multicollinearity, the targeted number of MLRs (`r params_local$MLR_number`) was undercut in following fitting units:
 
-```{r VIF_threshold}
+```{r VIF_threshold, eval=FALSE}
 
 # remove models with predictors fitted as NA
 lm_all_fitted_wide <- lm_all_fitted_wide %>%
