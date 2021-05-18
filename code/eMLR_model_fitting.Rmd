@@ -474,7 +474,7 @@ lm_all_fitted_wide_eras <- lm_all_fitted_wide %>%
   filter(eras != "1982-1999 --> 2010-2019",
          eras != "1982-1999 --> 2008-2019")
 
-#filter tripairs
+# filter tripairs
 lm_all_fitted_wide_eras <- lm_all_fitted_wide_eras %>%
   mutate(rmse = round(rmse, digits = 7), rmse_lag = round(rmse_lag, digits = 7)) %>%
   group_by(basin, gamma_slab, eras, rmse) %>%

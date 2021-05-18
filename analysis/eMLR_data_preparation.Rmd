@@ -100,6 +100,14 @@ tref <- GLODAP %>%
   summarise(year = round(median(year))) %>%
   ungroup()
 
+# whether manually change the tref year
+if (params_local$median_tref == "n") {
+  
+  tref$year[2] <- 2006
+  tref$year[3] <- 2014
+
+}
+
 # write file
 tref  %>%  write_csv(paste(path_version_data,
                            "tref.csv",

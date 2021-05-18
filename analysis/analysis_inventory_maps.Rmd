@@ -125,9 +125,9 @@ In a first series of plots we explore the distribution of Cant, taking only posi
 ```{r cant_pos_inventory_map, fig.asp=0.5}
 
 for (i_eras in unique(cant_inv_long$eras)) {
-  i_eras <- unique(cant_inv_long$eras)[2]
+  #i_eras <- unique(cant_inv_long$eras)[2]
   for (i_estimate in unique(cant_inv_long$estimate)) {
-    i_estimate <- unique(cant_inv_long$estimate)[1]
+   # i_estimate <- unique(cant_inv_long$estimate)[1]
     print(p_map_cant_inv(
       cant_inv_long %>% filter(estimate == i_estimate, eras == i_eras),
       subtitle_text = paste("Estimate:", i_estimate, " | Eras:", i_eras)

@@ -47,7 +47,7 @@ slabs_Atl <-
     Inf
   )
 
-# neutral density thresholds to cut the Indo-Pacific ocean into slabs
+# neutral density thresholds to cut the Indo-Pacific ocean into slabs [increase 28.20, 28.30]
 slabs_Ind_Pac <-
   c(-Inf,
     26.00,
@@ -61,24 +61,26 @@ slabs_Ind_Pac <-
     27.95,
     28.05,
     28.10,
+    28.20,
+    28.30,
     Inf)
 
 # Predictors for MLR model
 MLR_predictors <- c(
                 "sal",
                 "temp",
-               # "oxygen",
+                "oxygen",
                 "aou",
                 "nitrate",
                 "silicate",
-               # "silicate_star",
+                "silicate_star",
                 "phosphate",
                 "phosphate_star")
 
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
     subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
@@ -98,26 +100,32 @@ params_local <-
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
-    era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
-    era_breaks_random = c(1981, 1999, 2009, Inf),
+    era_breaks_GLODAP_start = c(1982, 2000, 2010),
+    era_breaks_GLODAP_end = c(1999, 2009, 2019),
+    era_breaks_random_start = c(1982, 2000, 2010),
+    era_breaks_random_end = c(1999, 2009, 2019),
+    # era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
+    # era_breaks_random = c(1981, 1999, 2009, Inf),
+    # whether use median year as the tref
+    median_tref = "y",
     # ID for basins for MLR fits: 2, 5, SO, AIP
     MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
     MLR_predictors = MLR_predictors,
-    # Maxmimum number of MLR predictors
-    MLR_predictors_max = 5,
+    # Maximum number of MLR predictors
+    MLR_predictors_max = 8,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
     MLR_number = 10,
     # Fitted model type rlm or lm
     MLR_type = "lm",
-    # Criterion to select best MLR fits, either "rmse" or "aic"
+    # Criterion to select best MLR fits, either "rmse" or "aic" or "rank"
     MLR_criterion = "rmse",
-    # VIF threshold
-    vif_max = 10,
+    # VIF threshold (set vif = 300000000 to ignore vif filter)
+    vif_max = 20,
     # see above
     slabs_Atl = slabs_Atl,
     # see above

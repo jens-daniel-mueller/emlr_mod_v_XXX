@@ -153,6 +153,14 @@ rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
 ```{r calculate_model_cant_inventory}
 
+# cant_average_gamma <- cant_average %>%
+#   select(lat, lon, depth, eras, basin, basin_AIP, gamma_slab)
+# 
+# cant_M <- left_join(cant_M, cant_average_gamma)
+# 
+# cant_M <- cant_M %>%
+#   filter(gamma_slab == "(-Inf,26]", depth <= 150)
+
 cant_inv_M <- m_cant_inv(cant_M)
 
 ```

@@ -64,10 +64,14 @@ Results from this study are referred to as JDM.
 
 ```{r read_JDM_cant_inv_file}
 
+# path_version_data <- "/nfs/kryo/work/jenmueller/emlr_cant/model/v_XXX_118_Gruber_atm_incr_gamma/data/"
+
 cant_inv_JDM <-
   read_csv(paste(path_version_data,
                  "cant_inv.csv",
                  sep = ""))
+
+#cant_inv_JDM <- cant_inv
 
 ```
 
@@ -151,6 +155,9 @@ cant_inv_budget %>%
   ) %>%
   summary_rows(groups = TRUE,
                fns = list(total = "sum"))
+
+# cant_inv_budget %>%
+#   write_csv("~/Thesis/emlr_cant/model/emlr_mod_preprocessing/budget_118_Gruber.csv")
 
 rm(cant_inv_budget)
 

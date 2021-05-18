@@ -645,6 +645,9 @@ Step 2 is performed separately for all Cant and positive Cant values only.
 
 ```{r cant_inventories, fig.asp=1}
 
+ # cant_average <- cant_average %>%
+ #   filter(gamma <= 26, depth <= 150)
+
 cant_inv <- m_cant_inv(cant_average)
 
 p_map_cant_inv(df = cant_inv,

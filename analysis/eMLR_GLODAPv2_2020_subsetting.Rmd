@@ -144,8 +144,8 @@ Samples were assigned to following eras:
 
 # create labels for era
 labels_GLODAP <- bind_cols(
-  start = params_local$era_breaks_GLODAP+1,
-  end = lead(params_local$era_breaks_GLODAP))
+  start = params_local$era_breaks_GLODAP_start,
+  end = params_local$era_breaks_GLODAP_end)
 
 labels_GLODAP <- labels_GLODAP %>% 
   filter(!is.na(end)) %>% 
@@ -155,8 +155,8 @@ labels_GLODAP <- labels_GLODAP %>%
   pull()
 
 labels_random <- bind_cols(
-  start = params_local$era_breaks_random+1,
-  end = lead(params_local$era_breaks_random))
+  start = params_local$era_breaks_random_start,
+  end = params_local$era_breaks_random_end)
 
 labels_random <- labels_random %>% 
   filter(!is.na(end)) %>% 
@@ -166,17 +166,35 @@ labels_random <- labels_random %>%
   pull()
 
 # cut observation years into era applying the labels
-GLODAP <- GLODAP %>%
-  filter(year > params_local$era_breaks_GLODAP[1]) %>% 
-  mutate(era = cut(year,
-                   params_local$era_breaks_GLODAP,
-                   labels = labels_GLODAP))
+GLODAP_e1 <- GLODAP %>%
+  filter(year %in% c(params_local$era_breaks_GLODAP_start[1]:params_local$era_breaks_GLODAP_end[1])) %>% 
+  mutate(era = labels_GLODAP[1])
 
-random <- random %>%
-  filter(year > params_local$era_breaks_random[1]) %>% 
-  mutate(era = cut(year,
-                   params_local$era_breaks_random,
-                   labels = labels_random))
+GLODAP_e2 <- GLODAP %>%
+  filter(year %in% c(params_local$era_breaks_GLODAP_start[2]:params_local$era_breaks_GLODAP_end[2])) %>% 
+  mutate(era = labels_GLODAP[2])
+
+GLODAP_e3 <- GLODAP %>%
+  filter(year %in% c(params_local$era_breaks_GLODAP_start[3]:params_local$era_breaks_GLODAP_end[3])) %>% 
+  mutate(era = labels_GLODAP[3])
+  
+GLODAP <- bind_rows(GLODAP_e1, GLODAP_e2, GLODAP_e3) %>%
+  mutate(era = as.factor(era))
+
+random_e1 <- random %>%
+  filter(year %in% c(params_local$era_breaks_random_start[1]:params_local$era_breaks_random_end[1])) %>% 
+  mutate(era = labels_random[1])
+
+random_e2 <- random %>%
+  filter(year %in% c(params_local$era_breaks_random_start[2]:params_local$era_breaks_random_end[2])) %>% 
+  mutate(era = labels_random[2])
+
+random_e3 <- random %>%
+  filter(year %in% c(params_local$era_breaks_random_start[3]:params_local$era_breaks_random_end[3])) %>% 
+  mutate(era = labels_random[3])
+  
+random <- bind_rows(random_e1, random_e2, random_e3) %>%
+  mutate(era = as.factor(era))
 
 levels(GLODAP$era)
 levels(random$era)

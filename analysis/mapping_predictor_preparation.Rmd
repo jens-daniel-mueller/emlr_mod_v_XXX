@@ -93,7 +93,7 @@ climatology <- climatology %>%
 
 predictors <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, 
-         phosphate, oxygen, temp, nitrate,
+         phosphate, oxygen, temp, nitrate, silicate,
          any_of(params_local$MLR_predictors))
 
 ```
