@@ -69,11 +69,11 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "oxygen",
+            #    "oxygen",
                 "aou",
                 "nitrate",
                 "silicate",
-                "silicate_star",
+            #    "silicate_star",
                 "phosphate",
                 "phosphate_star")
 
@@ -101,9 +101,9 @@ params_local <-
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
     era_breaks_GLODAP_start = c(1982, 2000, 2010),
-    era_breaks_GLODAP_end = c(1999, 2009, 2019),
+    era_breaks_GLODAP_end = c(1999, 2012, 2019),
     era_breaks_random_start = c(1982, 2000, 2010),
-    era_breaks_random_end = c(1999, 2009, 2019),
+    era_breaks_random_end = c(1999, 2012, 2019),
     # era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
     # era_breaks_random = c(1981, 1999, 2009, Inf),
     # whether use median year as the tref
@@ -115,7 +115,7 @@ params_local <-
     # see above
     MLR_predictors = MLR_predictors,
     # Maximum number of MLR predictors
-    MLR_predictors_max = 8,
+    MLR_predictors_max = 5,
     # Minimum number of MLR predictors
     MLR_predictors_min = 2,
     # Total number of MLR fits taken into account
@@ -125,7 +125,7 @@ params_local <-
     # Criterion to select best MLR fits, either "rmse" or "aic" or "rank"
     MLR_criterion = "rmse",
     # VIF threshold (set vif = 300000000 to ignore vif filter)
-    vif_max = 20,
+    vif_max = 300000000,
     # see above
     slabs_Atl = slabs_Atl,
     # see above
