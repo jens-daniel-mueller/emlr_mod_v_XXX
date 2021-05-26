@@ -503,7 +503,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">eMLR - data preparation</h1>
 <h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
-<h4 class="date">28 March, 2021</h4>
+<h4 class="date">26 May, 2021</h4>
 
 </div>
 
@@ -528,7 +528,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-03-28
+<strong>Last updated:</strong> 2021-05-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d188e2eda57bdf68ebb96d4aa38506cb5d9ba58targetblank6d188e2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d188e2eda57bdf68ebb96d4aa38506cb5d9ba58" target="_blank">6d188e2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed7258347372909cadb7a1dcd2678c9c9dc8d16actargetblankd725834a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d7258347372909cadb7a1dcd2678c9c9dc8d16ac" target="_blank">d725834</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree6d188e2eda57bdf68ebb96d4aa38506cb5d9ba58targetblank6d188e2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreed7258347372909cadb7a1dcd2678c9c9dc8d16actargetblankd725834a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/6d188e2eda57bdf68ebb96d4aa38506cb5d9ba58" target="_blank">6d188e2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/d7258347372909cadb7a1dcd2678c9c9dc8d16ac" target="_blank">d725834</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -638,13 +638,7 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  2_Pac_zon_em.png
-    Untracked:  so_Pac_zon_off.png
-
 Unstaged changes:
-    Deleted:    README.md
-    Deleted:    a.png
     Modified:   data/auxillary/params_local.rds
 
 </code></pre>
@@ -684,6 +678,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/896faa01e375d3537ade5cdb6001ea2a0db479c3/analysis/eMLR_data_preparation.Rmd" target="_blank">896faa0</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-05-18
+</td>
+<td>
+final
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/eMLR_data_preparation.html" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -3997,6 +4025,14 @@ tref &lt;- GLODAP %&gt;%
   summarise(year = round(median(year))) %&gt;%
   ungroup()
 
+# whether manually change the tref year
+if (params_local$median_tref == &quot;n&quot;) {
+  
+  tref$year[2] &lt;- 2006
+  tref$year[3] &lt;- 2014
+
+}
+
 # write file
 tref  %&gt;%  write_csv(paste(path_version_data,
                            &quot;tref.csv&quot;,
@@ -4134,10 +4170,10 @@ year
 </tr>
 <tr>
 <td style="text-align:left;">
-2000-2009
+2000-2012
 </td>
 <td style="text-align:right;">
-2006
+2007
 </td>
 </tr>
 <tr>
@@ -4187,6 +4223,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/cant_surface_maps-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/cant_surface_maps-1.png" target="_blank">cd5f759</a>
@@ -5577,6 +5624,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/cant_interpolation_to_observations-1.png" target="_blank">cd5f759</a>
 </td>
 <td>
@@ -6356,6 +6414,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_histogram-1.png" target="_blank">cd5f759</a>
 </td>
 <td>
@@ -7058,6 +7127,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_cant-1.png" target="_blank">cd5f759</a>
@@ -7783,6 +7863,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/cstar_reference_year_adjustment_vs_time_counts-1.png" target="_blank">cd5f759</a>
@@ -9086,6 +9177,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-2.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-2.png" target="_blank">cd5f759</a>
 </td>
 <td>
@@ -9606,6 +9708,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-3.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-3.png" target="_blank">cd5f759</a>
@@ -10130,6 +10243,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-4.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-4.png" target="_blank">cd5f759</a>
 </td>
 <td>
@@ -10650,6 +10774,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-5.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-5.png" target="_blank">cd5f759</a>
@@ -11174,6 +11309,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-6.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-6.png" target="_blank">cd5f759</a>
 </td>
 <td>
@@ -11694,6 +11840,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections-7.png" target="_blank">cd5f759</a>
@@ -12376,7 +12533,7 @@ jens-daniel-mueller
 <p>The following boundaries for isoneutral slabs were defined:</p>
 <ul>
 <li>Atlantic: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, 28.15, 28.2, </li>
-<li>Indo-Pacific: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, </li>
+<li>Indo-Pacific: -, 26, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 27.85, 27.95, 28.05, 28.1, 28.2, 28.3, </li>
 </ul>
 <p>Continuous neutral densities (gamma) values from model subsetting are grouped into isoneutral slabs.</p>
 <pre class="r"><code>GLODAP &lt;- m_cut_gamma(GLODAP, &quot;gamma&quot;)</code></pre>
@@ -12426,6 +12583,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/meridional_sections_isoneutral_slabs-1.png" target="_blank">cd5f759</a>
@@ -13154,6 +13322,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-1.png" target="_blank">cd5f759</a>
@@ -14171,6 +14350,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/obs_gamma_slab-2.png" target="_blank">cd5f759</a>
@@ -15219,6 +15409,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/2705a04156a397ddefdc3a96e8c7ef17292e531f/docs/figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" target="_blank">2705a04</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-03-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/cd5f7598a44f969bcdb2f77885a94c2d62947204/docs/figure/eMLR_data_preparation.Rmd/histogram_predictor-1.png" target="_blank">cd5f759</a>
