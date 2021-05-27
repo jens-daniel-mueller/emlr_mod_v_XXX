@@ -80,7 +80,7 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
     subsetting = "random",
     # random subsetting with options of "grid" or "lat"
