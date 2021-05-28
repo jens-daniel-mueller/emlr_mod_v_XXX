@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree43a3e3336f3f54b9c5ded9c4a7a86228c755329etargetblank43a3e33a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/43a3e3336f3f54b9c5ded9c4a7a86228c755329e" target="_blank">43a3e33</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree741349a0e1af639eee86852f36d5601cb3bfc55ctargetblank741349aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/741349a0e1af639eee86852f36d5601cb3bfc55c" target="_blank">741349a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree43a3e3336f3f54b9c5ded9c4a7a86228c755329etargetblank43a3e33a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree741349a0e1af639eee86852f36d5601cb3bfc55ctargetblank741349aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/43a3e3336f3f54b9c5ded9c4a7a86228c755329e" target="_blank">43a3e33</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/741349a0e1af639eee86852f36d5601cb3bfc55c" target="_blank">741349a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -649,6 +649,7 @@ Untracked files:
     Untracked:  docs_2000-2009_2010-2019_RV_0.8/
     Untracked:  docs_2000-2012_2008-2019_GC_1.6/
     Untracked:  docs_2000-2012_2008-2019_GV_1.3/
+    Untracked:  docs_2000-2012_2008-2019_RC_0.7/
     Untracked:  docs_2000-2012_2008-2019_RV_0.6/
 
 Unstaged changes:
@@ -691,6 +692,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/741349a0e1af639eee86852f36d5601cb3bfc55c/analysis/config_parameterization_local.Rmd" target="_blank">741349a</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-05-28
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/441ebe5680632d9abd4579e492f4576fd142fb12/docs/config_parameterization_local.html" target="_blank">441ebe5</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-05-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -7115,10 +7150,10 @@ params_local &lt;-
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
-    era_breaks_GLODAP_start = c(1982, 2000, 2008),
-    era_breaks_GLODAP_end = c(1999, 2012, 2019),
-    era_breaks_random_start = c(1982, 2000, 2008),
-    era_breaks_random_end = c(1999, 2012, 2019),
+    era_breaks_GLODAP_start = c(1982, 2000, 2010),
+    era_breaks_GLODAP_end = c(1999, 2009, 2019),
+    era_breaks_random_start = c(1982, 2000, 2010),
+    era_breaks_random_end = c(1999, 2009, 2019),
     # era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
     # era_breaks_random = c(1981, 1999, 2009, Inf),
     # whether use median year as the tref
@@ -7140,7 +7175,7 @@ params_local &lt;-
     # Criterion to select best MLR fits, either &quot;rmse&quot; or &quot;aic&quot; or &quot;rank&quot;
     MLR_criterion = &quot;rmse&quot;,
     # VIF threshold (set vif = 300000000 to ignore vif filter)
-    vif_max = 300000000,
+    vif_max = 20,
     # see above
     slabs_Atl = slabs_Atl,
     # see above

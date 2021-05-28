@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree43a3e3336f3f54b9c5ded9c4a7a86228c755329etargetblank43a3e33a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/43a3e3336f3f54b9c5ded9c4a7a86228c755329e" target="_blank">43a3e33</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree741349a0e1af639eee86852f36d5601cb3bfc55ctargetblank741349aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/741349a0e1af639eee86852f36d5601cb3bfc55c" target="_blank">741349a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree43a3e3336f3f54b9c5ded9c4a7a86228c755329etargetblank43a3e33a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree741349a0e1af639eee86852f36d5601cb3bfc55ctargetblank741349aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/43a3e3336f3f54b9c5ded9c4a7a86228c755329e" target="_blank">43a3e33</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/741349a0e1af639eee86852f36d5601cb3bfc55c" target="_blank">741349a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -649,6 +649,7 @@ Untracked files:
     Untracked:  docs_2000-2009_2010-2019_RV_0.8/
     Untracked:  docs_2000-2012_2008-2019_GC_1.6/
     Untracked:  docs_2000-2012_2008-2019_GV_1.3/
+    Untracked:  docs_2000-2012_2008-2019_RC_0.7/
     Untracked:  docs_2000-2012_2008-2019_RV_0.6/
 
 Unstaged changes:
@@ -691,6 +692,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/441ebe5680632d9abd4579e492f4576fd142fb12/docs/eMLR_GLODAPv2_2020_subsetting.html" target="_blank">441ebe5</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-05-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -4327,9 +4345,9 @@ random &lt;- bind_rows(random_e1, random_e2, random_e3) %&gt;%
   mutate(era = as.factor(era))
 
 levels(GLODAP$era)</code></pre>
-<pre><code>[1] &quot;1982-1999&quot; &quot;2000-2012&quot; &quot;2008-2019&quot;</code></pre>
+<pre><code>[1] &quot;1982-1999&quot; &quot;2000-2009&quot; &quot;2010-2019&quot;</code></pre>
 <pre class="r"><code>levels(random$era)</code></pre>
-<pre><code>[1] &quot;1982-1999&quot; &quot;2000-2012&quot; &quot;2008-2019&quot;</code></pre>
+<pre><code>[1] &quot;1982-1999&quot; &quot;2000-2009&quot; &quot;2010-2019&quot;</code></pre>
 <pre class="r"><code>rm(labels_GLODAP, labels_random)</code></pre>
 </div>
 <div id="spatial-boundaries" class="section level2" number="2.2">
@@ -8712,7 +8730,7 @@ rm(GLODAP_obs_grid_temp)</code></pre>
 </div>
 <div id="manual-adjustment-a16-cruise" class="section level2" number="2.4">
 <h2 number="2.4"><span class="header-section-number">2.4</span> Manual adjustment A16 cruise</h2>
-<p>For harmonization with Gruber et al. (2019), cruises 1041 (A16N) and 1042 (A16S) were grouped into the 2000-2012 era despite taking place in 2013/14.</p>
+<p>For harmonization with Gruber et al. (2019), cruises 1041 (A16N) and 1042 (A16S) were grouped into the 2000-2009 era despite taking place in 2013/14.</p>
 <pre class="r"><code>GLODAP_cruises &lt;- GLODAP %&gt;% 
   filter(basin_AIP == &quot;Atlantic&quot;,
          year %in% c(2013, 2014)) %&gt;% 
@@ -12141,8 +12159,8 @@ era_median_year_GLODAP</code></pre>
   era       t_ref
   &lt;fct&gt;     &lt;dbl&gt;
 1 1982-1999  1995
-2 2000-2012  2007
-3 2008-2019  2013</code></pre>
+2 2000-2009  2006
+3 2010-2019  2014</code></pre>
 <pre class="r"><code>era_median_year_random &lt;- random %&gt;%
   group_by(era) %&gt;%
   summarise(t_ref = median(year)) %&gt;%
@@ -12153,8 +12171,8 @@ era_median_year_random</code></pre>
   era       t_ref
   &lt;fct&gt;     &lt;dbl&gt;
 1 1982-1999  1991
-2 2000-2012  2006
-3 2008-2019  2013</code></pre>
+2 2000-2009  2005
+3 2010-2019  2014</code></pre>
 </div>
 <div id="histogram-temporal-coverage" class="section level2" number="3.5">
 <h2 number="3.5"><span class="header-section-number">3.5</span> Histogram temporal coverage</h2>
