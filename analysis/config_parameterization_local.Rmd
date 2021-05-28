@@ -82,7 +82,7 @@ params_local <-
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "GLODAP",
+    subsetting = "random",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
