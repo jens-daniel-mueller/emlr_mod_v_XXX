@@ -82,7 +82,7 @@ params_local <-
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
@@ -100,10 +100,10 @@ params_local <-
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?)
     gamma_min = 26,
     # break years for eras, numbers indicate the upper end of the respective era
-    era_breaks_GLODAP_start = c(1982, 2000, 2010),
-    era_breaks_GLODAP_end = c(1999, 2009, 2019),
-    era_breaks_random_start = c(1982, 2000, 2010),
-    era_breaks_random_end = c(1999, 2009, 2019),
+    era_breaks_GLODAP_start = c(1982, 2000, 2008),
+    era_breaks_GLODAP_end = c(1999, 2012, 2019),
+    era_breaks_random_start = c(1982, 2000, 2008),
+    era_breaks_random_end = c(1999, 2012, 2019),
     # era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
     # era_breaks_random = c(1981, 1999, 2009, Inf),
     # whether use median year as the tref
