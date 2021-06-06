@@ -82,15 +82,15 @@ params_local <-
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2),
+    flag_f = c(2, 0),
     # qc flags accepted for GLODAP data
-    flag_qc = c(1),
+    flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "n",
     # Shallowest depth for data to be included in MLR fitting
@@ -124,8 +124,8 @@ params_local <-
     MLR_type = "lm",
     # Criterion to select best MLR fits, either "rmse" or "aic" or "rank"
     MLR_criterion = "rmse",
-    # VIF threshold (set vif = 300000000 to ignore vif filter)
-    vif_max = 20,
+    # VIF threshold (set vif = 1000 to apply slightly vif filter)
+    vif_max = 1000,
     # see above
     slabs_Atl = slabs_Atl,
     # see above

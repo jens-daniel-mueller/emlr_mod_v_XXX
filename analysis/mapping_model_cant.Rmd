@@ -147,6 +147,10 @@ cant_M <- full_join(cant_M_1, cant_M_2) %>%
 cant_M <- cant_M %>%
   mutate(cant_pos = if_else(cant <= 0, 0, cant))
 
+#############
+cant_M <- cant_M %>%
+  drop_na()
+
 rm(cant_tref_1, cant_tref_2, cant_tref_3, cant_M_1, cant_M_2)
 
 ```
@@ -178,6 +182,9 @@ cant_zonal_M <- m_zonal_mean_section(cant_M)
 cant_M %>%
   write_csv(paste(path_version_data,
                   "cant_M.csv", sep = ""))
+
+cant_M3 <- cant_M %>%
+  drop_na()
 
 cant_inv_M %>%
   write_csv(paste(path_version_data,
