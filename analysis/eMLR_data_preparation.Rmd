@@ -381,7 +381,8 @@ if (params_local$subsetting == "random") {
     ) +
     geom_point(
       data = GLODAP_cant_obs %>%
-        filter(lat == 48.5, lon == 165.5, month == 6),
+      # filter(lat == 48.5, lon == 165.5, month == 6),
+        filter(lat == 48.5, lon == 165.5),
       aes(cant_int, depth, col = "interpolated")
     ) +
     scale_y_reverse() +
@@ -959,7 +960,7 @@ if (params_local$subsetting == "random") {
   GLODAP <- GLODAP %>%
     select(
       year,
-      month,
+   #   month,
       era,
       basin,
       basin_AIP,
