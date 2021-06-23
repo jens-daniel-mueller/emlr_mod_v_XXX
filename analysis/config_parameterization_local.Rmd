@@ -82,7 +82,7 @@ params_local <-
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
@@ -109,7 +109,7 @@ params_local <-
     # whether use median year as the tref
     median_tref = "y",
     # ID for basins for MLR fits: 2, 5, SO, AIP
-    MLR_basins = "2",
+    MLR_basins = "SO",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
