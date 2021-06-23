@@ -31,8 +31,12 @@ params_local <-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
+###################################################################
+# path_preprocessing    <-
+#   paste(path_model, "preprocessing/", sep = "")
+
 path_preprocessing    <-
-  paste(path_model, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/NorESM/", sep = "")
 
 path_version_data     <-
   paste(path_model,
@@ -73,7 +77,7 @@ if (params_local$model_runs == "AD") {
     read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2020_preprocessed_model_runA_final.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_final_ann.csv",
         sep = ""
       )
     )
@@ -82,7 +86,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2020_preprocessed_model_runA_random_subset_grid.csv",
+        "GLODAPv2.2020_preprocessed_model_runA_random_subset_grid_ann.csv",
         sep = ""
       )
     )
@@ -92,7 +96,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2020_preprocessed_model_runA_random_subset_lat.csv",
+        "GLODAPv2.2020_preprocessed_model_runA_random_subset_lat_ann.csv",
         sep = ""
       )
     )

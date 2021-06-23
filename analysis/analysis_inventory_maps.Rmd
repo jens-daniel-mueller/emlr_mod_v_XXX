@@ -30,8 +30,12 @@ params_local <-
 path_model <-
   paste(path_root, "/model/", sep = "")
 
+###################################################################
+# path_preprocessing    <-
+#   paste(path_model, "preprocessing/", sep = "")
+
 path_preprocessing    <-
-  paste(path_model, "preprocessing/", sep = "")
+  paste(path_model, "preprocessing/NorESM/", sep = "")
 
 path_version_data     <-
   paste(path_model,
