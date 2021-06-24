@@ -80,7 +80,7 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/")
-    GOBM = "",
+    GOBM = "NorESM/",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
