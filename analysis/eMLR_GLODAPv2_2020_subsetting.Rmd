@@ -105,7 +105,7 @@ if (params_local$model_runs == "CB") {
     read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runC_final_ann.csv",
+        "GLODAPv2.2021_preprocessed_model_runC_final.csv",
         sep = ""
       )
     )

@@ -183,9 +183,6 @@ cant_M %>%
   write_csv(paste(path_version_data,
                   "cant_M.csv", sep = ""))
 
-cant_M3 <- cant_M %>%
-  drop_na()
-
 cant_inv_M %>%
   write_csv(paste(path_version_data,
                   "cant_inv_M.csv", sep = ""))
