@@ -82,9 +82,9 @@ params_local <-
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/")
     GOBM = "",
     # model climate forcing with options of variable ("AD") or constant ("CB")
-    model_runs = "CB",
+    model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "GLODAP",
+    subsetting = "random",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
