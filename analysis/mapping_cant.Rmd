@@ -242,7 +242,7 @@ if (params_local$depth_min != 0) {
           S = sal,
           T = temp,
           P = depth / 10,
-          Pt = phosphate * 1e-6,
+          Pt = 0,
           Sit = silicate * 1e-6,
           k1k2 = "l"
         )$pCO2
@@ -295,7 +295,7 @@ if (params_local$depth_min != 0) {
           S = sal,
           T = temp,
           P = depth / 10,
-          Pt = phosphate * 1e-6,
+          Pt = 0,
           Sit = silicate * 1e-6,
           k1k2 = "l"
         )$BetaD

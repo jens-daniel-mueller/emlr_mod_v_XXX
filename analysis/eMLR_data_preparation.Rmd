@@ -160,7 +160,7 @@ The predictor PO~4~* was be calculated according to Clement and Gruber (2018), i
 
 Here we use following equation:
 
-```{r calculate_phosphate_star}
+```{r calculate_phosphate_star, eval=FALSE}
 
 print(b_phosphate_star)
 
@@ -215,10 +215,10 @@ C* was calculated as:
 print(b_cstar)
 
 GLODAP <- GLODAP %>% 
-  mutate(rCP_phosphate = -params_local$rCP * phosphate,
+  mutate(rCP_phosphate = -params_local$rCP * nitrate,
          talk_05 = -0.5 * talk,
-         rNP_phosphate_05 = -0.5 * params_local$rNP * phosphate,
-         cstar = b_cstar(tco2, phosphate, talk))
+         rNP_phosphate_05 = -0.5 * params_local$rNP * nitrate,
+         cstar = b_cstar(tco2, nitrate, talk))
 
 ```
 
@@ -253,7 +253,7 @@ rm(cant_tref_1, cant_tref_2, cant_tref_3)
 ```{r cant_surface_maps}
 
 map +
-  geom_raster(data = cant_3d %>% filter(depth == 5),
+  geom_raster(data = cant_3d %>% filter(depth == min(depth)),
               aes(lon, lat, fill = cant_total)) +
   facet_wrap(~ era, ncol = 1) +
   scale_fill_viridis_c() +

@@ -128,10 +128,12 @@ lm_all <- lm_all %>%
 #       str_detect(lm_coeff_filter, "phosphate")
 #   )
 
-# lm_rm_si <- lm_all %>%
-#   filter(str_detect(lm_coeff, "silicate_star")) %>%
-#   mutate(lm_coeff_filter = str_remove(lm_coeff, "silicate_star")) %>%
-#   filter(str_detect(lm_coeff_filter, "silicate"))
+lm_rm_si <- lm_all %>%
+  filter(str_detect(lm_coeff, "silicate_star")) %>%
+  mutate(lm_coeff_filter = str_remove(lm_coeff, "silicate_star")) %>%
+  filter(str_detect(lm_coeff_filter, "silicate") &
+           str_detect(lm_coeff_filter, "nitrate")) %>%
+  select(-lm_coeff_filter)
 
 # lm_rm_o2 <- lm_all %>%
 #   filter(str_detect(lm_coeff, "phosphate_star")) %>%
@@ -149,7 +151,7 @@ lm_all <- lm_all %>%
 #   select(-lm_coeff_filter) %>%
 #   unique()
 # 
-# lm_all <- anti_join(lm_all, lm_rm)
+lm_all <- anti_join(lm_all, lm_rm_si)
 
 # remove temp sal predictor combination
 # lm_all <- lm_all %>%
