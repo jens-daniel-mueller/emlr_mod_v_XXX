@@ -74,7 +74,7 @@ if (params_local$model_runs == "AD") {
     read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_final.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_final_ann.csv",
         sep = ""
       )
     )
@@ -93,7 +93,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat_ann.csv",
         sep = ""
       )
     )
