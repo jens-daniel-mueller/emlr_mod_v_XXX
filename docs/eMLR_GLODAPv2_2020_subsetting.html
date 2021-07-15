@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree431c2542272c6b3d793dbbc955069e5ac82f7a37targetblank431c254a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/431c2542272c6b3d793dbbc955069e5ac82f7a37" target="_blank">431c254</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb8bd687e0eaa1daf9607eeee7c5061cb9ce01c8ftargetblankb8bd687a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b8bd687e0eaa1daf9607eeee7c5061cb9ce01c8f" target="_blank">b8bd687</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree431c2542272c6b3d793dbbc955069e5ac82f7a37targetblank431c254a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreeb8bd687e0eaa1daf9607eeee7c5061cb9ce01c8ftargetblankb8bd687a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/431c2542272c6b3d793dbbc955069e5ac82f7a37" target="_blank">431c254</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/b8bd687e0eaa1daf9607eeee7c5061cb9ce01c8f" target="_blank">b8bd687</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -638,6 +638,7 @@ Ignored files:
 
 Untracked files:
     Untracked:  docs_GV_2021_2R_mon_standard/
+    Untracked:  docs_RV_2021_2R_mon_standard/
 
 Unstaged changes:
     Modified:   data/auxillary/params_local.rds
@@ -1657,6 +1658,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/b8bd687e0eaa1daf9607eeee7c5061cb9ce01c8f/analysis/eMLR_GLODAPv2_2020_subsetting.Rmd" target="_blank">b8bd687</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-15
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/b473472c42feb392aff7e254a002fafbbaea9065/docs/eMLR_GLODAPv2_2020_subsetting.html" target="_blank">b473472</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-15
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -6467,7 +6502,7 @@ Initial commit
     read_csv(
       paste(
         path_preprocessing,
-        &quot;GLODAPv2.2021_preprocessed_model_runA_final.csv&quot;,
+        &quot;GLODAPv2.2021_preprocessed_model_runA_final_ann.csv&quot;,
         sep = &quot;&quot;
       )
     )
@@ -6486,7 +6521,7 @@ Initial commit
     random &lt;- read_csv(
       paste(
         path_preprocessing,
-        &quot;GLODAPv2.2021_preprocessed_model_runA_random_subset_lat.csv&quot;,
+        &quot;GLODAPv2.2021_preprocessed_model_runA_random_subset_lat_ann.csv&quot;,
         sep = &quot;&quot;
       )
     )
@@ -16947,7 +16982,7 @@ era_median_year_GLODAP</code></pre>
 <pre><code># A tibble: 3 x 2
   era       t_ref
   &lt;fct&gt;     &lt;dbl&gt;
-1 1982-1999  1995
+1 1982-1999  1994
 2 2000-2009  2006
 3 2010-2019  2014</code></pre>
 <pre class="r"><code>era_median_year_random &lt;- random %&gt;%
@@ -16960,7 +16995,7 @@ era_median_year_random</code></pre>
   era       t_ref
   &lt;fct&gt;     &lt;dbl&gt;
 1 1982-1999  1991
-2 2000-2009  2005
+2 2000-2009  2004
 3 2010-2019  2014</code></pre>
 </div>
 <div id="histogram-temporal-coverage" class="section level2" number="3.5">
