@@ -77,25 +77,25 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "oxygen",
+             #   "oxygen",
                 "aou",
                 "nitrate",
                 "silicate",
-                "silicate_star"
-            #    "phosphate",
-            #    "phosphate_star"
+            #    "silicate_star",
+                "phosphate",
+                "phosphate_star"
             )
 
 params_local <-
   lst(
     # resolution: annual / month
-    model_resolution = "month",
+    model_resolution = "annual",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/")
-    GOBM = "FESOM_REcoM_LR/",
+    GOBM = "",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
-    subsetting = "random",
+    subsetting = "GLODAP",
     # random subsetting with options of "grid" or "lat"
     random = "lat",
     # ID of current sensitivity run
@@ -144,9 +144,9 @@ params_local <-
     # see above
     slabs_Ind_Pac = slabs_Ind_Pac,
     # Stoichiometric ratio of C to P (Phosphate-based: 117; Nitrate-based: 117/16)
-    rCP = 117/16,
+    rCP = 117,
     # Stoichiometric ratio of N to P (Phosphate-based: 16; Nitrate-based: 1)
-    rNP = 1,
+    rNP = 16,
     # Stoichiometric ratio of P to O (PO4* calculation)
     rPO = 170,
     # Offset P to O (PO4* calculation)

@@ -974,7 +974,7 @@ if (params_local$subsetting == "random") {
   GLODAP <- GLODAP %>%
     select(
       year,
-      month,
+    #  month,
       era,
       basin,
       basin_AIP,
@@ -992,7 +992,7 @@ if (params_local$subsetting == "random") {
   GLODAP <- GLODAP %>%
     select(
       year,
-   #   month,
+      month,
       era,
       basin,
       basin_AIP,
