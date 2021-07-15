@@ -682,5 +682,3 @@ cant_inv %>%
                   "cant_inv.csv", sep = ""))
 
 ```
-
-

@@ -90,22 +90,40 @@ if (params_local$model_runs == "CB") {
 
 climatology <- climatology %>%
   rename(aou = AOU, TCO2 = tco2, TAlk = talk)
-
+  
 predictors <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, 
-         #phosphate, 
-         oxygen, temp, nitrate, silicate,
-         any_of(params_local$MLR_predictors))
+  select(
+    lon,
+    lat,
+    depth,
+    basin_AIP,
+    gamma,
+    # phosphate,
+    oxygen,
+    temp,
+    nitrate,
+    silicate,
+    any_of(params_local$MLR_predictors)
+  )
 
 ```
 
 
 ```{r load_model_climatologies_surface_mapping}
 
+if ("phosphate" %in% params_local$MLR_predictors) {
 predictors_surface <- climatology %>%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, 
+         phosphate, 
+         silicate)
+
+} else {
+  predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, 
          #phosphate, 
          silicate)
+  
+}
 
 ```
 
@@ -148,16 +166,25 @@ Plots below are generated to control successful merging of data sets.
 
 ### Maps interior
 
-```{r joined_climatology_control_PO4, fig.asp=0.6, eval=FALSE}
+```{r joined_climatology_control_PO4, fig.asp=0.6}
+
+if ("phosphate" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors, 
   var = "phosphate")
+  
+}
+
 ```
 
 ```{r joined_climatology_control_temp, fig.asp=0.6}
+
+if ("temp" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors, 
   var = "temp")
+}
+
 ```
 
 ### Maps surface
@@ -238,10 +265,12 @@ Additional predictor fields need to calculated from available climatologies
 
 The predictor PO~4~* was be calculated according to Clement and Gruber (2018), ie based on oxygen. Please note that an erroneous equations for PO4* calculation is given in the supplement of Gruber et al (2019), based on nitrate.
 
-```{r calculate_phosphate_star_clement, eval=FALSE}
+```{r calculate_phosphate_star_clement}
 
+if ("phosphate" %in% params_local$MLR_predictors) {
 predictors <- predictors %>% 
   mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+}
 
 ```
 
@@ -259,12 +288,14 @@ predictors <- predictors %>%
 
 ### Maps
 
-```{r PO4_star_climatology_maps, fig.asp=0.6, eval=FALSE}
+```{r PO4_star_climatology_maps, fig.asp=0.6}
 
+if ("phosphate" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors,
   var = "phosphate_star",
   col = "divergent")
+}
 
 ```
 
@@ -279,12 +310,14 @@ p_map_climatology(
 
 ### Global section
 
-```{r PO4_star_climatology_section, eval=FALSE}
+```{r PO4_star_climatology_section}
 
+if ("phosphate" %in% params_local$MLR_predictors) {
 p_section_global(
   df = predictors,
   var = "phosphate_star",
   col = "divergent")
+}
 
 ```
 

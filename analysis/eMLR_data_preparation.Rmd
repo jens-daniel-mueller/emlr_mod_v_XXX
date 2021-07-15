@@ -160,13 +160,16 @@ The predictor PO~4~* was be calculated according to Clement and Gruber (2018), i
 
 Here we use following equation:
 
-```{r calculate_phosphate_star, eval=FALSE}
+```{r calculate_phosphate_star}
 
-print(b_phosphate_star)
-
-if ("phosphate_star" %in% params_local$MLR_predictors) {
-GLODAP <- GLODAP %>% 
-  mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+if ("phosphate" %in% params_local$MLR_predictors) {
+  print(b_phosphate_star)
+  
+  if ("phosphate_star" %in% params_local$MLR_predictors) {
+    GLODAP <- GLODAP %>%
+      mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
+  }
+  
 }
 
 ```
@@ -214,11 +217,25 @@ C* was calculated as:
 
 print(b_cstar)
 
-GLODAP <- GLODAP %>% 
-  mutate(rCP_phosphate = -params_local$rCP * nitrate,
-         talk_05 = -0.5 * talk,
-         rNP_phosphate_05 = -0.5 * params_local$rNP * nitrate,
-         cstar = b_cstar(tco2, nitrate, talk))
+if ("phosphate" %in% params_local$MLR_predictors) {
+  GLODAP <- GLODAP %>%
+    mutate(
+      rCP_phosphate = -params_local$rCP * phosphate,
+      talk_05 = -0.5 * talk,
+      rNP_phosphate_05 = -0.5 * params_local$rNP * phosphate,
+      cstar = b_cstar(tco2, phosphate, talk)
+    )
+  
+} else {
+  GLODAP <- GLODAP %>%
+    mutate(
+      rCP_phosphate = -params_local$rCP * nitrate,
+      talk_05 = -0.5 * talk,
+      rNP_phosphate_05 = -0.5 * params_local$rNP * nitrate,
+      cstar = b_cstar(tco2, nitrate, talk)
+    )
+  
+}
 
 ```
 
@@ -953,6 +970,25 @@ if (params_local$subsetting == "GLODAP") {
 
 if (params_local$subsetting == "random") {
   # select relevant columns
+  if (params_local$model_resolution == "annual") {
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      month,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      depth,
+      gamma,
+      gamma_slab,
+      params_local$MLR_predictors,
+      params_local$MLR_target
+    )
+  }
+  
+  if (params_local$model_resolution == "month") {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -968,6 +1004,7 @@ if (params_local$subsetting == "random") {
       params_local$MLR_predictors,
       params_local$MLR_target
     )
+  }
   
   GLODAP %>% write_csv(paste(
     path_version_data,

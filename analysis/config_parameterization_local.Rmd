@@ -27,6 +27,14 @@ The following local parametrisations (i.e. relevant for this sensitivity run) we
 
 ```{r define_params_local, class.source = 'fold-show'}
 
+############### Some mannual work before running the full reconstruction
+# change "config_parameterization_local": 
+#    Stoichiometricratio C:P and N:P based on predictor phosphate or nitrate
+#    model_resolution month or annual
+# change "eMLR_GLODAPv2_2020_subsetting": ()/_ann
+# change "eMLR_model_fitting": remove multicolinearity combination
+
+
 # neutral density thresholds to cut the Atlantic ocean into slabs
 slabs_Atl <-
   c(
@@ -80,6 +88,8 @@ MLR_predictors <- c(
 
 params_local <-
   lst(
+    # resolution: annual / month
+    model_resolution = "month",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/")
     GOBM = "FESOM_REcoM_LR/",
     # model climate forcing with options of variable ("AD") or constant ("CB")
@@ -133,9 +143,9 @@ params_local <-
     slabs_Atl = slabs_Atl,
     # see above
     slabs_Ind_Pac = slabs_Ind_Pac,
-    # Stoichiometric ratio of C to P
+    # Stoichiometric ratio of C to P (Phosphate-based: 117; Nitrate-based: 117/16)
     rCP = 117/16,
-    # Stoichiometric ratio of N to P
+    # Stoichiometric ratio of N to P (Phosphate-based: 16; Nitrate-based: 1)
     rNP = 1,
     # Stoichiometric ratio of P to O (PO4* calculation)
     rPO = 170,
