@@ -74,7 +74,7 @@ if (params_local$model_runs == "AD") {
     read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_final_ann.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_final.csv",
         sep = ""
       )
     )
@@ -93,7 +93,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat_ann.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat.csv",
         sep = ""
       )
     )
@@ -788,8 +788,56 @@ GLODAP_obs_grid_clean  %>%  write_csv(paste(
 ))
 
 # select relevant columns for further analysis
-if ("phosphate" %in% params_local$MLR_predictors) {
+if (!("phosphate" %in% params_local$MLR_predictors)) {
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      date,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      cruise,
+      bottomdepth,
+      depth,
+      temp,
+      sal,
+      gamma,
+      tco2,
+      talk,
+      oxygen,
+      #    phosphate,
+      aou,
+      nitrate,
+      silicate
+    )
   
+} else if (!("silicate" %in% params_local$MLR_predictors)) {
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      date,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      cruise,
+      bottomdepth,
+      depth,
+      temp,
+      sal,
+      gamma,
+      tco2,
+      talk,
+      oxygen,
+      phosphate,
+      aou,
+      nitrate
+      #  silicate
+    )
+} else {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -813,31 +861,6 @@ if ("phosphate" %in% params_local$MLR_predictors) {
       nitrate,
       silicate
     )
-  
-} else {
-  GLODAP <- GLODAP %>%
-    select(
-      year,
-      date,
-      era,
-      basin,
-      basin_AIP,
-      lat,
-      lon,
-      cruise,
-      bottomdepth,
-      depth,
-      temp,
-      sal,
-      gamma,
-      tco2,
-      talk,
-      oxygen,
-      aou,
-      nitrate,
-      silicate
-    )
-  
 }
 
 GLODAP  %>%  write_csv(paste(path_version_data,

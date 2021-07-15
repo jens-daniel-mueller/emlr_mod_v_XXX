@@ -77,10 +77,10 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-             #   "oxygen",
+                "oxygen",
                 "aou",
                 "nitrate",
-                "silicate",
+             #   "silicate",
             #    "silicate_star",
                 "phosphate",
                 "phosphate_star"
@@ -89,9 +89,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # resolution: annual / month
-    model_resolution = "annual",
-    # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/")
-    GOBM = "",
+    model_resolution = "month",
+    # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
+    GOBM = "ORCA025/",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"

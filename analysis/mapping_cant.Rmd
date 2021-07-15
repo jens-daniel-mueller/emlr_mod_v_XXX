@@ -233,20 +233,52 @@ if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor" |
       params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
     # calculate pCO2 from talk and tco2 climatology
-    predictors_surface <- predictors_surface %>%
-      mutate(
-        pCO2 = carb(
-          flag = 15,
-          var1 = TAlk * 1e-6,
-          var2 = TCO2 * 1e-6,
-          S = sal,
-          T = temp,
-          P = depth / 10,
-          Pt = 0,
-          Sit = silicate * 1e-6,
-          k1k2 = "l"
-        )$pCO2
-      )
+    if (!("phosphate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          pCO2 = carb(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$pCO2
+        )
+    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          pCO2 = carb(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = 0,
+            k1k2 = "l"
+          )$pCO2
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          pCO2 = carb(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$pCO2
+        )
+    }
   }
 }
 
@@ -254,6 +286,54 @@ if (params_local$depth_min != 0) {
 
 
 ```{r pCO2_climatology_map, fig.asp=0.6}
+
+if (params_local$GOBM == "ORCA025/") {
+  p_map_climatology <- function(df,
+           var,
+           title_text = "Distribution maps",
+           subtitle_text = "at predefined depth levels",
+           col = "continuous") {
+
+    var <- sym(var)
+
+    # filter depth levels
+    df <- df %>%
+      filter(depth %in% c(3, 160, 534, 2054))
+
+    # prepare map
+    map_base <-
+      map +
+      geom_raster(data = df,
+                  aes(lon, lat, fill = !!var)) +
+      geom_raster(data = section_global_coordinates,
+                  aes(lon, lat), fill = "white") +
+      facet_wrap( ~ depth, labeller = label_both) +
+      labs(title = title_text,
+           subtitle = subtitle_text)
+
+    # add chose color scale (default continuous)
+    if (col == "continuous") {
+    map_base +
+      scale_fill_viridis_c()
+
+    } else {
+
+      max <- df %>%
+        select(!!var) %>%
+        pull %>%
+        abs() %>%
+        max()
+
+      limits <- c(-1, 1) * max
+
+      map_base +
+        scale_fill_scico(
+          palette = "vik",
+          limit = limits
+        )
+    }
+  }
+}
 
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor" |
@@ -286,20 +366,52 @@ Plots below show the calculated climatological Revelle factor values.
 
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
-    predictors_surface <- predictors_surface %>%
-      mutate(
-        rev_fac = buffer(
-          flag = 15,
-          var1 = TAlk * 1e-6,
-          var2 = TCO2 * 1e-6,
-          S = sal,
-          T = temp,
-          P = depth / 10,
-          Pt = 0,
-          Sit = silicate * 1e-6,
-          k1k2 = "l"
-        )$BetaD
-      )
+    if (!("phosphate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          rev_fac = buffer(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$BetaD
+        )
+    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          rev_fac = buffer(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = 0,
+            k1k2 = "l"
+          )$BetaD
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          rev_fac = buffer(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$BetaD
+        )
+    }
   }
 }
 
@@ -363,20 +475,52 @@ if (params_local$depth_min != 0) {
                 by = character())
     
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    predictors_surface <- predictors_surface %>%
-      mutate(
-        DIC = carb(
-          flag = 24,
-          var1 = pCO2_tref,
-          var2 = TAlk * 1e-6,
-          S = sal,
-          T = temp,
-          P = depth / 10,
-          Pt = phosphate * 1e-6,
-          Sit = silicate * 1e-6,
-          k1k2 = "l"
-        )$DIC * 1e6
-      )
+    if (!("phosphate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          DIC = carb(
+            flag = 24,
+            var1 = pCO2_tref,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          DIC = carb(
+            flag = 24,
+            var1 = pCO2_tref,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = 0,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          DIC = carb(
+            flag = 24,
+            var1 = pCO2_tref,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    }
     
     #
     p_map_climatology(df = predictors_surface,
@@ -438,22 +582,53 @@ if (params_local$depth_min != 0) {
     cant_surface <- cant_surface %>% 
       mutate(pCO2_final = pCO2 + d_pCO2_tref)
 
-    
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    cant_surface <- cant_surface %>% 
-      mutate(
-        DIC_final = carb(
-          flag = 24,
-          var1 = pCO2_final,
-          var2 = TAlk * 1e-6,
-          S = sal,
-          T = temp,
-          P = depth / 10,
-          Pt = phosphate * 1e-6,
-          Sit = silicate * 1e-6,
-          k1k2 = "l"
-        )$DIC * 1e6
-      )
+    if (!("phosphate" %in% params_local$MLR_predictors)) {
+      cant_surface <- cant_surface %>%
+        mutate(
+          DIC_final = carb(
+            flag = 24,
+            var1 = pCO2_final,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+      cant_surface <- cant_surface %>%
+        mutate(
+          DIC_final = carb(
+            flag = 24,
+            var1 = pCO2_final,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = 0,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else {
+      cant_surface <- cant_surface %>%
+        mutate(
+          DIC_final = carb(
+            flag = 24,
+            var1 = pCO2_final,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = phosphate * 1e-6,
+            Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    }
     
     #
     p_map_climatology(df = cant_surface,
