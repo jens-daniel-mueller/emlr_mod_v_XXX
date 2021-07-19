@@ -94,9 +94,9 @@ params_local <-
     # resolution: annual / month
     model_resolution = "annual",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
-    GOBM = "",
+    GOBM = "NorESM/",
     # Whether use NaN filled GLODAP subset (yes or no)
-    nan_fill = "yes",
+    nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
@@ -106,7 +106,7 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2, 0, 9),
+    flag_f = c(2, 0),
     # qc flags accepted for GLODAP data
     flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
@@ -127,7 +127,7 @@ params_local <-
     # whether use median year as the tref
     median_tref = "y",
     # ID for basins for MLR fits: 2, 5, SO, AIP, SO_AIP
-    MLR_basins = "2",
+    MLR_basins = "SO_5",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
