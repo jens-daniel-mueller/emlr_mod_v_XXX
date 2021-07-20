@@ -51,7 +51,9 @@ slabs_Atl <-
     27.50,
     27.75,
     27.85,
-   # 27.95,
+    27.95,
+    27.98,##
+    28.02,##
     28.05,
     28.10,
     28.15,
@@ -81,10 +83,10 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-                "oxygen",
+            #    "oxygen",
                 "aou",
                 "nitrate",
-             #   "silicate",
+                "silicate",
             #    "silicate_star",
                 "phosphate",
                 "phosphate_star"
@@ -93,9 +95,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # resolution: annual / month
-    model_resolution = "month",
+    model_resolution = "annual",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
-    GOBM = "ORCA025/",
+    GOBM = "NorESM/",
     # Whether use NaN filled GLODAP subset (yes or no)
     nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
