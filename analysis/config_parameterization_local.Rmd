@@ -34,6 +34,7 @@ The following local parametrisations (i.e. relevant for this sensitivity run) we
 #    nan_fill yes or no
 #    flag_f add 9
 #    basin separation
+#    slab number
 # change "eMLR_GLODAPv2_2020_subsetting": ()/_ann
 # change "eMLR_model_fitting": remove multicolinearity combination
 
@@ -50,6 +51,7 @@ slabs_Atl <-
     27.50,
     27.75,
     27.85,
+    27.9,########
     27.95,
     28.05,
     28.10,
@@ -96,7 +98,7 @@ params_local <-
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
     GOBM = "ORCA025/",
     # Whether use NaN filled GLODAP subset (yes or no)
-    nan_fill = "yes",
+    nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
@@ -106,7 +108,7 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2, 0, 9),
+    flag_f = c(2, 0),
     # qc flags accepted for GLODAP data
     flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
