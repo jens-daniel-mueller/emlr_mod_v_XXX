@@ -178,6 +178,9 @@ for (i_eras in unique(cant_long$eras)) {
 
 for (i_eras in unique(cant_long$eras)) {
   for (i_estimate in unique(cant_long$estimate)) {
+    i_eras <- unique(cant_long$eras)[1]
+    i_estimate <- unique(cant_long$estimate)[1]
+    
     print(
       p_section_global(
         df = cant_long %>% filter(estimate == i_estimate, eras == i_eras),

@@ -105,8 +105,9 @@ lm_best_cant <-
 lm_best_cant <- lm_best_cant %>% 
   mutate(model = str_remove(model, paste(params_local$MLR_target, "~ ")))
 
-# join predictors and MLR
-cant <- full_join(predictors, lm_best_cant)
+# join predictors and MLR  #############################################
+cant <- full_join(predictors, lm_best_cant) %>%
+  filter(!(is.na(eras)))
 
 if (params_local$MLR_basins == "SO" || params_local$MLR_basins == "5") {
   cant <- cant %>%
