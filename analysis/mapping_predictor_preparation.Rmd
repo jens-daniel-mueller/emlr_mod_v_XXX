@@ -111,23 +111,30 @@ predictors <- climatology %>%
 
 ```{r load_model_climatologies_surface_mapping}
 
-if (!("phosphate" %in% params_local$MLR_predictors)) {
+if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
 predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, 
         # phosphate, 
          silicate)
 
-} else if (!("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+  predictors_surface <- climatology %>%
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk,
+         phosphate
+         #silicate
+         )
+} else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
   predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk,
          phosphate, 
-         #silicate
+         silicate
          )
 } else {
   predictors_surface <- climatology %>%
-  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, 
-         phosphate, 
-         silicate)
+  select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk
+       #  phosphate, 
+       #  silicate
+       )
 }
 
 ```

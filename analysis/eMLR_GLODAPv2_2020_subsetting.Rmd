@@ -800,7 +800,7 @@ GLODAP_obs_grid_clean  %>%  write_csv(paste(
 ))
 
 # select relevant columns for further analysis
-if (!("phosphate" %in% params_local$MLR_predictors)) {
+if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -825,7 +825,7 @@ if (!("phosphate" %in% params_local$MLR_predictors)) {
       silicate
     )
   
-} else if (!("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -849,7 +849,7 @@ if (!("phosphate" %in% params_local$MLR_predictors)) {
       nitrate
       #  silicate
     )
-} else {
+} else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -872,6 +872,31 @@ if (!("phosphate" %in% params_local$MLR_predictors)) {
       aou,
       nitrate,
       silicate
+    )
+} else {
+  
+  GLODAP <- GLODAP %>%
+    select(
+      year,
+      date,
+      era,
+      basin,
+      basin_AIP,
+      lat,
+      lon,
+      cruise,
+      bottomdepth,
+      depth,
+      temp,
+      sal,
+      gamma,
+      tco2,
+      talk,
+      oxygen,
+   #   phosphate,
+      aou,
+      nitrate
+    #  silicate
     )
 }
 

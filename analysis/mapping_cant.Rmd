@@ -234,7 +234,7 @@ if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor" |
       params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
     # calculate pCO2 from talk and tco2 climatology
-    if (!("phosphate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -249,7 +249,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$pCO2
         )
-    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -264,7 +264,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$pCO2
         )
-    } else {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -276,6 +276,21 @@ if (params_local$depth_min != 0) {
             P = depth / 10,
             Pt = phosphate * 1e-6,
             Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$pCO2
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          pCO2 = carb(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = 0,
             k1k2 = "l"
           )$pCO2
         )
@@ -367,7 +382,7 @@ Plots below show the calculated climatological Revelle factor values.
 
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
-    if (!("phosphate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -382,7 +397,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$BetaD
         )
-    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -397,7 +412,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$BetaD
         )
-    } else {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)){
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -409,6 +424,21 @@ if (params_local$depth_min != 0) {
             P = depth / 10,
             Pt = phosphate * 1e-6,
             Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$BetaD
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          rev_fac = buffer(
+            flag = 15,
+            var1 = TAlk * 1e-6,
+            var2 = TCO2 * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = 0,
             k1k2 = "l"
           )$BetaD
         )
@@ -476,7 +506,7 @@ if (params_local$depth_min != 0) {
                 by = character())
     
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!("phosphate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -491,7 +521,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -506,7 +536,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)){
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -518,6 +548,21 @@ if (params_local$depth_min != 0) {
             P = depth / 10,
             Pt = phosphate * 1e-6,
             Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else {
+      predictors_surface <- predictors_surface %>%
+        mutate(
+          DIC = carb(
+            flag = 24,
+            var1 = pCO2_tref,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = 0,
             k1k2 = "l"
           )$DIC * 1e6
         )
@@ -584,7 +629,7 @@ if (params_local$depth_min != 0) {
       mutate(pCO2_final = pCO2 + d_pCO2_tref)
 
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!("phosphate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
@@ -599,7 +644,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (!("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
@@ -614,7 +659,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else {
+    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
@@ -626,6 +671,21 @@ if (params_local$depth_min != 0) {
             P = depth / 10,
             Pt = phosphate * 1e-6,
             Sit = silicate * 1e-6,
+            k1k2 = "l"
+          )$DIC * 1e6
+        )
+    } else {
+      cant_surface <- cant_surface %>%
+        mutate(
+          DIC_final = carb(
+            flag = 24,
+            var1 = pCO2_final,
+            var2 = TAlk * 1e-6,
+            S = sal,
+            T = temp,
+            P = depth / 10,
+            Pt = 0,
+            Sit = 0,
             k1k2 = "l"
           )$DIC * 1e6
         )
