@@ -83,7 +83,7 @@ slabs_Ind_Pac <-
 
 # Predictors for MLR model
 MLR_predictors <- c(
-                "sal",
+            #    "sal",
                 "temp",
                 "oxygen",
                 "aou",
@@ -117,7 +117,7 @@ params_local <-
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
     A16_GO_SHIP = "n",
     # Shallowest depth for data to be included in MLR fitting (standard: 150; no sfc: 0)
-    depth_min = 0,
+    depth_min = 150,
     # Shallowest water depth for data to be included in MLR fitting
     bottomdepth_min = 0,
     # Lowest neutral density to map Cant with eMLR approach (in surface layer?) (standard:26, all latitude sfc approach: set as 30)
