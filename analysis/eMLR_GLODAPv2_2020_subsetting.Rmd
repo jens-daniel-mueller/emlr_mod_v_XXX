@@ -819,7 +819,7 @@ if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_l
       tco2,
       talk,
       oxygen,
-      #    phosphate,
+      # phosphate,
       aou,
       nitrate,
       silicate
@@ -847,7 +847,7 @@ if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_l
       phosphate,
       aou,
       nitrate
-      #  silicate
+      # silicate
     )
 } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%

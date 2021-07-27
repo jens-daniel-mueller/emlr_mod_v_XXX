@@ -106,7 +106,8 @@ cant_inv_wide <- cant_inv_wide %>%
   mutate(
     cant_pos_inv_offset = cant_pos_inv_JDM - cant_pos_inv_M,
     cant_inv_offset = cant_inv_JDM - cant_inv_M
-  )
+  ) %>%
+  drop_na()
 
 ```
 

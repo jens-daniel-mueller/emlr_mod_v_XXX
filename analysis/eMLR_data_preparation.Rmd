@@ -217,7 +217,7 @@ C* was calculated as:
 
 print(b_cstar)
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if (!("nitrate" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     mutate(
       rCP_phosphate = -params_local$rCP * phosphate,
