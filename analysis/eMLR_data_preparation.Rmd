@@ -434,6 +434,18 @@ GLODAP <- GLODAP %>%
   mutate(tref = median(year)) %>% 
   ungroup()
 
+# whether manually change the tref year
+if (params_local$median_tref == "n") {
+  
+  tref_temp <- unique(GLODAP$tref)
+  
+  GLODAP <- GLODAP %>% 
+    mutate(tref = case_when(tref == tref_temp[2], tref$year[2],
+                            tref == tref_temp[3], tref$year[3])) ####################
+
+  rm(tref_temp)
+}
+
 # extract atm pCO2 at reference year
 co2_atm_tref <- right_join(co2_atm, tref) %>% 
   select(-year) %>% 
