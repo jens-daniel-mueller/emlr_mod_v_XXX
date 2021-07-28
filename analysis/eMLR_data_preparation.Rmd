@@ -162,13 +162,11 @@ Here we use following equation:
 
 ```{r calculate_phosphate_star}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
-  print(b_phosphate_star)
-  
-  if ("phosphate_star" %in% params_local$MLR_predictors) {
-    GLODAP <- GLODAP %>%
-      mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
-  }
+print(b_phosphate_star)
+
+if ("phosphate_star" %in% params_local$MLR_predictors) {
+  GLODAP <- GLODAP %>%
+    mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
   
 }
 
@@ -217,7 +215,7 @@ C* was calculated as:
 
 print(b_cstar)
 
-if (!("nitrate" %in% params_local$MLR_predictors)) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
   GLODAP <- GLODAP %>%
     mutate(
       rCP_phosphate = -params_local$rCP * phosphate,
@@ -225,7 +223,7 @@ if (!("nitrate" %in% params_local$MLR_predictors)) {
       rNP_phosphate_05 = -0.5 * params_local$rNP * phosphate,
       cstar = b_cstar(tco2, phosphate, talk)
     )
-  
+  print("phosphate-based")
 } else {
   GLODAP <- GLODAP %>%
     mutate(
@@ -234,7 +232,7 @@ if (!("nitrate" %in% params_local$MLR_predictors)) {
       rNP_phosphate_05 = -0.5 * params_local$rNP * nitrate,
       cstar = b_cstar(tco2, nitrate, talk)
     )
-  
+  print("nitrate-based")
 }
 
 ```

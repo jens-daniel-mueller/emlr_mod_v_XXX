@@ -94,6 +94,19 @@ MLR_predictors <- c(
                 "phosphate_star"
             )
 
+if ("phosphate" %in% MLR_predictors || "phosphate_star" %in% MLR_predictors) {
+    # Stoichiometric ratio of C to P (Phosphate-based: 117)
+    rCP = 117
+    # Stoichiometric ratio of N to P (Phosphate-based: 16)
+    rNP = 16
+} else {
+    # Stoichiometric ratio of C to N (Nitrate-based: 117/16)
+    rCP = 117/16
+    # Stoichiometric ratio of N to N (Nitrate-based: 1)
+    rNP = 1
+}
+
+
 params_local <-
   lst(
     # resolution: annual / month
@@ -101,7 +114,7 @@ params_local <-
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
     GOBM = "",
     # Whether use NaN filled GLODAP subset (yes or no)
-    nan_fill = "yes",
+    nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
@@ -111,7 +124,7 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2, 0, 9),
+    flag_f = c(2, 0),
     # qc flags accepted for GLODAP data
     flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
@@ -132,7 +145,7 @@ params_local <-
     # whether use median year as the tref
     median_tref = "y",
     # ID for basins for MLR fits: 2, 5, SO, AIP, SO_5
-    MLR_basins = "SO_5",
+    MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
@@ -154,9 +167,9 @@ params_local <-
     # see above
     slabs_Ind_Pac = slabs_Ind_Pac,
     # Stoichiometric ratio of C to P (Phosphate-based: 117; Nitrate-based: 117/16)
-    rCP = 117,
+    rCP = rCP,
     # Stoichiometric ratio of N to P (Phosphate-based: 16; Nitrate-based: 1)
-    rNP = 16,
+    rNP = rNP,
     # Stoichiometric ratio of P to O (PO4* calculation)
     rPO = 170,
     # Offset P to O (PO4* calculation)

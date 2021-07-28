@@ -511,7 +511,7 @@ rm(GLODAP_obs_grid_temp)
 
 ```{r phosphate_na_subset, fig.asp=0.8}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 
 GLODAP <- GLODAP %>% 
   mutate(phosphatena = if_else(is.na(phosphate), "NA", "Value"))
@@ -558,7 +558,7 @@ rm(GLODAP_obs_grid_temp)
 
 ```{r phosphate_f_subset, fig.asp=0.8}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphatef)
@@ -585,7 +585,7 @@ GLODAP <- GLODAP %>%
 
 ```{r phosphate_qc_subset, fig.asp=0.8}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 
 GLODAP_obs_grid_temp <- GLODAP %>%
   count(lat, lon, era, phosphateqc)
@@ -655,7 +655,7 @@ if ("sal" %in% params_local$MLR_predictors) {
 
 ##
 
-if ("silicate" %in% params_local$MLR_predictors) {
+if ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors) {
   GLODAP <- GLODAP %>%
     filter(!is.na(silicate))
   
@@ -800,7 +800,7 @@ GLODAP_obs_grid_clean  %>%  write_csv(paste(
 ))
 
 # select relevant columns for further analysis
-if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -825,7 +825,7 @@ if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_l
       silicate
     )
   
-} else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
@@ -849,7 +849,7 @@ if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_l
       nitrate
       # silicate
     )
-} else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
   GLODAP <- GLODAP %>%
     select(
       year,
