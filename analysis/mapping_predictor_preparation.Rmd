@@ -90,7 +90,54 @@ if (params_local$model_runs == "CB") {
 
 climatology <- climatology %>%
   rename(aou = AOU, TCO2 = tco2, TAlk = talk)
-  
+
+if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+predictors <- climatology %>%
+  select(
+    lon,
+    lat,
+    depth,
+    basin_AIP,
+    gamma,
+    # phosphate,
+    oxygen,
+    temp,
+    nitrate,
+    silicate,
+    any_of(params_local$MLR_predictors)
+  )
+
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+  predictors <- climatology %>%
+  select(
+    lon,
+    lat,
+    depth,
+    basin_AIP,
+    gamma,
+    phosphate,
+    oxygen,
+    temp,
+    nitrate,
+   # silicate,
+    any_of(params_local$MLR_predictors)
+  )
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+predictors <- climatology %>%
+  select(
+    lon,
+    lat,
+    depth,
+    basin_AIP,
+    gamma,
+    phosphate,
+    oxygen,
+    temp,
+    nitrate,
+    silicate,
+    any_of(params_local$MLR_predictors)
+  )
+} else {
 predictors <- climatology %>%
   select(
     lon,
@@ -105,25 +152,26 @@ predictors <- climatology %>%
    # silicate,
     any_of(params_local$MLR_predictors)
   )
+}
 
 ```
 
 
 ```{r load_model_climatologies_surface_mapping}
 
-if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
 predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk, 
         # phosphate, 
          silicate)
 
-} else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
   predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk,
          phosphate
          #silicate
          )
-} else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+} else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
   predictors_surface <- climatology %>%
   select(lon, lat, depth, basin_AIP, gamma, sal, temp, TCO2, TAlk,
          phosphate, 
@@ -180,55 +228,7 @@ Plots below are generated to control successful merging of data sets.
 
 ```{r joined_climatology_control_PO4, fig.asp=0.6}
 
-if (params_local$GOBM == "ORCA025/") {
-  p_map_climatology <- function(df,
-                                var,
-                                title_text = "Distribution maps",
-                                subtitle_text = "at predefined depth levels",
-                                col = "continuous") {
-    var <- sym(var)
-    
-    # filter depth levels
-    df <- df %>%
-      filter(depth %in% c(3, 160, 534, 2054))
-    
-    # prepare map
-    map_base <-
-      map +
-      geom_raster(data = df,
-                  aes(lon, lat, fill = !!var)) +
-      geom_raster(data = section_global_coordinates,
-                  aes(lon, lat), fill = "white") +
-      facet_wrap(~ depth, labeller = label_both) +
-      labs(title = title_text,
-           subtitle = subtitle_text)
-    
-    # add chose color scale (default continuous)
-    if (col == "continuous") {
-      map_base +
-        scale_fill_viridis_c()
-      
-    } else {
-      max <- df %>%
-        select(!!var) %>%
-        pull %>%
-        abs() %>%
-        max()
-      
-      limits <- c(-1, 1) * max
-      
-      map_base +
-        scale_fill_scico(palette = "vik",
-                         limit = limits)
-      
-    }
-    
-  }
-    
-}
-
-
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors, 
   var = "phosphate")
@@ -327,7 +327,7 @@ The predictor PO~4~* was be calculated according to Clement and Gruber (2018), i
 
 ```{r calculate_phosphate_star_clement}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 predictors <- predictors %>% 
   mutate(phosphate_star = b_phosphate_star(phosphate, oxygen))
 }
@@ -340,7 +340,7 @@ The predictor SiO~3~* was be calculated according to Sarmiento et al. (2004), ie
 
 ```{r calculate_silicate_star_Sarmiento}
 
-if ("silicate" %in% params_local$MLR_predictors) {
+if ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors) {
 predictors <- predictors %>% 
   mutate(silicate_star = b_silicate_star(silicate, nitrate))
 }
@@ -352,7 +352,7 @@ predictors <- predictors %>%
 
 ```{r PO4_star_climatology_maps, fig.asp=0.6}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors,
   var = "phosphate_star",
@@ -363,7 +363,7 @@ p_map_climatology(
 
 ```{r SiO3_star_climatology_maps, fig.asp=0.6}
 
-if ("silicate" %in% params_local$MLR_predictors) {
+if ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors) {
 p_map_climatology(
   df = predictors,
   var = "silicate_star",
@@ -376,7 +376,7 @@ p_map_climatology(
 
 ```{r PO4_star_climatology_section}
 
-if ("phosphate" %in% params_local$MLR_predictors) {
+if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
 p_section_global(
   df = predictors,
   var = "phosphate_star",
@@ -387,7 +387,7 @@ p_section_global(
 
 ```{r SiO3_star_climatology_section}
 
-if ("silicate" %in% params_local$MLR_predictors) {
+if ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors) {
 p_section_global(
   df = predictors,
   var = "silicate_star",

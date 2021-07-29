@@ -137,7 +137,7 @@ lm_rm_ph <- lm_all %>%
 lm_rm <- bind_rows(lm_rm_ph, lm_rm_si) %>%
   unique()
 
- lm_all <- anti_join(lm_all, lm_rm)
+lm_all <- anti_join(lm_all, lm_rm)
 
 # remove temp sal predictor combination
 # lm_all <- lm_all %>%
@@ -288,10 +288,10 @@ for (i_basin in unique(GLODAP$basin)) {
           i_aic <- AIC(i_lm_fit)
           
           # calculate max VIF
-          if (is.na(max(i_lm_fit$coefficients))){
+          if (is.na(max(i_lm_fit$coefficients))) {
             i_vif_max <- as.double("NA")
           } else{
-          i_vif_max <- max(vif(i_lm_fit))
+            i_vif_max <- max(vif(i_lm_fit))
           }
           
           # collect model coefficients and diagnostics
@@ -462,7 +462,7 @@ lm_all_fitted_wide_eras <- lm_all_fitted_wide %>%
   filter(eras != "1982-1999 --> 2010-2019",
          eras != "1982-1999 --> 2008-2019")
 
-#filter tripairs
+# filter tripairs
 lm_all_fitted_wide_eras <- lm_all_fitted_wide_eras %>%
   mutate(rmse = round(rmse, digits = 7), rmse_lag = round(rmse_lag, digits = 7)) %>%
   group_by(basin, gamma_slab, eras, rmse) %>%

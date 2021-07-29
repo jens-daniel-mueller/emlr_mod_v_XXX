@@ -107,12 +107,8 @@ lm_best_cant <- lm_best_cant %>%
 
 # join predictors and MLR  #############################################
 cant <- full_join(predictors, lm_best_cant) %>%
-  filter(!(is.na(eras)))
-
-if (params_local$MLR_basins == "SO" || params_local$MLR_basins == "5") {
-  cant <- cant %>%
+  filter(!(is.na(eras))) %>%
     drop_na()
-}
 
 rm(predictors, lm_best_cant)
 
@@ -234,7 +230,7 @@ if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor" |
       params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
     # calculate pCO2 from talk and tco2 climatology
-    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -249,7 +245,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$pCO2
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -264,7 +260,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$pCO2
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           pCO2 = carb(
@@ -303,54 +299,6 @@ if (params_local$depth_min != 0) {
 
 ```{r pCO2_climatology_map, fig.asp=0.6}
 
-if (params_local$GOBM == "ORCA025/") {
-  p_map_climatology <- function(df,
-           var,
-           title_text = "Distribution maps",
-           subtitle_text = "at predefined depth levels",
-           col = "continuous") {
-
-    var <- sym(var)
-
-    # filter depth levels
-    df <- df %>%
-      filter(depth %in% c(3, 160, 534, 2054))
-
-    # prepare map
-    map_base <-
-      map +
-      geom_raster(data = df,
-                  aes(lon, lat, fill = !!var)) +
-      geom_raster(data = section_global_coordinates,
-                  aes(lon, lat), fill = "white") +
-      facet_wrap( ~ depth, labeller = label_both) +
-      labs(title = title_text,
-           subtitle = subtitle_text)
-
-    # add chose color scale (default continuous)
-    if (col == "continuous") {
-    map_base +
-      scale_fill_viridis_c()
-
-    } else {
-
-      max <- df %>%
-        select(!!var) %>%
-        pull %>%
-        abs() %>%
-        max()
-
-      limits <- c(-1, 1) * max
-
-      map_base +
-        scale_fill_scico(
-          palette = "vik",
-          limit = limits
-        )
-    }
-  }
-}
-
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor" |
       params_local$surface_DIC_calculation == "atmospheric pCO2 increase") {
@@ -382,7 +330,7 @@ Plots below show the calculated climatological Revelle factor values.
 
 if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == "revelle factor") {
-    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -397,7 +345,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$BetaD
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -412,7 +360,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$BetaD
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)){
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)){
       predictors_surface <- predictors_surface %>%
         mutate(
           rev_fac = buffer(
@@ -506,7 +454,7 @@ if (params_local$depth_min != 0) {
                 by = character())
     
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -521,7 +469,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -536,7 +484,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)){
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)){
       predictors_surface <- predictors_surface %>%
         mutate(
           DIC = carb(
@@ -577,7 +525,49 @@ if (params_local$depth_min != 0) {
                                   var = "DIC",
                                   surface = "y")
     
-    predictors_surface <- predictors_surface %>%
+        if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk,
+            #   phosphate,
+               silicate) %>%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %>%
+      ungroup() %>%
+      select(-pCO2_tref, -DIC) %>%
+      unique()
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk,
+               phosphate
+               #silicate
+               ) %>%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %>%
+      ungroup() %>%
+      select(-pCO2_tref, -DIC) %>%
+      unique()
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
+      predictors_surface <- predictors_surface %>%
       group_by(lon,
                lat,
                depth,
@@ -596,6 +586,28 @@ if (params_local$depth_min != 0) {
       ungroup() %>%
       select(-pCO2_tref, -DIC) %>%
       unique()
+    } else {
+      predictors_surface <- predictors_surface %>%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk
+            #   phosphate,
+             #  silicate
+               ) %>%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %>%
+      ungroup() %>%
+      select(-pCO2_tref, -DIC) %>%
+      unique()
+    }
     
     predictors_surface_era1 <- predictors_surface %>%
       select(-DIC_era2) %>%
@@ -629,7 +641,7 @@ if (params_local$depth_min != 0) {
       mutate(pCO2_final = pCO2 + d_pCO2_tref)
 
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    if (!("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
@@ -644,7 +656,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && !("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
@@ -659,7 +671,7 @@ if (params_local$depth_min != 0) {
             k1k2 = "l"
           )$DIC * 1e6
         )
-    } else if (("phosphate" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors)) {
+    } else if (("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) && ("silicate" %in% params_local$MLR_predictors || "silicate_star" %in% params_local$MLR_predictors)) {
       cant_surface <- cant_surface %>%
         mutate(
           DIC_final = carb(
