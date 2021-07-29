@@ -503,7 +503,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">eMLR - model fitting</h1>
 <h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
-<h4 class="date">28 July, 2021</h4>
+<h4 class="date">29 July, 2021</h4>
 
 </div>
 
@@ -528,7 +528,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-07-28
+<strong>Last updated:</strong> 2021-07-29
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -619,16 +619,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60targetblank0bea046a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60" target="_blank">0bea046</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0f6c901946385da3dd912d0051755cf06514e486targetblank0f6c901a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0f6c901946385da3dd912d0051755cf06514e486" target="_blank">0f6c901</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60targetblank0bea046a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0f6c901946385da3dd912d0051755cf06514e486targetblank0f6c901a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60" target="_blank">0bea046</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0f6c901946385da3dd912d0051755cf06514e486" target="_blank">0f6c901</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -1691,6 +1691,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/0f6c901946385da3dd912d0051755cf06514e486/analysis/eMLR_model_fitting.Rmd" target="_blank">0f6c901</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-29
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/ec68363b06be7e28a5affc12f1971baee46167f3/docs/eMLR_model_fitting.html" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -8044,7 +8078,7 @@ lm_rm_ph &lt;- lm_all %&gt;%
 lm_rm &lt;- bind_rows(lm_rm_ph, lm_rm_si) %&gt;%
   unique()
 
- lm_all &lt;- anti_join(lm_all, lm_rm)
+lm_all &lt;- anti_join(lm_all, lm_rm)
 
 # remove temp sal predictor combination
 # lm_all &lt;- lm_all %&gt;%
@@ -8187,10 +8221,10 @@ for (i_basin in unique(GLODAP$basin)) {
           i_aic &lt;- AIC(i_lm_fit)
           
           # calculate max VIF
-          if (is.na(max(i_lm_fit$coefficients))){
+          if (is.na(max(i_lm_fit$coefficients))) {
             i_vif_max &lt;- as.double(&quot;NA&quot;)
           } else{
-          i_vif_max &lt;- max(vif(i_lm_fit))
+            i_vif_max &lt;- max(vif(i_lm_fit))
           }
           
           # collect model coefficients and diagnostics
@@ -8336,7 +8370,7 @@ lm_all_fitted_wide_eras &lt;- lm_all_fitted_wide %&gt;%
   filter(eras != &quot;1982-1999 --&gt; 2010-2019&quot;,
          eras != &quot;1982-1999 --&gt; 2008-2019&quot;)
 
-#filter tripairs
+# filter tripairs
 lm_all_fitted_wide_eras &lt;- lm_all_fitted_wide_eras %&gt;%
   mutate(rmse = round(rmse, digits = 7), rmse_lag = round(rmse_lag, digits = 7)) %&gt;%
   group_by(basin, gamma_slab, eras, rmse) %&gt;%
@@ -95697,6 +95731,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_all_models-1.png" target="_blank">d3018f6</a>
 </td>
 <td>
@@ -98697,6 +98742,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/eMLR_model_fitting.Rmd/rmse_correlation_across_eras_best_models-1.png" target="_blank">d3018f6</a>
@@ -104009,6 +104065,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_all_models-1.png" target="_blank">d3018f6</a>
 </td>
 <td>
@@ -106998,6 +107065,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/eMLR_model_fitting.Rmd/aic_vs_rmse_selected_models-1.png" target="_blank">d3018f6</a>

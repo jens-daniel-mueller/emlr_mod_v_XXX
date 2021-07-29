@@ -501,7 +501,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Mapping - Cant</h1>
 <h4 class="author">Jens Daniel Müller and Donghe Zhu</h4>
-<h4 class="date">28 July, 2021</h4>
+<h4 class="date">29 July, 2021</h4>
 
 </div>
 
@@ -526,7 +526,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-07-28
+<strong>Last updated:</strong> 2021-07-29
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60targetblank0bea046a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60" target="_blank">0bea046</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0f6c901946385da3dd912d0051755cf06514e486targetblank0f6c901a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0f6c901946385da3dd912d0051755cf06514e486" target="_blank">0f6c901</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60targetblank0bea046a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree0f6c901946385da3dd912d0051755cf06514e486targetblank0f6c901a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0bea0466a6e49dcfb6ce4e1c80e45eac9e5d2a60" target="_blank">0bea046</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/0f6c901946385da3dd912d0051755cf06514e486" target="_blank">0f6c901</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -1689,6 +1689,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/0f6c901946385da3dd912d0051755cf06514e486/analysis/mapping_cant.Rmd" target="_blank">0f6c901</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-29
+</td>
+<td>
+local rebuild
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/ec68363b06be7e28a5affc12f1971baee46167f3/docs/mapping_cant.html" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -7209,12 +7243,8 @@ lm_best_cant &lt;- lm_best_cant %&gt;%
 
 # join predictors and MLR  #############################################
 cant &lt;- full_join(predictors, lm_best_cant) %&gt;%
-  filter(!(is.na(eras)))
-
-if (params_local$MLR_basins == &quot;SO&quot; || params_local$MLR_basins == &quot;5&quot;) {
-  cant &lt;- cant %&gt;%
+  filter(!(is.na(eras))) %&gt;%
     drop_na()
-}
 
 rm(predictors, lm_best_cant)</code></pre>
 </div>
@@ -7316,7 +7346,7 @@ cant_join &lt;- left_join(cant, cant_M) %&gt;%
   if (params_local$surface_DIC_calculation == &quot;revelle factor&quot; |
       params_local$surface_DIC_calculation == &quot;atmospheric pCO2 increase&quot;) {
     # calculate pCO2 from talk and tco2 climatology
-    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           pCO2 = carb(
@@ -7331,7 +7361,7 @@ cant_join &lt;- left_join(cant, cant_M) %&gt;%
             k1k2 = &quot;l&quot;
           )$pCO2
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           pCO2 = carb(
@@ -7346,7 +7376,7 @@ cant_join &lt;- left_join(cant, cant_M) %&gt;%
             k1k2 = &quot;l&quot;
           )$pCO2
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           pCO2 = carb(
@@ -7379,55 +7409,7 @@ cant_join &lt;- left_join(cant, cant_M) %&gt;%
     }
   }
 }</code></pre>
-<pre class="r"><code>if (params_local$GOBM == &quot;ORCA025/&quot;) {
-  p_map_climatology &lt;- function(df,
-           var,
-           title_text = &quot;Distribution maps&quot;,
-           subtitle_text = &quot;at predefined depth levels&quot;,
-           col = &quot;continuous&quot;) {
-
-    var &lt;- sym(var)
-
-    # filter depth levels
-    df &lt;- df %&gt;%
-      filter(depth %in% c(3, 160, 534, 2054))
-
-    # prepare map
-    map_base &lt;-
-      map +
-      geom_raster(data = df,
-                  aes(lon, lat, fill = !!var)) +
-      geom_raster(data = section_global_coordinates,
-                  aes(lon, lat), fill = &quot;white&quot;) +
-      facet_wrap( ~ depth, labeller = label_both) +
-      labs(title = title_text,
-           subtitle = subtitle_text)
-
-    # add chose color scale (default continuous)
-    if (col == &quot;continuous&quot;) {
-    map_base +
-      scale_fill_viridis_c()
-
-    } else {
-
-      max &lt;- df %&gt;%
-        select(!!var) %&gt;%
-        pull %&gt;%
-        abs() %&gt;%
-        max()
-
-      limits &lt;- c(-1, 1) * max
-
-      map_base +
-        scale_fill_scico(
-          palette = &quot;vik&quot;,
-          limit = limits
-        )
-    }
-  }
-}
-
-if (params_local$depth_min != 0) {
+<pre class="r"><code>if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == &quot;revelle factor&quot; |
       params_local$surface_DIC_calculation == &quot;atmospheric pCO2 increase&quot;) {
     p_map_climatology(df = predictors_surface,
@@ -9811,7 +9793,7 @@ jens-daniel-mueller
 <p>Plots below show the calculated climatological Revelle factor values.</p>
 <pre class="r"><code>if (params_local$depth_min != 0) {
   if (params_local$surface_DIC_calculation == &quot;revelle factor&quot;) {
-    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           rev_fac = buffer(
@@ -9826,7 +9808,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$BetaD
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           rev_fac = buffer(
@@ -9841,7 +9823,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$BetaD
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)){
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)){
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           rev_fac = buffer(
@@ -12271,7 +12253,7 @@ jens-daniel-mueller
                 by = character())
     
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           DIC = carb(
@@ -12286,7 +12268,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$DIC * 1e6
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           DIC = carb(
@@ -12301,7 +12283,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$DIC * 1e6
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)){
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)){
       predictors_surface &lt;- predictors_surface %&gt;%
         mutate(
           DIC = carb(
@@ -12342,7 +12324,49 @@ jens-daniel-mueller
                                   var = &quot;DIC&quot;,
                                   surface = &quot;y&quot;)
     
-    predictors_surface &lt;- predictors_surface %&gt;%
+        if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
+      predictors_surface &lt;- predictors_surface %&gt;%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk,
+            #   phosphate,
+               silicate) %&gt;%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %&gt;%
+      ungroup() %&gt;%
+      select(-pCO2_tref, -DIC) %&gt;%
+      unique()
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
+      predictors_surface &lt;- predictors_surface %&gt;%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk,
+               phosphate
+               #silicate
+               ) %&gt;%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %&gt;%
+      ungroup() %&gt;%
+      select(-pCO2_tref, -DIC) %&gt;%
+      unique()
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
+      predictors_surface &lt;- predictors_surface %&gt;%
       group_by(lon,
                lat,
                depth,
@@ -12361,6 +12385,28 @@ jens-daniel-mueller
       ungroup() %&gt;%
       select(-pCO2_tref, -DIC) %&gt;%
       unique()
+    } else {
+      predictors_surface &lt;- predictors_surface %&gt;%
+      group_by(lon,
+               lat,
+               depth,
+               basin_AIP,
+               basin,
+               gamma,
+               sal,
+               temp,
+               TCO2,
+               TAlk
+            #   phosphate,
+             #  silicate
+               ) %&gt;%
+      # hard coded for 3 eras, need to change later
+      mutate(DIC_era1 = DIC[2] - DIC[1],
+             DIC_era2 = DIC[3] - DIC[2]) %&gt;%
+      ungroup() %&gt;%
+      select(-pCO2_tref, -DIC) %&gt;%
+      unique()
+    }
     
     predictors_surface_era1 &lt;- predictors_surface %&gt;%
       select(-DIC_era2) %&gt;%
@@ -12394,7 +12440,7 @@ jens-daniel-mueller
       mutate(pCO2_final = pCO2 + d_pCO2_tref)
 
     # calculate DIC from TAlk climatology and pCO2 in reference years
-    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    if (!(&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       cant_surface &lt;- cant_surface %&gt;%
         mutate(
           DIC_final = carb(
@@ -12409,7 +12455,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$DIC * 1e6
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; !(&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       cant_surface &lt;- cant_surface %&gt;%
         mutate(
           DIC_final = carb(
@@ -12424,7 +12470,7 @@ jens-daniel-mueller
             k1k2 = &quot;l&quot;
           )$DIC * 1e6
         )
-    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors)) {
+    } else if ((&quot;phosphate&quot; %in% params_local$MLR_predictors || &quot;phosphate_star&quot; %in% params_local$MLR_predictors) &amp;&amp; (&quot;silicate&quot; %in% params_local$MLR_predictors || &quot;silicate_star&quot; %in% params_local$MLR_predictors)) {
       cant_surface &lt;- cant_surface %&gt;%
         mutate(
           DIC_final = carb(
@@ -19788,6 +19834,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/mapping_cant.Rmd/cant_deep_climatology_map-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/mapping_cant.Rmd/cant_deep_climatology_map-1.png" target="_blank">d3018f6</a>
 </td>
 <td>
@@ -22893,6 +22950,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/mapping_cant.Rmd/cant_deep_climatology_map-2.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/mapping_cant.Rmd/cant_deep_climatology_map-2.png" target="_blank">d3018f6</a>
@@ -26002,6 +26070,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/mapping_cant.Rmd/cant_deep_climatology_sections-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/mapping_cant.Rmd/cant_deep_climatology_sections-1.png" target="_blank">d3018f6</a>
 </td>
 <td>
@@ -29096,6 +29175,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/mapping_cant.Rmd/cant_deep_climatology_sections-2.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/mapping_cant.Rmd/cant_deep_climatology_sections-2.png" target="_blank">d3018f6</a>
@@ -32239,6 +32329,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ec68363b06be7e28a5affc12f1971baee46167f3/docs/figure/mapping_cant.Rmd/cant_inventories-1.png" target="_blank">ec68363</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-07-28
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/d3018f6b78f7aa246e27ea896442d10078ad3c98/docs/figure/mapping_cant.Rmd/cant_inventories-1.png" target="_blank">d3018f6</a>
