@@ -87,7 +87,7 @@ MLR_predictors <- c(
                 "temp",
              #   "oxygen", ##
                 "aou",
-             #   "nitrate",
+                "nitrate",
                 "silicate",
             #    "silicate_star",  ##
                 "phosphate",
@@ -112,7 +112,7 @@ params_local <-
     # resolution: annual / month
     model_resolution = "ann",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
-    GOBM = "",
+    GOBM = "NorESM/",
     # Whether use NaN filled GLODAP subset (yes or no)
     nan_fill = "yes",
     # model climate forcing with options of variable ("AD") or constant ("CB")
