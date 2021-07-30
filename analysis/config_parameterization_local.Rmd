@@ -85,7 +85,7 @@ slabs_Ind_Pac <-
 MLR_predictors <- c(
                 "sal",
                 "temp",
-             #   "oxygen", ##
+                "oxygen", ##
                 "aou",
                 "nitrate",
             #    "silicate",
