@@ -114,7 +114,7 @@ params_local <-
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
     GOBM = "",
     # Whether use NaN filled GLODAP subset (yes or no)
-    nan_fill = "no",
+    nan_fill = "yes",
     # model climate forcing with options of variable ("AD") or constant ("CB")
     model_runs = "AD",
     # model subsetting with options of "GLODAP" or "random"
@@ -124,7 +124,7 @@ params_local <-
     # ID of current sensitivity run
     Version_ID = "v_XXX",
     # f flags accepted for GLODAP data
-    flag_f = c(2, 0),
+    flag_f = c(2, 0, 9),
     # qc flags accepted for GLODAP data
     flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
