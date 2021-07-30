@@ -83,15 +83,15 @@ slabs_Ind_Pac <-
 
 # Predictors for MLR model
 MLR_predictors <- c(
-                "sal",
+              #  "sal",
                 "temp",
-                "oxygen", ##
+             #   "oxygen", ##
                 "aou",
                 "nitrate",
-                "silicate"
+                "silicate",
             #    "silicate_star",  ##
-            #    "phosphate",
-            #    "phosphate_star"
+                "phosphate",
+                "phosphate_star"
             )
 
 if ("phosphate" %in% MLR_predictors || "phosphate_star" %in% MLR_predictors) {
