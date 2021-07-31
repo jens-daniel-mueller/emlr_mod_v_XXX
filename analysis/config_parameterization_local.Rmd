@@ -87,11 +87,11 @@ MLR_predictors <- c(
                 "temp",
              #   "oxygen", ##
                 "aou",
-                "nitrate",
+                "nitrate"
              #   "silicate",
             #    "silicate_star",  ##
             #    "phosphate",
-                "phosphate_star"
+             #   "phosphate_star"
             )
 
 if ("phosphate" %in% MLR_predictors || "phosphate_star" %in% MLR_predictors) {
