@@ -617,16 +617,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreee544afb622b1d6e476168ea3fdf6ad28e1effe96targetblanke544afba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/e544afb622b1d6e476168ea3fdf6ad28e1effe96" target="_blank">e544afb</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreef138ee9382b8c112edf1b41aa67e9d268723f7b8targetblankf138ee9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/f138ee9382b8c112edf1b41aa67e9d268723f7b8" target="_blank">f138ee9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreee544afb622b1d6e476168ea3fdf6ad28e1effe96targetblanke544afba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreef138ee9382b8c112edf1b41aa67e9d268723f7b8targetblankf138ee9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/e544afb622b1d6e476168ea3fdf6ad28e1effe96" target="_blank">e544afb</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/f138ee9382b8c112edf1b41aa67e9d268723f7b8" target="_blank">f138ee9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -695,6 +695,7 @@ Untracked files:
     Untracked:  docs_GV_2021_2R_mon_standard_rT_ORCA/
     Untracked:  docs_GV_2021_S5_ann_nafilled_CESM/
     Untracked:  docs_GV_2021_S5_ann_nafilled_CESM111111/
+    Untracked:  docs_GV_2021_S5_ann_nafilled_NorESM/
     Untracked:  docs_GV_2021_S5_ann_nafilled_atl_a27.97_a28_NorESM/
     Untracked:  docs_GV_2021_S5_ann_standard_CESM/
     Untracked:  docs_GV_2021_S5_ann_standard_CESM111111/
@@ -1755,6 +1756,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/32530319f555e7c59212d585abb9301106984a7c/docs/eMLR_GLODAPv2_2020_subsetting.html" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -8346,7 +8364,7 @@ random &lt;- inner_join(random, basinmask)</code></pre>
 <h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Depth</h3>
 <p>GLODAP-based subsetting model data with depth shallower than:</p>
 <ul>
-<li>minimum sampling depth: 150m</li>
+<li>minimum sampling depth: 0m</li>
 </ul>
 <p>were excluded from the analysis to avoid seasonal bias.</p>
 <pre class="r"><code>GLODAP &lt;- GLODAP %&gt;% 
@@ -8386,7 +8404,7 @@ random &lt;- random %&gt;%
 </ul>
 <p>Following flagging criteria were taken into account:</p>
 <ul>
-<li>flag_f: 2, 0, 9</li>
+<li>flag_f: 2, 0</li>
 <li>flag_qc: 1, 0</li>
 </ul>
 <p>The cleaning process was performed successively and the maps below represent the data coverage at various cleaning levels.</p>
@@ -8436,6 +8454,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/WOA18_basin_mask_GLODAP-based_subsetting_model_data_map-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/WOA18_basin_mask_GLODAP-based_subsetting_model_data_map-1.png" target="_blank">e51cfa2</a>
@@ -11714,6 +11743,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_na_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_na_subset-1.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -12910,6 +12950,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_f_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_f_subset-1.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -14075,6 +14126,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_qc_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/talk_qc_subset-1.png" target="_blank">e51cfa2</a>
@@ -15306,6 +15368,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_na_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_na_subset-1.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -16533,6 +16606,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_f_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_f_subset-1.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -17712,6 +17796,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_qc_subset-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/phosphate_qc_subset-1.png" target="_blank">e51cfa2</a>
@@ -18968,6 +19063,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/GLODAP_Atl_cruises_2013_2014_map-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/ca539b5bc938de094c5b27d1ab151c67b52a5d6a/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/GLODAP_Atl_cruises_2013_2014_map-1.png" target="_blank">ca539b5</a>
 </td>
 <td>
@@ -20211,6 +20317,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/GLODAP-based_subsetting_data_cleaning_stats-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/GLODAP-based_subsetting_data_cleaning_stats-1.png" target="_blank">e51cfa2</a>
@@ -21848,6 +21965,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_zonal-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_zonal-1.png" target="_blank">e51cfa2</a>
@@ -24037,6 +24165,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_zonal-2.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_zonal-2.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -25891,7 +26030,7 @@ era_median_year_GLODAP</code></pre>
   era       t_ref
   &lt;fct&gt;     &lt;dbl&gt;
 1 1982-1999  1994
-2 2000-2009  2005
+2 2000-2009  2006
 3 2010-2019  2014</code></pre>
 <pre class="r"><code>era_median_year_random &lt;- random %&gt;%
   group_by(era) %&gt;%
@@ -25958,6 +26097,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_temporal-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6c70952c87dcf9021c45ce6e98ca6f390daec123/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_temporal-1.png" target="_blank">6c70952</a>
@@ -28129,6 +28279,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_temporal-2.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_histogram_temporal-2.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -30011,6 +30172,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_hovmoeller-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_hovmoeller-1.png" target="_blank">e51cfa2</a>
@@ -32048,6 +32220,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_hovmoeller-2.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_hovmoeller-2.png" target="_blank">e51cfa2</a>
 </td>
 <td>
@@ -33803,6 +33986,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_maps_era_subsetting_era_cleaning_level-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/e51cfa26720df5919a9da70f948e1fbf6563b835/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_maps_era_subsetting_era_cleaning_level-1.png" target="_blank">e51cfa2</a>
@@ -35585,6 +35779,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/32530319f555e7c59212d585abb9301106984a7c/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_maps_era_clean-1.png" target="_blank">3253031</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-05
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/blob/6c70952c87dcf9021c45ce6e98ca6f390daec123/docs/figure/eMLR_GLODAPv2_2020_subsetting.Rmd/coverage_maps_era_clean-1.png" target="_blank">6c70952</a>
