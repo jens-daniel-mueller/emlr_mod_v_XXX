@@ -122,8 +122,8 @@ params_local <-
     random = "lat",
     # ID of current sensitivity run
     Version_ID = "v_XXX",
-    # f flags accepted for GLODAP data
-    flag_f = c(2, 0),
+    # f flags accepted for GLODAP data (include 9 when use the nafilled subset to avoid data cleaning)
+    flag_f = c(2, 0),  ## add 9
     # qc flags accepted for GLODAP data
     flag_qc = c(1, 0),
     # Should A16 cruise from 2013/14 be included in middle era (y/n)
@@ -143,7 +143,7 @@ params_local <-
     # era_breaks_random = c(1981, 1999, 2009, Inf),
     # whether use median year as the tref  ##############need further modification based on Jens' method
     median_tref = "y",
-    # ID for basins for MLR fits: 2, 5, SO, AIP, SO_5
+    # ID for basins for MLR fits: 1, 2, 5, SO, AIP, SO_5
     MLR_basins = "1",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
