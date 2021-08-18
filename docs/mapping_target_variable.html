@@ -14,13 +14,22 @@
 
 <title>Mapping - target variable</title>
 
-<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -28,8 +37,6 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -53,11 +60,6 @@ div.section {
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -70,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -105,10 +82,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -125,40 +98,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -186,7 +132,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -198,7 +144,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -209,10 +155,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -224,7 +183,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -359,7 +317,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -487,11 +445,11 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
@@ -617,16 +575,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree36678c281ac55419b2994bf0e57d6c687c928f9etargetblank36678c2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/36678c281ac55419b2994bf0e57d6c687c928f9e" target="_blank">36678c2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreecc2418678a4b4ca3ba2b7bb6a30bdee1e0b001e2targetblankcc24186a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/cc2418678a4b4ca3ba2b7bb6a30bdee1e0b001e2" target="_blank">cc24186</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtree36678c281ac55419b2994bf0e57d6c687c928f9etargetblank36678c2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjensdanielmuelleremlrmodvXXXtreecc2418678a4b4ca3ba2b7bb6a30bdee1e0b001e2targetblankcc24186a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/36678c281ac55419b2994bf0e57d6c687c928f9e" target="_blank">36678c2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jens-daniel-mueller/emlr_mod_v_XXX/tree/cc2418678a4b4ca3ba2b7bb6a30bdee1e0b001e2" target="_blank">cc24186</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -635,6 +593,9 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  docs_GV_2021_2R_ann_standard_ftref_CESM/
 
 Unstaged changes:
     Modified:   data/auxillary/params_local.rds
@@ -676,6 +637,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jens-daniel-mueller/emlr_mod_v_XXX/cceae848fe90df96244ac324a4e707c8e48fb607/docs/mapping_target_variable.html" target="_blank">cceae84</a>
+</td>
+<td>
+Donghe-Zhu
+</td>
+<td>
+2021-08-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -6738,21 +6716,21 @@ attached base packages:
 other attached packages:
  [1] ggforce_0.3.3   metR_0.9.0      scico_1.2.0     patchwork_1.1.1
  [5] collapse_1.5.0  forcats_0.5.0   stringr_1.4.0   dplyr_1.0.5    
- [9] purrr_0.3.4     readr_1.4.0     tidyr_1.1.2     tibble_3.0.4   
+ [9] purrr_0.3.4     readr_1.4.0     tidyr_1.1.3     tibble_3.1.3   
 [13] ggplot2_3.3.3   tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
  [1] httr_1.4.2               jsonlite_1.7.2           here_1.0.1              
  [4] modelr_0.1.8             assertthat_0.2.1         blob_1.2.1              
- [7] cellranger_1.1.0         yaml_2.2.1               pillar_1.4.7            
+ [7] cellranger_1.1.0         yaml_2.2.1               pillar_1.6.2            
 [10] backports_1.1.10         lattice_0.20-41          glue_1.4.2              
 [13] RcppEigen_0.3.3.9.1      digest_0.6.27            promises_1.1.1          
 [16] polyclip_1.10-0          checkmate_2.0.0          rvest_0.3.6             
 [19] colorspace_2.0-0         htmltools_0.5.0          httpuv_1.5.4            
 [22] Matrix_1.2-18            pkgconfig_2.0.3          broom_0.7.5             
 [25] haven_2.3.1              scales_1.1.1             tweenr_1.0.2            
-[28] whisker_0.4              later_1.1.0.1            git2r_0.27.1            
-[31] generics_0.1.0           farver_2.0.3             ellipsis_0.3.1          
+[28] whisker_0.4              later_1.2.0              git2r_0.27.1            
+[31] generics_0.1.0           farver_2.0.3             ellipsis_0.3.2          
 [34] withr_2.3.0              cli_2.2.0                magrittr_2.0.1          
 [37] crayon_1.3.4             readxl_1.3.1             evaluate_0.14           
 [40] fs_1.5.0                 fansi_0.4.1              MASS_7.3-53             
@@ -6760,11 +6738,11 @@ loaded via a namespace (and not attached):
 [46] data.table_1.13.6        hms_0.5.3                lifecycle_1.0.0         
 [49] munsell_0.5.0            reprex_0.3.0             compiler_4.0.3          
 [52] rlang_0.4.10             grid_4.0.3               rstudioapi_0.13         
-[55] rmarkdown_2.5            gtable_0.3.0             DBI_1.1.0               
-[58] R6_2.5.0                 lubridate_1.7.9          knitr_1.30              
-[61] rprojroot_2.0.2          stringi_1.5.3            parallel_4.0.3          
-[64] Rcpp_1.0.5               vctrs_0.3.6              dbplyr_1.4.4            
-[67] tidyselect_1.1.0         xfun_0.20               </code></pre>
+[55] rmarkdown_2.10           gtable_0.3.0             DBI_1.1.0               
+[58] R6_2.5.0                 lubridate_1.7.9          knitr_1.33              
+[61] utf8_1.1.4               rprojroot_2.0.2          stringi_1.5.3           
+[64] parallel_4.0.3           Rcpp_1.0.5               vctrs_0.3.8             
+[67] dbplyr_1.4.4             tidyselect_1.1.0         xfun_0.25               </code></pre>
 </div>
 </div>
 
@@ -6811,7 +6789,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -6825,6 +6803,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
