@@ -103,7 +103,8 @@ tref <- GLODAP %>%
 # whether manually change the tref year
 if (params_local$median_tref == "n") {
   
-  tref$year[2] <- 2006
+  tref$year[1] <- 1994
+  tref$year[2] <- 2004
   tref$year[3] <- 2014
 
 }
