@@ -213,26 +213,25 @@ C* was calculated as:
 
 ```{r calculate_cstar}
 
-print(b_cstar)
-
-if ("phosphate" %in% params_local$MLR_predictors || "phosphate_star" %in% params_local$MLR_predictors) {
+if (params_local$cstar_nutrient == "phosphate") {
+  print(b_cstar_phosphate)
+  
   GLODAP <- GLODAP %>%
     mutate(
+      cstar = b_cstar_phosphate(tco2, phosphate, talk),
       rCP_phosphate = -params_local$rCP * phosphate,
       talk_05 = -0.5 * talk,
-      rNP_phosphate_05 = -0.5 * params_local$rNP * phosphate,
-      cstar = b_cstar(tco2, phosphate, talk)
-    )
-  print("phosphate-based")
-} else {
+      rNP_phosphate_05 = -0.5 * params_local$rNP * phosphate)
+}
+
+if (params_local$cstar_nutrient == "nitrate") {
+  print(b_cstar_nitrate)
+  
   GLODAP <- GLODAP %>%
-    mutate(
-      rCP_phosphate = -params_local$rCP * nitrate,
-      talk_05 = -0.5 * talk,
-      rNP_phosphate_05 = -0.5 * params_local$rNP * nitrate,
-      cstar = b_cstar(tco2, nitrate, talk)
-    )
-  print("nitrate-based")
+    mutate(cstar = b_cstar_nitrate(tco2, nitrate, talk),
+           rCP_phosphate = -params_local$rCP/params_local$rNP * nitrate,
+           talk_05 = -0.5 * talk,
+           rNP_phosphate_05 = -0.5 * nitrate)
 }
 
 ```

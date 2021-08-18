@@ -93,25 +93,12 @@ MLR_predictors <- c(
                 "phosphate_star"
             )
 
-if ("phosphate" %in% MLR_predictors || "phosphate_star" %in% MLR_predictors) {
-    # Stoichiometric ratio of C to P (Phosphate-based: 117)
-    rCP = 117
-    # Stoichiometric ratio of N to P (Phosphate-based: 16)
-    rNP = 16
-} else {
-    # Stoichiometric ratio of C to N (Nitrate-based: 117/16)
-    rCP = 117/16
-    # Stoichiometric ratio of N to N (Nitrate-based: 1)
-    rNP = 1
-}
-
-
 params_local <-
   lst(
     # resolution: annual / month
     model_resolution = "ann",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
-    GOBM = "NorESM/",
+    GOBM = "",
     # Whether use NaN filled GLODAP subset (yes or no)
     nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
@@ -144,7 +131,7 @@ params_local <-
     # whether use median year as the tref  ##############need further modification based on Jens' method
     median_tref = "y",
     # ID for basins for MLR fits: 1, 2, 5, SO, AIP, SO_5
-    MLR_basins = "1",
+    MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
@@ -165,10 +152,12 @@ params_local <-
     slabs_Atl = slabs_Atl,
     # see above
     slabs_Ind_Pac = slabs_Ind_Pac,
+    # nutrient for cstar calculation (phosphate or nitrate)
+    cstar_nutrient <- "phosphate",
     # Stoichiometric ratio of C to P (Phosphate-based: 117; Nitrate-based: 117/16)
-    rCP = rCP,
+    rCP = 117, 
     # Stoichiometric ratio of N to P (Phosphate-based: 16; Nitrate-based: 1)
-    rNP = rNP,
+    rNP = 16,
     # Stoichiometric ratio of P to O (PO4* calculation)
     rPO = 170,
     # Offset P to O (PO4* calculation)
