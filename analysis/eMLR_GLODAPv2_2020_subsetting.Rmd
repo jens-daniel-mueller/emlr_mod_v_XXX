@@ -75,7 +75,7 @@ if (params_local$model_runs == "AD") {
       read_csv(
         paste(
           path_preprocessing,
-          "GLODAPv2.2021_preprocessed_model_runA_final_ann.csv",
+          "GLODAPv2.2021_preprocessed_model_runA_final.csv",
           sep = ""
         )
       )
@@ -85,7 +85,7 @@ if (params_local$model_runs == "AD") {
       read_csv(
         paste(
           path_preprocessing,
-          "GLODAPv2.2021_preprocessed_model_runA_final_NA_filled_ann.csv",
+          "GLODAPv2.2021_preprocessed_model_runA_final_NA_filled.csv",
           sep = ""
         )
       )
@@ -95,7 +95,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_random_subset_grid_ann.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_random_subset_grid.csv",
         sep = ""
       )
     )
@@ -105,7 +105,7 @@ if (params_local$model_runs == "AD") {
     random <- read_csv(
       paste(
         path_preprocessing,
-        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat_ann.csv",
+        "GLODAPv2.2021_preprocessed_model_runA_random_subset_lat.csv",
         sep = ""
       )
     )

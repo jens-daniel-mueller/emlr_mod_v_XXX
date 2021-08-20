@@ -87,7 +87,7 @@ MLR_predictors <- c(
               #  "oxygen", ##
                 "aou",
                 "nitrate",
-                "silicate",
+             #   "silicate",
             #    "silicate_star",  ##
                 "phosphate",
                 "phosphate_star"
@@ -96,9 +96,9 @@ MLR_predictors <- c(
 params_local <-
   lst(
     # resolution: annual / month
-    model_resolution = "ann",
+    model_resolution = "mon",
     # the GOBM used for subsetting, currently with options of CESM ("") or NorESM ("NorESM/") or FESOM_REcoM_LR ("FESOM_REcoM_LR/") or ORCA025 ("ORCA025/")
-    GOBM = "NorESM/",
+    GOBM = "ORCA025/",
     # Whether use NaN filled GLODAP subset (yes or no)
     nan_fill = "no",
     # model climate forcing with options of variable ("AD") or constant ("CB")
@@ -129,9 +129,9 @@ params_local <-
     # era_breaks_GLODAP = c(1981, 1999, 2009, Inf),
     # era_breaks_random = c(1981, 1999, 2009, Inf),
     # whether use median year as the tref  ##############need further modification based on Jens' method
-    median_tref = "n",
+    median_tref = "y",
     # ID for basins for MLR fits: 1, 2, 5, SO, AIP, SO_5
-    MLR_basins = "5",
+    MLR_basins = "2",
     # Select the target variable for MLR, either "tco2", "cstar" or "cstar_tref"
     MLR_target = "cstar_tref",
     # see above
